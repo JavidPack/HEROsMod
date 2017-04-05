@@ -1,0 +1,7 @@
+HERO's mod is a tools mod. It is a pick and choose server mod that allows you to decide how you want to run your world. You can turn on and off any features and you can allow different groups to use some but not all features. This tool has full group management with a GUI. 
+
+There are over 25 tools and many more in development. These tools aim to allow you to better manage a server without having to use slash commands in Terraria's chat. There is a full interface in game that you can use to preform actions. 
+
+This mod also works for single player.
+
+Please check out the Forum post for more information.

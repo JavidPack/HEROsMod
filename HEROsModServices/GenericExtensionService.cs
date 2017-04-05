@@ -1,0 +1,62 @@
+﻿using HEROsMod.UIKit;
+using HEROsMod.UIKit.UIComponents;
+using System;
+using Microsoft.Xna.Framework.Graphics;
+
+namespace HEROsMod.HEROsModServices
+{
+	class GenericExtensionService : HEROsModService
+	{
+		private Texture2D texture;
+		private Action buttonClickedAction;
+		private Action<bool> groupUpdated;
+		private Func<string> tooltip;
+		private string permissionName;
+
+		//public GenericExtensionService(UIHotbar hotbar)
+		//{
+		//	_name = "Undefined";
+		//	IsInHotbar = true;
+		//	HotbarParent = hotbar;
+		//	_hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/spawn")/*Main.itemTexture[69]*/);
+		//	_hotbarIcon.Tooltip = "Set Spawn Point";
+		//	HotbarIcon.onLeftClick += new EventHandler(button_onLeftClick);
+		//	HotbarIcon.onHover += new EventHandler(button_onHover);
+		//}
+
+		public GenericExtensionService(ExtensionMenuService extensionMenuService, Texture2D texture, string permissionName, Action buttonClickedAction, Action<bool> groupUpdated, Func<string> tooltip)
+		{
+			UIHotbar hotbar = extensionMenuService.Hotbar;
+
+			this.texture = texture;
+			this.buttonClickedAction = buttonClickedAction;
+			this.groupUpdated = groupUpdated;
+			this.tooltip = tooltip;
+			this.permissionName = permissionName;
+
+			_name = "Undefined";
+			IsInHotbar = true;
+			HotbarParent = hotbar;
+			_hotbarIcon = new UIImage(this.texture);
+			_hotbarIcon.Tooltip = "Set Spawn Point";
+			HotbarIcon.onLeftClick += new EventHandler(button_onLeftClick);
+			HotbarIcon.onHover += new EventHandler(button_onHover);
+		}
+
+		public override void MyGroupUpdated()
+		{
+			HasPermissionToUse = HEROsModNetwork.LoginService.MyGroup.HasPermission(permissionName);
+			groupUpdated(HasPermissionToUse);
+		}
+
+		private void button_onLeftClick(object sender, EventArgs e)
+		{
+			buttonClickedAction();
+		}
+
+		private void button_onHover(object sender, EventArgs e)
+		{
+			HotbarIcon.Tooltip = tooltip();
+		}
+	}
+}

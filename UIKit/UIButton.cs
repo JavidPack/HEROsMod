@@ -1,0 +1,151 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
+using Terraria;
+
+namespace HEROsMod.UIKit
+{
+    class UIButton : UIView
+    {
+        public static Texture2D buttonBackground = UIView.GetEmbeddedTexture("Images/UIKit/buttonEdge");
+        static Texture2D buttonFill;
+        public static Texture2D ButtonFill
+        {
+            get
+            {
+                if (buttonFill == null)
+                {
+                    Color[] edgeColors = new Color[buttonBackground.Width * buttonBackground.Height];
+                    buttonBackground.GetData(edgeColors);
+                    Color[] fillColors = new Color[buttonBackground.Height];
+                    for (int y = 0; y < fillColors.Length; y++)
+                    {
+                        fillColors[y] = edgeColors[buttonBackground.Width - 1 + y * buttonBackground.Width];
+                    }
+                    buttonFill = new Texture2D(UIView.graphics, 1, fillColors.Length);
+                    buttonFill.SetData(fillColors);
+                }
+                return buttonFill;
+            }
+        }
+        Color hoverColor = new Color(38,42,120);
+        Color drawColor;
+
+        private UILabel label = new UILabel("");
+        public string Text
+        {
+            get { return label.Text; }
+            set 
+            { 
+                label.Text = value;
+                label.Anchor = AnchorPosition.Center;
+                ScaleText();
+                label.CenterToParent();
+                label.Position = new Vector2(label.Position.X, label.Position.Y + 2);
+            }
+        }
+
+        public bool AutoSize { get; set; }
+
+        public UIButton(string text)
+        {
+            AutoSize = true;
+            this.AddChild(label);
+            this.Text = text;
+            this.BackgroundColor = new Color(28,32,119);
+            drawColor = BackgroundColor;
+            this.onMouseEnter += new EventHandler(UIButton_onMouseEnter);
+            this.onMouseLeave += new EventHandler(UIButton_onMouseLeave);
+        }
+
+        public UIButton(string text, Color backgroundColor, Color hoverColor)
+        {
+            AutoSize = true;
+            this.AddChild(label);
+            this.Text = text;
+            this.BackgroundColor = backgroundColor;
+            drawColor = BackgroundColor;
+            this.hoverColor = hoverColor;
+            this.onMouseEnter += new EventHandler(UIButton_onMouseEnter);
+            this.onMouseLeave += new EventHandler(UIButton_onMouseLeave);
+        }
+
+        public void SetTextColor(Color color)
+        {
+            label.ForegroundColor = color;
+        }
+
+        void UIButton_onMouseLeave(object sender, EventArgs e)
+        {
+            drawColor = BackgroundColor;
+        }
+
+        void UIButton_onMouseEnter(object sender, EventArgs e)
+        {
+            drawColor = hoverColor;
+        }
+
+        private float width = 0;
+        protected override float GetWidth()
+        {
+            if (AutoSize)
+            {
+                return label.Width + buttonBackground.Width * 2 + 30;
+            }
+            else
+            {
+                return width;
+            }
+        }
+
+        protected override void SetWidth(float width)
+        {
+            this.width = width;
+
+            ScaleText();
+            label.CenterToParent();
+            label.Position = new Vector2(label.Position.X, label.Position.Y + 2);
+            
+        }
+
+        protected override float GetHeight()
+        {
+            return buttonBackground.Height;
+        }
+        void ScaleText()
+        {
+            if (!AutoSize)
+            {
+                Vector2 size = label.font.MeasureString(label.Text);
+                if (size.X > width - (buttonBackground.Width * 2 + 10))
+                {
+                    label.Scale = (width - (buttonBackground.Width * 2 + 10)) / size.X;
+                    if (size.Y * label.Scale > this.Height) label.Scale = this.Height / size.Y;
+                }
+                else label.Scale = this.Height / size.Y;
+            }
+            else label.Scale = this.Height / label.font.MeasureString(label.Text).Y;
+        }
+
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(buttonBackground, DrawPosition, null, drawColor * Opacity, 0f, Origin, 1f, SpriteEffects.None, 0f);
+            int fillWidth = (int)Width - 2 * buttonBackground.Width;
+            Vector2 pos = DrawPosition;
+            pos.X += buttonBackground.Width;
+            spriteBatch.Draw(ButtonFill, pos - Origin, null, drawColor * Opacity, 0f, Vector2.Zero, new Vector2(fillWidth, 1f), SpriteEffects.None, 0f);
+            pos.X += fillWidth;
+            spriteBatch.Draw(buttonBackground, pos, null, drawColor * Opacity, 0f, Origin, 1f, SpriteEffects.FlipHorizontally, 0f);
+            base.Draw(spriteBatch);
+            
+        }
+
+    }
+
+    
+}

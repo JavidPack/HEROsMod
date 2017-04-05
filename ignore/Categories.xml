@@ -1,0 +1,3297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CategoryCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Categories>
+		<Category Name="Equipables">
+			<Items />
+			<SubCategories>
+				<Category Name="Weapons">
+					<Items />
+					<SubCategories>
+						<Category Name="Swords">
+							<Items>
+								<Item>1569 Vampire Knives</Item>
+								<Item>757 Terra Blade</Item>
+								<Item>1826 The Horseman's Blade</Item>
+								<Item>1928 Christmas Tree Sword</Item>
+								<Item>674 True Excalibur</Item>
+								<Item>675 True Night's Edge</Item>
+								<Item>671 Keybrand</Item>
+								<Item>723 Beam Sword</Item>
+								<Item>2608 Falcon Blade</Item>
+								<Item>672 Cutlass</Item>
+								<Item>676 Frostbrand</Item>
+								<Item>1226 Chlorophyte Claymore</Item>
+								<Item>1227 Chlorophyte Saber</Item>
+								<Item>1327 Death Sickle</Item>
+								<Item>368 Excalibur</Item>
+								<Item>1199 Titanium Sword</Item>
+								<Item>482 Adamantite Sword</Item>
+								<Item>1192 Orichalcum Sword</Item>
+								<Item>484 Mythril Sword</Item>
+								<Item>1185 Palladium Sword</Item>
+								<Item>483 Cobalt Sword</Item>
+								<Item>1306 Ice Sickle</Item>
+								<Item>426 Breaker Blade</Item>
+								<Item>273 Night's Edge</Item>
+								<Item>121 Fiery Greatsword</Item>
+								<Item>190 Blade of Grass</Item>
+								<Item>65 Starfury</Item>
+								<Item>1123 Bee Keeper</Item>
+								<Item>724 Ice Blade</Item>
+								<Item>155 Muramasa</Item>
+								<Item>198 Blue Phaseblade</Item>
+								<Item>199 Red Phaseblade</Item>
+								<Item>200 Green Phaseblade</Item>
+								<Item>201 Purple Phaseblade</Item>
+								<Item>202 White Phaseblade</Item>
+								<Item>203 Yellow Phaseblade</Item>
+								<Item>795 Blood Butcherer</Item>
+								<Item>46 Light's Bane</Item>
+								<Item>1909 Candy Cane Sword</Item>
+								<Item>2273 Katana</Item>
+								<Item>1166 Bone Sword</Item>
+								<Item>989 Enchanted Sword</Item>
+								<Item>1304 Zombie Arm</Item>
+								<Item>6 Iron Shortsword</Item>
+								<Item>4 Iron Broadsword</Item>
+								<Item>2745 Boreal Wood Sword</Item>
+								<Item>2517 Palm Wood Sword</Item>
+								<Item>659 Pearlwood Sword</Item>
+								<Item>921 Shadewood Sword</Item>
+								<Item>653 Ebonwood Sword</Item>
+								<Item>656 Rich Mahogany Sword</Item>
+								<Item>881 Cactus Sword</Item>
+								<Item>24 Wooden Sword</Item>
+								<Item>1827 Bladed Glove</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Spears">
+							<Items>
+								<Item>1571 Scourge of the Corruptor</Item>
+								<Item>756 Mushroom Spear</Item>
+								<Item>1228 Chlorophyte Partisan</Item>
+								<Item>550 Gungnir</Item>
+								<Item>1200 Titanium Trident</Item>
+								<Item>406 Adamantite Glaive</Item>
+								<Item>1193 Orichalcum Halberd</Item>
+								<Item>390 Mythril Halberd</Item>
+								<Item>1186 Palladium Pike</Item>
+								<Item>537 Cobalt Naginata</Item>
+								<Item>274 Dark Lance</Item>
+								<Item>802 The Rotted Fork</Item>
+								<Item>277 Trident</Item>
+								<Item>280 Spear</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Flails">
+							<Items>
+								<Item>2611 Flairon</Item>
+								<Item>1297 Golem Fist</Item>
+								<Item>2424 Anchor</Item>
+								<Item>1259 Flower Pow</Item>
+								<Item>389 Dao of Pow</Item>
+								<Item>1314 KO Cannon</Item>
+								<Item>220 Sunfury</Item>
+								<Item>163 Blue Moon</Item>
+								<Item>801 The Meatball</Item>
+								<Item>160 Harpoon</Item>
+								<Item>1325 Chain Knife</Item>
+								<Item>162 Ball O' Hurt</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Boomerangs">
+							<Items>
+								<Item>1122 Possessed Hatchet</Item>
+								<Item>1513 Paladin's Hammer</Item>
+								<Item>1324 Bananarang</Item>
+								<Item>561 Light Disc</Item>
+								<Item>119 Flamarang</Item>
+								<Item>191 Thorn Chakram</Item>
+								<Item>1913 Star Anise</Item>
+								<Item>1918 Fruitcake Chakram</Item>
+								<Item>670 Ice Boomerang</Item>
+								<Item>1825 Bloody Machete</Item>
+								<Item>55 Enchanted Boomerang</Item>
+								<Item>284 Wooden Boomerang</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Bows">
+							<Items>
+								<Item>2624 Tsunami</Item>
+								<Item>2223 Pulse Bow</Item>
+								<Item>682 Marrow</Item>
+								<Item>725 Ice Bow</Item>
+								<Item>796 Tendon Bow</Item>
+								<Item>120 Molten Fury</Item>
+								<Item>44 Demon Bow</Item>
+								<Item>99 Iron Bow</Item>
+								<Item>2747 Boreal Wood Bow</Item>
+								<Item>2515 Palm Wood Bow</Item>
+								<Item>661 Pearlwood Bow</Item>
+								<Item>655 Ebonwood Bow</Item>
+								<Item>923 Shadewood Bow</Item>
+								<Item>658 Rich Mahogany Bow</Item>
+								<Item>39 Wooden Bow</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Repeaters">
+							<Items>
+								<Item>1835 Stake Launcher</Item>
+								<Item>1229 Chlorophyte Shotbow</Item>
+								<Item>578 Hallowed Repeater</Item>
+								<Item>1201 Titanium Repeater</Item>
+								<Item>481 Adamantite Repeater</Item>
+								<Item>1194 Orichalcum Repeater</Item>
+								<Item>436 Mythril Repeater</Item>
+								<Item>1187 Palladium Repeater</Item>
+								<Item>435 Cobalt Repeater</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Guns">
+							<Items>
+								<Item>1784 Jack 'O Lantern Launcher</Item>
+								<Item>1782 Candy Corn Rifle</Item>
+								<Item>1929 Chain Gun</Item>
+								<Item>197 Star Cannon</Item>
+								<Item>905 Coin Gun</Item>
+								<Item>1553 S.D.M.G.</Item>
+								<Item>1910 Elf Melter</Item>
+								<Item>1255 Venus Magnum</Item>
+								<Item>533 Megashark</Item>
+								<Item>2270 Gatligator</Item>
+								<Item>1265 Uzi</Item>
+								<Item>1156 Piranha Gun</Item>
+								<Item>1254 Sniper Rifle</Item>
+								<Item>760 Proximity Mine Launcher</Item>
+								<Item>1258 Stynger</Item>
+								<Item>758 Grenade Launcher</Item>
+								<Item>759 Rocket Launcher</Item>
+								<Item>1870 Red Ryder</Item>
+								<Item>434 Clockwork Assault Rifle</Item>
+								<Item>506 Flamethrower</Item>
+								<Item>679 Tactical Shotgun</Item>
+								<Item>534 Shotgun</Item>
+								<Item>96 Musket</Item>
+								<Item>219 Phoenix Blaster</Item>
+								<Item>266 Sandgun</Item>
+								<Item>1337 Bunny Cannon</Item>
+								<Item>1946 Snowman Cannon</Item>
+								<Item>1319 Snowball Cannon</Item>
+								<Item>951 Snowball Launcher</Item>
+								<Item>1000 Confetti Gun</Item>
+								<Item>164 Handgun</Item>
+								<Item>2269 Revolver</Item>
+								<Item>986 Blowgun</Item>
+								<Item>98 Minishark</Item>
+								<Item>95 Flintlock Pistol</Item>
+								<Item>800 The Undertaker</Item>
+								<Item>964 Boomstick</Item>
+								<Item>281 Blowpipe</Item>
+								<Item>930 Flare Gun</Item>
+								<Item>2272 Water Gun</Item>
+								<Item>2610 Slime Gun</Item>
+								<Item>2623 Bubble Gun</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Magic">
+							<Items>
+								<Item>1930 Razorpine</Item>
+								<Item>1801 Bat Scepter</Item>
+								<Item>2622 Razorblade Typhoon</Item>
+								<Item>1446 Spectre Staff</Item>
+								<Item>2535 Optic Staff</Item>
+								<Item>2551 Spider Staff</Item>
+								<Item>2584 Pirate Staff</Item>
+								<Item>2621 Tempest Staff</Item>
+								<Item>1260 Rainbow Gun</Item>
+								<Item>2188 Venom Staff</Item>
+								<Item>1445 Inferno Fork</Item>
+								<Item>1444 Shadowbeam Staff</Item>
+								<Item>1266 Magnet Sphere</Item>
+								<Item>1308 Poison Staff</Item>
+								<Item>683 Unholy Trident</Item>
+								<Item>1295 Heat Ray</Item>
+								<Item>1296 Staff of Earth</Item>
+								<Item>726 Frost Staff</Item>
+								<Item>1178 Leaf Blower</Item>
+								<Item>1155 Wasp Gun</Item>
+								<Item>495 Rainbow Rod</Item>
+								<Item>517 Magic Dagger</Item>
+								<Item>1264 Flower of Frost</Item>
+								<Item>1244 Nimbus Rod</Item>
+								<Item>1313 Book of Skulls</Item>
+								<Item>494 Magical Harp</Item>
+								<Item>514 Laser Rifle</Item>
+								<Item>519 Cursed Flames</Item>
+								<Item>1336 Golden Shower</Item>
+								<Item>518 Crystal Storm</Item>
+								<Item>1121 Bee Gun</Item>
+								<Item>788 Nettle Burst</Item>
+								<Item>272 Demon Scythe</Item>
+								<Item>112 Flower of Fire</Item>
+								<Item>218 Flamelash</Item>
+								<Item>744 Diamond Staff</Item>
+								<Item>743 Ruby Staff</Item>
+								<Item>113 Magic Missile</Item>
+								<Item>742 Emerald Staff</Item>
+								<Item>741 Sapphire Staff</Item>
+								<Item>165 Water Bolt</Item>
+								<Item>1256 Crimson Rod</Item>
+								<Item>64 Vilethorn</Item>
+								<Item>127 Space Gun</Item>
+								<Item>740 Topaz Staff</Item>
+								<Item>739 Amethyst Staff</Item>
+								<Item>1947 North Pole</Item>
+								<Item>1931 Blizzard Staff</Item>
+								<Item>157 Aqua Scepter</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Minion Staves">
+							<Items>
+								<Item>1802 Raven Staff</Item>
+								<Item>1572 Staff of the Frost Hydra</Item>
+								<Item>1157 Pygmy Staff</Item>
+								<Item>1309 Slime Staff</Item>
+								<Item>2364 Hornet Staff</Item>
+								<Item>2365 Imp Staff</Item>
+								<Item>2366 Queen Spider Staff</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+					</SubCategories>
+				</Category>
+				<Category Name="Tools">
+					<Items />
+					<SubCategories>
+						<Category Name="Hammers">
+							<Items>
+								<Item>1234 Chlorophyte Warhammer</Item>
+								<Item>1262 Chlorophyte Jackhammer</Item>
+								<Item>787 Hammush</Item>
+								<Item>367 Pwnhammer</Item>
+								<Item>797 Flesh Grinder</Item>
+								<Item>104 The Breaker</Item>
+								<Item>7 Iron Hammer</Item>
+								<Item>2746 Boreal Wood Hammer</Item>
+								<Item>2516 Palm Wood Hammer</Item>
+								<Item>654 Ebonwood Hammer</Item>
+								<Item>657 Rich Mahogany Hammer</Item>
+								<Item>660 Pearlwood Hammer</Item>
+								<Item>922 Shadewood Hammer</Item>
+								<Item>196 Wooden Hammer</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Pickaxes">
+							<Items>
+								<Item>1294 Picksaw</Item>
+								<Item>1506 Spectre Pickaxe</Item>
+								<Item>1230 Chlorophyte Pickaxe</Item>
+								<Item>990 Pickaxe Axe</Item>
+								<Item>2176 Shroomite Digging Claw</Item>
+								<Item>1202 Titanium Pickaxe</Item>
+								<Item>778 Adamantite Pickaxe</Item>
+								<Item>1195 Orichalcum Pickaxe</Item>
+								<Item>777 Mythril Pickaxe</Item>
+								<Item>1188 Palladium Pickaxe</Item>
+								<Item>776 Cobalt Pickaxe</Item>
+								<Item>122 Molten Pickaxe</Item>
+								<Item>798 Deathbringer Pickaxe</Item>
+								<Item>103 Nightmare Pickaxe</Item>
+								<Item>1917 Candy Cane Pickaxe</Item>
+								<Item>1320 Bone Pickaxe</Item>
+								<Item>1 Iron Pickaxe</Item>
+								<Item>882 Cactus Pickaxe</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Drills">
+							<Items>
+								<Item>579 Drax</Item>
+								<Item>1231 Chlorophyte Drill</Item>
+								<Item>1203 Titanium Drill</Item>
+								<Item>388 Adamantite Drill</Item>
+								<Item>1196 Orichalcum Drill</Item>
+								<Item>386 Mythril Drill</Item>
+								<Item>1189 Palladium Drill</Item>
+								<Item>385 Cobalt Drill</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Axes">
+							<Items>
+								<Item>1305 The Axe</Item>
+								<Item>1233 Chlorophyte Greataxe</Item>
+								<Item>1507 Spectre Hamaxe</Item>
+								<Item>1224 Titanium Waraxe</Item>
+								<Item>993 Adamantite Waraxe</Item>
+								<Item>1223 Orichalcum Waraxe</Item>
+								<Item>992 Mythril Waraxe</Item>
+								<Item>1222 Palladium Waraxe</Item>
+								<Item>991 Cobalt Waraxe</Item>
+								<Item>217 Molten Hamaxe</Item>
+								<Item>204 Meteor Hamaxe</Item>
+								<Item>799 Blood Lust Cluster</Item>
+								<Item>45 War Axe of the Night</Item>
+								<Item>10 Iron Axe</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Chainsaws">
+							<Items>
+								<Item>1232 Chlorophyte Chainsaw</Item>
+								<Item>1204 Titanium Chainsaw</Item>
+								<Item>387 Adamantite Chainsaw</Item>
+								<Item>1197 Orichalcum Chainsaw</Item>
+								<Item>384 Mythril Chainsaw</Item>
+								<Item>1190 Palladium Chainsaw</Item>
+								<Item>383 Cobalt Chainsaw</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+					</SubCategories>
+				</Category> <!--Tools end -->
+				<Category Name="Armor">
+					<Items>
+						<Item>666 Red's Helmet</Item>
+						<Item>667 Red's Breastplate</Item>
+						<Item>668 Red's Leggings</Item>
+						<Item>1554 Cenx's Tiara</Item>
+						<Item>1555 Cenx's Breastplate</Item>
+						<Item>1556 Cenx's Leggings</Item>
+						<Item>1587 Cenx's Dress</Item>
+						<Item>1588 Cenx's Dress Pants</Item>
+						<Item>1580 D-Town's Helmet</Item>
+						<Item>1581 D-Town's Breastplate</Item>
+						<Item>1582 D-Town's Leggings</Item>
+						<Item>1557 Crowno's Mask</Item>
+						<Item>1558 Crowno's Breastplate</Item>
+						<Item>1559 Crowno's Leggings</Item>
+						<Item>1560 Will's Helmet</Item>
+						<Item>1561 Will's Breastplate</Item>
+						<Item>1562 Will's Leggings</Item>
+						<Item>1563 Jim's Helmet</Item>
+						<Item>1564 Jim's Breastplate</Item>
+						<Item>1565 Jim's Leggings</Item>
+						<Item>1566 Aaron's Helmet</Item>
+						<Item>1567 Aaron's Breastplate</Item>
+						<Item>1568 Aaron's Leggings</Item>
+						<Item>2199 Beetle Helmet</Item>
+						<Item>2200 Beetle Scale Mail</Item>
+						<Item>2201 Beetle Shell</Item>
+						<Item>2202 Beetle Leggings</Item>
+						<Item>1503 Spectre Hood</Item>
+						<Item>2189 Spectre Mask</Item>
+						<Item>1504 Spectre Robe</Item>
+						<Item>1505 Spectre Pants</Item>
+						<Item>1546 Shroomite Headgear</Item>
+						<Item>1547 Shroomite Mask</Item>
+						<Item>1548 Shroomite Helmet</Item>
+						<Item>1549 Shroomite Breastplate</Item>
+						<Item>1550 Shroomite Leggings</Item>
+						<Item>1316 Turtle Helmet</Item>
+						<Item>1317 Turtle Scale Mail</Item>
+						<Item>1318 Turtle Leggings</Item>
+						<Item>1832 Spooky Helmet</Item>
+						<Item>1833 Spooky Breastplate</Item>
+						<Item>1834 Spooky Leggings</Item>
+						<Item>1001 Chlorophyte Mask</Item>
+						<Item>1002 Chlorophyte Helmet</Item>
+						<Item>1003 Chlorophyte Headgear</Item>
+						<Item>1004 Chlorophyte Plate Mail</Item>
+						<Item>1005 Chlorophyte Greaves</Item>
+						<Item>558 Hallowed Headgear</Item>
+						<Item>559 Hallowed Mask</Item>
+						<Item>553 Hallowed Helmet</Item>
+						<Item>551 Hallowed Plate Mail</Item>
+						<Item>552 Hallowed Greaves</Item>
+						<Item>684 Frost Helmet</Item>
+						<Item>685 Frost Breastplate</Item>
+						<Item>686 Frost Leggings</Item>
+						<Item>1159 Tiki Mask</Item>
+						<Item>1160 Tiki Shirt</Item>
+						<Item>1161 Tiki Pants</Item>
+						<Item>1215 Titanium Mask</Item>
+						<Item>1216 Titanium Helmet</Item>
+						<Item>1217 Titanium Headgear</Item>
+						<Item>1218 Titanium Breastplate</Item>
+						<Item>1219 Titanium Leggings</Item>
+						<Item>400 Adamantite Headgear</Item>
+						<Item>401 Adamantite Helmet</Item>
+						<Item>402 Adamantite Mask</Item>
+						<Item>403 Adamantite Breastplate</Item>
+						<Item>404 Adamantite Leggings</Item>
+						<Item>1210 Orichalcum Mask</Item>
+						<Item>1211 Orichalcum Helmet</Item>
+						<Item>1212 Orichalcum Headgear</Item>
+						<Item>1213 Orichalcum Breastplate</Item>
+						<Item>1214 Orichalcum Leggings</Item>
+						<Item>376 Mythril Hood</Item>
+						<Item>377 Mythril Helmet</Item>
+						<Item>378 Mythril Hat</Item>
+						<Item>379 Mythril Chainmail</Item>
+						<Item>380 Mythril Greaves</Item>
+						<Item>1205 Palladium Mask</Item>
+						<Item>1206 Palladium Helmet</Item>
+						<Item>1207 Palladium Headgear</Item>
+						<Item>1208 Palladium Breastplate</Item>
+						<Item>1209 Palladium Leggings</Item>
+						<Item>960 Ancient Cobalt Helmet</Item>
+						<Item>961 Ancient Cobalt Breastplate</Item>
+						<Item>962 Ancient Cobalt Leggings</Item>
+						<Item>371 Cobalt Hat</Item>
+						<Item>372 Cobalt Helmet</Item>
+						<Item>373 Cobalt Mask</Item>
+						<Item>374 Cobalt Breastplate</Item>
+						<Item>375 Cobalt Leggings</Item>
+						<Item>231 Molten Helmet</Item>
+						<Item>232 Molten Breastplate</Item>
+						<Item>233 Molten Greaves</Item>
+						<Item>228 Jungle Hat</Item>
+						<Item>229 Jungle Shirt</Item>
+						<Item>230 Jungle Pants</Item>
+						<Item>959 Ancient Necro Helmet</Item>
+						<Item>151 Necro Helmet</Item>
+						<Item>152 Necro Breastplate</Item>
+						<Item>153 Necro Greaves</Item>
+						<Item>123 Meteor Helmet</Item>
+						<Item>124 Meteor Suit</Item>
+						<Item>125 Meteor Leggings</Item>
+						<Item>238 Wizard Hat</Item>
+						<Item>1287 Diamond Robe</Item>
+						<Item>1286 Ruby Robe</Item>
+						<Item>1285 Emerald Robe</Item>
+						<Item>1284 Sapphire Robe</Item>
+						<Item>1283 Topaz Robe</Item>
+						<Item>1282 Amethyst Robe</Item>
+						<Item>792 Crimson Helmet</Item>
+						<Item>793 Crimson Scalemail</Item>
+						<Item>794 Crimson Greaves</Item>
+						<Item>956 Ancient Shadow Helmet</Item>
+						<Item>957 Ancient Shadow Scalemail</Item>
+						<Item>958 Ancient Shadow Greaves</Item>
+						<Item>102 Shadow Helmet</Item>
+						<Item>101 Shadow Scalemail</Item>
+						<Item>100 Shadow Greaves</Item>
+						<Item>696 Platinum Helmet</Item>
+						<Item>697 Platinum Chainmail</Item>
+						<Item>698 Platinum Greaves</Item>
+						<Item>955 Ancient Gold Helmet</Item>
+						<Item>92 Gold Helmet</Item>
+						<Item>83 Gold Chainmail</Item>
+						<Item>79 Gold Greaves</Item>
+						<Item>879 Viking Helmet</Item>
+						<Item>2361 Bee Headgear</Item>
+						<Item>2362 Bee Breastplate</Item>
+						<Item>2363 Bee Greaves</Item>
+						<Item>693 Tungsten Helmet</Item>
+						<Item>694 Tungsten Chainmail</Item>
+						<Item>695 Tungsten Greaves</Item>
+						<Item>91 Silver Helmet</Item>
+						<Item>82 Silver Chainmail</Item>
+						<Item>78 Silver Greaves</Item>
+						<Item>690 Lead Helmet</Item>
+						<Item>691 Lead Chainmail</Item>
+						<Item>692 Lead Greaves</Item>
+						<Item>1731 Pumpkin Helmet</Item>
+						<Item>1732 Pumpkin Breastplate</Item>
+						<Item>1733 Pumpkin Leggings</Item>
+						<Item>954 Ancient Iron Helmet</Item>
+						<Item>90 Iron Helmet</Item>
+						<Item>81 Iron Chainmail</Item>
+						<Item>77 Iron Greaves</Item>
+						<Item>268 Diving Helmet</Item>
+						<Item>687 Tin Helmet</Item>
+						<Item>688 Tin Chainmail</Item>
+						<Item>689 Tin Greaves</Item>
+						<Item>89 Copper Helmet</Item>
+						<Item>80 Copper Chainmail</Item>
+						<Item>76 Copper Greaves</Item>
+						<Item>2512 Palm Wood Helmet</Item>
+						<Item>2513 Palm Wood Breastplate</Item>
+						<Item>2514 Palm Wood Greaves</Item>
+						<Item>736 Pearlwood Helmet</Item>
+						<Item>737 Pearlwood Breastplate</Item>
+						<Item>738 Pearlwood Greaves</Item>
+						<Item>924 Shadewood Helmet</Item>
+						<Item>925 Shadewood Breastplate</Item>
+						<Item>926 Shadewood Greaves</Item>
+						<Item>730 Ebonwood Helmet</Item>
+						<Item>731 Ebonwood Breastplate</Item>
+						<Item>732 Ebonwood Greaves</Item>
+						<Item>733 Rich Mahogany Helmet</Item>
+						<Item>734 Rich Mahogany Breastplate</Item>
+						<Item>735 Rich Mahogany Greaves</Item>
+						<Item>894 Cactus Helmet</Item>
+						<Item>895 Cactus Breastplate</Item>
+						<Item>896 Cactus Leggings</Item>
+						<Item>2509 Boreal Wood Helmet</Item>
+						<Item>2510 Boreal Wood Breastplate</Item>
+						<Item>2511 Boreal Wood Greaves</Item>
+						<Item>727 Wood Helmet</Item>
+						<Item>728 Wood Breastplate</Item>
+						<Item>729 Wood Greaves</Item>
+						<Item>2367 Angler Hat</Item>
+						<Item>2368 Angler Vest</Item>
+						<Item>2369 Angler Pants</Item>
+						<Item>88 Mining Helmet</Item>
+						<Item>410 Mining Shirt</Item>
+						<Item>411 Mining Pants</Item>
+						<Item>2275 Magic Hat</Item>
+						<Item>2279 Gypsy Robe</Item>
+						<Item>2277 Gi</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Accessories">
+					<Items />
+					<SubCategories>
+						<Category Name="Movement">
+							<Items>
+								<Item>285 Aglet</Item>
+								<Item>212 Anklet of the Wind</Item>
+								<Item>1163 Blizzard in a Balloon</Item>
+								<Item>987 Blizzard in a Bottle</Item>
+								<Item>1250 Blue Horseshoe Balloon</Item>
+								<Item>1164 Bundle of Balloons</Item>
+								<Item>953 Climbing Claws</Item>
+								<Item>399 Cloud in a Balloon</Item>
+								<Item>53 Cloud in a Bottle</Item>
+								<Item>1863 Fart in a Balloon</Item>
+								<Item>1724 Fart in a Jar</Item>
+								<Item>1579 Flurry Boots</Item>
+								<Item>934 Flying Carpet</Item>
+								<Item>2423 Frog Leg</Item>
+								<Item>1862 Frostspark Boots</Item>
+								<Item>54 Hermes Boots</Item>
+								<Item>1249 Honey Balloon</Item>
+								<Item>950 Ice Skates</Item>
+								<Item>898 Lightning Boots</Item>
+								<Item>984 Master Ninja Gear</Item>
+								<Item>1290 Panic Necklace</Item>
+								<Item>128 Rocket Boots</Item>
+								<Item>983 Sandstorm in a Balloon</Item>
+								<Item>857 Sandstorm in a Bottle</Item>
+								<Item>159 Shiny Red Balloon</Item>
+								<Item>975 Shoe Spikes</Item>
+								<Item>405 Spectre Boots</Item>
+								<Item>1578 Sweetheart Necklace</Item>
+								<Item>977 Tabi</Item>
+								<Item>976 Tiger Climbing Gear</Item>
+								<Item>863 Water Walking Boots</Item>
+								<Item>1251 White Horseshoe Balloon</Item>
+								<Item>1252 Yellow Horseshoe Balloon</Item>
+								
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Other">
+							<Items>
+								<Item>1861 Arctic Diving Gear</Item>
+								<Item>854 Discount Card</Item>
+								<Item>394 Diving Gear</Item>
+								<Item>187 Flipper</Item>
+								<Item>1860 Jellyfish Diving Gear</Item>
+								<Item>1303 Jellyfish Necklace</Item>
+								<Item>906 Lava Charm</Item>
+								<Item>908 Lava Waders</Item>
+								<Item>861 Moon Shell</Item>
+								<Item>497 Neptune's Shell</Item>
+								<Item>397 Obsidian Shield</Item>
+								<Item>193 Obsidian Skull</Item>
+								<Item>907 Obsidian Water Walking Boots</Item>
+								<Item>1864 Papyrus Scarab</Item>
+								<Item>1158 Pygmy Necklace</Item>
+								<Item>407 Toolbelt</Item>
+								<Item>2214 Brick Layer</Item>
+								<Item>2215 Extendo Grip</Item>
+								<Item>2216 Paint Sprayer</Item>
+								<Item>2217 Portable Cement Mixer</Item>
+								<Item>2219 Celestial Magnet</Item>
+								<Item>2220 Celestial Emblem</Item>
+								<Item>2221 Celestial Cuffs</Item>
+								<Item>2373 High Test Fishing Line</Item>
+								<Item>2374 Angler Earring</Item>
+								<Item>2375 Tackle Box</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Wings">
+							<Items>
+								<Item>665 Red's Wings</Item>
+								<Item>1583 D-Town's Wings</Item>
+								<Item>1584 Will's Wings</Item>
+								<Item>1585 Crowno's Wings</Item>
+								<Item>1586 Cenx's Wings</Item>
+								<Item>2280 Beetle Wings</Item>
+								<Item>1830 Spooky Wings</Item>
+								<Item>948 Steampunk Wings</Item>
+								<Item>1797 Tattered Fairy Wings</Item>
+								<Item>1871 Festive Wings</Item>
+								<Item>821 Flame Wings</Item>
+								<Item>822 Frozen Wings</Item>
+								<Item>823 Ghost Wings</Item>
+								<Item>1162 Leaf Wings</Item>
+								<Item>1165 Bat Wings</Item>
+								<Item>786 Bone Wings</Item>
+								<Item>785 Harpy Wings</Item>
+								<Item>1515 Bee Wings</Item>
+								<Item>749 Butterfly Wings</Item>
+								<Item>761 Fairy Wings</Item>
+								<Item>1866 Hoverboard</Item>
+								<Item>748 Jetpack</Item>
+								<Item>2494 Fin Wings</Item>
+								<Item>493 Angel Wings</Item>
+								<Item>492 Demon Wings</Item>
+								<Item>2609 Fishron Wings</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Offensive">
+							<Items>
+								<Item>935 Avenger Emblem</Item>
+								<Item>1247 Bee Cloak</Item>
+								<Item>1865 Celestial Stone</Item>
+								<Item>1301 Destroyer Emblem</Item>
+								<Item>1248 Eye of the Golem</Item>
+								<Item>211 Feral Claws</Item>
+								<Item>1343 Fire Gauntlet</Item>
+								<Item>1167 Hercules Beetle</Item>
+								<Item>1132 Honey Comb</Item>
+								<Item>855 Lucky Coin</Item>
+								<Item>1321 Magic Quiver</Item>
+								<Item>1322 Magma Stone</Item>
+								<Item>936 Mechanical Glove</Item>
+								<Item>485 Moon Charm</Item>
+								<Item>900 Moon Stone</Item>
+								<Item>1845 Necromantic Scroll</Item>
+								<Item>897 Power Glove</Item>
+								<Item>491 Ranger Emblem</Item>
+								<Item>1300 Rifle Scope</Item>
+								<Item>1858 Sniper Scope</Item>
+								<Item>489 Sorcerer Emblem</Item>
+								<Item>532 Star Cloak</Item>
+								<Item>899 Sun Stone</Item>
+								<Item>536 Titan Glove</Item>
+								<Item>490 Warrior Emblem</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Defensive">
+							<Items>
+								<Item>885 Adhesive Bandage</Item>
+								<Item>1612 Ankh Charm</Item>
+								<Item>1613 Ankh Shield</Item>
+								<Item>901 Armor Bracing</Item>
+								<Item>886 Armor Polish</Item>
+								<Item>887 Bezoar</Item>
+								<Item>963 Black Belt</Item>
+								<Item>888 Blindfold</Item>
+								<Item>156 Cobalt Shield</Item>
+								<Item>904 Countercurse Mantra</Item>
+								<Item>554 Cross Necklace</Item>
+								<Item>889 Fast Clock</Item>
+								<Item>1253 Frozen Turtle Shell</Item>
+								<Item>1921 Hand Warmer</Item>
+								<Item>158 Lucky Horseshoe</Item>
+								<Item>902 Medicated Bandage</Item>
+								<Item>890 Megaphone</Item>
+								<Item>891 Nazar</Item>
+								<Item>396 Obsidian Horseshoe</Item>
+								<Item>1323 Obsidian Rose</Item>
+								<Item>938 Paladin's Shield</Item>
+								<Item>216 Shackle</Item>
+								<Item>862 Star Veil</Item>
+								<Item>903 The Plan</Item>
+								<Item>893 Trifold Map</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Restorative">
+							<Items>
+								<Item>49 Band of Regeneration</Item>
+								<Item>111 Band of Starpower</Item>
+								<Item>860 Charm of Myths</Item>
+								<Item>1595 Magic Cuffs</Item>
+								<Item>555 Mana Flower</Item>
+								<Item>982 Mana Regeneration Band</Item>
+								<Item>223 Nature's Gift</Item>
+								<Item>535 Philosopher's Stone</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Informative">
+							<Items>
+								<Item>15 Copper Watch</Item>
+								<Item>16 Silver Watch</Item>
+								<Item>17 Gold Watch</Item>
+								<Item>18 Depth Meter</Item>
+								<Item>486 Ruler</Item>
+								<Item>707 Tin Watch</Item>
+								<Item>1923 Toolbox</Item>
+								<Item>708 Tungsten Watch</Item>
+								<Item>709 Platinum Watch</Item>
+								<Item>393 Compass</Item>
+								<Item>395 GPS</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+					</SubCategories>
+				</Category>
+				<Category Name="Hooks">
+					<Items>
+						<Item>85 Chain</Item>
+						<Item>118 Hook</Item>
+						<Item>84 Grappling Hook</Item>
+						<Item>1236 Amethyst Hook</Item>
+						<Item>1237 Topaz Hook</Item>
+						<Item>1240 Ruby Hook</Item>
+						<Item>1239 Emerald Hook</Item>
+						<Item>1238 Sapphire Hook</Item>
+						<Item>1241 Diamond Hook</Item>
+						<Item>437 Dual Hook</Item>
+						<Item>1800 Bat Hook</Item>
+						<Item>1273 Skeletron Hand</Item>
+						<Item>939 Web Slinger</Item>
+						<Item>185 Ivy Whip</Item>
+						<Item>1829 Spooky Hook</Item>
+						<Item>1916 Christmas Hook</Item>
+						<Item>1915 Candy Cane Hook</Item>
+						<Item>2360 Fish Hook</Item>
+						<Item>2585 Slime Hook</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Dye">
+					<Items>
+						<Item>1119 Black Ink</Item>
+						<Item>1111 Blue Berries</Item>
+						<Item>1116 Cyan Husk</Item>
+						<Item>1108 Green Mushroom</Item>
+						<Item>1112 Lime Kelp</Item>
+						<Item>1114 Orange Bloodroot</Item>
+						<Item>1113 Pink Prickly Pear</Item>
+						<Item>1118 Purple Mucos</Item>
+						<Item>1115 Red Husk</Item>
+						<Item>1109 Sky Blue Flower</Item>
+						<Item>1107 Teal Mushroom</Item>
+						<Item>1110 Yellow Marigold</Item>
+						<Item>1117 Violet Husk</Item>
+						<Item>1050 Black Dye</Item>
+						<Item>1015 Blue Dye</Item>
+						<Item>1027 Blue and Black Dye</Item>
+						<Item>1059 Blue and Silver Dye</Item>
+						<Item>1035 Blue Flame Dye</Item>
+						<Item>1036 Blue Flame and Black Dye</Item>
+						<Item>1046 Bright Blue Dye</Item>
+						<Item>1044 Bright Cyan Dye</Item>
+						<Item>1042 Bright Green Dye</Item>
+						<Item>1041 Bright Lime Dye</Item>
+						<Item>1039 Bright Orange Dye</Item>
+						<Item>1049 Bright Pink Dye</Item>
+						<Item>1047 Bright Purple Dye</Item>
+						<Item>1038 Bright Red Dye</Item>
+						<Item>1045 Bright Sky Blue Dye</Item>
+						<Item>1043 Bright Teal Dye</Item>
+						<Item>1048 Bright Violet Dye</Item>
+						<Item>1040 Bright Yellow Dye</Item>
+						<Item>1013 Cyan Dye</Item>
+						<Item>1025 Cyan and Black Dye</Item>
+						<Item>1057 Cyan and Silver Dye</Item>
+						<Item>1069 Cyan Gradient Dye</Item>
+						<Item>1031 Flame Dye</Item>
+						<Item>1032 Flame and Black Dye</Item>
+						<Item>1011 Green Dye</Item>
+						<Item>1023 Green and Black Dye</Item>
+						<Item>1033 Green Flame Dye</Item>
+						<Item>1034 Green Flame and Black Dye</Item>
+						<Item>1055 Green and Silver Dye</Item>
+						<Item>1065 Intense Blue Flame Dye</Item>
+						<Item>1063 Intense Flame Dye</Item>
+						<Item>1064 Intense Green Flame Dye</Item>
+						<Item>1067 Intense Rainbow Dye</Item>
+						<Item>1010 Lime Dye</Item>
+						<Item>1022 Lime and Black Dye</Item>
+						<Item>1054 Lime and Silver Dye</Item>
+						<Item>1008 Orange Dye</Item>
+						<Item>1020 Orange and Black Dye</Item>
+						<Item>1052 Orange and Silver Dye</Item>
+						<Item>1018 Pink Dye</Item>
+						<Item>1030 Pink and Black Dye</Item>
+						<Item>1062 Pink and Silver Dye</Item>
+						<Item>1016 Purple Dye</Item>
+						<Item>1028 Purple and Black Dye</Item>
+						<Item>1060 Purple and Silver Dye</Item>
+						<Item>1066 Rainbow Dye</Item>
+						<Item>1007 Red Dye</Item>
+						<Item>1019 Red and Black Dye</Item>
+						<Item>1051 Red and Silver Dye</Item>
+						<Item>1037 Silver Dye</Item>
+						<Item>1014 Sky Blue Dye</Item>
+						<Item>1026 Sky Blue and Black Dye</Item>
+						<Item>1058 Sky Blue and Silver Dye</Item>
+						<Item>1012 Teal Dye</Item>
+						<Item>1024 Teal and Black Dye</Item>
+						<Item>1056 Teal and Silver Dye</Item>
+						<Item>1017 Violet Dye</Item>
+						<Item>1029 Violet and Black Dye</Item>
+						<Item>1061 Violet and Silver Dye</Item>
+						<Item>1070 Violet Gradient Dye</Item>
+						<Item>1009 Yellow Dye</Item>
+						<Item>1021 Yellow and Black Dye</Item>
+						<Item>1053 Yellow and Silver Dye</Item>
+						<Item>1068 Yellow Gradient Dye</Item>
+						<Item>1969 Team Dye</Item>
+						<Item>1977 Life Hair Dye</Item>
+						<Item>1978 Mana Hair Dye</Item>
+						<Item>1979 Depth Hair Dye</Item>
+						<Item>1980 Money Hair Dye</Item>
+						<Item>1981 Time Hair Dye</Item>
+						<Item>1982 Team Hair Dye</Item>
+						<Item>1983 Biome Hair Dye</Item>
+						<Item>1984 Party Hair Dye</Item>
+						<Item>1985 Rainbow Hair Dye</Item>
+						<Item>1986 Speed Hair Dye</Item>
+						<Item>1990 Hair Dye Remover</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Utility">
+					<Items>
+						<Item>1299 Binoculars</Item>
+						<Item>186 Breathing Reed</Item>
+						<Item>1131 Gravity Globe</Item>
+						<Item>50 Magic Mirror</Item>
+						<Item>1914 Reindeer Bells</Item>
+						<Item>965 Rope</Item>
+						<Item>985 Rope Coil</Item>
+						<Item>1786 Sickle</Item>
+						<Item>946 Umbrella</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Fishing Poles">
+					<Items>
+						<Item>2294 Golden Fishing Rod</Item>
+						<Item>2421 Fleshcatcher</Item>
+						<Item>2296 Sitting Duck's Fishing Pole</Item>
+						<Item>2295 Mechanic's Rod</Item>
+						<Item>2292 Fiberglass Fishing Pole</Item>
+						<Item>2422 Hotline Fishing Hook</Item>
+						<Item>2293 Fisher of Souls</Item>
+						<Item>2291 Reinforced Fishing Pole</Item>
+						<Item>2289 Wood Fishing Pole</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Costumes">
+					<Items>
+						<Item>251 Archaeologist's Hat</Item>
+						<Item>252 Archaeologist's Jacket</Item>
+						<Item>253 Archaeologist's Pants</Item>
+						<Item>842 Bee Hat</Item>
+						<Item>843 Bee Shirt</Item>
+						<Item>844 Bee Pants</Item>
+						<Item>1777 Bride of Frankenstein Mask</Item>
+						<Item>1778 Bride of Frankenstein Dress</Item>
+						<Item>1749 Cat Mask</Item>
+						<Item>1750 Cat Shirt</Item>
+						<Item>1751 Cat Pants</Item>
+						<Item>503 Clown Hat</Item>
+						<Item>504 Clown Shirt</Item>
+						<Item>505 Clown Pants</Item>
+						<Item>873 Cowboy Hat</Item>
+						<Item>874 Cowboy Jacket</Item>
+						<Item>875 Cowboy Pants</Item>
+						<Item>1746 Creeper Mask</Item>
+						<Item>1747 Creeper Shirt</Item>
+						<Item>1748 Creeper Pants</Item>
+						<Item>1743 Cyborg Helmet</Item>
+						<Item>1744 Cyborg Shirt</Item>
+						<Item>1745 Cyborg Pants</Item>
+						<Item>1853 Dryad Coverings</Item>
+						<Item>1854 Dryad Loincloth</Item>
+						<Item>1943 Elf Hat</Item>
+						<Item>1944 Elf Shirt</Item>
+						<Item>1945 Elf Pants</Item>
+						<Item>803 Eskimo Hood</Item>
+						<Item>804 Eskimo Coat</Item>
+						<Item>805 Eskimo Pants</Item>
+						<Item>269 Familiar Shirt</Item>
+						<Item>270 Familiar Pants</Item>
+						<Item>271 Familiar Wig</Item>
+						<Item>2498 Fish Costume Mask</Item>
+						<Item>2499 Fish Costume Shirt</Item>
+						<Item>2500 Fish Costume Finskirt</Item>
+						<Item>1821 Fox Mask</Item>
+						<Item>1822 Fox Shirt</Item>
+						<Item>1823 Fox Pants</Item>
+						<Item>1752 Ghost Mask</Item>
+						<Item>1753 Ghost Shirt</Item>
+						<Item>247 Hero's Hat</Item>
+						<Item>248 Hero's Shirt</Item>
+						<Item>249 Hero's Pants</Item>
+						<Item>1779 Karate Tortoise Mask</Item>
+						<Item>1780 Karate Tortoise Shirt</Item>
+						<Item>1781 Karate Tortoise Pants</Item>
+						<Item>1767 Leprechaun Hat</Item>
+						<Item>1768 Leprechaun Shirt</Item>
+						<Item>1769 Leprechaun Pants</Item>
+						<Item>2417 Seashell Hairpin</Item>
+						<Item>2418 Mermaid Adornment</Item>
+						<Item>2419 Mermaid Tail</Item>
+						<Item>1932 Mrs. Claus Hat</Item>
+						<Item>1933 Mrs. Claus Shirt</Item>
+						<Item>1934 Mrs. Claus Heels</Item>
+						<Item>870 Mummy Mask</Item>
+						<Item>871 Mummy Shirt</Item>
+						<Item>872 Mummy Pants</Item>
+						<Item>256 Ninja Hood</Item>
+						<Item>257 Ninja Shirt</Item>
+						<Item>258 Ninja Pants</Item>
+						<Item>1736 Nurse Hat</Item>
+						<Item>1737 Nurse Shirt</Item>
+						<Item>1738 Nurse Pants</Item>
+						<Item>1935 Parka Hood</Item>
+						<Item>1936 Parka Coat</Item>
+						<Item>1937 Parka Pants</Item>
+						<Item>848 Pharaoh's Mask</Item>
+						<Item>866 Pharaoh's Robe</Item>
+						<Item>978 Pink Eskimo Hood</Item>
+						<Item>979 Pink Eskimo Coat</Item>
+						<Item>980 Pink Eskimo Pants</Item>
+						<Item>876 Pirate Hat</Item>
+						<Item>877 Pirate Shirt</Item>
+						<Item>878 Pirate Pants</Item>
+						<Item>1770 Pixie Shirt</Item>
+						<Item>1771 Pixie Pants</Item>
+						<Item>244 Plumber's Hat</Item>
+						<Item>245 Plumber's Shirt</Item>
+						<Item>246 Plumber's Pants</Item>
+						<Item>864 Tiara</Item>
+						<Item>865 Princess Dress</Item>
+						<Item>1772 Princess Hat</Item>
+						<Item>1773 Princess Dress</Item>
+						<Item>1754 Pumpkin Mask</Item>
+						<Item>1755 Pumpkin Shirt</Item>
+						<Item>1756 Pumpkin Pants</Item>
+						<Item>1135 Rain Hat</Item>
+						<Item>1136 Rain Coat</Item>
+						<Item>1819 Reaper Hood</Item>
+						<Item>1820 Reaper Robe</Item>
+						<Item>1757 Robot Mask</Item>
+						<Item>1758 Robot Shirt</Item>
+						<Item>1759 Robot Pants</Item>
+						<Item>754 Rune Hat</Item>
+						<Item>755 Rune Robe</Item>
+						<Item>1277 Sailor Hat</Item>
+						<Item>1279 Sailor Shirt</Item>
+						<Item>1280 Sailor Pants</Item>
+						<Item>588 Santa Hat</Item>
+						<Item>589 Santa Shirt</Item>
+						<Item>590 Santa Pants</Item>
+						<Item>1788 Scarecrow Hat</Item>
+						<Item>1789 Scarecrow Shirt</Item>
+						<Item>1790 Scarecrow Pants</Item>
+						<Item>1838 Space Creature Mask</Item>
+						<Item>1839 Space Creature Shirt</Item>
+						<Item>1840 Space Creature Pants</Item>
+						<Item>2370 Spider Mask</Item>
+						<Item>2371 Spider Breastplate</Item>
+						<Item>2372 Spider Greaves</Item>
+						<Item>839 Steampunk Hat</Item>
+						<Item>840 Steampunk Shirt</Item>
+						<Item>841 Steampunk Pants</Item>
+						<Item>325 The Doctor's Shirt</Item>
+						<Item>326 The Doctor's Pants</Item>
+						<Item>239 Top Hat</Item>
+						<Item>1852 Treasure Hunter Pants</Item>
+						<Item>1851 Treasure Hunter Shirt</Item>
+						<Item>1940 Tree Mask</Item>
+						<Item>1941 Tree Shirt</Item>
+						<Item>1942 Tree Trunks</Item>
+						<Item>240 Tuxedo Shirt</Item>
+						<Item>241 Tuxedo Pants</Item>
+						<Item>1760 Unicorn Mask</Item>
+						<Item>1761 Unicorn Shirt</Item>
+						<Item>1762 Unicorn Pants</Item>
+						<Item>1763 Vampire Mask</Item>
+						<Item>1764 Vampire Shirt</Item>
+						<Item>1765 Vampire Pants</Item>
+						<Item>1288 White Tuxedo Shirt</Item>
+						<Item>1289 White Tuxedo Pants</Item>
+						<Item>1766 Witch Hat</Item>
+						<Item>1775 Witch Dress</Item>
+						<Item>1776 Witch Boots</Item>
+						<Item>1739 Wizard's Hat</Item>
+						<Item>262 Robe</Item>
+						<Item>1841 Wolf Mask</Item>
+						<Item>1842 Wolf Shirt</Item>
+						<Item>1843 Wolf Pants</Item>
+						<Item>1275 Balla Hat</Item>
+						<Item>1429 Beanie</Item>
+						<Item>243 Bunny Hood</Item>
+						<Item>1824 Cat Ears</Item>
+						<Item>1741 Dye Trader Robe</Item>
+						<Item>1278 Eye Patch</Item>
+						<Item>250 Fish Bowl</Item>
+						<Item>1276 Gangsta Hat</Item>
+						<Item>1906 Giant Bow</Item>
+						<Item>37 Goggles</Item>
+						<Item>264 Gold Crown</Item>
+						<Item>867 Green Cap</Item>
+						<Item>1740 Guy Fawkes Mask</Item>
+						<Item>1857 Jack 'O Lantern Mask</Item>
+						<Item>208 Jungle Rose</Item>
+						<Item>322 Mime Mask</Item>
+						<Item>868 Mushroom Cap</Item>
+						<Item>715 Platinum Crown</Item>
+						<Item>260 Red Hat</Item>
+						<Item>1907 Reindeer Antlers</Item>
+						<Item>263 Robot Hat</Item>
+						<Item>1281 Skeletron Mask</Item>
+						<Item>1274 Skull</Item>
+						<Item>1938 Snow Hat</Item>
+						<Item>1742 Steampunk Goggles</Item>
+						<Item>242 Summer Hat</Item>
+						<Item>237 Sunglasses</Item>
+						<Item>1514 SWAT Helmet</Item>
+						<Item>869 Tam O' Shanter</Item>
+						<Item>1939 Ugly Sweater</Item>
+						<Item>1243 Umbrella Hat</Item>
+						<Item>2104 Brain of Cthulhu Mask</Item>
+						<Item>2105 Wall of Flesh Mask</Item>
+						<Item>2106 Twin Mask</Item>
+						<Item>2107 Skeletron Prime Mask</Item>
+						<Item>2108 Queen Bee Mask</Item>
+						<Item>2109 Plantera Mask</Item>
+						<Item>2110 Golem Mask</Item>
+						<Item>2111 Eater of Worlds Mask</Item>
+						<Item>2112 Eye of Cthulhu Mask</Item>
+						<Item>2113 Destroyer Mask</Item>
+						<Item>2588 Duke Fishron Mask</Item>
+						<Item>1987 Angel Halo</Item>
+						<Item>1988 Fez</Item>
+						<Item>2222 Peddler's Hat</Item>
+						<Item>2278 Kimono</Item>
+						<Item>2284 Crimson Cloak</Item>
+						<Item>2285 Mysterious Cape</Item>
+						<Item>2286 Red Cape</Item>
+						<Item>2287 Winter Cape</Item>
+						<Item>2493 King Slime Mask</Item>
+						<Item>2501 Ginger Beard</Item>
+						<Item>2276 Diamond Ring</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+			</SubCategories>
+		</Category>
+		<Category Name="Placeables">
+			<Items />
+			<SubCategories>
+				<Category Name="Blocks">
+					<Items>
+						<Item>604 Adamantite Beam</Item>
+						<Item>172 Ash Block</Item>
+						<Item>775 Asphalt Block</Item>
+						<Item>766 Bone Block</Item>
+						<Item>1591 Bubblegum Block</Item>
+						<Item>586 Candy Cane Block</Item>
+						<Item>591 Green Candy Cane Block</Item>
+						<Item>133 Clay Block</Item>
+						<Item>751 Cloud</Item>
+						<Item>765 Rain Cloud</Item>
+						<Item>1246 Crimsand Block</Item>
+						<Item>836 Crimstone Block</Item>
+						<Item>1127 Crispy Honey Block</Item>
+						<Item>2 Dirt Block</Item>
+						<Item>370 Ebonsand Block</Item>
+						<Item>61 Ebonstone Block</Item>
+						<Item>763 Flesh Block</Item>
+						<Item>170 Glass</Item>
+						<Item>1267 Purple Stained Glass</Item>
+						<Item>1268 Yellow Stained Glass</Item>
+						<Item>1269 Blue Stained Glass</Item>
+						<Item>1270 Green Stained Glass</Item>
+						<Item>1271 Red Stained Glass</Item>
+						<Item>1272 Multicolored Stained Glass</Item>
+						<Item>1727 Hay</Item>
+						<Item>1125 Honey Block</Item>
+						<Item>1124 Hive</Item>
+						<Item>664 Ice Block</Item>
+						<Item>834 Pink Ice Block</Item>
+						<Item>833 Purple Ice Block</Item>
+						<Item>835 Red Ice Block</Item>
+						<Item>176 Mud Block</Item>
+						<Item>414 Mudstone Block</Item>
+						<Item>1589 Palladium Column</Item>
+						<Item>408 Pearlsand Block</Item>
+						<Item>409 Pearlstone Block</Item>
+						<Item>1725 Pumpkin</Item>
+						<Item>169 Sand Block</Item>
+						<Item>424 Silt Block</Item>
+						<Item>762 Slime Block</Item>
+						<Item>767 Frozen Slime Block</Item>
+						<Item>1103 Slush Block</Item>
+						<Item>593 Snow Block</Item>
+						<Item>3 Stone Block</Item>
+						<Item>611 Red Stucco</Item>
+						<Item>612 Yellow Stucco</Item>
+						<Item>613 Green Stucco</Item>
+						<Item>614 Gray Stucco</Item>
+						<Item>824 Sunplate Block</Item>
+						<Item>1593 Titanstone Block</Item>
+						<Item>1970 Amethyst Gemspark Block</Item>
+						<Item>1971 Topaz Gemspark Block</Item>
+						<Item>1972 Sapphire Gemspark Block</Item>
+						<Item>1973 Emerald Gemspark Block</Item>
+						<Item>1974 Ruby Gemspark Block</Item>
+						<Item>1975 Diamond Gemspark Block</Item>
+						<Item>1976 Amber Gemspark Block</Item>
+						<Item>2119 Stone Slab</Item>
+						<Item>2120 Sandstone Slab</Item>
+						<Item>2173 Copper Plating</Item>
+						<Item>2261 Red Dynasty Shingles</Item>
+						<Item>2262 Blue Dynasty Shingles</Item>
+						<Item>2435 Coralstone Block</Item>
+						<Item>2693 Waterfall Block</Item>
+						<Item>2694 Lavafall Block</Item>
+						<Item>2695 Confetti Block</Item>
+						<Item>2697 Midnight Confetti Block</Item>
+						<Item>2701 Living Fire Block</Item>
+						<Item>2692 Tin Plating</Item>
+					</Items>
+					<SubCategories>
+						<Category Name="Wood">
+							<Items>
+								<Item>2503 Boreal Wood</Item>
+								<Item>2504 Palm Wood</Item>
+								<Item>619 Ebonwood</Item>
+								<Item>621 Pearlwood</Item>
+								<Item>1872 Pine Tree Block</Item>
+								<Item>620 Rich Mahogany</Item>
+								<Item>911 Shadewood</Item>
+								<Item>1729 Spooky Wood</Item>
+								<Item>2260 Dynasty Wood</Item>
+								<Item>9 Wood</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Bricks">
+							<Items>
+								<Item>134 Blue Brick</Item>
+								<Item>415 Cobalt Brick</Item>
+								<Item>145 Copper Brick</Item>
+								<Item>577 Demonite Brick</Item>
+								<Item>609 Ebonstone Brick</Item>
+								<Item>141 Gold Brick</Item>
+								<Item>129 Gray Brick</Item>
+								<Item>137 Green Brick</Item>
+								<Item>214 Hellstone Brick</Item>
+								<Item>883 Ice Brick</Item>
+								<Item>413 Iridescent Brick</Item>
+								<Item>1101 Lihzahrd Brick</Item>
+								<Item>416 Mythril Brick</Item>
+								<Item>192 Obsidian Brick</Item>
+								<Item>412 Pearlstone Brick</Item>
+								<Item>139 Pink Brick</Item>
+								<Item>719 Platinum Brick</Item>
+								<Item>662 Rainbow Brick</Item>
+								<Item>131 Red Brick</Item>
+								<Item>607 Sandstone Brick</Item>
+								<Item>143 Silver Brick</Item>
+								<Item>594 Snow Brick</Item>
+								<Item>717 Tin Brick</Item>
+								<Item>718 Tungsten Brick</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Walls">
+							<Items>
+								<Item>605 Adamantite Beam Wall</Item>
+								<Item>135 Blue Brick Wall</Item>
+								<Item>1378 Blue Slab Wall</Item>
+								<Item>1379 Blue Tiled Wall</Item>
+								<Item>768 Bone Block Wall</Item>
+								<Item>1592 Bubblegum Block Wall</Item>
+								<Item>750 Cactus Wall</Item>
+								<Item>587 Candy Cane Wall</Item>
+								<Item>420 Cobalt Brick Wall</Item>
+								<Item>592 Green Candy Cane Wall</Item>
+								<Item>752 Cloud Wall</Item>
+								<Item>146 Copper Brick Wall</Item>
+								<Item>606 Demonite Brick Wall</Item>
+								<Item>30 Dirt Wall</Item>
+								<Item>825 Disc Wall</Item>
+								<Item>610 Ebonstone Brick Wall</Item>
+								<Item>622 Ebonwood Wall</Item>
+								<Item>770 Flesh Block Wall</Item>
+								<Item>747 Flower Wall</Item>
+								<Item>392 Glass Wall</Item>
+								<Item>142 Gold Brick Wall</Item>
+								<Item>745 Grass Wall</Item>
+								<Item>130 Gray Brick Wall</Item>
+								<Item>138 Green Brick Wall</Item>
+								<Item>1382 Green Slab Wall</Item>
+								<Item>1383 Green Tiled Wall</Item>
+								<Item>1728 Hay Wall</Item>
+								<Item>1126 Hive Wall</Item>
+								<Item>884 Ice Brick Wall</Item>
+								<Item>418 Iridescent Brick Wall</Item>
+								<Item>746 Jungle Wall</Item>
+								<Item>1102 Lihzahrd Brick Wall</Item>
+								<Item>1723 Living Wood Wall</Item>
+								<Item>419 Mudstone Brick Wall</Item>
+								<Item>764 Mushroom Wall</Item>
+								<Item>421 Mythril Brick Wall</Item>
+								<Item>330 Obsidian Brick Wall</Item>
+								<Item>1590 Palladium Column Wall</Item>
+								<Item>417 Pearlstone Brick Wall</Item>
+								<Item>624 Pearlwood Wall</Item>
+								<Item>140 Pink Brick Wall</Item>
+								<Item>1380 Pink Slab Wall</Item>
+								<Item>1381 Pink Tiled Wall</Item>
+								<Item>479 Planked Wall</Item>
+								<Item>722 Platinum Brick Wall</Item>
+								<Item>1726 Pumpkin Wall</Item>
+								<Item>663 Rainbow Brick Wall</Item>
+								<Item>132 Red Brick Wall</Item>
+								<Item>623 Rich Mahogany Wall</Item>
+								<Item>608 Sandstone Brick Wall</Item>
+								<Item>927 Shadewood Wall</Item>
+								<Item>144 Silver Brick Wall</Item>
+								<Item>769 Slime Block Wall</Item>
+								<Item>595 Snow Brick Wall</Item>
+								<Item>1730 Spooky Wood Wall</Item>
+								<Item>26 Stone Wall</Item>
+								<Item>615 Red Stucco Wall</Item>
+								<Item>616 Yellow Stucco Wall</Item>
+								<Item>617 Green Stucco Wall</Item>
+								<Item>618 Gray Stucco Wall</Item>
+								<Item>720 Tin Brick Wall</Item>
+								<Item>1594 Titanstone Block Wall</Item>
+								<Item>721 Tungsten Brick Wall</Item>
+								<Item>2169 Waterfall Wall</Item>
+								<Item>2170 Lavafall Wall</Item>
+								<Item>2263 White Dynasty Wall</Item>
+								<Item>2264 Blue Dynasty Wall</Item>
+								<Item>2271 Arcane Rune Wall</Item>
+								<Item>2432 Copper Plating Wall</Item>
+								<Item>2433 Stone Slab Wall</Item>
+								<Item>2505 Boreal Wood Wall</Item>
+								<Item>2506 Palm Wood Wall</Item>
+								<Item>2677 Amber Gemspark Wall</Item>
+								<Item>2678 Offline Amber Gemspark Wall</Item>
+								<Item>2679 Amethyst Gemspark Wall</Item>
+								<Item>2680 Offline Amethyst Gemspark Wall</Item>
+								<Item>2681 Diamond Gemspark Wall</Item>
+								<Item>2682 Offline Diamond Gemspark Wall</Item>
+								<Item>2683 Emerald Gemspark Wall</Item>
+								<Item>2684 Offline Emerald Gemspark Wall</Item>
+								<Item>2685 Ruby Gemspark Wall</Item>
+								<Item>2686 Offline Ruby Gemspark Wall</Item>
+								<Item>2687 Sapphire Gemspark Wall</Item>
+								<Item>2688 Offline Sapphire Gemspark Wall</Item>
+								<Item>2689 Topaz Gemspark Wall</Item>
+								<Item>2690 Offline Topaz Gemspark Wall</Item>
+								<Item>2691 Tin Plating Wall</Item>
+								<Item>2696 Confetti Wall</Item>
+								<Item>2698 Midnight Confetti Wall</Item>
+								<Item>480 Wooden Beam</Item>
+								<Item>1447 Wooden Fence</Item>
+								<Item>1448 Lead Fence</Item>
+								<Item>2210 Ebonwood Fence</Item>
+								<Item>2211 Rich Mahogany Fence</Item>
+								<Item>2212 Pearlwood Fence</Item>
+								<Item>2213 Shadewood Fence</Item>
+								<Item>2333 Iron Fence</Item>
+								<Item>2507 Boreal Wood Fence</Item>
+								<Item>2508 Palm Wood Fence</Item>
+								<Item>93 Wood Wall</Item>
+								<Item>1948 Christmas Tree Wallpaper</Item>
+								<Item>1949 Ornament Wallpaper</Item>
+								<Item>1950 Candy Cane Wallpaper</Item>
+								<Item>1951 Festive Wallpaper</Item>
+								<Item>1952 Stars Wallpaper</Item>
+								<Item>1953 Squiggles Wallpaper</Item>
+								<Item>1954 Snowflake Wallpaper</Item>
+								<Item>1955 Krampus Horn Wallpaper</Item>
+								<Item>1956 Bluegreen Wallpaper</Item>
+								<Item>1957 Grinch Finger Wallpaper</Item>
+								<Item>2008 Fancy Grey Wallpaper</Item>
+								<Item>2009 Ice Floe Wallpaper</Item>
+								<Item>2010 Music Wallpaper</Item>
+								<Item>2011 Purple Rain Wallpaper</Item>
+								<Item>2012 Rainbow Wallpaper</Item>
+								<Item>2013 Sparkle Stone Wallpaper</Item>
+								<Item>2014 Starlit Heaven Wallpaper</Item>
+								<Item>2158 Bubble Wallpaper</Item>
+								<Item>2159 Copper Pipe Wallpaper</Item>
+								<Item>2160 Ducky Wallpaper</Item>
+								<Item>2434 Sail</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Platforms">
+							<Items>
+								<Item>1818 Spooky Platform</Item>
+								<Item>1796 Pumpkin Platform</Item>
+								<Item>634 Bone Platform</Item>
+								<Item>1384 Blue Brick Platform</Item>
+								<Item>1385 Pink Brick Platform</Item>
+								<Item>1386 Green Brick Platform</Item>
+								<Item>1457 Obsidian Platform</Item>
+								<Item>1702 Glass Platform</Item>
+								<Item>913 Shadewood Platform</Item>
+								<Item>631 Ebonwood Platform</Item>
+								<Item>632 Rich Mahogany Platform</Item>
+								<Item>633 Pearlwood Platform</Item>
+								<Item>94 Wood Platform</Item>
+								<Item>2518 Palm Wood Platform</Item>
+								<Item>2549 Mushroom Platform</Item>
+								<Item>2566 Boreal Wood Platform</Item>
+								<Item>2581 Slime Platform</Item>
+								<Item>2627 Steampunk Platform</Item>
+								<Item>2628 Skyware Platform</Item>
+								<Item>2629 Living Wood Platform</Item>
+								<Item>2630 Honey Platform</Item>
+								<Item>2744 Cactus Platform</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+					</SubCategories>
+				</Category>
+				<Category Name="Shelves">
+					<Items>
+						<Item>1418 Dungeon Shelf</Item>
+						<Item>1387 Metal Shelf</Item>
+						<Item>1388 Brass Shelf</Item>
+						<Item>1389 Wood Shelf</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Storage">
+					<Items>
+						<Item>346 Safe</Item>
+						<Item>87 Piggy Bank</Item>
+						<Item>1142 Lihzahrd Chest</Item>
+						<Item>838 Skyware Chest</Item>
+						<Item>1531 Hallowed Chest</Item>
+						<Item>1530 Crimson Chest</Item>
+						<Item>1529 Corruption Chest</Item>
+						<Item>328 Shadow Chest</Item>
+						<Item>952 Web Covered Chest</Item>
+						<Item>680 Ivy Chest</Item>
+						<Item>1528 Jungle Chest</Item>
+						<Item>306 Gold Chest</Item>
+						<Item>1298 Water Chest</Item>
+						<Item>681 Ice Chest</Item>
+						<Item>1532 Frozen Chest</Item>
+						<Item>627 Pearlwood Chest</Item>
+						<Item>914 Shadewood Chest</Item>
+						<Item>625 Ebonwood Chest</Item>
+						<Item>626 Rich Mahogany Chest</Item>
+						<Item>831 Living Wood Chest</Item>
+						<Item>48 Chest</Item>
+						<Item>2230 Dynasty Chest</Item>
+						<Item>2249 Honey Chest</Item>
+						<Item>2250 Steampunk Chest</Item>
+						<Item>2526 Palm Wood Chest</Item>
+						<Item>2612 Green Dungeon Chest</Item>
+						<Item>2613 Pink Dungeon Chest</Item>
+						<Item>2614 Blue Dungeon Chest</Item>
+						<Item>2615 Bone Chest</Item>
+						<Item>2616 Cactus Chest</Item>
+						<Item>2617 Flesh Chest</Item>
+						<Item>2618 Obsidian Chest</Item>
+						<Item>2619 Pumpkin Chest</Item>
+						<Item>2620 Spooky Chest</Item>
+						<Item>2544 Mushroom Chest</Item>
+						<Item>2559 Boreal Wood Chest</Item>
+						<Item>2574 Slime Chest</Item>
+						<Item>2748 Glass Chest</Item>
+						<Item>343 Barrel</Item>
+						<Item>348 Trash Can</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Bathtubs">
+					<Items>
+						<Item>336 Bathtub</Item>
+						<Item>2072 Cactus Bathtub</Item>
+						<Item>2073 Ebonwood Bathtub</Item>
+						<Item>2074 Flesh Bathtub</Item>
+						<Item>2075 Glass Bathtub</Item>
+						<Item>2076 Frozen Bathtub</Item>
+						<Item>2077 Rich Mahogany Bathtub</Item>
+						<Item>2078 Pearlwood Bathtub</Item>
+						<Item>2079 Lihzahrd Bathtub</Item>
+						<Item>2080 Skyware Bathtub</Item>
+						<Item>2081 Spooky Bathtub</Item>
+						<Item>2124 Honey Bathtub</Item>
+						<Item>2125 Steampunk Bathtub</Item>
+						<Item>2126 Living Wood Bathtub</Item>
+						<Item>2127 Shadewood Bathtub</Item>
+						<Item>2128 Bone Bathtub</Item>
+						<Item>2232 Dynasty Bathtub</Item>
+						<Item>2519 Palm Wood Bathtub</Item>
+						<Item>2537 Mushroom Bathtub</Item>
+						<Item>2552 Boreal Wood Bathtub</Item>
+						<Item>2567 Slime Bathtub</Item>
+						<Item>2658 Blue Dungeon Bathtub</Item>
+						<Item>2659 Green Dungeon Bathtub</Item>
+						<Item>2660 Pink Dungeon Bathtub</Item>
+						<Item>2661 Pumpkin Bathtub</Item>
+						<Item>2662 Obsidian Bathtub</Item>
+						<Item>2663 Golden Bathtub</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Decor">
+					<Items>
+						<Item>2521 Palm Wood Bench</Item>
+						<Item>335 Bench</Item>
+						<Item>2539 Mushroom Bench</Item>
+						<Item>2631 Skyware Work Bench</Item>
+						<Item>2632 Glass Work Bench</Item>
+						<Item>2633 Living Wood Work Bench</Item>
+						<Item>1408 Blue Dungeon Vase</Item>
+						<Item>972 Blue Rocket</Item>
+						<Item>356 Bowl</Item>
+						<Item>2242 Fancy Dishes</Item>
+						<Item>2243 Glass Bowl</Item>
+						<Item>2235 Dynasty Bowl</Item>
+						<Item>2234 Dynasty Cup</Item>
+						<Item>2257 Honey Cup</Item>
+						<Item>2244 Wine Glass</Item>
+						<Item>2258 Chalice</Item>
+						<Item>1449 Bubble Machine</Item>
+						<Item>966 Campfire</Item>
+						<Item>2177 Ammo Box</Item>
+						<Item>928 Cannon</Item>
+						<Item>1873 Christmas Tree</Item>
+						<Item>222 Clay Pot</Item>
+						<Item>2496 Seaweed Planter</Item>
+						<Item>487 Crystal Ball</Item>
+						<Item>1705 Golden Toilet</Item>
+						<Item>359 Grandfather Clock</Item>
+						<Item>2237 Dynasty Clock</Item>
+						<Item>2238 Golden Clock</Item>
+						<Item>2239 Glass Clock</Item>
+						<Item>2240 Honey Clock</Item>
+						<Item>2241 Steampunk Clock</Item>
+						<Item>2560 Boreal Wood Clock</Item>
+						<Item>2575 Slime Clock</Item>
+						<Item>2591 Bone Clock</Item>
+						<Item>2592 Cactus Clock</Item>
+						<Item>2593 Ebonwood Clock</Item>
+						<Item>2594 Frozen Clock</Item>
+						<Item>2595 Lihzahrd Clock</Item>
+						<Item>2596 Living Wood Clock</Item>
+						<Item>2597 Rich Mahogany Clock</Item>
+						<Item>2598 Flesh Clock</Item>
+						<Item>2599 Mushroom Clock</Item>
+						<Item>2600 Obsidian Clock</Item>
+						<Item>2601 Palm Wood Clock</Item>
+						<Item>2602 Pearlwood Clock</Item>
+						<Item>2603 Pumpkin Clock</Item>
+						<Item>2604 Shadewood Clock</Item>
+						<Item>2605 Spooky Clock</Item>
+						<Item>2606 Sunplate Clock</Item>
+						<Item>1409 Green Dungeon Vase</Item>
+						<Item>971 Green Rocket</Item>
+						<Item>1908 Holly</Item>
+						<Item>498 Mannequin</Item>
+						<Item>1989 Womannequin</Item>
+						<Item>351 Mug</Item>
+						<Item>1462 Obsidian Vase</Item>
+						<Item>1410 Pink Dungeon Vase</Item>
+						<Item>350 Pink Vase</Item>
+						<Item>970 Red Rocket</Item>
+						<Item>171 Sign</Item>
+						<Item>63 Sunflower</Item>
+						<Item>358 Toilet</Item>
+						<Item>1376 Wall Skeleton</Item>
+						<Item>973 Yellow Rocket</Item>
+						<Item>2114 Blacksmith Rack</Item>
+						<Item>2115 Carpentry Rack</Item>
+						<Item>2116 Helmet Rack</Item>
+						<Item>2117 Spear Rack</Item>
+						<Item>2118 Sword Rack</Item>
+						<Item>2699 Weapon Rack</Item>
+						<Item>2442 Life Preserver</Item>
+						<Item>2443 Ship's Wheel</Item>
+						<Item>2444 Compass Rose</Item>
+						<Item>2445 Wall Anchor</Item>
+						<Item>2490 Ship in a Bottle</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Tree Decorations">
+					<Items>
+						<Item>1874 Star Topper 1</Item>
+						<Item>1875 Star Topper 2</Item>
+						<Item>1876 Star Topper 3</Item>
+						<Item>1877 Bow Topper</Item>
+						<Item>1878 White Garland</Item>
+						<Item>1879 White and Red Garland</Item>
+						<Item>1880 Red Garland</Item>
+						<Item>1881 Red and Green Garland</Item>
+						<Item>1882 Green Garland</Item>
+						<Item>1883 Green and White Garland</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Critters">
+					<Items>
+						<Item>1991 Bug Net</Item>
+						<Item>1992 Firefly</Item>
+						<Item>1993 Firefly in a Bottle</Item>
+						<Item>1994 Monarch Butterfly</Item>
+						<Item>1995 Purple Emperor Butterfly</Item>
+						<Item>1996 Red Admiral Butterfly</Item>
+						<Item>1997 Ulysses Butterfly</Item>
+						<Item>1998 Sulphur Butterfly</Item>
+						<Item>1999 Tree Nymph Butterfly</Item>
+						<Item>2000 Zebra Swallowtail Butterfly</Item>
+						<Item>2001 Julia Butterfly</Item>
+						<Item>2002 Worm</Item>
+						<Item>2003 Mouse</Item>
+						<Item>2004 Lightning Bug</Item>
+						<Item>2005 Lightning Bug in a Bottle</Item>
+						<Item>2006 Snail</Item>
+						<Item>2007 Glowing Snail</Item>
+						<Item>2015 Bird</Item>
+						<Item>2016 Blue Jay</Item>
+						<Item>2017 Cardinal</Item>
+						<Item>2018 Squirrel</Item>
+						<Item>2019 Bunny</Item>
+						<Item>2205 Penguin</Item>
+						<Item>2121 Frog</Item>
+						<Item>2122 Mallard Duck</Item>
+						<Item>2123 Duck</Item>
+						<Item>2156 Black Scorpion</Item>
+						<Item>2157 Scorpion</Item>
+						<Item>2740 Grasshopper</Item>
+						<Item>2178 Monarch Butterfly Jar</Item>
+						<Item>2179 Purple Emperor Butterfly Jar</Item>
+						<Item>2180 Red Admiral Butterfly Jar</Item>
+						<Item>2181 Ulysses Butterfly Jar</Item>
+						<Item>2182 Sulphur Butterfly Jar</Item>
+						<Item>2183 Tree Nymph Butterfly Jar</Item>
+						<Item>2184 Zebra Swallowtail Butterfly Jar</Item>
+						<Item>2185 Julia Butterfly Jar</Item>
+						<Item>2439 Blue Jellyfish Jar</Item>
+						<Item>2440 Green Jellyfish Jar</Item>
+						<Item>2441 Pink Jellyfish Jar</Item>
+						<Item>2186 Scorpion Cage</Item>
+						<Item>2187 Black Scorpion Cage</Item>
+						<Item>2206 Penguin Cage</Item>
+						<Item>2207 Worm Cage</Item>
+						<Item>2162 Bunny Cage</Item>
+						<Item>2163 Squirrel Cage</Item>
+						<Item>2164 Mallard Duck Cage</Item>
+						<Item>2165 Duck Cage</Item>
+						<Item>2166 Bird Cage</Item>
+						<Item>2167 Blue Jay Cage</Item>
+						<Item>2168 Cardinal Cage</Item>
+						<Item>2174 Snail Cage</Item>
+						<Item>2175 Glowing Snail Cage</Item>
+						<Item>2190 Frog Cage</Item>
+						<Item>2191 Mouse Cage</Item>
+						<Item>2741 Grasshopper Cage</Item>
+						<Item>2208 Terrarium</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Statues">
+					<Items />
+					<SubCategories>
+						<Category Name="Decorative Statues">
+							<Items>
+								<Item>52 Angel Statue</Item>
+								<Item>673 Boreal Wood Work Bench</Item>
+								<Item>677 Boreal Wood Table</Item>
+								<Item>678 Red Potion</Item>
+								<Item>858 Boreal Wood Sofa</Item>
+								<Item>468 Anvil Statue</Item>
+								<Item>360 Armor Statue</Item>
+								<Item>465 Axe Statue</Item>
+								<Item>461 Boomerang Statue</Item>
+								<Item>462 Boot Statue</Item>
+								<Item>460 Bow Statue</Item>
+								<Item>466 Corrupt Statue</Item>
+								<Item>458 Cross Statue</Item>
+								<Item>471 Eyeball Statue</Item>
+								<Item>450 Gargoyle Statue</Item>
+								<Item>451 Gloom Statue</Item>
+								<Item>441 Goblin Statue</Item>
+								<Item>455 Hammer Statue</Item>
+								<Item>452 Hornet Statue</Item>
+								<Item>449 Imp Statue</Item>
+								<Item>1154 Lihzahrd Guardian Statue</Item>
+								<Item>1152 Lihzahrd Statue</Item>
+								<Item>1153 Lihzahrd Watcher Statue</Item>
+								<Item>470 Mushroom Statue</Item>
+								<Item>469 Pickaxe Statue</Item>
+								<Item>472 Pillar Statue</Item>
+								<Item>474 Pot Statue</Item>
+								<Item>456 Potion Statue</Item>
+								<Item>447 Reaper Statue</Item>
+								<Item>442 Shield Statue</Item>
+								<Item>457 Spear Statue</Item>
+								<Item>475 Sunflower Statue</Item>
+								<Item>439 Sword Statue</Item>
+								<Item>467 Tree Statue</Item>
+								<Item>448 Woman Statue</Item>
+								<Item>2672 Shark Statue</Item>
+								<Item>2702 '0' Statue</Item>
+								<Item>2703 '1' Statue</Item>
+								<Item>2704 '2' Statue</Item>
+								<Item>2705 '3' Statue</Item>
+								<Item>2706 '4' Statue</Item>
+								<Item>2707 '5' Statue</Item>
+								<Item>2708 '6' Statue</Item>
+								<Item>2709 '7' Statue</Item>
+								<Item>2710 '8' Statue</Item>
+								<Item>2711 '9' Statue</Item>
+								<Item>2712 'A' Statue</Item>
+								<Item>2713 'B' Statue</Item>
+								<Item>2714 'C' Statue</Item>
+								<Item>2715 'D' Statue</Item>
+								<Item>2716 'E' Statue</Item>
+								<Item>2717 'F' Statue</Item>
+								<Item>2718 'G' Statue</Item>
+								<Item>2719 'H' Statue</Item>
+								<Item>2720 'I' Statue</Item>
+								<Item>2721 'J' Statue</Item>
+								<Item>2722 'K' Statue</Item>
+								<Item>2723 'L' Statue</Item>
+								<Item>2724 'M' Statue</Item>
+								<Item>2725 'N' Statue</Item>
+								<Item>2726 'O' Statue</Item>
+								<Item>2727 'P' Statue</Item>
+								<Item>2728 'Q' Statue</Item>
+								<Item>2729 'R' Statue</Item>
+								<Item>2730 'S' Statue</Item>
+								<Item>2731 'T' Statue</Item>
+								<Item>2732 'U' Statue</Item>
+								<Item>2733 'V' Statue</Item>
+								<Item>2734 'W' Statue</Item>
+								<Item>2735 'X' Statue</Item>
+								<Item>2736 'Y' Statue</Item>
+								<Item>2737 'Z' Statue</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Functional Statues">
+							<Items>
+								<Item>443 Bat Statue</Item>
+								<Item>464 Bird Statue</Item>
+								<Item>453 Bomb Statue</Item>
+								<Item>445 Bunny Statue</Item>
+								<Item>463 Chest Statue</Item>
+								<Item>454 Crab Statue</Item>
+								<Item>444 Fish Statue</Item>
+								<Item>473 Heart Statue</Item>
+								<Item>459 Jellyfish Statue</Item>
+								<Item>476 King Statue</Item>
+								<Item>478 Piranha Statue</Item>
+								<Item>477 Queen Statue</Item>
+								<Item>446 Skeleton Statue</Item>
+								<Item>440 Slime Statue</Item>
+								<Item>438 Star Statue</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+					</SubCategories>
+				</Category>
+				<Category Name="Music">
+					<Items>
+						<Item>576 Music Box</Item>
+						<Item>562 Music Box (Overworld Day)</Item>
+						<Item>563 Music Box (Eerie)</Item>
+						<Item>564 Music Box (Night)</Item>
+						<Item>565 Music Box (Title)</Item>
+						<Item>566 Music Box (Underground)</Item>
+						<Item>567 Music Box (Boss 1)</Item>
+						<Item>568 Music Box (Jungle)</Item>
+						<Item>569 Music Box (Corruption)</Item>
+						<Item>570 Music Box (Underground Corruption)</Item>
+						<Item>571 Music Box (The Hallow)</Item>
+						<Item>572 Music Box (Boss 2)</Item>
+						<Item>573 Music Box (Underground Hallow)</Item>
+						<Item>574 Music Box (Boss 3)</Item>
+						<Item>1596 Music Box (Snow)</Item>
+						<Item>1597 Music Box (Space)</Item>
+						<Item>1598 Music Box (Crimson)</Item>
+						<Item>1599 Music Box (Boss 4)</Item>
+						<Item>1600 Music Box (Alt Overworld Day)</Item>
+						<Item>1601 Music Box (Rain)</Item>
+						<Item>1602 Music Box (Ice)</Item>
+						<Item>1603 Music Box (Desert)</Item>
+						<Item>1604 Music Box (Ocean)</Item>
+						<Item>1605 Music Box (Dungeon)</Item>
+						<Item>1606 Music Box (Plantera)</Item>
+						<Item>1607 Music Box (Boss 5)</Item>
+						<Item>1608 Music Box (Temple)</Item>
+						<Item>1609 Music Box (Eclipse)</Item>
+						<Item>1610 Music Box (Mushrooms)</Item>
+						<Item>1963 Music Box (Pumpkin Moon)</Item>
+						<Item>1964 Music Box (Alt Underground)</Item>
+						<Item>1965 Music Box (Frost Moon)</Item>
+						<Item>2742 Music Box (Underground Crimson)</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Trophies">
+					<Items>
+						<Item>1856 Pumpking Trophy</Item>
+						<Item>1855 Mourning Wood Trophy</Item>
+						<Item>1371 Golem Trophy</Item>
+						<Item>1370 Plantera Trophy</Item>
+						<Item>1367 Skeletron Prime Trophy</Item>
+						<Item>1369 Spazmatism Trophy</Item>
+						<Item>1368 Retinazer Trophy</Item>
+						<Item>1366 Destroyer Trophy</Item>
+						<Item>1365 Wall of Flesh Trophy</Item>
+						<Item>1364 Queen Bee Trophy</Item>
+						<Item>1363 Skeletron Trophy</Item>
+						<Item>1362 Brain of Cthulhu Trophy</Item>
+						<Item>1361 Eater of Worlds Trophy</Item>
+						<Item>1360 Eye of Cthulhu Trophy</Item>
+						<Item>1960 Ice Queen Trophy</Item>
+						<Item>1961 Santa-NK1 Trophy</Item>
+						<Item>1962 Everscream Trophy</Item>
+						<Item>2446 Goldfish Trophy</Item>
+						<Item>2447 Bunnyfish Trophy</Item>
+						<Item>2448 Swordfish Trophy</Item>
+						<Item>2449 Sharkteeth Trophy</Item>
+						<Item>2489 King Slime Trophy</Item>
+						<Item>2589 Duke Fishron Trophy</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Furniture">
+					<Items />
+					<SubCategories>
+						<Category Name="Doors">
+							<Items>
+								<Item>1411 Blue Dungeon Door</Item>
+								<Item>820 Bone Door</Item>
+								<Item>816 Cactus Door</Item>
+								<Item>1138 Dungeon Door</Item>
+								<Item>650 Ebonwood Door</Item>
+								<Item>817 Flesh Door</Item>
+								<Item>1709 Glass Door</Item>
+								<Item>1710 Golden Door</Item>
+								<Item>1412 Green Dungeon Door</Item>
+								<Item>1711 Honey Door</Item>
+								<Item>1140 Iron Door</Item>
+								<Item>1139 Lead Door</Item>
+								<Item>1137 Lihzahrd Door</Item>
+								<Item>819 Living Wood Door</Item>
+								<Item>818 Mushroom Door</Item>
+								<Item>1458 Obsidian Door</Item>
+								<Item>652 Pearlwood Door</Item>
+								<Item>1924 Pine Door</Item>
+								<Item>1413 Pink Dungeon Door</Item>
+								<Item>1793 Pumpkin Door</Item>
+								<Item>651 Rich Mahogany Door</Item>
+								<Item>912 Shadewood Door</Item>
+								<Item>837 Skyware Door</Item>
+								<Item>1815 Spooky Door</Item>
+								<Item>1712 Steampunk Door</Item>
+								<Item>25 Wooden Door</Item>
+								<Item>2044 Frozen Door</Item>
+								<Item>2265 Dynasty Door</Item>
+								<Item>2528 Palm Wood Door</Item>
+								<Item>2561 Boreal Wood Door</Item>
+								<Item>2576 Slime Door</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Tables">
+							<Items>
+								<Item>827 Bone Table</Item>
+								<Item>1714 Banquet Table</Item>
+								<Item>1715 Bar</Item>
+								<Item>1397 Blue Dungeon Table</Item>
+								<Item>638 Ebonwood Table</Item>
+								<Item>828 Flesh Table</Item>
+								<Item>1713 Glass Table</Item>
+								<Item>1716 Golden Table</Item>
+								<Item>1510 Gothic Table</Item>
+								<Item>1400 Green Dungeon Table</Item>
+								<Item>1717 Honey Table</Item>
+								<Item>1144 Lihzahrd Table</Item>
+								<Item>829 Living Wood Table</Item>
+								<Item>1460 Obsidian Table</Item>
+								<Item>640 Pearlwood Table</Item>
+								<Item>1926 Pine Table</Item>
+								<Item>1403 Pink Dungeon Table</Item>
+								<Item>1794 Pumpkin Table</Item>
+								<Item>639 Rich Mahogany Table</Item>
+								<Item>917 Shadewood Table</Item>
+								<Item>830 Skyware Table</Item>
+								<Item>1816 Spooky Table</Item>
+								<Item>1718 Steampunk Table</Item>
+								<Item>32 Wooden Table</Item>
+								<Item>2248 Frozen Table</Item>
+								<Item>2259 Dynasty Table</Item>
+								<Item>2532 Palm Wood Table</Item>
+								<Item>2550 Mushroom Table</Item>
+								<Item>2583 Slime Table</Item>
+								<Item>2743 Cactus Table</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Chairs">
+							<Items>
+								<Item>1706 Bar Stool</Item>
+								<Item>1396 Blue Dungeon Chair</Item>
+								<Item>808 Bone Chair</Item>
+								<Item>807 Cactus Chair</Item>
+								<Item>628 Ebonwood Chair</Item>
+								<Item>809 Flesh Chair</Item>
+								<Item>1703 Glass Chair</Item>
+								<Item>1704 Golden Chair</Item>
+								<Item>1509 Gothic Chair</Item>
+								<Item>1399 Green Dungeon Chair</Item>
+								<Item>1707 Honey Chair</Item>
+								<Item>1143 Lihzahrd Chair</Item>
+								<Item>806 Living Wood Chair</Item>
+								<Item>810 Mushroom Chair</Item>
+								<Item>1459 Obsidian Chair</Item>
+								<Item>630 Pearlwood Chair</Item>
+								<Item>1925 Pine Chair</Item>
+								<Item>1402 Pink Dungeon Chair</Item>
+								<Item>1792 Pumpkin Chair</Item>
+								<Item>629 Rich Mahogany Chair</Item>
+								<Item>915 Shadewood Chair</Item>
+								<Item>826 Skyware Chair</Item>
+								<Item>1814 Spooky Chair</Item>
+								<Item>1708 Steampunk Chair</Item>
+								<Item>355 Throne</Item>
+								<Item>34 Wooden Chair</Item>
+								<Item>2228 Dynasty Chair</Item>
+								<Item>2288 Frozen Chair</Item>
+								<Item>2524 Palm Wood Chair</Item>
+								<Item>2557 Boreal Wood Chair</Item>
+								<Item>2572 Slime Chair</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Beds">
+							<Items>
+								<Item>224 Bed</Item>
+								<Item>1470 Blue Dungeon Bed</Item>
+								<Item>644 Ebonwood Bed</Item>
+								<Item>1719 Glass Bed</Item>
+								<Item>1720 Golden Bed</Item>
+								<Item>1471 Green Dungeon Bed</Item>
+								<Item>1721 Honey Bed</Item>
+								<Item>1473 Obsidian Bed</Item>
+								<Item>646 Pearlwood Bed</Item>
+								<Item>1472 Pink Dungeon Bed</Item>
+								<Item>645 Rich Mahogany Bed</Item>
+								<Item>920 Shadewood Bed</Item>
+								<Item>1722 Steampunk Bed</Item>
+								<Item>2139 Living Wood Bed</Item>
+								<Item>2140 Bone Bed</Item>
+								<Item>2066 Cactus Bed</Item>
+								<Item>2067 Flesh Bed</Item>
+								<Item>2068 Frozen Bed</Item>
+								<Item>2069 Lihzahrd Bed</Item>
+								<Item>2070 Skyware Bed</Item>
+								<Item>2071 Spooky Bed</Item>
+								<Item>2231 Dynasty Bed</Item>
+								<Item>2520 Palm Wood Bed</Item>
+								<Item>2538 Mushroom Bed</Item>
+								<Item>2553 Boreal Wood Bed</Item>
+								<Item>2568 Slime Bed</Item>
+								<Item>2669 Pumpkin Bed</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Dressers">
+							<Items>
+								<Item>334 Dresser</Item>
+								<Item>647 Ebonwood Dresser</Item>
+								<Item>649 Pearlwood Dresser</Item>
+								<Item>648 Rich Mahogany Dresser</Item>
+								<Item>918 Shadewood Dresser</Item>
+								<Item>2386 Blue Dungeon Dresser</Item>
+								<Item>2387 Green Dungeon Dresser</Item>
+								<Item>2388 Pink Dungeon Dresser</Item>
+								<Item>2389 Golden Dresser</Item>
+								<Item>2390 Obsidian Dresser</Item>
+								<Item>2391 Bone Dresser</Item>
+								<Item>2392 Cactus Dresser</Item>
+								<Item>2393 Spooky Dresser</Item>
+								<Item>2394 Skyware Dresser</Item>
+								<Item>2395 Honey Dresser</Item>
+								<Item>2396 Lihzahrd Dresser</Item>
+								<Item>2529 Palm Wood Dresser</Item>
+								<Item>2545 Mushroom Dresser</Item>
+								<Item>2562 Boreal Wood Dresser</Item>
+								<Item>2577 Slime Dresser</Item>
+								<Item>2637 Pumpkin Dresser</Item>
+								<Item>2638 Steampunk Dresser</Item>
+								<Item>2639 Glass Dresser</Item>
+								<Item>2640 Flesh Dresser</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Sofas">
+							<Items>
+								<Item>2397 Sofa</Item>
+								<Item>2398 Ebonwood Sofa</Item>
+								<Item>2399 Rich Mahogany Sofa</Item>
+								<Item>2400 Pearlwood Sofa</Item>
+								<Item>2401 Shadewood Sofa</Item>
+								<Item>2402 Blue Dungeon Sofa</Item>
+								<Item>2403 Green Dungeon Sofa</Item>
+								<Item>2404 Pink Dungeon Sofa</Item>
+								<Item>2405 Golden Sofa</Item>
+								<Item>2406 Obsidian Sofa</Item>
+								<Item>2407 Bone Sofa</Item>
+								<Item>2408 Cactus Sofa</Item>
+								<Item>2409 Spooky Sofa</Item>
+								<Item>2410 Skyware Sofa</Item>
+								<Item>2411 Honey Sofa</Item>
+								<Item>2412 Steampunk Sofa</Item>
+								<Item>2413 Mushroom Sofa</Item>
+								<Item>2414 Glass Sofa</Item>
+								<Item>2415 Pumpkin Sofa</Item>
+								<Item>2416 Lihzahrd Sofa</Item>
+								<Item>2527 Palm Wood Sofa</Item>
+								<Item>2582 Slime Sofa</Item>
+								<Item>2634 Flesh Sofa</Item>
+								<Item>2635 Frozen Sofa</Item>
+								<Item>2636 Living Wood Sofa</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Bookcases">
+							<Items>
+								<Item>354 Bookcase</Item>
+								<Item>1414 Blue Dungeon Bookcase</Item>
+								<Item>1512 Gothic Bookcase</Item>
+								<Item>1415 Green Dungeon Bookcase</Item>
+								<Item>1463 Obsidian Bookcase</Item>
+								<Item>1416 Pink Dungeon Bookcase</Item>
+								<Item>2020 Cactus Bookcase</Item>
+								<Item>2021 Ebonwood Bookcase</Item>
+								<Item>2022 Flesh Bookcase</Item>
+								<Item>2023 Honey Bookcase</Item>
+								<Item>2024 Steampunk Bookcase</Item>
+								<Item>2025 Glass Bookcase</Item>
+								<Item>2026 Rich Mahogany Bookcase</Item>
+								<Item>2027 Pearlwood Bookcase</Item>
+								<Item>2028 Spooky Bookcase</Item>
+								<Item>2029 Skyware Bookcase</Item>
+								<Item>2030 Lihzahrd Bookcase</Item>
+								<Item>2031 Frozen Bookcase</Item>
+								<Item>2135 Living Wood Bookcase</Item>
+								<Item>2136 Shadewood Bookcase</Item>
+								<Item>2137 Golden Bookcase</Item>
+								<Item>2138 Bone Bookcase</Item>
+								<Item>2233 Dynasty Bookcase</Item>
+								<Item>2536 Palm Wood Bookcase</Item>
+								<Item>2540 Mushroom Bookcase</Item>
+								<Item>2554 Boreal Wood Bookcase</Item>
+								<Item>2569 Slime Bookcase</Item>
+								<Item>2670 Pumpkin Bookcase</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Pianos">
+							<Items>
+								<Item>641 Ebonwood Piano</Item>
+								<Item>333 Piano</Item>
+								<Item>643 Pearlwood Piano</Item>
+								<Item>642 Rich Mahogany Piano</Item>
+								<Item>919 Shadewood Piano</Item>
+								<Item>2376 Blue Dungeon Piano</Item>
+								<Item>2377 Green Dungeon Piano</Item>
+								<Item>2378 Pink Dungeon Piano</Item>
+								<Item>2379 Golden Piano</Item>
+								<Item>2380 Obsidian Piano</Item>
+								<Item>2381 Bone Piano</Item>
+								<Item>2382 Cactus Piano</Item>
+								<Item>2383 Spooky Piano</Item>
+								<Item>2384 Skyware Piano</Item>
+								<Item>2385 Lihzahrd Piano</Item>
+								<Item>2254 Glass Piano</Item>
+								<Item>2255 Honey Piano</Item>
+								<Item>2256 Steampunk Piano</Item>
+								<Item>2245 Living Wood Piano</Item>
+								<Item>2246 Flesh Piano</Item>
+								<Item>2247 Frozen Piano</Item>
+								<Item>2531 Palm Wood Piano</Item>
+								<Item>2548 Mushroom Piano</Item>
+								<Item>2565 Boreal Wood Piano</Item>
+								<Item>2580 Slime Piano</Item>
+								<Item>2671 Pumpkin Piano</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Workbenches">
+							<Items>
+								<Item>1398 Blue Dungeon Work Bench</Item>
+								<Item>811 Bone Work Bench</Item>
+								<Item>812 Cactus Work Bench</Item>
+								<Item>635 Ebonwood Work Bench</Item>
+								<Item>813 Flesh Work Bench</Item>
+								<Item>1511 Gothic Work Bench</Item>
+								<Item>1401 Green Dungeon Work Bench</Item>
+								<Item>1145 Lihzahrd Work Bench</Item>
+								<Item>814 Mushroom Work Bench</Item>
+								<Item>1461 Obsidian Work Bench</Item>
+								<Item>637 Pearlwood Work Bench</Item>
+								<Item>1404 Pink Dungeon Work Bench</Item>
+								<Item>1795 Pumpkin Work Bench</Item>
+								<Item>636 Rich Mahogany Work Bench</Item>
+								<Item>916 Shadewood Work Bench</Item>
+								<Item>815 Slime Work Bench</Item>
+								<Item>1817 Spooky Work Bench</Item>
+								<Item>36 Work Bench</Item>
+								<Item>2251 Honey Work Bench</Item>
+								<Item>2252 Frozen Work Bench</Item>
+								<Item>2253 Steampunk Work Bench</Item>
+								<Item>2172 Heavy Work Bench</Item>
+								<Item>2229 Dynasty Work Bench</Item>
+								<Item>2534 Palm Wood Work Bench</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Crafting Stations">
+							<Items>
+								<Item>1551 Autohammer</Item>
+								<Item>995 Blend-O-Matic</Item>
+								<Item>1791 Cauldron</Item>
+								<Item>345 Cooking Pot</Item>
+								<Item>1120 Dye Vat</Item>
+								<Item>2193 Flesh Cloning Vat</Item>
+								<Item>997 Extractinator</Item>
+								<Item>996 Meat Grinder</Item>
+								<Item>33 Furnace</Item>
+								<Item>221 Hellforge</Item>
+								<Item>524 Adamantite Forge</Item>
+								<Item>1221 Titanium Forge</Item>
+								<Item>2195 Lihzahrd Furnace</Item>
+								<Item>1430 Imbuing Station</Item>
+								<Item>35 Iron Anvil</Item>
+								<Item>716 Lead Anvil</Item>
+								<Item>1220 Orichalcum Anvil</Item>
+								<Item>525 Mythril Anvil</Item>
+								<Item>352 Keg</Item>
+								<Item>332 Loom</Item>
+								<Item>2196 Living Loom</Item>
+								<Item>363 Sawmill</Item>
+								<Item>2197 Sky Mill</Item>
+								<Item>998 Solidifier</Item>
+								<Item>398 Tinkerer's Workshop</Item>
+								<Item>2192 Bone Welder</Item>
+								<Item>2194 Glass Kiln</Item>
+								<Item>2198 Ice Machine</Item>
+								<Item>2203 Steampunk Boiler</Item>
+								<Item>2204 Honey Dispenser</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Paintings">
+							<Items>
+								<Item>1495 American Explosive</Item>
+								<Item>1847 Bitter Harvest</Item>
+								<Item>1848 Blood Moon Countess</Item>
+								<Item>1372 Blood Moon Rising</Item>
+								<Item>1375 Bone Warp</Item>
+								<Item>1417 Catacomb</Item>
+								<Item>1487 Cold Waters in the White Land</Item>
+								<Item>1575 Crowno Devours His Lunch</Item>
+								<Item>1476 Dark Soul Reaper</Item>
+								<Item>1475 Darkness</Item>
+								<Item>1490 Daylight</Item>
+								<Item>1492 Deadland Comes Alive</Item>
+								<Item>1479 Demon's Eye</Item>
+								<Item>1496 Discover</Item>
+								<Item>1486 Do Not Step on the Grass</Item>
+								<Item>1426 Dryadisque</Item>
+								<Item>1493 Evil Presence</Item>
+								<Item>1500 Facing the Cerebral Mastermind</Item>
+								<Item>1442 Father of Someone</Item>
+								<Item>1480 Finding Gold</Item>
+								<Item>1481 First Encounter</Item>
+								<Item>1542 Flowing Magma</Item>
+								<Item>1577 Glorious Night</Item>
+								<Item>1374 Glory of the Fire</Item>
+								<Item>1425 Goblins Playing Poker</Item>
+								<Item>1482 Good Morning</Item>
+								<Item>1438 Great Wave</Item>
+								<Item>1440 Guide Picasso</Item>
+								<Item>1849 Hallow's Eve</Item>
+								<Item>1497 Hand Earth</Item>
+								<Item>1377 Hanging Skeleton</Item>
+								<Item>1538 Imp Face</Item>
+								<Item>1433 Impact</Item>
+								<Item>1846 Jacking Skeletron</Item>
+								<Item>1501 Lake of Fire</Item>
+								<Item>1477 Land</Item>
+								<Item>1488 Lightless Chasms</Item>
+								<Item>1541 Living Gore</Item>
+								<Item>1850 Morbid Curiosity</Item>
+								<Item>1443 Nurse Lisa</Item>
+								<Item>1498 Old Miner</Item>
+								<Item>1539 Ominous Presence</Item>
+								<Item>1485 Place Above the Clouds</Item>
+								<Item>1434 Powered by Birds</Item>
+								<Item>1576 Rare Enchantment</Item>
+								<Item>1491 Secret of the Sands</Item>
+								<Item>1540 Shining Moon</Item>
+								<Item>1499 Skelehead</Item>
+								<Item>1419 Skellington J Skellingsworth</Item>
+								<Item>1494 Sky Guardian</Item>
+								<Item>1422 Something Evil is Watching You</Item>
+								<Item>1439 Starry Night</Item>
+								<Item>1427 Sunflowers</Item>
+								<Item>1428 Terrarian Gothic</Item>
+								<Item>1573 The Creation of the Guide</Item>
+								<Item>1420 The Cursed Man</Item>
+								<Item>1435 The Destroyer</Item>
+								<Item>1421 The Eye Sees the End</Item>
+								<Item>1441 The Guardian's Gaze</Item>
+								<Item>1373 The Hanged Man</Item>
+								<Item>1489 The Land of Deceiving Looks</Item>
+								<Item>1574 The Merchant</Item>
+								<Item>1436 The Persistency of Eyes</Item>
+								<Item>1424 The Screamer</Item>
+								<Item>1423 The Twins Have Awoken</Item>
+								<Item>1484 Through the Window</Item>
+								<Item>1478 Trapped Ghost</Item>
+								<Item>1502 Trio Super Heroes</Item>
+								<Item>1483 Underground Reward</Item>
+								<Item>1437 Unicorn Crossing the Hallows</Item>
+								<Item>1474 Waldo</Item>
+								<Item>2495 Treasure Map</Item>
+								<Item>2497 Pillagin Me Pixels</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+					</SubCategories>
+				</Category>
+				<Category Name="Graves">
+					<Items>
+						<Item>1173 Grave Marker</Item>
+						<Item>1174 Cross Grave Marker</Item>
+						<Item>1175 Headstone</Item>
+						<Item>1176 Gravestone</Item>
+						<Item>1177 Obelisk</Item>
+						<Item>321 Tombstone</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Torches">
+					<Items>
+						<Item>8 Torch</Item>
+						<Item>427 Blue Torch</Item>
+						<Item>523 Cursed Torch</Item>
+						<Item>433 Demon Torch</Item>
+						<Item>429 Green Torch</Item>
+						<Item>974 Ice Torch</Item>
+						<Item>1333 Ichor Torch</Item>
+						<Item>1245 Orange Torch</Item>
+						<Item>430 Purple Torch</Item>
+						<Item>428 Red Torch</Item>
+						<Item>431 White Torch</Item>
+						<Item>432 Yellow Torch</Item>
+						<Item>2274 Ultrabright Torch</Item>
+						<Item>282 Glowstick</Item>
+						<Item>286 Sticky Glowstick</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Standing Lights">
+					<Items>
+						<Item>1405 Blue Dungeon Candle</Item>
+						<Item>596 Blue Light</Item>
+						<Item>349 Candelabra</Item>
+						<Item>2092 Cactus Candelabra</Item>
+						<Item>2093 Ebonwood Candelabra</Item>
+						<Item>2094 Flesh Candelabra</Item>
+						<Item>2095 Honey Candelabra</Item>
+						<Item>2096 Steampunk Candelabra</Item>
+						<Item>2097 Glass Candelabra</Item>
+						<Item>2098 Rich Mahogany Candelabra</Item>
+						<Item>2099 Pearlwood Candelabra</Item>
+						<Item>2100 Frozen Candelabra</Item>
+						<Item>2101 Lihzahrd Candelabra</Item>
+						<Item>2102 Skyware Candelabra</Item>
+						<Item>2103 Spooky Candelabra</Item>
+						<Item>2149 Living Wood Candelabra</Item>
+						<Item>2150 Shadewood Candelabra</Item>
+						<Item>2151 Golden Candelabra</Item>
+						<Item>2152 Bone Candelabra</Item>
+						<Item>714 Platinum Candelabra</Item>
+						<Item>2522 Palm Wood Candelabra</Item>
+						<Item>2541 Mushroom Candelabra</Item>
+						<Item>2555 Boreal Wood Candelabra</Item>
+						<Item>2570 Slime Candelabra</Item>
+						<Item>2664 Blue Dungeon Candelabra</Item>
+						<Item>2665 Green Dungeon Candelabra</Item>
+						<Item>2666 Pink Dungeon Candelabra</Item>
+						<Item>2667 Obsidian Candelabra</Item>
+						<Item>2668 Pumpkin Candelabra</Item>
+						<Item>105 Candle</Item>
+						<Item>1406 Green Dungeon Candle</Item>
+						<Item>598 Green Light</Item>
+						<Item>341 Lamp Post</Item>
+						<Item>713 Platinum Candle</Item>
+						<Item>1407 Pink Dungeon Candle</Item>
+						<Item>597 Red Light</Item>
+						<Item>347 Skull Lantern</Item>
+						<Item>342 Tiki Torch</Item>
+						<Item>2533 Palm Wood Lamp</Item>
+						<Item>148 Water Candle</Item>
+						<Item>2045 Cactus Candle</Item>
+						<Item>2046 Ebonwood Candle</Item>
+						<Item>2047 Flesh Candle</Item>
+						<Item>2048 Glass Candle</Item>
+						<Item>2049 Frozen Candle</Item>
+						<Item>2050 Rich Mahogany Candle</Item>
+						<Item>2051 Pearlwood Candle</Item>
+						<Item>2052 Lihzahrd Candle</Item>
+						<Item>2053 Skyware Candle</Item>
+						<Item>2054 Pumpkin Candle</Item>
+						<Item>2153 Living Wood Candle</Item>
+						<Item>2154 Shadewood Candle</Item>
+						<Item>2155 Golden Candle</Item>
+						<Item>2227 Large Dynasty Candle</Item>
+						<Item>2236 Dynasty Candle</Item>
+						<Item>2523 Palm Wood Candle</Item>
+						<Item>2542 Mushroom Candle</Item>
+						<Item>2556 Boreal Wood Candle</Item>
+						<Item>2571 Slime Candle</Item>
+						<Item>2648 Honey Candle</Item>
+						<Item>2649 Steampunk Candle</Item>
+						<Item>2650 Spooky Candle</Item>
+						<Item>2651 Obsidian Candle</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Hanging Lights">
+					<Items>
+						<Item>1393 Alchemy Lantern</Item>
+						<Item>1390 Brass Lantern</Item>
+						<Item>1391 Caged Lantern</Item>
+						<Item>1392 Carriage Lantern</Item>
+						<Item>136 Chain Lantern</Item>
+						<Item>344 Chinese Lantern</Item>
+						<Item>2032 Cactus Lantern</Item>
+						<Item>2033 Ebonwood Lantern</Item>
+						<Item>2034 Flesh Lantern</Item>
+						<Item>2035 Honey Lantern</Item>
+						<Item>2036 Steampunk Lantern</Item>
+						<Item>2037 Glass Lantern</Item>
+						<Item>2038 Rich Mahogany Lantern</Item>
+						<Item>2039 Pearlwood Lantern</Item>
+						<Item>2040 Frozen Lantern</Item>
+						<Item>2041 Lihzahrd Lantern</Item>
+						<Item>2042 Skyware Lantern</Item>
+						<Item>2043 Spooky Lantern</Item>
+						<Item>2145 Living Wood Lantern</Item>
+						<Item>2146 Shadewood Lantern</Item>
+						<Item>2147 Golden Lantern</Item>
+						<Item>2148 Bone Lantern</Item>
+						<Item>2224 Large Dynasty Lantern</Item>
+						<Item>2226 Dynasty Lantern</Item>
+						<Item>2546 Mushroom Lantern</Item>
+						<Item>2564 Boreal Wood Lantern</Item>
+						<Item>2579 Slime Lantern</Item>
+						<Item>2641 Pumpkin Lantern</Item>
+						<Item>2642 Obsidian Lantern</Item>
+						<Item>106 Copper Chandelier</Item>
+						<Item>710 Tin Chandelier</Item>
+						<Item>711 Tungsten Chandelier</Item>
+						<Item>2055 Cactus Chandelier</Item>
+						<Item>2056 Ebonwood Chandelier</Item>
+						<Item>2057 Flesh Chandelier</Item>
+						<Item>2058 Honey Chandelier</Item>
+						<Item>2059 Frozen Chandelier</Item>
+						<Item>2060 Rich Mahogany Chandelier</Item>
+						<Item>2061 Pearlwood Chandelier</Item>
+						<Item>2062 Lihzahrd Chandelier</Item>
+						<Item>2063 Skyware Chandelier</Item>
+						<Item>2064 Spooky Chandelier</Item>
+						<Item>2065 Glass Chandelier</Item>
+						<Item>2141 Living Wood Chandelier</Item>
+						<Item>2142 Shadewood Chandelier</Item>
+						<Item>2143 Golden Chandelier</Item>
+						<Item>2144 Bone Chandelier</Item>
+						<Item>2525 Palm Wood Chandelier</Item>
+						<Item>2543 Mushroom Chandelier</Item>
+						<Item>2558 Boreal Wood Chandelier</Item>
+						<Item>2573 Slime Chandelier</Item>
+						<Item>2652 Blue Dungeon Chandelier</Item>
+						<Item>2653 Green Dungeon Chandelier</Item>
+						<Item>2654 Pink Dungeon Chandelier</Item>
+						<Item>2655 Steampunk Chandelier</Item>
+						<Item>2656 Pumpkin Chandelier</Item>
+						<Item>2657 Obsidian Chandelier</Item>
+						<Item>1394 Diablost Lamp</Item>
+						<Item>2082 Cactus Lamp</Item>
+						<Item>2083 Ebonwood Lamp</Item>
+						<Item>2084 Flesh Lamp</Item>
+						<Item>2085 Glass Lamp</Item>
+						<Item>2086 Frozen Lamp</Item>
+						<Item>2087 Rich Mahogany Lamp</Item>
+						<Item>2088 Pearlwood Lamp</Item>
+						<Item>2089 Lihzahrd Lamp</Item>
+						<Item>2090 Skyware Lamp</Item>
+						<Item>2091 Spooky Lamp</Item>
+						<Item>2129 Honey Lamp</Item>
+						<Item>2130 Steampunk Lamp</Item>
+						<Item>2131 Living Wood Lamp</Item>
+						<Item>2132 Shadewood Lamp</Item>
+						<Item>2133 Golden Lamp</Item>
+						<Item>2134 Bone Lamp</Item>
+						<Item>2530 Palm Wood Lantern</Item>
+						<Item>2225 Dynasty Lamp</Item>
+						<Item>2547 Mushroom Lamp</Item>
+						<Item>2563 Boreal Wood Lamp</Item>
+						<Item>2578 Slime Lamp</Item>
+						<Item>2643 Pumpkin Lamp</Item>
+						<Item>2644 Obsidian Lamp</Item>
+						<Item>2645 Blue Dungeon Lamp</Item>
+						<Item>2646 Green Dungeon Lamp</Item>
+						<Item>2647 Pink Dungeon Lamp</Item>
+						<Item>488 Disco Ball</Item>
+						<Item>108 Gold Chandelier</Item>
+						<Item>1808 Hanging Jack 'O Lantern</Item>
+						<Item>1859 Heart Lantern</Item>
+						<Item>1812 Jackelier</Item>
+						<Item>1813 Jack 'O Lantern</Item>
+						<Item>1395 Oil Rag Sconse</Item>
+						<Item>712 Platinum Chandelier</Item>
+						<Item>107 Silver Chandelier</Item>
+						<Item>1431 Star in a Bottle</Item>
+						<Item>1884 Multicolored Bulb</Item>
+						<Item>1885 Red Bulb</Item>
+						<Item>1886 Yellow Bulb</Item>
+						<Item>1887 Green Bulb</Item>
+						<Item>1888 Red and Green Bulb</Item>
+						<Item>1889 Yellow and Green Bulb</Item>
+						<Item>1890 Red and Yellow Bulb</Item>
+						<Item>1891 White Bulb</Item>
+						<Item>1892 White and Red Bulb</Item>
+						<Item>1893 White and Yellow Bulb</Item>
+						<Item>1894 White and Green Bulb</Item>
+						<Item>1895 Multicolored Lights</Item>
+						<Item>1896 Red Lights</Item>
+						<Item>1897 Green Lights</Item>
+						<Item>1898 Blue Lights</Item>
+						<Item>1899 Yellow Lights</Item>
+						<Item>1900 Red and Yellow Lights</Item>
+						<Item>1901 Red and Green Lights</Item>
+						<Item>1902 Yellow and Green Lights</Item>
+						<Item>1903 Blue and Green Lights</Item>
+						<Item>1904 Red and Blue Lights</Item>
+						<Item>1905 Blue and Yellow Lights</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Paint">
+					<Items>
+						<Item>1543 Spectre Paintbrush</Item>
+						<Item>1544 Spectre Paint Roller</Item>
+						<Item>1545 Spectre Paint Scraper</Item>
+						<Item>1071 Paintbrush</Item>
+						<Item>1072 Paint Roller</Item>
+						<Item>1100 Paint Scraper</Item>
+						<Item>1097 Black Paint</Item>
+						<Item>1081 Blue Paint</Item>
+						<Item>1079 Cyan Paint</Item>
+						<Item>1093 Deep Blue Paint</Item>
+						<Item>1091 Deep Cyan Paint</Item>
+						<Item>1089 Deep Green Paint</Item>
+						<Item>1088 Deep Lime Paint</Item>
+						<Item>1086 Deep Orange Paint</Item>
+						<Item>1096 Deep Pink Paint</Item>
+						<Item>1094 Deep Purple Paint</Item>
+						<Item>1085 Deep Red Paint</Item>
+						<Item>1092 Deep Sky Blue Paint</Item>
+						<Item>1090 Deep Teal Paint</Item>
+						<Item>1095 Deep Violet Paint</Item>
+						<Item>1087 Deep Yellow Paint</Item>
+						<Item>1099 Gray Paint</Item>
+						<Item>1077 Green Paint</Item>
+						<Item>1076 Lime Paint</Item>
+						<Item>1074 Orange Paint</Item>
+						<Item>1084 Pink Paint</Item>
+						<Item>1082 Purple Paint</Item>
+						<Item>1073 Red Paint</Item>
+						<Item>1080 Sky Blue Paint</Item>
+						<Item>1078 Teal Paint</Item>
+						<Item>1083 Violet Paint</Item>
+						<Item>1098 White Paint</Item>
+						<Item>1075 Yellow Paint</Item>
+						<Item>1966 Brown Paint</Item>
+						<Item>1967 Shadow Paint</Item>
+						<Item>1968 Negative Paint</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Banners">
+					<Items>
+						<Item>1615 Angler Fish Banner</Item>
+						<Item>1616 Angry Nimbus Banner</Item>
+						<Item>789 Ankh Banner</Item>
+						<Item>1617 Anomura Fungus Banner</Item>
+						<Item>1618 Antlion Banner</Item>
+						<Item>1619 Arapaima Banner</Item>
+						<Item>1620 Armored Skeleton Banner</Item>
+						<Item>1621 Bat Banner</Item>
+						<Item>1622 Bird Banner</Item>
+						<Item>1623 Black Recluse Banner</Item>
+						<Item>1624 Blood Feeder Banner</Item>
+						<Item>1625 Blood Jelly Banner</Item>
+						<Item>1626 Blood Crawler Banner</Item>
+						<Item>339 Blue Banner</Item>
+						<Item>1627 Bone Serpent Banner</Item>
+						<Item>1628 Bunny Banner</Item>
+						<Item>1629 Chaos Elemental Banner</Item>
+						<Item>1630 Mimic Banner</Item>
+						<Item>1631 Clown Banner</Item>
+						<Item>1632 Corrupt Bunny Banner</Item>
+						<Item>1633 Corrupt Goldfish Banner</Item>
+						<Item>1634 Crab Banner</Item>
+						<Item>1635 Crimera Banner</Item>
+						<Item>1636 Crimson Axe Banner</Item>
+						<Item>1637 Cursed Hammer Banner</Item>
+						<Item>1638 Demon Banner</Item>
+						<Item>1639 Demon Eye Banner</Item>
+						<Item>1640 Derpling Banner</Item>
+						<Item>1456 Diabolic Sigil</Item>
+						<Item>1641 Eater of Souls Banner</Item>
+						<Item>1642 Enchanted Sword Banner</Item>
+						<Item>1643 Zombie Eskimo Banner</Item>
+						<Item>1644 Face Monster Banner</Item>
+						<Item>1645 Floaty Gross Banner</Item>
+						<Item>1646 Flying Fish Banner</Item>
+						<Item>1647 Flying Snake Banner</Item>
+						<Item>1648 Frankenstein Banner</Item>
+						<Item>1649 Fungi Bulb Banner</Item>
+						<Item>1650 Fungo Fish Banner</Item>
+						<Item>1651 Gastropod Banner</Item>
+						<Item>1652 Goblin Archer Banner</Item>
+						<Item>1653 Goblin Sorcerer Banner</Item>
+						<Item>1654 Goblin Scout Banner</Item>
+						<Item>1655 Goblin Thief Banner</Item>
+						<Item>1656 Goblin Warrior Banner</Item>
+						<Item>1657 Goldfish Banner</Item>
+						<Item>847 Gravity Banner</Item>
+						<Item>338 Green Banner</Item>
+						<Item>1658 Harpy Banner</Item>
+						<Item>1659 Hellbat Banner</Item>
+						<Item>1464 Hellbound Banner</Item>
+						<Item>1466 Helltower Banner</Item>
+						<Item>1465 Hell Hammer Banner</Item>
+						<Item>1660 Herpling Banner</Item>
+						<Item>1661 Hornet Banner</Item>
+						<Item>1662 Ice Elemental Banner</Item>
+						<Item>1663 Icy Merman Banner</Item>
+						<Item>1664 Fire Imp Banner</Item>
+						<Item>1665 Jellyfish Banner</Item>
+						<Item>1666 Jungle Creeper Banner</Item>
+						<Item>1469 Lava Erupts Banner</Item>
+						<Item>1667 Lihzahrd Banner</Item>
+						<Item>1467 Lost Hopes of Man Banner</Item>
+						<Item>1668 Man Eater Banner</Item>
+						<Item>1451 Marching Bones Banner</Item>
+						<Item>1669 Meteor Head Banner</Item>
+						<Item>1455 Molten Legion Flag</Item>
+						<Item>1670 Moth Banner</Item>
+						<Item>1671 Mummy Banner</Item>
+						<Item>1672 Mushi Ladybug Banner</Item>
+						<Item>1452 Necromantic Sign</Item>
+						<Item>1468 Obsidian Watcher Banner</Item>
+						<Item>791 Omega Banner</Item>
+						<Item>1673 Parrot Banner</Item>
+						<Item>1674 Pigron Banner</Item>
+						<Item>1675 Piranha Banner</Item>
+						<Item>1676 Pirate Banner</Item>
+						<Item>1677 Pixie Banner</Item>
+						<Item>1454 Ragged Brotherhood Sigil</Item>
+						<Item>1678 Raincoat Zombie Banner</Item>
+						<Item>337 Red Banner</Item>
+						<Item>1679 Reaper Banner</Item>
+						<Item>1453 Rusted Company Standard</Item>
+						<Item>1680 Shark Banner</Item>
+						<Item>1681 Skeleton Banner</Item>
+						<Item>1682 Skeleton Mage Banner</Item>
+						<Item>1683 Slime Banner</Item>
+						<Item>790 Snake Banner</Item>
+						<Item>1684 Snow Flinx Banner</Item>
+						<Item>1685 Spider Banner</Item>
+						<Item>1686 Spore Zombie Banner</Item>
+						<Item>846 Sun Banner</Item>
+						<Item>1687 Swamp Thing Banner</Item>
+						<Item>1688 Tortoise Banner</Item>
+						<Item>1689 Toxic Sludge Banner</Item>
+						<Item>1690 Umbrella Slime Banner</Item>
+						<Item>1691 Unicorn Banner</Item>
+						<Item>1692 Vampire Banner</Item>
+						<Item>1693 Vulture Banner</Item>
+						<Item>1694 Nymph Banner</Item>
+						<Item>1695 Werewolf Banner</Item>
+						<Item>1696 Wolf Banner</Item>
+						<Item>845 World Banner</Item>
+						<Item>1697 World Feeder Banner</Item>
+						<Item>1698 Worm Banner</Item>
+						<Item>1699 Wraith Banner</Item>
+						<Item>1700 Wyvern Banner</Item>
+						<Item>340 Yellow Banner</Item>
+						<Item>1701 Zombie Banner</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Water Fountains">
+					<Items>
+						<Item>945 Blood Water Fountain</Item>
+						<Item>942 Corrupt Water Fountain</Item>
+						<Item>943 Crimson Water Fountain</Item>
+						<Item>910 Desert Water Fountain</Item>
+						<Item>944 Hallowed Water Fountain</Item>
+						<Item>941 Icy Water Fountain</Item>
+						<Item>940 Jungle Water Fountain</Item>
+						<Item>909 Pure Water Fountain</Item>
+						<Item>2738 Firework Fountain</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Wire">
+					<Items>
+						<Item>530 Wire</Item>
+						<Item>509 Wrench</Item>
+						<Item>850 Blue Wrench</Item>
+						<Item>851 Green Wrench</Item>
+						<Item>510 Wire Cutter</Item>
+						<Item>511 Active Stone Block</Item>
+						<Item>512 Inactive Stone Block</Item>
+						<Item>849 Actuator</Item>
+						<Item>1263 Teleporter</Item>
+						<Item>581 Inlet Pump</Item>
+						<Item>582 Outlet Pump</Item>
+						<Item>513 Lever</Item>
+						<Item>538 Switch</Item>
+						<Item>583 1 Second Timer</Item>
+						<Item>584 3 Second Timer</Item>
+						<Item>585 5 Second Timer</Item>
+						<Item>852 Blue Pressure Plate</Item>
+						<Item>543 Brown Pressure Plate</Item>
+						<Item>542 Gray Pressure Plate</Item>
+						<Item>541 Green Pressure Plate</Item>
+						<Item>1151 Lihzahrd Pressure Plate</Item>
+						<Item>529 Red Pressure Plate</Item>
+						<Item>853 Yellow Pressure Plate</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Traps">
+					<Items>
+						<Item>540 Boulder</Item>
+						<Item>539 Dart Trap</Item>
+						<Item>580 Explosives</Item>
+						<Item>1147 Flame Trap</Item>
+						<Item>937 Land Mine</Item>
+						<Item>1149 Spear Trap</Item>
+						<Item>1148 Spiky Ball Trap</Item>
+						<Item>1146 Super Dart Trap</Item>
+						<Item>147 Spike</Item>
+						<Item>1150 Wooden Spike</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Minecarts">
+					<Items>
+						<Item>2343 Minecart</Item>
+						<Item>2340 Minecart Track</Item>
+						<Item>2492 Pressure Plate Track</Item>
+						<Item>2739 Booster Track</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Containers">
+					<Items />
+					<SubCategories>
+						<Category Name="Bottles">
+							<Items>
+								<Item>31 Bottle</Item>
+								<Item>126 Bottled Water</Item>
+								<Item>1134 Bottled Honey</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Buckets">
+							<Items>
+								<Item>205 Empty Bucket</Item>
+								<Item>1128 Honey Bucket</Item>
+								<Item>207 Lava Bucket</Item>
+								<Item>206 Water Bucket</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+
+					</SubCategories>
+				</Category>
+
+			</SubCategories>
+		</Category>
+		<Category Name="Consumables">
+			<Items />
+			<SubCategories>
+				<Category Name="Ammo">
+					<Items />
+					<SubCategories>
+						<Category Name="Arrows">
+							<Items>
+								<Item>1341 Venom Arrow</Item>
+								<Item>1235 Chlorophyte Arrow</Item>
+								<Item>1334 Ichor Arrow</Item>
+								<Item>545 Cursed Arrow</Item>
+								<Item>516 Holy Arrow</Item>
+								<Item>265 Hellfire Arrow</Item>
+								<Item>51 Jester's Arrow</Item>
+								<Item>47 Unholy Arrow</Item>
+								<Item>988 Frostburn Arrow</Item>
+								<Item>41 Flaming Arrow</Item>
+								<Item>40 Wooden Arrow</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Bullets">
+							<Items>
+								<Item>1179 Chlorophyte Bullet</Item>
+								<Item>1342 Venom Bullet</Item>
+								<Item>1335 Ichor Bullet</Item>
+								<Item>546 Cursed Bullet</Item>
+								<Item>1352 Golden Bullet</Item>
+								<Item>1351 Exploding Bullet</Item>
+								<Item>1350 Nano Bullet</Item>
+								<Item>1349 Party Bullet</Item>
+								<Item>1302 High Velocity Bullet</Item>
+								<Item>515 Crystal Bullet</Item>
+								<Item>234 Meteor Shot</Item>
+								<Item>278 Silver Bullet</Item>
+								<Item>97 Musket Ball</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Throwable">
+							<Items>
+								<Item>161 Spiky Ball</Item>
+								<Item>287 Poisoned Knife</Item>
+								<Item>279 Throwing Knife</Item>
+								<Item>42 Shuriken</Item>
+								<Item>949 Snowball</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Explosives">
+							<Items>
+								<Item>774 Rocket IV</Item>
+								<Item>773 Rocket III</Item>
+								<Item>772 Rocket II</Item>
+								<Item>771 Rocket I</Item>
+								<Item>167 Dynamite</Item>
+								<Item>235 Sticky Bomb</Item>
+								<Item>166 Bomb</Item>
+								<Item>168 Grenade</Item>
+								<Item>2586 Sticky Grenade</Item>
+								<Item>2590 Molotov Cocktail</Item>
+								<Item>1130 Beenade</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Terraforming">
+							<Items>
+								<Item>779 Clentaminator</Item>
+								<Item>781 Blue Solution</Item>
+								<Item>783 Dark Blue Solution</Item>
+								<Item>780 Green Solution</Item>
+								<Item>784 Red Solution</Item>
+								<Item>782 Purple Solution</Item>
+								<Item>422 Holy Water</Item>
+								<Item>423 Unholy Water</Item>
+								<Item>66 Purification Powder</Item>
+								<Item>67 Vile Powder</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+						<Category Name="Other">
+							<Items>
+								<Item>1783 Candy Corn</Item>
+								<Item>929 Cannonball</Item>
+								<Item>1338 Explosive Bunny</Item>
+								<Item>1785 Explosive Jack 'O Lantern</Item>
+								<Item>75 Fallen Star</Item>
+								<Item>931 Flare</Item>
+								<Item>1614 Blue Flare</Item>
+								<Item>23 Gel</Item>
+								<Item>1310 Poison Dart</Item>
+								<Item>1809 Rotten Egg</Item>
+								<Item>283 Seed</Item>
+								<Item>1168 Smoke Bomb</Item>
+								<Item>1836 Stake</Item>
+								<Item>1261 Stynger Bolt</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+					</SubCategories>
+				</Category>
+				<Category Name="Stat Up">
+					<Items>
+						<Item>29 Life Crystal</Item>
+						<Item>1291 Life Fruit</Item>
+						<Item>109 Mana Crystal</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Potions">
+					<Items>
+						<Item>499 Greater Healing Potion</Item>
+						<Item>500 Greater Mana Potion</Item>
+						<Item>188 Healing Potion</Item>
+						<Item>189 Mana Potion</Item>
+						<Item>227 Restoration Potion</Item>
+						<Item>28 Lesser Healing Potion</Item>
+						<Item>110 Lesser Mana Potion</Item>
+						<Item>226 Lesser Restoration Potion</Item>
+						<Item>2209 Super Mana Potion</Item>
+						<Item>2322 Mining Potion</Item>
+						<Item>2323 Heartreach Potion</Item>
+						<Item>2324 Calming Potion</Item>
+						<Item>2325 Builder Potion</Item>
+						<Item>2326 Titan Potion</Item>
+						<Item>2327 Flipper Potion</Item>
+						<Item>2328 Summoning Potion</Item>
+						<Item>2329 Dangersense Potion</Item>
+						<Item>2344 Ammo Reservation Potion</Item>
+						<Item>2345 Lifeforce Potion</Item>
+						<Item>2346 Endurance Potion</Item>
+						<Item>2347 Rage Potion</Item>
+						<Item>2348 Inferno Potion</Item>
+						<Item>2349 Wrath Potion</Item>
+						<Item>2350 Recall Potion</Item>
+						<Item>2351 Teleportation Potion</Item>
+						<Item>2352 Love Potion</Item>
+						<Item>2353 Stink Potion</Item>
+						<Item>2354 Fishing Potion</Item>
+						<Item>2355 Sonar Potion</Item>
+						<Item>2356 Crate Potion</Item>
+						<Item>2359 Warmth Potion</Item>
+					</Items>
+					<SubCategories>
+						<Category Name="Buffs">
+							<Items>
+								<Item>303 Archery Potion</Item>
+								<Item>300 Battle Potion</Item>
+								<Item>295 Featherfall Potion</Item>
+								<Item>1353 Flask of Cursed Flames</Item>
+								<Item>1354 Flask of Fire</Item>
+								<Item>1355 Flask of Gold</Item>
+								<Item>1356 Flask of Ichor</Item>
+								<Item>1357 Flask of Nanites</Item>
+								<Item>1358 Flask of Party</Item>
+								<Item>1359 Flask of Poison</Item>
+								<Item>1340 Flask of Venom</Item>
+								<Item>291 Gills Potion</Item>
+								<Item>305 Gravitation Potion</Item>
+								<Item>304 Hunter Potion</Item>
+								<Item>297 Invisibility Potion</Item>
+								<Item>292 Ironskin Potion</Item>
+								<Item>294 Magic Power Potion</Item>
+								<Item>293 Mana Regeneration Potion</Item>
+								<Item>299 Night Owl Potion</Item>
+								<Item>288 Obsidian Skin Potion</Item>
+								<Item>289 Regeneration Potion</Item>
+								<Item>298 Shine Potion</Item>
+								<Item>296 Spelunker Potion</Item>
+								<Item>290 Swiftness Potion</Item>
+								<Item>301 Thorns Potion</Item>
+								<Item>302 Water Walking Potion</Item>
+								<Item>2266 Sake</Item>
+								<Item>2267 Pad Thai</Item>
+								<Item>2268 Pho</Item>
+								<Item>2427 Sashimi</Item>
+							</Items>
+							<SubCategories />
+						</Category>
+					</SubCategories>
+				</Category>
+				<Category Name="Food">
+					<Items>
+						<Item>353 Ale</Item>
+						<Item>357 Bowl of Soup</Item>
+						<Item>1911 Christmas Pudding</Item>
+						<Item>969 Cooked Marshmallow</Item>
+						<Item>1912 Eggnog</Item>
+						<Item>1920 Gingerbread Cookie</Item>
+						<Item>261 Goldfish</Item>
+						<Item>967 Marshmallow</Item>
+						<Item>968 Marshmallow on a Stick</Item>
+						<Item>1787 Pumpkin Pie</Item>
+						<Item>1919 Sugar Cookie</Item>
+						<Item>2425 Cooked Fish</Item>
+						<Item>2426 Cooked Shrimp</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Seeds">
+					<Items>
+						<Item>27 Acorn</Item>
+						<Item>309 Blinkroot Seeds</Item>
+						<Item>59 Corrupt Seeds</Item>
+						<Item>307 Daybloom Seeds</Item>
+						<Item>310 Deathweed Seeds</Item>
+						<Item>312 Fireblossom Seeds</Item>
+						<Item>62 Grass Seeds</Item>
+						<Item>369 Hallowed Seeds</Item>
+						<Item>195 Jungle Grass Seeds</Item>
+						<Item>308 Moonglow Seeds</Item>
+						<Item>194 Mushroom Grass Seeds</Item>
+						<Item>1828 Pumpkin Seed</Item>
+						<Item>311 Waterleaf Seeds</Item>
+						<Item>2171 Crimson Seeds</Item>
+						<Item>2357 Shiverthorn Seeds</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Keys">
+					<Items>
+						<Item>327 Golden Key</Item>
+						<Item>329 Shadow Key</Item>
+						<Item>1804 Corruption Key Mold</Item>
+						<Item>1534 Corruption Key</Item>
+						<Item>1805 Crimson Key Mold</Item>
+						<Item>1535 Crimson Key</Item>
+						<Item>1807 Frozen Key Mold</Item>
+						<Item>1537 Frozen Key</Item>
+						<Item>1806 Hallowed Key Mold</Item>
+						<Item>1536 Hallowed Key</Item>
+						<Item>1803 Jungle Key Mold</Item>
+						<Item>1533 Jungle Key</Item>
+						<Item>1141 Temple Key</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Currency">
+					<Items>
+						<Item>74 Platinum Coin</Item>
+						<Item>73 Gold Coin</Item>
+						<Item>72 Silver Coin</Item>
+						<Item>71 Copper Coin</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Boss Summons">
+					<Items>
+						<Item>1844 Pumpkin Moon Medallion</Item>
+						<Item>1958 Naughty Present</Item>
+						<Item>1292 Lihzahrd Altar</Item>
+						<Item>1293 Lihzahrd Power Cell</Item>
+						<Item>1315 Pirate Map</Item>
+						<Item>602 Snow Globe</Item>
+						<Item>557 Mechanical Skull</Item>
+						<Item>544 Mechanical Eye</Item>
+						<Item>556 Mechanical Worm</Item>
+						<Item>1133 Abeemination</Item>
+						<Item>361 Goblin Battle Standard</Item>
+						<Item>1331 Bloody Spine</Item>
+						<Item>70 Worm Food</Item>
+						<Item>43 Suspicious Looking Eye</Item>
+						<Item>560 Slime Crown</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Dolls">
+					<Items>
+						<Item>267 Guide Voodoo Doll</Item>
+						<Item>1307 Clothier Voodoo Doll</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Bait">
+					<Items>
+						<Item>2674 Apprentice Bait</Item>
+						<Item>2675 Journeyman Bait</Item>
+						<Item>2676 Master Bait</Item>
+						<Item>2673 Truffle Worm</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+
+			</SubCategories>
+		</Category>
+		<Category Name="Other">
+			<Items />
+			<SubCategories>
+				<Category Name="Light Magic">
+					<Items>
+						<Item>1183 Wisp in a Bottle</Item>
+						<Item>425 Fairy Bell</Item>
+						<Item>115 Shadow Orb</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Wands">
+					<Items>
+						<Item>932 Bone Wand</Item>
+						<Item>1129 Hive Wand</Item>
+						<Item>1450 Bubble Wand</Item>
+						<Item>933 Leaf Wand</Item>
+						<Item>832 Living Wood Wand</Item>
+						<Item>496 Ice Rod</Item>
+						<Item>213 Staff of Regrowth</Item>
+						<Item>114 Dirt Rod</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Unobtainable">
+					<Items>
+						<Item>58 Heart</Item>
+						<Item>184 Star</Item>
+						<Item>1734 Candy Apple</Item>
+						<Item>1735 Soul Cake</Item>
+						<Item>1867 Candy Cane</Item>
+						<Item>1868 Sugar Plum</Item>
+						<Item>2281 Tiger Skin</Item>
+						<Item>2282 Leopard Skin</Item>
+						<Item>2283 Zebra Skin</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Quest">
+					<Items>
+						<Item>2458 Fallen Starfish</Item>
+						<Item>2484 Fishron</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Junk">
+					<Items>
+						<Item>2337 Old Shoe</Item>
+						<Item>2338 Seaweed</Item>
+						<Item>2339 Tin Can</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Pets">
+					<Items>
+						<Item>1242 Amber Mosquito</Item>
+						<Item>1959 Baby Grinch's Mischief Whistle</Item>
+						<Item>1169 Bone Key</Item>
+						<Item>603 Carrot</Item>
+						<Item>2428 Fuzzy Carrot</Item>
+						<Item>2429 Scaly Truffle</Item>
+						<Item>2430 Slimy Saddle</Item>
+						<Item>2491 Hardy Saddle</Item>
+						<Item>2502 Honeyed Goggles</Item>
+						<Item>1837 Cursed Sapling</Item>
+						<Item>1927 Dog Whistle</Item>
+						<Item>994 Eater's Bone</Item>
+						<Item>1311 Eye Spring</Item>
+						<Item>669 Fish</Item>
+						<Item>1172 Lizard Egg</Item>
+						<Item>1799 Magical Pumpkin Seed</Item>
+						<Item>1170 Nectar</Item>
+						<Item>1180 Parrot Cracker</Item>
+						<Item>753 Seaweed</Item>
+						<Item>1182 Seedling</Item>
+						<Item>1798 Spider Egg</Item>
+						<Item>1181 Strange Glowing Mushroom</Item>
+						<Item>1171 Tiki Totem</Item>
+						<Item>1312 Toy Sled</Item>
+						<Item>1810 Unlucky Yarn</Item>
+						<Item>2587 Tartar Sauce</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Fun">
+					<Items>
+						<Item>859 Beach Ball</Item>
+						<Item>1326 Rod of Discord</Item>
+						<Item>856 Unicorn on a Stick</Item>
+						<Item>215 Whoopie Cushion</Item>
+						<Item>2700 Fireworks Box</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Presents">
+					<Items>
+						<Item>599 Blue Present</Item>
+						<Item>600 Green Present</Item>
+						<Item>601 Yellow Present</Item>
+						<Item>1774 Goodie Bag</Item>
+						<Item>1869 Present</Item>
+						<Item>2334 Wooden Crate</Item>
+						<Item>2335 Iron Crate</Item>
+						<Item>2336 Golden Crate</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Fish">
+					<Items>
+						<Item>2290 Bass</Item>
+						<Item>2297 Trout</Item>
+						<Item>2298 Salmon</Item>
+						<Item>2299 Atlantic Cod</Item>
+						<Item>2300 Tuna</Item>
+						<Item>2301 Red Snapper</Item>
+						<Item>2302 Neon Tetra</Item>
+						<Item>2303 Armored Cavefish</Item>
+						<Item>2304 Damselfish</Item>
+						<Item>2305 Crimson Tigerfish</Item>
+						<Item>2306 Frost Minnow</Item>
+						<Item>2307 Princess Fish</Item>
+						<Item>2308 Golden Carp</Item>
+						<Item>2309 Specular Fish</Item>
+						<Item>2310 Prismite</Item>
+						<Item>2311 Variegated Lardfish</Item>
+						<Item>2312 Flarefin Koi</Item>
+						<Item>2313 Double Cod</Item>
+						<Item>2314 Honeyfin</Item>
+						<Item>2315 Obsidifish</Item>
+						<Item>2316 Shrimp</Item>
+						<Item>2317 Chaos Fish</Item>
+						<Item>2318 Ebonkoi</Item>
+						<Item>2319 Hemopiranha</Item>
+						<Item>2320 Rockfish</Item>
+						<Item>2321 Stinkfish</Item>
+						<Item>2330 Purple Clubberfish</Item>
+						<Item>2331 Obsidian Swordfish</Item>
+						<Item>2332 Swordfish</Item>
+						<Item>2341 Reaver Shark</Item>
+						<Item>2342 Sawtooth Shark</Item>
+						<Item>2420 Zephyr Fish</Item>
+						<Item>2436 Blue Jellyfish</Item>
+						<Item>2437 Green Jellyfish</Item>
+						<Item>2438 Pink Jellyfish</Item>
+						<Item>2450 Batfish</Item>
+						<Item>2451 Bumblebee Tuna</Item>
+						<Item>2452 Catfish</Item>
+						<Item>2453 Cloudfish</Item>
+						<Item>2454 Cursedfish</Item>
+						<Item>2455 Dirtfish</Item>
+						<Item>2456 Dynamite Fish</Item>
+						<Item>2457 Eater of Plankton</Item>
+						<Item>2459 The Fish of Cthulhu</Item>
+						<Item>2460 Fishotron</Item>
+						<Item>2461 Harpyfish</Item>
+						<Item>2462 Hungerfish</Item>
+						<Item>2463 Ichorfish</Item>
+						<Item>2464 Jewelfish</Item>
+						<Item>2465 Mirage Fish</Item>
+						<Item>2466 Mutant Flinxfin</Item>
+						<Item>2467 Pengfish</Item>
+						<Item>2468 Pixiefish</Item>
+						<Item>2469 Spiderfish</Item>
+						<Item>2470 Tundra Trout</Item>
+						<Item>2471 Unicorn Fish</Item>
+						<Item>2472 Guide Voodoo Fish</Item>
+						<Item>2473 Wyverntail</Item>
+						<Item>2474 Zombie Fish</Item>
+						<Item>2475 Amanitia Fungifin</Item>
+						<Item>2476 Angelfish</Item>
+						<Item>2477 Bloody Manowar</Item>
+						<Item>2478 Bonefish</Item>
+						<Item>2479 Bunnyfish</Item>
+						<Item>2480 Cap'n Tunabeard</Item>
+						<Item>2481 Clownfish</Item>
+						<Item>2482 Demonic Hellfish</Item>
+						<Item>2483 Derpfish</Item>
+						<Item>2485 Infected Scabbardfish</Item>
+						<Item>2486 Mudfish</Item>
+						<Item>2487 Slimefish</Item>
+						<Item>2488 Tropical Barracuda</Item>
+						<Item>2626 Starfish</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+
+			</SubCategories>
+		</Category>
+		<Category Name="Crafting">
+			<Items />
+			<SubCategories>
+				<Category Name="Ores Bars">
+					<Items>
+						<Item>1552 Shroomite Bar</Item>
+						<Item>1006 Chlorophyte Bar</Item>
+						<Item>947 Chlorophyte Ore</Item>
+						<Item>1225 Hallowed Bar</Item>
+						<Item>1198 Titanium Bar</Item>
+						<Item>1106 Titanium Ore</Item>
+						<Item>391 Adamantite Bar</Item>
+						<Item>366 Adamantite Ore</Item>
+						<Item>1191 Orichalcum Bar</Item>
+						<Item>1105 Orichalcum Ore</Item>
+						<Item>382 Mythril Bar</Item>
+						<Item>365 Mythril Ore</Item>
+						<Item>1184 Palladium Bar</Item>
+						<Item>1104 Palladium Ore</Item>
+						<Item>381 Cobalt Bar</Item>
+						<Item>364 Cobalt Ore</Item>
+						<Item>175 Hellstone Bar</Item>
+						<Item>174 Hellstone</Item>
+						<Item>117 Meteorite Bar</Item>
+						<Item>116 Meteorite</Item>
+						<Item>1257 Crimtane Bar</Item>
+						<Item>880 Crimtane Ore</Item>
+						<Item>57 Demonite Bar</Item>
+						<Item>56 Demonite Ore</Item>
+						<Item>706 Platinum Bar</Item>
+						<Item>702 Platinum Ore</Item>
+						<Item>19 Gold Bar</Item>
+						<Item>13 Gold Ore</Item>
+						<Item>705 Tungsten Bar</Item>
+						<Item>701 Tungsten Ore</Item>
+						<Item>21 Silver Bar</Item>
+						<Item>14 Silver Ore</Item>
+						<Item>704 Lead Bar</Item>
+						<Item>700 Lead Ore</Item>
+						<Item>22 Iron Bar</Item>
+						<Item>11 Iron Ore</Item>
+						<Item>703 Tin Bar</Item>
+						<Item>699 Tin Ore</Item>
+						<Item>20 Copper Bar</Item>
+						<Item>12 Copper Ore</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Gems">
+					<Items>
+						<Item>1527 Large Diamond</Item>
+						<Item>182 Diamond</Item>
+						<Item>999 Amber</Item>
+						<Item>1526 Large Ruby</Item>
+						<Item>178 Ruby</Item>
+						<Item>1525 Large Emerald</Item>
+						<Item>179 Emerald</Item>
+						<Item>1524 Large Sapphire</Item>
+						<Item>177 Sapphire</Item>
+						<Item>1523 Large Topaz</Item>
+						<Item>180 Topaz</Item>
+						<Item>1522 Large Amethyst</Item>
+						<Item>181 Amethyst</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Materials">
+					<Items>
+						<Item>323 Antlion Mandible</Item>
+						<Item>507 Bell</Item>
+						<Item>254 Black Thread</Item>
+						<Item>1811 Black Fairy Dust</Item>
+						<Item>236 Black Lens</Item>
+						<Item>154 Bone</Item>
+						<Item>1517 Bone Feather</Item>
+						<Item>149 Book</Item>
+						<Item>1520 Broken Bat Wing</Item>
+						<Item>1570 Broken Hero Sword</Item>
+						<Item>1611 Butterfly Dust</Item>
+						<Item>276 Cactus</Item>
+						<Item>1922 Coal</Item>
+						<Item>150 Cobweb</Item>
+						<Item>1344 Cog</Item>
+						<Item>1345 Confetti</Item>
+						<Item>275 Coral</Item>
+						<Item>502 Crystal Shard</Item>
+						<Item>522 Cursed Flame</Item>
+						<Item>527 Dark Shard</Item>
+						<Item>1508 Ectoplasm</Item>
+						<Item>1432 Empty Bullet</Item>
+						<Item>1347 Explosive Powder</Item>
+						<Item>320 Feather</Item>
+						<Item>1518 Fire Feather</Item>
+						<Item>1516 Giant Harpy Feather</Item>
+						<Item>183 Glowing Mushroom</Item>
+						<Item>1348 Gold Dust</Item>
+						<Item>255 Green Thread</Item>
+						<Item>508 Harp</Item>
+						<Item>1519 Ice Feather</Item>
+						<Item>1332 Ichor</Item>
+						<Item>324 Illegal Gun Parts</Item>
+						<Item>331 Jungle Spores</Item>
+						<Item>259 Leather</Item>
+						<Item>38 Lens</Item>
+						<Item>528 Light Shard</Item>
+						<Item>1346 Nanites</Item>
+						<Item>173 Obsidian</Item>
+						<Item>981 Pink Thread</Item>
+						<Item>501 Pixie Dust</Item>
+						<Item>68 Rotten Chunk</Item>
+						<Item>86 Shadow Scale</Item>
+						<Item>319 Shark Fin</Item>
+						<Item>225 Silk</Item>
+						<Item>531 Spell Tome</Item>
+						<Item>1831 Spooky Twig</Item>
+						<Item>2607 Spider Fang</Item>
+						<Item>209 Stinger</Item>
+						<Item>1521 Tattered Bee Wing</Item>
+						<Item>362 Tattered Cloth</Item>
+						<Item>1329 Tissue Sample</Item>
+						<Item>1328 Turtle Shell</Item>
+						<Item>526 Unicorn Horn</Item>
+						<Item>1339 Vial of Venom</Item>
+						<Item>210 Vine</Item>
+						<Item>1330 Vertebrae</Item>
+						<Item>69 Worm Tooth</Item>
+						<Item>2161 Frost Core</Item>
+						<Item>2218 Beetle Husk</Item>
+						<Item>2431 Bee Wax</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Souls">
+					<Items>
+						<Item>575 Soul of Flight</Item>
+						<Item>520 Soul of Light</Item>
+						<Item>521 Soul of Night</Item>
+						<Item>548 Soul of Might</Item>
+						<Item>549 Soul of Sight</Item>
+						<Item>547 Soul of Fright</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+				<Category Name="Herbs">
+					<Items>
+						<Item>315 Blinkroot</Item>
+						<Item>313 Daybloom</Item>
+						<Item>316 Deathweed</Item>
+						<Item>318 Fireblossom</Item>
+						<Item>314 Moonglow</Item>
+						<Item>5 Mushroom</Item>
+						<Item>60 Vile Mushroom</Item>
+						<Item>317 Waterleaf</Item>
+						<Item>2358 Shiverthorn</Item>
+						<Item>2625 Seashell</Item>
+					</Items>
+					<SubCategories />
+				</Category>
+
+			</SubCategories>
+		</Category>
+
+	</Categories>
+</CategoryCollection>
+

@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FC1BED12-874C-4134-ABD2-5425FA425503}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HEROsMod</RootNamespace>
+    <AssemblyName>HEROsMod</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Xact\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Xact.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\Modding\tModLoader\references\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\AdminInstructionsCommand.cs" />
+    <Compile Include="HEROsModNetwork\DatabaseController.cs" />
+    <Compile Include="HEROsModNetwork\HEROsModPlayer.cs" />
+    <Compile Include="HEROsModNetwork\GeneralMessages.cs" />
+    <Compile Include="HEROsModNetwork\Group.cs" />
+    <Compile Include="HEROsModNetwork\LoginService.cs" />
+    <Compile Include="HEROsModNetwork\Network.cs" />
+    <Compile Include="HEROsModNetwork\Region.cs" />
+    <Compile Include="HEROsModNetwork\TileChangeController.cs" />
+    <Compile Include="HEROsModServices\BuffService.cs" />
+    <Compile Include="HEROsModServices\CheckTileModificationTool.cs" />
+    <Compile Include="HEROsModServices\EnemyToggler.cs" />
+    <Compile Include="HEROsModServices\ExtensionMenuService.cs" />
+    <Compile Include="HEROsModServices\FlyCam.cs" />
+    <Compile Include="HEROsModServices\GenericExtensionService.cs" />
+    <Compile Include="HEROsModServices\HEROsModService.cs" />
+    <Compile Include="HEROsModServices\GodModeService.cs" />
+    <Compile Include="HEROsModServices\GroupInspector.cs" />
+    <Compile Include="HEROsModServices\InfiniteReach.cs" />
+    <Compile Include="HEROsModServices\InvasionService.cs" />
+    <Compile Include="HEROsModServices\InventoryManager.cs" />
+    <Compile Include="HEROsModServices\ItemBanner.cs" />
+    <Compile Include="HEROsModServices\ItemBrowser.cs" />
+    <Compile Include="HEROsModServices\ItemClearer.cs" />
+    <Compile Include="HEROsModServices\KeybindController.cs" />
+    <Compile Include="HEROsModServices\Login.cs" />
+    <Compile Include="HEROsModServices\MapRevealer.cs" />
+    <Compile Include="HEROsModServices\MobSpawner.cs" />
+    <Compile Include="HEROsModServices\MiscOptions.cs" />
+    <Compile Include="HEROsModServices\PlayerList.cs" />
+    <Compile Include="HEROsModServices\PrefixEditor.cs" />
+    <Compile Include="HEROsModServices\PrefixScraper.cs" />
+    <Compile Include="HEROsModServices\PSAService.cs" />
+    <Compile Include="HEROsModServices\RegionService.cs" />
+    <Compile Include="HEROsModServices\SelectionTool.cs" />
+    <Compile Include="HEROsModServices\ServiceController.cs" />
+    <Compile Include="HEROsModServices\ServiceHotbar.cs" />
+    <Compile Include="HEROsModServices\SpawnPointSetter.cs" />
+    <Compile Include="HEROsModServices\StatsService.cs" />
+    <Compile Include="HEROsModServices\Teleporter.cs" />
+    <Compile Include="HEROsModServices\TestHotbarSevice.cs" />
+    <Compile Include="HEROsModServices\ToggleGravestones.cs" />
+    <Compile Include="HEROsModServices\Waypoints.cs" />
+    <Compile Include="HEROsModServices\TimeWeatherChanger.cs" />
+    <Compile Include="HEROsModVideo\Services\DropRateInfo\DropCollection.cs" />
+    <Compile Include="HEROsModVideo\Services\DropRateInfo\DropTableBuilder.cs" />
+    <Compile Include="HEROsModVideo\Services\DropRateInfo\ItemDropInfo.cs" />
+    <Compile Include="HEROsModVideo\Services\MobHUD\MobInfo.cs" />
+    <Compile Include="HEROsModVideo\Services\MobHUD\MobInfoView.cs" />
+    <Compile Include="Mod.cs" />
+    <Compile Include="ModUtils.cs" />
+    <Compile Include="UIKit\ColorSliders.cs" />
+    <Compile Include="UIKit\MasterView.cs" />
+    <Compile Include="UIKit\UIButton.cs" />
+    <Compile Include="UIKit\UICheckbox.cs" />
+    <Compile Include="UIKit\UIColorPicker.cs" />
+    <Compile Include="UIKit\UIColorSlider.cs" />
+    <Compile Include="UIKit\UIComponents\DropTableView.cs" />
+    <Compile Include="UIKit\UIComponents\HostPlayWindow.cs" />
+    <Compile Include="UIKit\UIComponents\ItemBrowser.cs" />
+    <Compile Include="UIKit\UIComponents\ItemCollectionView.cs" />
+    <Compile Include="UIKit\UIComponents\ItemTooltip.cs" />
+    <Compile Include="UIKit\UIComponents\ItemView.cs" />
+    <Compile Include="UIKit\UIComponents\MoneyView.cs" />
+    <Compile Include="UIKit\UIComponents\SliderWithTextbox.cs" />
+    <Compile Include="UIKit\UIComponents\Slot.cs" />
+    <Compile Include="UIKit\UIComponents\UIHotbar.cs" />
+    <Compile Include="UIKit\UIDropdown.cs" />
+    <Compile Include="UIKit\UIImage.cs" />
+    <Compile Include="UIKit\UILabel.cs" />
+    <Compile Include="UIKit\UIListView.cs" />
+    <Compile Include="UIKit\UIMessageBox.cs" />
+    <Compile Include="UIKit\UIPlayerHead.cs" />
+    <Compile Include="UIKit\UIRect.cs" />
+    <Compile Include="UIKit\UIScreen.cs" />
+    <Compile Include="UIKit\UIScrollBar.cs" />
+    <Compile Include="UIKit\UIScrollView.cs" />
+    <Compile Include="UIKit\UISlider.cs" />
+    <Compile Include="UIKit\UITextbox.cs" />
+    <Compile Include="UIKit\UIView.cs" />
+    <Compile Include="UIKit\UIWindow.cs" />
+    <Compile Include="UIKit\UIWrappingLabel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="build.txt" />
+    <Content Include="description.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Modding\tModLoader\src\tModLoader\Terraria.csproj">
+      <Project>{3996d5fa-6e59-4fe4-9f2b-40eeef9645d5}</Project>
+      <Name>Terraria</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"C:\Program Files (x86)\Steam\steamapps\common\terraria\tModLoaderServerDebug.exe" -build "$(ProjectDir)\" -eac "$(TargetPath)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
