@@ -99,9 +99,6 @@
     <Compile Include="HEROsModServices\ToggleGravestones.cs" />
     <Compile Include="HEROsModServices\Waypoints.cs" />
     <Compile Include="HEROsModServices\TimeWeatherChanger.cs" />
-    <Compile Include="HEROsModVideo\Services\DropRateInfo\DropCollection.cs" />
-    <Compile Include="HEROsModVideo\Services\DropRateInfo\DropTableBuilder.cs" />
-    <Compile Include="HEROsModVideo\Services\DropRateInfo\ItemDropInfo.cs" />
     <Compile Include="HEROsModVideo\Services\MobHUD\MobInfo.cs" />
     <Compile Include="HEROsModVideo\Services\MobHUD\MobInfoView.cs" />
     <Compile Include="Mod.cs" />
@@ -141,9 +138,6 @@
   <ItemGroup>
     <Content Include="build.txt" />
     <Content Include="description.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Modding\tModLoader\src\tModLoader\Terraria.csproj">

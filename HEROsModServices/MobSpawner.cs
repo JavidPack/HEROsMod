@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using HEROsMod.UIKit;
 using Microsoft.Xna.Framework;
-using HEROsMod.HEROsModVideo.Services.DropRateInfo;
+//using HEROsMod.HEROsModVideo.Services.DropRateInfo;
 using HEROsMod.UIKit.UIComponents;
 
 using Terraria;

@@ -25,7 +25,7 @@ namespace HEROsMod.UIKit.UIComponents
         int slotSpace = 4;
         int slotColumns = 8;
         float slotSize = Slot.backgroundTexture.Width * .85f;
-        int slotRows = 3;
+        int slotRows = 4;
         Slot[] slots = new Slot[Main.itemTexture.Length];
         
         

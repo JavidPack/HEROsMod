@@ -22,7 +22,7 @@ namespace HEROsMod.HEROsModServices
 
 			_itemBrowserWindow = new UIKit.UIComponents.ItemBrowser();
 			_itemBrowserWindow.CenterToParent();
-			_itemBrowserWindow.Position -= new Vector2(_itemBrowserWindow.Width / 2, _itemBrowserWindow.Height / 2);
+			_itemBrowserWindow.Position -= new Vector2(_itemBrowserWindow.Width / 2, (_itemBrowserWindow.Height / 2) + 30);
 			this.AddUIView(_itemBrowserWindow);
 		}
 
