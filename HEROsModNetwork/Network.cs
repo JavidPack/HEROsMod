@@ -30,6 +30,7 @@ namespace HEROsMod.HEROsModNetwork
 		public static MemoryStream memoryStream;
 		public static BinaryWriter writer;
 		public static Group DefaultGroup;
+		public static Group NotLoggedInGroup;
 		public static Group AdminGroup;
 		//public static Group CTFGroup;
 		public static int AuthCode;
@@ -90,6 +91,7 @@ namespace HEROsMod.HEROsModNetwork
 
 			ServerUsingHEROsMod = false;
 			GravestonesAllowed = true;
+			//TADHG: this variable would be phased out, 
 			WillFreezeNonLoggedIn = true;
 			Groups = new List<Group>();
 			Players = new HEROsModPlayer[255];
@@ -129,7 +131,10 @@ namespace HEROsMod.HEROsModNetwork
 					if (group.Name == "Default")
 					{
 						DefaultGroup = group;
-						break;
+					}
+					else if (group.Name == "NotLoggedInGroup")
+					{
+						NotLoggedInGroup = group;
 					}
 				}
 				LoginService.GroupChanged += LoginService_GroupChanged;
