@@ -45,6 +45,7 @@ namespace HEROsMod.HEROsModNetwork
 			new PermissionInfo("CheckTiles", "Check Tiles"),
 			new PermissionInfo("ViewRegions", "View Regions"),
 			new PermissionInfo("EditRegions", "Edit Regions"),
+			new PermissionInfo("CanMove", "Don't keep frozen"),
 		};
 
 		private bool _isAdmin = false;
@@ -75,6 +76,7 @@ namespace HEROsMod.HEROsModNetwork
 				Permissions.Add(p.Key, false);
 			}
 			Permissions["ModifyTerrain"] = true;
+			Permissions["CanMove"] = true;
 		}
 
 		public bool HasPermission(string permissionName)
