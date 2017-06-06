@@ -172,7 +172,7 @@ namespace HEROsMod.HEROsModServices
 			float yPos = Spacing;
 			foreach (Item item in validPrefixes)
 			{
-				UILabel label = new UILabel(Lang.prefix[item.prefix]);
+				UILabel label = new UILabel(Lang.prefix[item.prefix].Value);
 				label.Scale = .4f;
 				label.X = Spacing;
 				label.Y = yPos;
@@ -193,7 +193,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			UILabel label = (UILabel)sender;
 			Item item = (Item)label.Tag;
-			HoverText = item.name;
+			HoverText = item.Name;
 			HoverItem = item.Clone();
 		}
 

@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
+using ReLogic.Graphics;
 
 namespace HEROsMod.UIKit.UIComponents
 {
@@ -37,7 +38,7 @@ namespace HEROsMod.UIKit.UIComponents
 
         void Slot2_onHover(object sender, EventArgs e)
         {
-            HoverText = item.name;
+            HoverText = item.Name;
             HoverItem = item.Clone();
         }
 

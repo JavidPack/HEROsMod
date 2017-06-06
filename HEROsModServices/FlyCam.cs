@@ -11,6 +11,7 @@ using Terraria;
 using Terraria.GameInput;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Graphics;
 
 namespace HEROsMod.HEROsModServices
 {

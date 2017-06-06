@@ -6,13 +6,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
+using ReLogic.Graphics;
 
 namespace HEROsMod.UIKit
 {
     class UILabel : UIView
     {
-        public static SpriteFont defaultFont { get { return Main.fontDeathText; } }
-        public SpriteFont font;
+        public static DynamicSpriteFont defaultFont { get { return Main.fontDeathText; } }
+        public DynamicSpriteFont font;
         private string text = "";
         public string Text
         {

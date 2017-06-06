@@ -10,6 +10,7 @@ using HEROsMod.UIKit.UIComponents;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -486,15 +487,15 @@ namespace HEROsMod.HEROsModServices
 			for (int i = 0; i < Main.npcTexture.Length; i++)
 			{
 				npc.SetDefaults(i);
-				if (npc.name != string.Empty)
+				//if (npc.name != string.Empty)
 				{
 					npcList.Add(new NPCStats(npc));
 				}
 			}
 			for (int i = -1; i >= -MobSpawner.NumberOfNegativeNPCs; i--)
 			{
-				npc.netDefaults(i);
-				if (npc.name != string.Empty)
+				npc.SetDefaults(i);
+				//if (npc.name != string.Empty)
 				{
 					npcList.Add(new NPCStats(npc));
 				}
@@ -758,7 +759,7 @@ namespace HEROsMod.HEROsModServices
 
 		public NPCStats(NPC npc)
 		{
-			this.Name = npc.name;
+			this.Name = Lang.GetNPCNameValue(npc.type);// npc.name;
 			this.NetID = npc.netID;
 			this.IsTownNPC = npc.townNPC;
 			this.Friendly = npc.friendly;
@@ -799,7 +800,7 @@ namespace HEROsMod.HEROsModServices
 			int index = NPC.NewNPC((int)player.position.X, (int)player.position.Y, Type);
 			if (NetID < 0)
 			{
-				Main.npc[index].netDefaults(NetID);
+				Main.npc[index].SetDefaults(NetID);
 			}
 		}
 	}
@@ -872,18 +873,17 @@ namespace HEROsMod.HEROsModServices
 		IL_162:
 			num3 = num5 * 16;
 			int num7 = NPC.NewNPC(num2, num3, 113, 0);
-			if (Main.npc[num7].displayName == "")
-			{
-				Main.npc[num7].displayName = Main.npc[num7].name;
-			}
 			if (Main.netMode == 0)
 			{
-				Main.NewText(Main.npc[num7].displayName + " " + Lang.misc[16], 175, 75, 255, false);
+				Main.NewText(Language.GetTextValue("Announcement.HasAwoken", Main.npc[num7].TypeName), 175, 75, 255, false);
 				return;
 			}
 			if (Main.netMode == 2)
 			{
-				NetMessage.SendData(25, -1, -1, Main.npc[num7].displayName + " " + Lang.misc[16], 255, 175f, 75f, 255f, 0);
+				NetMessage.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
+						{
+							Main.npc[num7].GetTypeNetName()
+						}), new Color(175, 75, 255), -1);
 			}
 		}
 	}

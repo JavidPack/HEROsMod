@@ -6,12 +6,13 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
+using ReLogic.Graphics;
 
 namespace HEROsMod.UIKit
 {
     class UIWrappingLabel : UIView
     {
-        SpriteFont font = UILabel.defaultFont;
+        DynamicSpriteFont font = UILabel.defaultFont;
         private float width = 200;
         List<UILabel> labels = new List<UILabel>();
         private string text;

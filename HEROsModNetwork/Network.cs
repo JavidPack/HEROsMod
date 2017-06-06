@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace HEROsMod.HEROsModNetwork
 {
@@ -174,7 +175,7 @@ namespace HEROsMod.HEROsModNetwork
 						if (sendTimeTimer <= 0)
 						{
 							sendTimeTimer = 1f;
-							NetMessage.SendData(7, -1, -1, "", 0, 0f, 0f, 0f, 0);
+							NetMessage.SendData(7, -1, -1, null, 0, 0f, 0f, 0f, 0);
 						}
 					}
 				}
@@ -340,7 +341,7 @@ namespace HEROsMod.HEROsModNetwork
 							{
 								LastTileKilledBy = player;
 								WorldGen.KillTile(x, y, fail, false, false);
-								NetMessage.SendData(17, -1, playerNumber, "", (int)tileModifyType, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(17, -1, playerNumber, null, (int)tileModifyType, (float)x, (float)y, (float)placeType, style);
 								LastTileKilledBy = null;
 								return true;
 							}
@@ -358,55 +359,55 @@ namespace HEROsMod.HEROsModNetwork
 						switch (tileModifyType)
 						{
 							case TileModifyType.KillTile:
-								NetMessage.SendData(17, playerNumber, -1, "", (int)TileModifyType.PlaceTile, (float)x, (float)y, (float)tile.type, tile.slope());
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceTile, (float)x, (float)y, (float)tile.type, tile.slope());
 								break;
 							case TileModifyType.PlaceTile:
-								NetMessage.SendData(17, playerNumber, -1, "", (int)TileModifyType.KillTile, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillTile, (float)x, (float)y, (float)placeType, style);
 								break;
 							case TileModifyType.KillWall:
-								NetMessage.SendData(17, playerNumber, -1, "", (int)TileModifyType.PlaceWall, (float)x, (float)y, (float)tile.wall, style);
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceWall, (float)x, (float)y, (float)tile.wall, style);
 								break;
 							case TileModifyType.PlaceWall:
-								NetMessage.SendData(17, playerNumber, -1, "", (int)TileModifyType.KillWall, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillWall, (float)x, (float)y, (float)placeType, style);
 								break;
 							case TileModifyType.KillTileNoItem:
-								NetMessage.SendData(17, playerNumber, -1, "", (int)TileModifyType.PlaceTile, (float)x, (float)y, (float)tile.type, tile.slope());
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceTile, (float)x, (float)y, (float)tile.type, tile.slope());
 								break;
 							case TileModifyType.PlaceWire:
-								NetMessage.SendData(17, playerNumber, -1, "", (int)TileModifyType.KillWire, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillWire, (float)x, (float)y, (float)placeType, style);
 								break;
 							case TileModifyType.PlaceWire2:
-								NetMessage.SendData(17, playerNumber, -1, "", (int)TileModifyType.KillWire2, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillWire2, (float)x, (float)y, (float)placeType, style);
 								break;
 							case TileModifyType.PlaceWire3:
-								NetMessage.SendData(17, playerNumber, -1, "", (int)TileModifyType.KillWire3, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillWire3, (float)x, (float)y, (float)placeType, style);
 								break;
 							case TileModifyType.KillWire:
-								NetMessage.SendData(17, playerNumber, -1, "", (int)TileModifyType.PlaceWire, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceWire, (float)x, (float)y, (float)placeType, style);
 								break;
 							case TileModifyType.KillWire2:
-								NetMessage.SendData(17, playerNumber, -1, "", (int)TileModifyType.PlaceWire2, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceWire2, (float)x, (float)y, (float)placeType, style);
 								break;
 							case TileModifyType.KillWire3:
-								NetMessage.SendData(17, playerNumber, -1, "", (int)TileModifyType.PlaceWire3, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceWire3, (float)x, (float)y, (float)placeType, style);
 								break;
 							case TileModifyType.KillActuator:
-								NetMessage.SendData(17, playerNumber, -1, "", (int)TileModifyType.PlaceActuator, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceActuator, (float)x, (float)y, (float)placeType, style);
 								break;
 							case TileModifyType.PlaceActuator:
-								NetMessage.SendData(17, playerNumber, -1, "", (int)TileModifyType.KillActuator, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillActuator, (float)x, (float)y, (float)placeType, style);
 								break;
 							case TileModifyType.PoundTile:
-								NetMessage.SendData(17, playerNumber, -1, "", (int)TileModifyType.PoundTile, (float)x, (float)y, (float)placeType, tile.slope());
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PoundTile, (float)x, (float)y, (float)placeType, tile.slope());
 								break;
 							case TileModifyType.SlopeTile:
-								NetMessage.SendData(17, playerNumber, -1, "", (int)TileModifyType.SlopeTile, (float)x, (float)y, (float)placeType, tile.slope());
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.SlopeTile, (float)x, (float)y, (float)placeType, tile.slope());
 								break;
 						}
 						return true;
 					}
 					break;
-				case 25: //revieved a chat message
+/*				case 25: //received a chat message
 
 					binaryReader.ReadByte();
 					Color color = binaryReader.ReadRGB();
@@ -556,26 +557,26 @@ namespace HEROsMod.HEROsModNetwork
 								}
 								else
 								{
-									NetMessage.SendData(25, playerNumber, -1, Lang.mp[10], 255, 255f, 240f, 20f, 0);
+									NetMessage.SendData(25, playerNumber, -1, Lang.mp[10].ToNetworkText(), 255, 255f, 240f, 20f, 0);
 								}
 							}
 							else
 							{
 								return false;
 								// why are chat messages randomized?
-								/*color = chatColor[chatColorIndex];
-								chatColorIndex++;
-								if (chatColorIndex >= chatColor.Length) chatColorIndex = 0;
-								NetMessage.SendData(25, -1, -1, text, 255, (float)color.R, (float)color.G, (float)color.B, 0);
-								if (Main.dedServ)
-								{
-									Console.WriteLine("<" + Main.player[playerNumber].name + "> " + text);
-								}*/
+								//color = chatColor[chatColorIndex];
+								//chatColorIndex++;
+								//if (chatColorIndex >= chatColor.Length) chatColorIndex = 0;
+								//NetMessage.SendData(25, -1, -1, text, 255, (float)color.R, (float)color.G, (float)color.B, 0);
+								//if (Main.dedServ)
+								//{
+								//	Console.WriteLine("<" + Main.player[playerNumber].name + "> " + text);
+								//}
 							}
 						}
 						return true;
 					}
-					break;
+					break;*/
 				//case 27:
 				//	if (ItemBanner.ItemsBanned && !Players[playerNumber].Group.IsAdmin)
 				//	{
@@ -654,7 +655,7 @@ namespace HEROsMod.HEROsModNetwork
 						}
 						else
 						{
-							NetMessage.SendData(63, playerNumber, -1, "", x, (float)y, (float)Main.tile[x, y].color());
+							NetMessage.SendData(63, playerNumber, -1, null, x, (float)y, (float)Main.tile[x, y].color());
 							SendTextToPlayer("You do not have permission to build here", playerNumber, Color.Red);
 							return true;
 						}
@@ -676,7 +677,7 @@ namespace HEROsMod.HEROsModNetwork
 						}
 						else
 						{
-							NetMessage.SendData(64, playerNumber, -1, "", x, (float)y, (float)Main.tile[x, y].wallColor());
+							NetMessage.SendData(64, playerNumber, -1, null, x, (float)y, (float)Main.tile[x, y].wallColor());
 							SendTextToPlayer("You do not have permission to build here", playerNumber, Color.Red);
 							return true;
 						}
@@ -752,7 +753,13 @@ namespace HEROsMod.HEROsModNetwork
 		private static void PlayerJoined(int playerNumber)
 		{
 			Players[playerNumber] = new HEROsModPlayer(playerNumber);
-			SendTextToPlayer(HEROsModCheckMessage, playerNumber, Color.Red);
+			// chat message hack: SendTextToPlayer(HEROsModCheckMessage, playerNumber, Color.Red);
+
+			var packet = HEROsMod.instance.GetPacket();
+			packet.Write((byte)MessageType.LoginMessage);
+			packet.Write((byte)LoginService.MessageType.ServerToClientHandshake);
+			packet.Send(playerNumber);
+
 			GeneralMessages.TellClientsPlayerJoined(playerNumber);
 		}
 
@@ -780,7 +787,7 @@ namespace HEROsMod.HEROsModNetwork
 					{
 						//player.GameInstance.AddBuff(47, 7200); 
 						//	Console.WriteLine("Freeze " + i);
-						NetMessage.SendData(55, player.Index, -1, "", player.Index, 47, 120, 0f, 0);
+						NetMessage.SendData(55, player.Index, -1, null, player.Index, 47, 120, 0f, 0);
 					}
 				}
 			}
@@ -793,7 +800,7 @@ namespace HEROsMod.HEROsModNetwork
 			int prevSpawnY = player.GameInstance.SpawnY;
 			player.GameInstance.SpawnX = (int)position.X;
 			player.GameInstance.SpawnY = (int)position.Y;
-			NetMessage.SendData(12, -1, -1, "", player.Index, 0f, 0f, 0f, 0);
+			NetMessage.SendData(12, -1, -1, null, player.Index, 0f, 0f, 0f, 0);
 			player.GameInstance.SpawnX = prevSpawnX;
 			player.GameInstance.SpawnY = prevSpawnY;
 		}
@@ -801,13 +808,15 @@ namespace HEROsMod.HEROsModNetwork
 		public static void SendTextToPlayer(string msg, int playerIndex, Color? color = null)
 		{
 			Color c = color.GetValueOrDefault(Color.White);
-			NetMessage.SendData(25, playerIndex, -1, msg, 255, c.R, c.G, c.B, 0);
+			//NetMessage.SendData(25, playerIndex, -1, msg, 255, c.R, c.G, c.B, 0);
+			NetMessage.SendChatMessageToClient(NetworkText.FromLiteral(msg), c, playerIndex);
 		}
 
 		public static void SendTextToAllPlayers(string msg, Color? color = null)
 		{
 			Color c = color.GetValueOrDefault(Color.White);
-			NetMessage.SendData(25, -1, -1, msg, 255, c.R, c.G, c.B, 0);
+			//NetMessage.SendData(25, -1, -1, msg, 255, c.R, c.G, c.B, 0);
+			NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(msg), c, -1);
 		}
 
 		public static void SendDataToServer()
@@ -904,7 +913,7 @@ namespace HEROsMod.HEROsModNetwork
 				if (Main.item[i].active)
 				{
 					Main.item[i].SetDefaults(0);
-					NetMessage.SendData(21, -1, -1, "", i, 0f, 0f, 0f, 0);
+					NetMessage.SendData(21, -1, -1, null, i, 0f, 0f, 0f, 0);
 				}
 			}
 		}
@@ -919,7 +928,7 @@ namespace HEROsMod.HEROsModNetwork
 				{
 					n.position = position;
 					npcFound = true;
-					if (Main.netMode == 2) NetMessage.SendData(23, -1, -1, "", i, 0f, 0f, 0f, 0);
+					if (Main.netMode == 2) NetMessage.SendData(23, -1, -1, null, i, 0f, 0f, 0f, 0);
 					break;
 				}
 			}
@@ -951,7 +960,7 @@ namespace HEROsMod.HEROsModNetwork
 				}
 			}
 			int num2 = num;
-			NetMessage.SendData(9, player.Index, -1, Lang.inter[44], num2, 0f, 0f, 0f, 0);
+			NetMessage.SendData(9, player.Index, -1, Lang.inter[44].ToNetworkText(), num2, 0f, 0f, 0f, 0);
 			Netplay.Clients[player.Index].StatusText2 = "is receiving tile data";
 			Netplay.Clients[player.Index].StatusMax += num2;
 			for (int k = sectionX - 1; k < sectionX + 2; k++)
@@ -961,7 +970,7 @@ namespace HEROsMod.HEROsModNetwork
 					if (k >= 0 && k < Main.maxSectionsX && l >= 0 && l < Main.maxSectionsY)
 					{
 						NetMessage.SendSection(player.Index, k, l, false);
-						NetMessage.SendData(11, player.Index, -1, "", k, (float)l, (float)k, (float)l, 0);
+						NetMessage.SendData(11, player.Index, -1, null, k, (float)l, (float)k, (float)l, 0);
 					}
 				}
 			}

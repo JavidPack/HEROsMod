@@ -41,7 +41,7 @@ namespace HEROsMod.UIKit
         public bool HasDecimal { get; set; }
         static float blinkTime = 1f;
         static float timer = 0f;
-        bool eventSet = false;
+        //bool eventSet = false;
         private float width = 200;
         public delegate void KeyPressedHandler(object sender, char key);
         public event EventHandler OnTabPress;
@@ -98,37 +98,38 @@ namespace HEROsMod.UIKit
             Focus();
         }
 
-        public void Focus()
-        {
-            if (focused) return;
-            focused = true;
-            timer = 0f;
-            eventSet = true;
-            Main.blockInput = true;
+		public void Focus()
+		{
+			if (!focused)
+			{
+				focused = true;
+				Main.blockInput = true;
+				Main.clrInput();
+				timer = 0f;
+				//eventSet = true;
+			}
             //ModUtils.StopListeningForKeyEvents();
             //Main.RemoveKeyEvent();
-            keyBoardInput.newKeyEvent += new Action<char>(KeyboardInput_newKeyEvent);
+            //keyBoardInput.newKeyEvent += new Action<char>(KeyboardInput_newKeyEvent);
         }
 
         public void Unfocus()
         {
             if(focused)
             {
-                if(OnLostFocus != null)
-                {
-                    OnLostFocus(this, EventArgs.Empty);
-                }
-            }
-            focused = false;
-            if (!eventSet) return;
-            eventSet = false;
-            Main.blockInput = false;
-            keyBoardInput.newKeyEvent -= new Action<char>(KeyboardInput_newKeyEvent);
+				focused = false;
+				Main.blockInput = false;
+
+				OnLostFocus?.Invoke(this, EventArgs.Empty);
+			}
+            //if (!eventSet) return;
+            //eventSet = false;
+            //keyBoardInput.newKeyEvent -= new Action<char>(KeyboardInput_newKeyEvent);
             //ModUtils.StartListeningForKeyEvents();
             //Main.AddKeyEvent();
         }
 
-        void KeyboardInput_newKeyEvent(char obj)
+        /*void KeyboardInput_newKeyEvent(char obj)
         {
             if (obj.Equals('\b'))
             {
@@ -136,11 +137,8 @@ namespace HEROsMod.UIKit
                 {
                     Text = Text.Substring(0, Text.Length - 1);
                     SetLabelPosition();
-                    if (KeyPressed != null)
-                    {
-                        KeyPressed(this, obj);
-                    }
-                }
+					KeyPressed?.Invoke(this, obj);
+				}
             }
             else if(obj.Equals(''))
             {
@@ -148,16 +146,14 @@ namespace HEROsMod.UIKit
             }
             else if (obj.Equals('\t'))
             {
-                if (OnTabPress != null)
-                    OnTabPress(this, new EventArgs());
-            }
+				OnTabPress?.Invoke(this, new EventArgs());
+			}
             else if (obj.Equals('\r'))
             {
                 Main.chatRelease = false;
-                if (OnEnterPress != null)
-                    OnEnterPress(this, new EventArgs());
-            }
-            else
+				OnEnterPress?.Invoke(this, new EventArgs());
+			}*/
+            /*else
             {
                 for (int i = 0; i < label.font.Characters.Count; i++)
                 {
@@ -192,8 +188,8 @@ namespace HEROsMod.UIKit
                         break;
                     }
                 }
-            }
-        }
+            }*/
+        //}
 
         void SetLabelPosition()
         {
@@ -241,6 +237,27 @@ namespace HEROsMod.UIKit
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+			if (focused)
+			{
+				Terraria.GameInput.PlayerInput.WritingText = true;
+				Main.instance.HandleIME();
+				string oldText = Text;
+				Text = Main.GetInputText(Text);
+				if(oldText!= Text)
+				{
+					KeyPressed?.Invoke(this, ' ');
+				}
+				if (Main.keyState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Tab))
+				{
+					OnTabPress?.Invoke(this, new EventArgs());
+				}
+				if (Main.keyState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Enter))
+				{
+					OnEnterPress?.Invoke(this, new EventArgs());
+				}
+
+			}
+
             spriteBatch.Draw(textboxBackground, DrawPosition, null, Color.White, 0f, Origin, 1f, SpriteEffects.None, 0f);
             int fillWidth = (int)Width - 2 * textboxBackground.Width;
             Vector2 pos = DrawPosition;

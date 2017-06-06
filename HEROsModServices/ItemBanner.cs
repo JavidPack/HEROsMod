@@ -84,7 +84,7 @@ namespace HEROsMod.HEROsModServices
 					{
 						//Projectile newProj = new Projectile();
 						//newProj.SetDefaults(type);
-						Main.NewText(projectile.name + " is banned on the server", Color.Red.R, Color.Red.G, Color.Red.B );
+						Main.NewText(projectile.Name + " is banned on the server", Color.Red.R, Color.Red.G, Color.Red.B );
 					}
 					//ErrorLogger.Log(Main.dedServ + " Item Banned");
 					projectile.active = false;

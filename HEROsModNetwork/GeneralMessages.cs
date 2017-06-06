@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace HEROsMod.HEROsModNetwork
 {
@@ -171,7 +172,7 @@ namespace HEROsMod.HEROsModNetwork
 				Vector2 destination = reader.ReadVector2();
 				Main.player[playerNumber].Teleport(destination, 1, 0);
 				RemoteClient.CheckSection(playerNumber, destination, 1);
-				NetMessage.SendData(65, -1, -1, "", 0, playerNumber, destination.X, destination.Y, 1, 0, 0);
+				NetMessage.SendData(65, -1, -1, null, 0, playerNumber, destination.X, destination.Y, 1, 0, 0);
 				//int num169 = -1;
 				//float num170 = 9999f;
 				//for (int num171 = 0; num171 < 255; num171++)
@@ -217,7 +218,7 @@ namespace HEROsMod.HEROsModNetwork
 				{
 					if (Main.player[j].active && Main.player[j].name.ToLower() == playerToKick)
 					{
-						NetMessage.SendData(2, j, -1, "Kicked from server.", 0, 0f, 0f, 0f, 0, 0, 0);
+						NetMessage.SendData(2, j, -1, NetworkText.FromKey("CLI.KickMessage", new object[0]), 0, 0f, 0f, 0f, 0, 0, 0);
 					}
 				}
 			}
@@ -234,7 +235,7 @@ namespace HEROsMod.HEROsModNetwork
 					if (Main.player[k].active && Main.player[k].name.ToLower() == playertoban)
 					{
 						Netplay.AddBan(k);
-						NetMessage.SendData(2, k, -1, "Banned from server.", 0, 0f, 0f, 0f, 0, 0, 0);
+						NetMessage.SendData(2, k, -1, NetworkText.FromKey("CLI.BanMessage", new object[0]), 0, 0f, 0f, 0f, 0, 0, 0);
 					}
 				}
 			}
@@ -332,7 +333,7 @@ namespace HEROsMod.HEROsModNetwork
 						TimePausedOrResumed();
 						break;
 				}
-				NetMessage.SendData(7, -1, -1, "", 0, 0f, 0f, 0f, 0);
+				NetMessage.SendData(7, -1, -1, null, 0, 0f, 0f, 0f, 0);
 			}
 		}
 
@@ -490,7 +491,7 @@ namespace HEROsMod.HEROsModNetwork
 			{
 				Main.fastForwardTime = true;
 				Main.sundialCooldown = 0;
-				NetMessage.SendData(7, -1, -1, "", 0, 0f, 0f, 0f, 0, 0, 0);
+				NetMessage.SendData(7, -1, -1, null, 0, 0f, 0f, 0f, 0, 0, 0);
 				Network.SendTextToAllPlayers("Forced Enchanted Sundial initiated by " + Main.player[playerNumber].name);
 			}
 		}

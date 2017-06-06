@@ -34,7 +34,7 @@ namespace HEROsMod.HEROsModVideo.Services.MobHUD
 
             this._worldPos = npc.position;
 
-            AddLabel(Lang.npcName(npc.netID));
+            AddLabel(Lang.GetNPCNameValue(npc.netID));
             AddStat("ID", npc.netID.ToString());
             AddStat("Health", npc.lifeMax.ToString());
             AddStat("Damage", npc.damage.ToString());

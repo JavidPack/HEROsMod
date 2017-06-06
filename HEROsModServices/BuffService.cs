@@ -119,7 +119,8 @@ namespace HEROsMod.HEROsModServices
 				bg.Y = yPos;
 				bg.Width = scrollView.Width - 20 - Spacing * 2;
 				bg.Tag = buffType;
-				bg.Tooltip = (Main.buffTip[buffType] == null ? "" : Main.buffTip[buffType]);
+				string buffDescription = Lang.GetBuffDescription(buffType);
+				bg.Tooltip = (buffDescription == null ? "" : buffDescription);
 				bg.onLeftClick += bg_onLeftClick;
 
 				UIImage buffImage = new UIImage(Main.buffTexture[buffType]);
@@ -130,7 +131,7 @@ namespace HEROsMod.HEROsModServices
 				bg.Height = buffImage.Height + SmallSpacing;
 				yPos += bg.Height;
 
-				UILabel label = new UILabel(Main.buffName[buffType]);
+				UILabel label = new UILabel(Lang.GetBuffName(buffType));
 				label.Scale = .4f;
 				label.Anchor = AnchorPosition.Left;
 				label.X = buffImage.X + buffImage.Width + Spacing;

@@ -11,6 +11,7 @@ using System.IO;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.Events;
+using ReLogic.Graphics;
 
 namespace HEROsMod
 {
@@ -116,8 +117,8 @@ namespace HEROsMod
 
 		public static Item HoverItem
 		{
-			get { return Main.toolTip; }// (Item)_hoverItem.GetValue(null); }
-			set { Main.toolTip = value; }// _hoverItem.SetValue(null, value); }
+			get { return Main.HoverItem; }// (Item)_hoverItem.GetValue(null); }
+			set { Main.HoverItem = value; }// _hoverItem.SetValue(null, value); }
 		}
 
 		/// <summary>

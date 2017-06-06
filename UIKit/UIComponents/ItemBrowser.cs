@@ -410,7 +410,7 @@ namespace HEROsMod.UIKit.UIComponents
 				bool match = false;
 				foreach (Item item in CurrentItems)
 				{
-					if (item.name.ToLower().IndexOf(SearchBox.Text, StringComparison.OrdinalIgnoreCase) != -1)
+					if (item.Name.ToLower().IndexOf(SearchBox.Text, StringComparison.OrdinalIgnoreCase) != -1)
 					{
 						match = true;
 						break;
@@ -455,7 +455,7 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				result = SelectedCategory.GetItems().ToList();
 			}
-			result = result.Where(item => item.name.IndexOf(SearchBox.Text, StringComparison.OrdinalIgnoreCase) != -1).ToList();
+			result = result.Where(item => item.Name.IndexOf(SearchBox.Text, StringComparison.OrdinalIgnoreCase) != -1).ToList();
 			result = result.Distinct().Where(item => PassFilters(item)).ToList();
 			result.Sort(new MyComparer(this));
 			return result.ToArray();
@@ -516,7 +516,7 @@ namespace HEROsMod.UIKit.UIComponents
 		{
 			new Sort( new UIImage(GetEmbeddedTexture("Images/sortItemID")){Tooltip = "ItemID"} , (x,y)=>x.type.CompareTo(y.type)),
 			new Sort( new UIImage(GetEmbeddedTexture("Images/sortValue")){Tooltip = "Value"} , (x,y)=>x.value.CompareTo(y.value)),
-			new Sort( new UIImage(GetEmbeddedTexture("Images/sortAZ")){Tooltip = "Alphabetical"} , (x,y)=>x.name.CompareTo(y.name)),
+			new Sort( new UIImage(GetEmbeddedTexture("Images/sortAZ")){Tooltip = "Alphabetical"} , (x,y)=>x.Name.CompareTo(y.Name)),
 		};
 
 		internal static void Unload()

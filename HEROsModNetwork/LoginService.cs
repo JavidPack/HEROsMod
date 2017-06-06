@@ -75,6 +75,11 @@ namespace HEROsMod.HEROsModNetwork
 				case MessageType.RequestSetOfflinePlayerGroup:
 					ProcessSetOfflinePlayerGroupRequest(ref reader, playerNumber);
 					break;
+				case MessageType.ServerToClientHandshake:
+					Network.ServerUsingHEROsMod = true;
+					HEROsMod.ServiceHotbar.Visible = true;
+					GeneralMessages.TellSereverImUsingHEROsMod();
+					break;
 			}
 		}
 
@@ -552,7 +557,8 @@ namespace HEROsMod.HEROsModNetwork
 			RequestPlayerInfo,
 			PlayerInfo,
 			RequestSetPlayerGroup,
-			RequestSetOfflinePlayerGroup
+			RequestSetOfflinePlayerGroup,
+			ServerToClientHandshake
 		}
 	}
 }

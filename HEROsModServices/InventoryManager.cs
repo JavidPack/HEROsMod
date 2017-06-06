@@ -152,8 +152,8 @@ namespace HEROsMod.HEROsModServices
 						if (player.chest > -1)
 						{
 							if (destination == 1)
-								NetMessage.SendData(32, -1, -1, "", Main.player[Main.myPlayer].chest, (float)i, 0f, 0f, 0);
-							else if (destination == 0) NetMessage.SendData(32, -1, -1, "", Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
+								NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)i, 0f, 0f, 0);
+							else if (destination == 0) NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
 						}
 						if (item.stack <= 0) //if the stack is empty
 						{
@@ -178,8 +178,8 @@ namespace HEROsMod.HEROsModServices
 								if (player.chest > -1)
 								{
 									if (destination == 1)
-										NetMessage.SendData(32, -1, -1, "", Main.player[Main.myPlayer].chest, (float)i, 0f, 0f, 0);
-									else if (destination == 0) NetMessage.SendData(32, -1, -1, "", Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
+										NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)i, 0f, 0f, 0);
+									else if (destination == 0) NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
 								}
 							}
 							Main.PlaySound(7, -1, -1, 1);
@@ -207,8 +207,8 @@ namespace HEROsMod.HEROsModServices
 								if (player.chest > -1)
 								{
 									if (destination == 1)
-										NetMessage.SendData(32, -1, -1, "", Main.player[Main.myPlayer].chest, (float)i, 0f, 0f, 0);
-									else if (destination == 0) NetMessage.SendData(32, -1, -1, "", Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
+										NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)i, 0f, 0f, 0);
+									else if (destination == 0) NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
 								}
 							}
 							Main.PlaySound(7, -1, -1, 1);
