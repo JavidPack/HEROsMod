@@ -1,10 +1,6 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
 using System.IO;
-
 using Terraria;
 
 namespace HEROsMod.HEROsModNetwork
@@ -15,6 +11,7 @@ namespace HEROsMod.HEROsModNetwork
 		public string Name { get; set; }
 		public int X { get; set; }
 		public int Y { get; set; }
+
 		public Vector2 Position
 		{
 			get { return new Vector2(X, Y); }
@@ -24,6 +21,7 @@ namespace HEROsMod.HEROsModNetwork
 				Y = (int)value.Y;
 			}
 		}
+
 		public int Width { get; set; }
 		public int Height { get; set; }
 
@@ -41,7 +39,6 @@ namespace HEROsMod.HEROsModNetwork
 		public List<int> AllowedGroupsIDs { get; set; }
 
 		public Color Color { get; set; }
-
 
 		public Region(string name, int x, int y, int width, int height)
 		{
@@ -216,7 +213,6 @@ namespace HEROsMod.HEROsModNetwork
 		//	{
 		//		using (BinaryReader reader = new BinaryReader(memoryStream))
 		//		{
-
 		//			int numberOfAllowPlayers = reader.ReadInt32();
 		//			for (int j = 0; j < numberOfAllowPlayers; j++)
 		//			{

@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ModLoader;
+﻿using Microsoft.Xna.Framework;
 using ReLogic.Graphics;
+using Terraria;
 
 namespace HEROsMod.HEROsModServices
 {
-	class Teleporter : HEROsModService
+	internal class Teleporter : HEROsModService
 	{
 		// TODO, is this how I want to do this?
 		public static Teleporter instance;
+
 		public Teleporter()
 		{
 			instance = this;

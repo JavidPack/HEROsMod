@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HEROsMod.UIKit;
-
+﻿using HEROsMod.UIKit;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -12,7 +8,7 @@ namespace HEROsMod.HEROsModServices
 	/// <summary>
 	/// A Service that let's you toggle the enemies on the map
 	/// </summary>
-	class EnemyToggler : HEROsModService
+	internal class EnemyToggler : HEROsModService
 	{
 		public static bool EnemiesAllowed = true;
 
@@ -26,7 +22,7 @@ namespace HEROsMod.HEROsModServices
 			HEROsModNetwork.GeneralMessages.EnemiesToggledByServer += GeneralMessages_EnemiesToggledByServer;
 		}
 
-		void GeneralMessages_EnemiesToggledByServer(bool enemiesCanSpawn)
+		private void GeneralMessages_EnemiesToggledByServer(bool enemiesCanSpawn)
 		{
 			if (enemiesCanSpawn)
 			{
@@ -61,7 +57,7 @@ namespace HEROsMod.HEROsModServices
 			}
 		}
 
-		void _hotbarIcon_onLeftClick(object sender, EventArgs e)
+		private void _hotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
 			if (ModUtils.NetworkMode != NetworkMode.None)
 			{
@@ -80,7 +76,7 @@ namespace HEROsMod.HEROsModServices
 					this._hotbarIcon.Opacity = .5f;
 					this.HotbarIcon.Tooltip = "Enable Enemy Spawns";
 				}
-				Main.NewText("Enemy spawns " + (EnemiesAllowed?"enabled":"disabled"));
+				Main.NewText("Enemy spawns " + (EnemiesAllowed ? "enabled" : "disabled"));
 			}
 		}
 

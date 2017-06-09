@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Terraria;
-using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
-	class ServiceController
+	internal class ServiceController
 	{
 		public delegate void ServiceEventHandler(HEROsModService service);
+
 		public event ServiceEventHandler ServiceAdded;
+
 		public event ServiceEventHandler ServiceRemoved;
 
 		private List<HEROsModService> _services;
-
 
 		/// <summary>
 		/// HEROsMod Services laoded into the controller
@@ -31,7 +27,7 @@ namespace HEROsMod.HEROsModServices
 			HEROsModNetwork.LoginService.MyGroupChanged += LoginService_MyGroupChanged;
 		}
 
-		void LoginService_MyGroupChanged(object sender, EventArgs e)
+		private void LoginService_MyGroupChanged(object sender, EventArgs e)
 		{
 			MyGroupChanged();
 		}

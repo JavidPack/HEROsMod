@@ -1,25 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HEROsMod.UIKit;
+﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework;
-
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
+using System;
 
 namespace HEROsMod.HEROsModServices
 {
-	class MiscOptions : HEROsModService
+	internal class MiscOptions : HEROsModService
 	{
 		private MiscOptionsWindow _miscOptionsHotbar;
 
 		public MiscOptions()
 		{
 			IsHotbar = true;
-			
+
 			this._hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/settings")/*Main.buffTexture[BuffID.Confused]*/);
 			this.HotbarIcon.Tooltip = "Misc. Options";
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
@@ -31,8 +24,8 @@ namespace HEROsMod.HEROsModServices
 
 			Hotbar = _miscOptionsHotbar;
 		}
-		
-		void HotbarIcon_onLeftClick(object sender, EventArgs e)
+
+		private void HotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
 			//Main.NewText("Toggle Hotbar");
 
@@ -41,7 +34,7 @@ namespace HEROsMod.HEROsModServices
 			{
 				_miscOptionsHotbar.selected = false;
 				_miscOptionsHotbar.Hide();
-			//	Main.NewText("Hide Hotbar");
+				//	Main.NewText("Hide Hotbar");
 
 				//uIImage.ForegroundColor = buttonUnselectedColor;
 			}
@@ -72,9 +65,8 @@ namespace HEROsMod.HEROsModServices
 		}
 	}
 
-	class MiscOptionsWindow : UIHotbar
+	internal class MiscOptionsWindow : UIHotbar
 	{
-		
 		//public UIImage bStampTiles;
 		//public UIImage bEyeDropper;
 		//public UIImage bFlipHorizontal;

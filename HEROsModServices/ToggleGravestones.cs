@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using HEROsMod.HEROsModNetwork;
 using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
+using System;
+using System.Linq;
 using Terraria;
-using Terraria.ModLoader;
-using HEROsMod.HEROsModNetwork;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
-	class ToggleGravestones : HEROsModService
+	internal class ToggleGravestones : HEROsModService
 	{
 		public static int[] gravestoneProjectiles = new int[] {
 		ProjectileID.Tombstone,
@@ -21,8 +19,9 @@ namespace HEROsMod.HEROsModServices
 		ProjectileID.Gravestone,
 		ProjectileID.Obelisk,
 		ProjectileID.RichGravestone1, ProjectileID.RichGravestone2,ProjectileID.RichGravestone3,
-		ProjectileID.RichGravestone4, ProjectileID.RichGravestone5, 
+		ProjectileID.RichGravestone4, ProjectileID.RichGravestone5,
 		};
+
 		//  public ToggleGravestones()
 		public ToggleGravestones(UIHotbar hotbar)
 		{
@@ -38,7 +37,7 @@ namespace HEROsMod.HEROsModServices
 			HEROsModNetwork.GeneralMessages.GravestonesToggleByServer += GeneralMessages_GravestonesToggleByServer;
 		}
 
-		void GeneralMessages_GravestonesToggleByServer(bool gravestonesCanSpawn)
+		private void GeneralMessages_GravestonesToggleByServer(bool gravestonesCanSpawn)
 		{
 			if (gravestonesCanSpawn)
 			{
@@ -53,7 +52,7 @@ namespace HEROsMod.HEROsModServices
 			Network.GravestonesAllowed = gravestonesCanSpawn;
 		}
 
-		void _hotbarIcon_onLeftClick(object sender, EventArgs e)
+		private void _hotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
 			if (ModUtils.NetworkMode != NetworkMode.None)
 			{
@@ -73,7 +72,7 @@ namespace HEROsMod.HEROsModServices
 		}
 	}
 
-	class GraveStoneGlobalProjectile : GlobalProjectile
+	internal class GraveStoneGlobalProjectile : GlobalProjectile
 	{
 		public override bool Autoload(ref string name) => true;
 

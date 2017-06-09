@@ -1,24 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-using Terraria;
 using Microsoft.Xna.Framework.Input;
 using ReLogic.Graphics;
+using System;
+using Terraria;
 
 namespace HEROsMod.UIKit.UIComponents
 {
-	class Slot : UIView
+	internal class Slot : UIView
 	{
 		public Item item = new Item();
 		public int index = -1;
 		public static Texture2D backgroundTexture = Main.inventoryBack9Texture;
 		public bool functionalSlot = false;
 		public bool IsTrachCan { get; set; }
+
 		public event EventHandler ItemChanged;
+
 		private bool rightClicking;
 
 		public Slot(Vector2 position, int itemNum, bool noclick = false)
@@ -32,7 +30,7 @@ namespace HEROsMod.UIKit.UIComponents
 			Init(itemNum, noclick);
 		}
 
-		void Init(int netID, bool noclick)
+		private void Init(int netID, bool noclick)
 		{
 			this.Scale = .85f;
 			item.netDefaults(netID);
@@ -55,13 +53,13 @@ namespace HEROsMod.UIKit.UIComponents
 			return backgroundTexture.Height * Scale;
 		}
 
-		void Slot2_onHover(object sender, EventArgs e)
+		private void Slot2_onHover(object sender, EventArgs e)
 		{
 			HoverText = item.Name;
 			HoverItem = item.Clone();
 		}
 
-		void Slot2_onLeftClick(object sender, EventArgs e)
+		private void Slot2_onLeftClick(object sender, EventArgs e)
 		{
 			if (IsTrachCan)
 			{
@@ -90,8 +88,6 @@ namespace HEROsMod.UIKit.UIComponents
 				//Utils.Swap<Item>(ref player.trashItem, ref Main.mouseItem);
 				//if (Main.mouseItem.type > 0)
 				//{
-
-
 				//	Main.NewText("Mouseitem1 " + Main.mouseItem.name);
 				//	Main.NewText("trashItem1 " + player.trashItem );
 				//	player.trashItem = Main.mouseItem.Clone();
@@ -126,7 +122,7 @@ namespace HEROsMod.UIKit.UIComponents
 			}
 		}
 
-		void Slot2_onRightClick(object sender, EventArgs e)
+		private void Slot2_onRightClick(object sender, EventArgs e)
 		{
 			//if (IsTrachCan)
 			//{

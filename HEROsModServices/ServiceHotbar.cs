@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using HEROsMod.UIKit;
+using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using HEROsMod.UIKit;
-
+using System;
+using System.Collections.Generic;
 using Terraria;
-using Terraria.ModLoader;
-using HEROsMod.UIKit.UIComponents;
 
 namespace HEROsMod.HEROsModServices
 {
-	class ServiceHotbar : UIWindow
+	internal class ServiceHotbar : UIWindow
 	{
 		/// <summary>
 		/// Container View for service icons
 		/// </summary>
 		private UIView _iconView;
+
 		private List<UIView> _view = new List<UIView>();
 		private bool _collapsed = false;
 		private float _lerpAmount = 0f;
@@ -74,7 +71,7 @@ namespace HEROsMod.HEROsModServices
 		}
 
 		// Recalculate buttons.
-		void ServiceAddedOrRemoved(HEROsModService modifiedService)
+		private void ServiceAddedOrRemoved(HEROsModService modifiedService)
 		{
 			// Clear existing icons in the Hotbar
 			_iconView.RemoveAllChildren();
@@ -122,7 +119,7 @@ namespace HEROsMod.HEROsModServices
 			if (_iconView.ChildCount > 0)
 			{
 				this.Width = _iconView.GetLastChild().X + _iconView.GetLastChild().Width + Spacing;
-				_iconView.Width = this.Width ;
+				_iconView.Width = this.Width;
 			}
 			collapseButton.CenterXAxisToParentCenter();
 			collapseArrow.Position = collapseButton.Position;
@@ -155,9 +152,9 @@ namespace HEROsMod.HEROsModServices
 			collapseArrow.onLeftClick += collapseArrow_onLeftClick;
 		}
 
-		void collapseArrow_onLeftClick(object sender, EventArgs e)
+		private void collapseArrow_onLeftClick(object sender, EventArgs e)
 		{
-			if(HotBarChild != null && HotBarChild.selected)
+			if (HotBarChild != null && HotBarChild.selected)
 			{
 				HotBarChild.selected = false;
 				//HotBarChild = null;
@@ -210,6 +207,5 @@ namespace HEROsMod.HEROsModServices
 		{
 			return base.IsMouseInside() || collapseArrow.MouseInside;
 		}
-
 	}
 }

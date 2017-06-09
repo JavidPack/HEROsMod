@@ -1,108 +1,106 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
-
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 
 namespace HEROsMod.UIKit
 {
-    class UIColorPicker: UIView
-    {
-        public event EventHandler ColorChanged;
-        public Color Color
-        {
-            get { return Main.hslToRgb(Hue, Saturation, Luminosity); }
-            set 
-            {
-                Vector3 hsl = Main.rgbToHsl(value);
-                Hue = hsl.X;
-                Saturation = hsl.Y;
-                Luminosity = hsl.Z;
-            }
-        }
-        public float Hue
-        {
-            get { return hueSlider.Value; }
-            set 
-            {
-                hueSlider.Value = value;
-                saturationSlider.Hue = value;
-                luminositySlider.Hue = value;
-            }
-        }
+	internal class UIColorPicker : UIView
+	{
+		public event EventHandler ColorChanged;
 
-        public float Saturation
-        {
-            get { return saturationSlider.Value; }
-            set 
-            { 
-                saturationSlider.Value = value;
-                luminositySlider.Saturation = value;
-            }
-        }
+		public Color Color
+		{
+			get { return Main.hslToRgb(Hue, Saturation, Luminosity); }
+			set
+			{
+				Vector3 hsl = Main.rgbToHsl(value);
+				Hue = hsl.X;
+				Saturation = hsl.Y;
+				Luminosity = hsl.Z;
+			}
+		}
 
-        public float Luminosity
-        {
-            get { return luminositySlider.Value; }
-            set 
-            {
-                luminositySlider.Value = value;
-                saturationSlider.Luminosity = value;
-            }
-        }
+		public float Hue
+		{
+			get { return hueSlider.Value; }
+			set
+			{
+				hueSlider.Value = value;
+				saturationSlider.Hue = value;
+				luminositySlider.Hue = value;
+			}
+		}
 
-        HueSlider hueSlider;
-        SaturationSlider saturationSlider;
-        LuminositySlider luminositySlider;
+		public float Saturation
+		{
+			get { return saturationSlider.Value; }
+			set
+			{
+				saturationSlider.Value = value;
+				luminositySlider.Saturation = value;
+			}
+		}
 
-        public UIColorPicker()
-        {
-            hueSlider = new HueSlider();
-            saturationSlider = new SaturationSlider();
-            luminositySlider = new LuminositySlider();
+		public float Luminosity
+		{
+			get { return luminositySlider.Value; }
+			set
+			{
+				luminositySlider.Value = value;
+				saturationSlider.Luminosity = value;
+			}
+		}
 
-            saturationSlider.Y = hueSlider.Height;
-            luminositySlider.Y = saturationSlider.Y + saturationSlider.Height;
-            this.Width = hueSlider.Width;
-            this.Height = luminositySlider.Y + luminositySlider.Height;
+		private HueSlider hueSlider;
+		private SaturationSlider saturationSlider;
+		private LuminositySlider luminositySlider;
 
-            hueSlider.valueChanged += hueSlider_valueChanged;
-            saturationSlider.valueChanged += saturationSlider_valueChanged;
-            luminositySlider.valueChanged += luminositySlider_valueChanged;
+		public UIColorPicker()
+		{
+			hueSlider = new HueSlider();
+			saturationSlider = new SaturationSlider();
+			luminositySlider = new LuminositySlider();
 
-            this.Color = Color.White;
+			saturationSlider.Y = hueSlider.Height;
+			luminositySlider.Y = saturationSlider.Y + saturationSlider.Height;
+			this.Width = hueSlider.Width;
+			this.Height = luminositySlider.Y + luminositySlider.Height;
 
-            AddChild(hueSlider);
-            AddChild(saturationSlider);
-            AddChild(luminositySlider);
-        }
+			hueSlider.valueChanged += hueSlider_valueChanged;
+			saturationSlider.valueChanged += saturationSlider_valueChanged;
+			luminositySlider.valueChanged += luminositySlider_valueChanged;
 
-        void TriggerColorChangedEvent()
-        {
-            if(ColorChanged != null)
-            {
-                ColorChanged(this, EventArgs.Empty);
-            }
-        }
+			this.Color = Color.White;
 
-        void luminositySlider_valueChanged(object sender, float value)
-        {
-            Luminosity = luminositySlider.Value;
-            TriggerColorChangedEvent();
-        }
+			AddChild(hueSlider);
+			AddChild(saturationSlider);
+			AddChild(luminositySlider);
+		}
 
-        void saturationSlider_valueChanged(object sender, float value)
-        {
-            Saturation = saturationSlider.Value;
-            TriggerColorChangedEvent();
-        }
+		private void TriggerColorChangedEvent()
+		{
+			if (ColorChanged != null)
+			{
+				ColorChanged(this, EventArgs.Empty);
+			}
+		}
 
-        void hueSlider_valueChanged(object sender, float value)
-        {
-            Hue = hueSlider.Value;
-            TriggerColorChangedEvent();
-        }
-    }
+		private void luminositySlider_valueChanged(object sender, float value)
+		{
+			Luminosity = luminositySlider.Value;
+			TriggerColorChangedEvent();
+		}
+
+		private void saturationSlider_valueChanged(object sender, float value)
+		{
+			Saturation = saturationSlider.Value;
+			TriggerColorChangedEvent();
+		}
+
+		private void hueSlider_valueChanged(object sender, float value)
+		{
+			Hue = hueSlider.Value;
+			TriggerColorChangedEvent();
+		}
+	}
 }

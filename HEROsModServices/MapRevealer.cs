@@ -1,24 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HEROsMod.UIKit;
-
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
+﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria;
 
 namespace HEROsMod.HEROsModServices
 {
 	/// <summary>
 	/// A service that reveals the map for the player
 	/// </summary>
-	class MapRevealer : HEROsModService
+	internal class MapRevealer : HEROsModService
 	{
 		// TODO, is this how I want to do this?
 		public static MapRevealer instance;
+
 		public MapRevealer(UIHotbar hotbar)
 		{
 			IsInHotbar = true;
@@ -36,7 +31,7 @@ namespace HEROsMod.HEROsModServices
 			//base.MyGroupUpdated();
 		}
 
-		void _hotbarIcon_onLeftClick(object sender, EventArgs e)
+		private void _hotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
 			if (Main.netMode != 1)
 			{
@@ -50,6 +45,7 @@ namespace HEROsMod.HEROsModServices
 		}
 
 		public static int MapRevealSize = 300;
+
 		public static void RevealAroundPoint(int x, int y)
 		{
 			for (int i = x - MapRevealSize / 2; i < x + MapRevealSize / 2; i++)

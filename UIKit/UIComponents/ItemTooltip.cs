@@ -14,7 +14,6 @@
 //{
 //    class ItemTooltip : UIWindow
 //    {
-
 //        //private int previousItemType = 0;
 //        private Item previousItem;
 //        public static Color statUpColor = new Color(79, 170, 72);
@@ -47,7 +46,7 @@
 //                    BuildStats(ModUtils.HoverItem);
 //                    previousItem = ModUtils.HoverItem.Clone();
 //                }
-                
+
 //                this.Y += 16f;
 //                if (Debug)
 //                    this.X -= Width - Spacing;
@@ -94,7 +93,6 @@
 //            stats = new List<UIView>();
 //            this.RemoveAllChildren();
 
-
 //            Color itemColor = ModUtils.GetItemColor(item);
 //            if(item.stack > 1)
 //            {
@@ -122,7 +120,6 @@
 //                    BuildItemStats(item);
 //                }
 //            }
-            
 
 //            this.Width = maxWidth + Spacing * 2;
 //            this.Height = yPos;
@@ -135,7 +132,6 @@
 
 //        private void BuildItemStats(Item item)
 //        {
-
 //            Item itemDefaults = new Item();
 //            itemDefaults.netDefaults(item.netID);
 //            //Melee Damage
@@ -253,7 +249,6 @@
 //                AddLabel(Lang.tip[52] + Lang.itemName(item.tileWand, false));
 //            }
 
-
 //            //Vanity
 //            {
 //                if (item.vanity)
@@ -364,7 +359,7 @@
 //                    }
 //                }
 //            }
-            
+
 //			// TODO Bring this feature back?
 //            //List<ChestDropInfo> chests = ChestDropBuilder.chestDropsInfo;
 //            //for (int i = 0; i < chests.Count; i++)
@@ -381,8 +376,6 @@
 //            //        }
 //            //    }
 //            //}
-
-
 
 //            for (int i = 0; i < name.Count; i++)
 //            {
@@ -542,7 +535,6 @@
 
 //        static string[] knockbackPowers = new string[]
 //        {
-            
 //			"None",
 //			"Extremely Weak",
 //			"Very Weak",

@@ -48,7 +48,7 @@
 //            foreach(var item in dropTable.Drops)
 //            {
 //                string dropAmount = GetDropAmount(item);
-                
+
 //                UIImage itemImage = new UIImage(Main.itemTexture[item.NPCType]);
 //                itemImage.Anchor = AnchorPosition.Center;
 //                itemImage.X = amountWidth + iconSize / 2;

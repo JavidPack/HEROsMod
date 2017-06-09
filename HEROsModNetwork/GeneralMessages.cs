@@ -1,32 +1,40 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
-using Microsoft.Xna.Framework;
-
+using System.Linq;
 using Terraria;
-using Terraria.ID;
 using Terraria.Localization;
 
 namespace HEROsMod.HEROsModNetwork
 {
-	class GeneralMessages
+	internal class GeneralMessages
 	{
 		public delegate void TimePausedOrResumedEvent(bool timePaused);
+
 		public static event TimePausedOrResumedEvent TimePausedOrResumedByServer;
+
 		public delegate void EnemiesToggleEvent(bool enemiesCanSpawn);
+
 		public static event EnemiesToggleEvent EnemiesToggledByServer;
+
 		public delegate void GravestoneToggleEvent(bool gravestonesCanSpawn);
+
 		public static event GravestoneToggleEvent GravestonesToggleByServer;
+
 		public delegate void ItemBannerToggleEvent(bool itemsbanned);
+
 		public static event ItemBannerToggleEvent ItemBannerToggleByServer;
+
 		public delegate void PlayerEvent(HEROsModPlayer player);
+
 		public static event PlayerEvent PlayerJoined;
+
 		public static event PlayerEvent PlayerLeft;
+
 		public static event EventHandler RegionsUpdated;
 
-		static BinaryWriter Writer
+		private static BinaryWriter Writer
 		{
 			get { return HEROsModNetwork.Network.writer; }
 		}
@@ -39,90 +47,119 @@ namespace HEROsMod.HEROsModNetwork
 				case MessageType.UsingHEROsMod:
 					ProcessPlayerUsingHEROsMod(playerNumber);
 					break;
+
 				case MessageType.RequestTimeChange:
 					ProcessTimeChangeRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.TimePausedOrResumed:
 					ProcessTimePausedOrChanged(ref reader);
 					break;
+
 				case MessageType.RequestClearGroundItems:
 					ProcessClearGroundItemsRequest(playerNumber);
 					break;
+
 				case MessageType.RequestToggleEnemies:
 					ProcessToggleEnemiesRequest(playerNumber);
 					break;
+
 				case MessageType.EnemiesToggled:
 					ProcessEnemiesToggled(ref reader);
 					break;
+
 				case MessageType.RequestSpawnTownNPC:
 					ProcessSpawnTownNPCRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestStartRain:
 					ProcessStartRainRequest(playerNumber);
 					break;
+
 				case MessageType.RequestStopRain:
 					ProcessStopRainRequest(playerNumber);
 					break;
+
 				case MessageType.RequestForcedSundial:
 					ProcessForcedSundialRequest(playerNumber);
 					break;
+
 				case MessageType.WaypointList:
 					ProcessWaypointList(ref reader);
 					break;
+
 				case MessageType.RequestAddWaypoint:
 					ProcessAddWaypointRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestRemoveWaypoint:
 					ProcessRemoveWaypointReqeust(ref reader, playerNumber);
 					break;
+
 				case MessageType.PlayerJoined:
 					ProcessPlayerJoined(ref reader);
 					break;
+
 				case MessageType.PlayerLeft:
 					ProcessPlayerLeft(ref reader);
 					break;
+
 				case MessageType.RegionList:
 					ProcessRegionList(ref reader);
 					break;
+
 				case MessageType.CurrentToggles:
 					ProcessCurrentToggles(ref reader);
 					break;
+
 				case MessageType.RequestCreateRegion:
 					ProcessCreateRegionRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestRemoveRegion:
 					ProcessRemoveRegionRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestRegisteredUsers:
 					ProcessRegisteredUsersRequest(playerNumber);
 					break;
+
 				case MessageType.RegisteredUsers:
 					ProcessRegisteredUsersList(ref reader);
 					break;
+
 				case MessageType.RequestAddPlayerToRegion:
 					ProcessAddPlayerToRegionRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestRemovePlayerFromRegion:
 					ProcessRemovePlayerFromRegionRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestAddGroupToRegion:
 					ProcessAddGroupToRegionRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestRemoveGroupFromRegion:
 					ProcessRemoveGroupFromRegionRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestRestoreTiles:
 					ProcessRestoreTilesRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestSetSpawnPoint:
 					ProcessSetSpawnPointRequest(playerNumber);
 					break;
+
 				case MessageType.RequestToggleGravestones:
 					ProcessToggleGravestonesRequest(playerNumber);
 					break;
+
 				case MessageType.GravestonesToggled:
 					ProcessGravestonesToggled(ref reader);
 					break;
+
 				case MessageType.RequestChangeRegionColor:
 					ProcessChangeRegionColorRequest(ref reader, playerNumber);
 					break;
@@ -132,33 +169,43 @@ namespace HEROsMod.HEROsModNetwork
 				case MessageType.RequestGodMode:
 					ProcessGodModeRequest(playerNumber);
 					break;
+
 				case MessageType.AllowGodMode:
 					ProcessGodMode();
 					break;
+
 				case MessageType.RequestTileModificationCheck:
 					ProcessTileModificationCheckRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestSpawnNPC:
 					ProcessSpawnNPCRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestStartEvent:
 					ProcessStartEventRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestStopEvents:
 					ProcessStopEventsRequest(playerNumber);
 					break;
+
 				case MessageType.RequestToggleBannedItems:
 					ProcessToggleBannedItemsRequest(playerNumber);
 					break;
+
 				case MessageType.BannedItemsToggled:
 					ProcessBannedItemsToggled(ref reader);
 					break;
+
 				case MessageType.RequestBanPlayer:
 					ProcessRequestBanPlayer(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestKickPlayer:
 					ProcessRequestKickPlayer(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestTeleport:
 					ProcessRequestTeleport(ref reader, playerNumber);
 					break;
@@ -294,7 +341,6 @@ namespace HEROsMod.HEROsModNetwork
 			WriteHeader(MessageType.RequestTimeChange);
 			Writer.Write((byte)tct);
 			Network.SendDataToServer();
-
 		}
 
 		private static void ProcessTimeChangeRequest(ref BinaryReader reader, int playerNumber)
@@ -309,16 +355,19 @@ namespace HEROsMod.HEROsModNetwork
 						Main.time = 27000.0;
 						Network.SendTextToAllPlayers("The time has been changed to noon by " + Main.player[playerNumber].name);
 						break;
+
 					case TimeChangeType.SetToMidnight:
 						Main.dayTime = false;
 						Main.time = 27000.0;
 						Network.SendTextToAllPlayers("The time has been changed to midnight by " + Main.player[playerNumber].name);
 						break;
+
 					case TimeChangeType.SetToNight:
 						Main.dayTime = false;
 						Main.time = 0;
 						Network.SendTextToAllPlayers("The time has been changed to night by " + Main.player[playerNumber].name);
 						break;
+
 					case TimeChangeType.Pause:
 						HEROsModServices.TimeWeatherChanger.TimePaused = !HEROsModServices.TimeWeatherChanger.TimePaused;
 						if (HEROsModServices.TimeWeatherChanger.TimePaused)
@@ -612,7 +661,6 @@ namespace HEROsMod.HEROsModNetwork
 			}
 		}
 
-
 		public static void SendCurrentTogglesToPlayer(int playerNumber)
 		{
 			WriteHeader(MessageType.CurrentToggles);
@@ -664,7 +712,6 @@ namespace HEROsMod.HEROsModNetwork
 				Writer.Write(Network.Regions[i].Export());
 			}
 			Network.SendDataToPlayer(playerNumber);
-
 		}
 
 		private static void ProcessRegionList(ref BinaryReader reader)
@@ -744,7 +791,6 @@ namespace HEROsMod.HEROsModNetwork
 
 			//	Console.WriteLine("Buffer Length: " + Writer.BaseStream.Length);
 
-
 			UserWithID[] players = DatabaseController.GetRegisteredUsers();
 			if (players.Length == 0) return;
 			Writer.Write(players.Length);
@@ -757,7 +803,6 @@ namespace HEROsMod.HEROsModNetwork
 			}
 
 			Network.SendDataToPlayer(playerNumber);
-
 		}
 
 		private static void ProcessRegisteredUsersList(ref BinaryReader reader)
@@ -774,7 +819,6 @@ namespace HEROsMod.HEROsModNetwork
 				user.groupID = reader.ReadInt32();
 				Network.RegisteredUsers.Add(user);
 			}
-
 		}
 
 		public static void RequestAddPlayerToRegion(Region region, int playerID)
@@ -888,9 +932,7 @@ namespace HEROsMod.HEROsModNetwork
 				region.Color = color;
 				DatabaseController.WriteRegionColor(region);
 				SendRegionListToAllPlayers();
-
 			}
-
 		}
 
 		public static void RequestRestoreTiles(int playerID, bool onlinePlayer)
@@ -1179,7 +1221,7 @@ namespace HEROsMod.HEROsModNetwork
 			Network.SendDataToServer();
 		}
 
-		enum MessageType : byte
+		private enum MessageType : byte
 		{
 			UsingHEROsMod,
 			RequestTimeChange,

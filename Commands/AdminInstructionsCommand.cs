@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace HEROsMod.Commands
 {
-	class AdminInstructionsCommand : ModCommand
+	internal class AdminInstructionsCommand : ModCommand
 	{
 		public override CommandType Type => CommandType.Console;
 
@@ -20,4 +20,3 @@ namespace HEROsMod.Commands
 		}
 	}
 }
-

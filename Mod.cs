@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using HEROsMod.HEROsModNetwork;
+using HEROsMod.HEROsModServices;
+using HEROsMod.UIKit;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using HEROsMod.HEROsModServices;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
-
-using Terraria;
-using Terraria.ModLoader;
-using HEROsMod.UIKit;
+using System;
 using System.IO;
-using HEROsMod.HEROsModNetwork;
+using Terraria;
 using Terraria.DataStructures;
+using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
 // TODO, freeze is bypassable.
@@ -21,9 +16,10 @@ using Terraria.ModLoader.IO;
 
 namespace HEROsMod
 {
-	class HEROsModModWorld : ModWorld
+	internal class HEROsModModWorld : ModWorld
 	{
 		public override bool Autoload(ref string name) => true;
+
 		//private const int saveVersion = 0;
 
 		// When a world is loaded on Server or client, we need to load settings.
@@ -115,7 +111,8 @@ namespace HEROsMod
 		}
 
 		// TODO - make tmodloader hook, this only gets called while there are players in the world.
-		double time;
+		private double time;
+
 		public override void PostUpdate()
 		{
 			if (Main.dedServ)
@@ -126,14 +123,14 @@ namespace HEROsMod
 					HEROsModNetwork.Network.Update();
 				}
 			}
-
 		}
 	}
 
 	// renamed from Mod to HEROsModMod
-	class HEROsMod : Mod
+	internal class HEROsMod : Mod
 	{
 		public static HEROsMod instance;
+
 		public override void Load()
 		{
 			// Since we are using hooks not in older versions, and since ItemID.Count changed, we need to do this.
@@ -215,7 +212,6 @@ namespace HEROsMod
 				HEROsMod.Draw(spriteBatch);
 
 				KeybindController.DoPreviousKeyState();
-
 			}
 			catch (Exception e)
 			{
@@ -269,13 +265,16 @@ namespace HEROsMod
 
 		// Holds all the loaded services.
 		public static ServiceController ServiceController;
+
 		/// <summary>
 		/// A reference to teh instance of the Graphics Device.
 		/// </summary>
 		public static GraphicsDevice GraphicsDeviceReference;
+
 		public static RenderTarget2D RenderTarget { get; set; }
 
 		private static ServiceHotbar _hotbar;
+
 		public static ServiceHotbar ServiceHotbar
 		{
 			get { return _hotbar; }
@@ -287,7 +286,6 @@ namespace HEROsMod
 			//	IncreaseNetworkMessageSize();
 			HEROsModNetwork.Network.Init();
 			//	HEROsModNetwork.CTF.CaptureTheFlag.Init();
-
 
 			//if (ModUtils.NetworkMode != NetworkMode.Server)
 			if (!Main.dedServ)
@@ -319,7 +317,6 @@ namespace HEROsMod
 			//instance.modExtensions = new ModExtensions();
 		}
 
-
 		public override object Call(params object[] args)
 		{
 			string message = args[0] as string;
@@ -338,7 +335,7 @@ namespace HEROsMod
 			else if (message == "AddPermission")
 			{
 				ModUtils.DebugText("Permission Adding...");
-				// Internal, 
+				// Internal,
 				RegisterPermission(
 					args[1] as string,
 					args[2] as string
@@ -372,7 +369,6 @@ namespace HEROsMod
 			Group.PermissionList.Add(new PermissionInfo(permissionName, permissionDisplayName));
 			//foreach (var item in Network.Groups)
 			//{
-
 			//}
 			//Network.DefaultGroup.Permissions.Add(permissionName, false);
 			Network.AdminGroup.Permissions.Add(permissionName, true);
@@ -389,8 +385,9 @@ namespace HEROsMod
 		//	Main.txDataType = new int[Main.maxMsg];
 		//}
 
-		MiscOptions miscOptions;
-		ExtensionMenuService extensionMenuService;
+		private MiscOptions miscOptions;
+		private ExtensionMenuService extensionMenuService;
+
 		// TODO, is this ok to do on load rather than on enter?
 		public static void LoadAddServices()
 		{
@@ -457,15 +454,16 @@ namespace HEROsMod
 			{
 				//	ServiceHotbar.Visible = HEROsModNetwork.Network.ServerUsingHEROsMod;
 				//	ServiceController.AddService(new CTFService());
-				//ServiceController.MyGroupChanged(); 
+				//ServiceController.MyGroupChanged();
 			}
 			//HEROsModVideo.Services.NPCSpawnData.NPCSpawnDataBuilder.Start();
 			//HEROsModVideo.Services.ChestDropsInfo.ChestDropBuilder.Start();
 		}
 
-		static float angle = 0f;
-		static float angle2 = 0f;
-		static float zoom = 1f;
+		private static float angle = 0f;
+		private static float angle2 = 0f;
+		private static float zoom = 1f;
+
 		public static void Update(/*GameTime gameTime*/)
 		{
 			if (ModUtils.NetworkMode != NetworkMode.Server)
@@ -526,7 +524,6 @@ namespace HEROsMod
 
 				//}
 
-
 				//Matrix worldMatrix = Matrix.Identity
 				//	* Matrix.CreateTranslation(new Vector3(-Main.screenWidth / 2, -Main.screenHeight / 2, 0f))
 				//	* Matrix.CreateRotationX(angle2)
@@ -535,7 +532,6 @@ namespace HEROsMod
 				//	* Matrix.CreateScale(zoom);
 
 				//   ModUtils.TextureExtruder.WorldView = worldMatrix;
-
 			}
 			HEROsModNetwork.Network.Update();
 			//	HEROsModNetwork.CTF.CaptureTheFlag.Update();
@@ -622,6 +618,7 @@ namespace HEROsMod
 			}
 			Utils.DrawBorderStringFourWay(spriteBatch, Main.fontMouseText, UIView.HoverText, vector.X, vector.Y, new Color((int)Main.mouseTextColor, (int)Main.mouseTextColor, (int)Main.mouseTextColor, (int)Main.mouseTextColor), Color.Black, Vector2.Zero, 1f);
 		}
+
 		public static void DrawBehindUI(SpriteBatch spriteBatch)
 		{
 			if (!Main.gameMenu)

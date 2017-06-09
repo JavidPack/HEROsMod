@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework.Input;
-using System.IO;
+﻿using System.Collections.Generic;
 
 using Terraria;
-using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
-	class KeybindController
+	internal class KeybindController
 	{
 		//public static List<BindCategory> bindCategories = new List<BindCategory>();
 		//static BindCategory currentCategory = null;
@@ -38,7 +32,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			foreach (var hotkey in bindings)
 			{
-				if(hotkey.name == name)
+				if (hotkey.name == name)
 				{
 					hotkey.Down = true;
 					break;
@@ -54,7 +48,6 @@ namespace HEROsMod.HEROsModServices
 				hotkey.Down = false;
 			}
 		}
-
 
 		//public static void SetCatetory(string categoryName)
 		//{
@@ -168,7 +161,7 @@ namespace HEROsMod.HEROsModServices
 		*/
 	}
 
-	class KeyBinding
+	internal class KeyBinding
 	{
 		public string name;
 
@@ -199,6 +192,7 @@ namespace HEROsMod.HEROsModServices
 				return false;
 			}
 		}
+
 		public bool KeyUp
 		{
 			get
@@ -206,7 +200,7 @@ namespace HEROsMod.HEROsModServices
 				if (_keyInputLocked) return true;
 				//if (key != Keys.None)
 				{
-					if(!Down)
+					if (!Down)
 					//if (Main.keyState.IsKeyUp(key))
 					{
 						return true;
@@ -215,6 +209,7 @@ namespace HEROsMod.HEROsModServices
 				return false;
 			}
 		}
+
 		public bool KeyDown
 		{
 			get
@@ -223,7 +218,7 @@ namespace HEROsMod.HEROsModServices
 				//if (key != Keys.None)
 				{
 					//if (Main.keyState.IsKeyDown(key))
-					if(Down)
+					if (Down)
 					{
 						return true;
 					}

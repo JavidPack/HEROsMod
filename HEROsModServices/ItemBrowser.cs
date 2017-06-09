@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using HEROsMod.UIKit;
 using Microsoft.Xna.Framework;
-
+using System;
 using Terraria;
-using Terraria.ModLoader;
-using HEROsMod.UIKit;
 
 namespace HEROsMod.HEROsModServices
 {
-	class ItemBrowser : HEROsModService
+	internal class ItemBrowser : HEROsModService
 	{
 		private UIKit.UIComponents.ItemBrowser _itemBrowserWindow;
+
 		public ItemBrowser()
 		{
 			this._name = "Item Browser";
@@ -26,7 +22,7 @@ namespace HEROsMod.HEROsModServices
 			this.AddUIView(_itemBrowserWindow);
 		}
 
-		void _hotbarIcon_onLeftClick(object sender, EventArgs e)
+		private void _hotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
 			// Toggle item browser window
 			_itemBrowserWindow.Visible = !_itemBrowserWindow.Visible;

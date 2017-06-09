@@ -10,6 +10,7 @@ namespace HEROsMod.UIKit.UIComponents
 		{
 			ScissorTestEnable = true
 		};
+
 		internal static float slideMoveSpeed = 8f;
 		internal float lerpAmount;
 
@@ -58,7 +59,6 @@ namespace HEROsMod.UIKit.UIComponents
 
 		public virtual void test()
 		{
-
 		}
 
 		internal float spacing = 8f;
@@ -67,6 +67,7 @@ namespace HEROsMod.UIKit.UIComponents
 		internal bool arrived;
 
 		private bool _selected;
+
 		internal bool selected
 		{
 			get { return _selected; }
@@ -81,7 +82,7 @@ namespace HEROsMod.UIKit.UIComponents
 					hidden = false;
 					Visible = true;
 					//HotBarParent
-					if(HEROsMod.ServiceHotbar.HotBarChild != null && HEROsMod.ServiceHotbar.HotBarChild != this)
+					if (HEROsMod.ServiceHotbar.HotBarChild != null && HEROsMod.ServiceHotbar.HotBarChild != this)
 					{
 						HEROsMod.ServiceHotbar.HotBarChild.selected = false;
 					}
@@ -110,7 +111,7 @@ namespace HEROsMod.UIKit.UIComponents
 					{
 						this.lerpAmount = 0f;
 						arrived = true;
-					//	Main.NewText("Arrived, Not Visible");
+						//	Main.NewText("Arrived, Not Visible");
 						this.Visible = false;
 					}
 					float y = MathHelper.SmoothStep(this.hiddenPosition, this.shownPosition, this.lerpAmount);
@@ -123,8 +124,7 @@ namespace HEROsMod.UIKit.UIComponents
 					{
 						this.lerpAmount = 1f;
 						arrived = true;
-					//	Main.NewText("Arrived, Visible");
-
+						//	Main.NewText("Arrived, Visible");
 					}
 					float y2 = MathHelper.SmoothStep(this.hiddenPosition, this.shownPosition, this.lerpAmount);
 					base.Position = new Vector2(base.Position.X, y2);

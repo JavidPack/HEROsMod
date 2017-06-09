@@ -1,32 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.IO;
-using System.Text.RegularExpressions;
-
+using System;
 using Terraria;
 using Terraria.UI;
 
 namespace HEROsMod.HEROsModServices
 {
-	class InventoryManager : HEROsModService
+	internal class InventoryManager : HEROsModService
 	{
-		static float scale = .5f;
-		static Player player
+		private static float scale = .5f;
+
+		private static Player player
 		{
 			get { return Main.player[Main.myPlayer]; }
 		}
-		static bool[] lockedSlots = new bool[40];
+
+		private static bool[] lockedSlots = new bool[40];
 
 		public static string categoryName = "Inventory Manager";
+
 		// public static KeyBinding kQuickMoveItem;
-		static KeyBinding kQuickStack;
-		static KeyBinding kSortInventory;
-		static KeyBinding kSwapHotbar;
+		private static KeyBinding kQuickStack;
+
+		private static KeyBinding kSortInventory;
+		private static KeyBinding kSwapHotbar;
 
 		private static int[] _itemSortArray;
 		private static bool Loaded;
@@ -104,9 +101,7 @@ namespace HEROsMod.HEROsModServices
 			}
 		}
 
-
-
-		static void SwapHotbar()
+		private static void SwapHotbar()
 		{
 			Item[] tempItems = new Item[10];
 			for (int i = 0; i < 10; i++)
@@ -122,14 +117,13 @@ namespace HEROsMod.HEROsModServices
 			Main.PlaySound(7, -1, -1, 1);
 		}
 
-		static Item MoveItemToContainer(Item _item, byte destination, int invNum)
+		private static Item MoveItemToContainer(Item _item, byte destination, int invNum)
 		{
 			Item item = _item;
 			int chestNum = player.chest;
 
 			if (item.type > 0)
 			{
-
 				Item[] container = new Item[0];
 				if (destination == 0) container = player.inventory;
 				else if (destination == 1) container = Main.chest[player.chest].item;
@@ -194,9 +188,7 @@ namespace HEROsMod.HEROsModServices
 					if (destination > 0) numOfSlots = 40;
 					for (int i = 0; i < numOfSlots; i++)
 					{
-
 						Item containerItem = container[i];
-
 
 						if (containerItem.type == 0)
 						{
@@ -243,7 +235,6 @@ namespace HEROsMod.HEROsModServices
 		//				Main.player[Main.myPlayer].mouseInterface = true;
 		//				Player p = player;
 
-
 		//				for (int i = 0; i < 10; i++)
 		//				{
 		//					int slotNum = i - 1;
@@ -255,7 +246,6 @@ namespace HEROsMod.HEROsModServices
 		//						tempItem.SetDefaults(0, false);
 		//						if (player.chest > -1)
 		//						{
-
 		//							tempItem = (Item)Main.chest[player.chest].item[itemNum].Clone();
 		//							Main.chest[player.chest].item[itemNum] = (Item)p.inventory[slotNum].Clone();
 		//						}
@@ -302,14 +292,12 @@ namespace HEROsMod.HEROsModServices
 		//				int itemNum = x + y * 10;
 		//				if (Main.mouseX >= itemPosX && (float)Main.mouseX <= (float)itemPosX + (float)Main.inventoryBackTexture.Width * inventoryScale && Main.mouseY >= itemPosY && (float)Main.mouseY <= (float)itemPosY + (float)Main.inventoryBackTexture.Height * inventoryScale)
 		//				{
-
 		//					if (Main.player[Main.myPlayer].inventory[itemNum].type > 0)
 		//					{
 		//						Main.player[Main.myPlayer].mouseInterface = true;
 		//						Player p = player;
 		//						Item inventoryItem = p.inventory[itemNum]; //clicked inventory item
 		//						Item[] currentOpenChestItems = new Item[0];
-
 
 		//						for (int i = 0; i < 10; i++)
 		//						{
@@ -323,8 +311,6 @@ namespace HEROsMod.HEROsModServices
 		//								p.inventory[slotNum] = (Item)tempItem.Clone();
 		//							}
 		//						}
-
-
 
 		//						if (player.chest != -1 && Main.mouseLeft && Main.mouseLeftRelease)
 		//						{
@@ -353,7 +339,7 @@ namespace HEROsMod.HEROsModServices
 		//	return false;
 		//}
 
-		static void DrawLocks(SpriteBatch spriteBatch)
+		private static void DrawLocks(SpriteBatch spriteBatch)
 		{
 			if (Main.playerInventory)
 			{
@@ -378,7 +364,7 @@ namespace HEROsMod.HEROsModServices
 			}
 		}
 
-		static bool CheckQuickCraft()
+		private static bool CheckQuickCraft()
 		{
 			for (int num75 = 0; num75 < Recipe.maxRecipes; num75++)
 			{
@@ -418,7 +404,6 @@ namespace HEROsMod.HEROsModServices
 									Item tempItem = (Item)r.createItem.Clone();
 									tempItem.stack = 0;
 
-
 									bool playsound = false;
 									bool matsLeft = true;
 									while (matsLeft && tempItem.stack + r.createItem.stack <= r.createItem.maxStack)
@@ -430,7 +415,6 @@ namespace HEROsMod.HEROsModServices
 										{
 											matsLeft = false;
 										}
-
 									}
 									if (playsound)
 									{
@@ -463,7 +447,6 @@ namespace HEROsMod.HEROsModServices
 									{
 										bool playsound = false;
 
-
 										bool matsLeft = true;
 										while (matsLeft && tempItem.stack + r.createItem.stack <= r.createItem.maxStack)
 										{
@@ -474,7 +457,6 @@ namespace HEROsMod.HEROsModServices
 											{
 												matsLeft = false;
 											}
-
 										}
 										//Console.WriteLine("poo");
 										if (playsound)
@@ -509,7 +491,7 @@ namespace HEROsMod.HEROsModServices
 			return false;
 		}
 
-		static void CheckQuickBuy()
+		private static void CheckQuickBuy()
 		{
 			if (Main.npcShop > 0)
 			{
@@ -541,7 +523,6 @@ namespace HEROsMod.HEROsModServices
 										Item shopItem = Main.instance.shop[Main.npcShop].item[num124];
 										if (Main.mouseLeft && Main.mouseLeftRelease)
 										{
-
 											Item tempItem = (Item)shopItem.Clone();
 											tempItem.stack = 0;
 
@@ -621,7 +602,6 @@ namespace HEROsMod.HEROsModServices
 		//	{
 		//		for (int i = p.inventory.Length - 9; i < p.inventory.Length - 1; i++)
 		//		{
-
 		//			Item item1 = p.inventory[i];
 		//			if (item1.type != 0 && item1.stack < item1.maxStack)
 		//			{
@@ -991,7 +971,6 @@ namespace HEROsMod.HEROsModServices
 		//			Match m = Regex.Match(capture.Value, pattern2);
 		//			if (m.Success)
 		//			{
-
 		//				nums[count] = int.Parse(m.Groups[0].ToString());
 		//				//Console.WriteLine(nums[count]);
 		//				count++;

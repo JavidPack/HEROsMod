@@ -17,7 +17,7 @@
 //            {
 //                return _amount;
 //            }
-//            set 
+//            set
 //            {
 //                _amount = value;
 //                Refresh();

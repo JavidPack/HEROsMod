@@ -1,23 +1,23 @@
-﻿using System;
+﻿using HEROsMod.UIKit;
+using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using HEROsMod.UIKit;
-using Microsoft.Xna.Framework;
+
 //using HEROsMod.HEROsModVideo.Services.DropRateInfo;
-using HEROsMod.UIKit.UIComponents;
 
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
-	class MobSpawner : HEROsModService
+	internal class MobSpawner : HEROsModService
 	{
 		public const int NumberOfNegativeNPCs = 65;
 		private MobSpawnWindow _spawnWindow;
+
 		public MobSpawner()
 		{
 			this._hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/npcs")/*Main.itemTexture[666]*/);
@@ -31,7 +31,7 @@ namespace HEROsMod.HEROsModServices
 			this.AddUIView(_spawnWindow);
 		}
 
-		void HotbarIcon_onLeftClick(object sender, EventArgs e)
+		private void HotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
 			if (!_spawnWindow.Loaded)
 			{
@@ -67,20 +67,20 @@ namespace HEROsMod.HEROsModServices
 		}
 	}
 
-	class MobSpawnWindow : UIWindow
+	internal class MobSpawnWindow : UIWindow
 	{
-		List<NPCStats> npcList;
-		List<NPCStats> category;
-		List<NPCStats> searchResults;
-		MobInfoPanel mobInfo;
-		UITextbox searchBox;
-		UIScrollView scrollView;
-		UIImage bClose;
-		UIButton bAllNPCs;
-		UIButton bTownNPCs;
-		UIButton bFriendly;
-		UIButton bBoss;
-		UIButton bMod;
+		private List<NPCStats> npcList;
+		private List<NPCStats> category;
+		private List<NPCStats> searchResults;
+		private MobInfoPanel mobInfo;
+		private UITextbox searchBox;
+		private UIScrollView scrollView;
+		private UIImage bClose;
+		private UIButton bAllNPCs;
+		private UIButton bTownNPCs;
+		private UIButton bFriendly;
+		private UIButton bBoss;
+		private UIButton bMod;
 		//Slot itemSlot;
 
 		public bool Loaded = false;
@@ -229,7 +229,8 @@ namespace HEROsMod.HEROsModServices
 
 		// increment
 		public int lastModNameNumber = 0;
-		void bMod_onLeftClick(object sender, EventArgs e)
+
+		private void bMod_onLeftClick(object sender, EventArgs e)
 		{
 			string[] mods = ModLoader.GetLoadedMods();
 			if (bMod.Tooltip == "")
@@ -244,7 +245,6 @@ namespace HEROsMod.HEROsModServices
 				}
 			}
 			string currentMod = mods[lastModNameNumber];
-
 
 			category = new List<NPCStats>();
 			foreach (var npc in npcList)
@@ -264,7 +264,7 @@ namespace HEROsMod.HEROsModServices
 			button.SetTextColor(Color.Yellow);
 		}
 
-		void bBoss_onLeftClick(object sender, EventArgs e)
+		private void bBoss_onLeftClick(object sender, EventArgs e)
 		{
 			category = new List<NPCStats>();
 			foreach (var npc in npcList)
@@ -283,7 +283,7 @@ namespace HEROsMod.HEROsModServices
 			button.SetTextColor(Color.Yellow);
 		}
 
-		void bFriendly_onLeftClick(object sender, EventArgs e)
+		private void bFriendly_onLeftClick(object sender, EventArgs e)
 		{
 			category = new List<NPCStats>();
 			foreach (var npc in npcList)
@@ -302,7 +302,7 @@ namespace HEROsMod.HEROsModServices
 			button.SetTextColor(Color.Yellow);
 		}
 
-		void bTownNPCs_onLeftClick(object sender, EventArgs e)
+		private void bTownNPCs_onLeftClick(object sender, EventArgs e)
 		{
 			category = new List<NPCStats>();
 			foreach (var npc in npcList)
@@ -321,7 +321,7 @@ namespace HEROsMod.HEROsModServices
 			button.SetTextColor(Color.Yellow);
 		}
 
-		void bAllNPCs_onLeftClick(object sender, EventArgs e)
+		private void bAllNPCs_onLeftClick(object sender, EventArgs e)
 		{
 			category = npcList;
 			searchResults = category;
@@ -331,10 +331,9 @@ namespace HEROsMod.HEROsModServices
 			UIButton button = (UIButton)sender;
 			WhiteAllButtons();
 			button.SetTextColor(Color.Yellow);
-
 		}
 
-		void bClose_onLeftClick(object sender, EventArgs e)
+		private void bClose_onLeftClick(object sender, EventArgs e)
 		{
 			this.Visible = false;
 		}
@@ -359,7 +358,7 @@ namespace HEROsMod.HEROsModServices
 			scrollView.ContentHeight = yPos + Spacing;
 		}
 
-		void searchBox_KeyPressed(object sender, char key)
+		private void searchBox_KeyPressed(object sender, char key)
 		{
 			if (category != npcList)
 			{
@@ -393,7 +392,7 @@ namespace HEROsMod.HEROsModServices
 			}
 		}
 
-		void label_onMouseLeave(object sender, EventArgs e)
+		private void label_onMouseLeave(object sender, EventArgs e)
 		{
 			UILabel label = (UILabel)sender;
 			int npcType = (int)label.Tag;
@@ -404,7 +403,7 @@ namespace HEROsMod.HEROsModServices
 			}
 		}
 
-		void label_onMouseEnter(object sender, EventArgs e)
+		private void label_onMouseEnter(object sender, EventArgs e)
 		{
 			UILabel label = (UILabel)sender;
 			int npcType = (int)label.Tag;
@@ -413,7 +412,7 @@ namespace HEROsMod.HEROsModServices
 			mobInfo.Visible = true;
 		}
 
-		void WhiteAllButtons()
+		private void WhiteAllButtons()
 		{
 			bAllNPCs.SetTextColor(Color.White);
 			bTownNPCs.SetTextColor(Color.White);
@@ -428,7 +427,7 @@ namespace HEROsMod.HEROsModServices
 			mobInfo.Close();
 		}
 
-		void label_onLeftClick(object sender, EventArgs e)
+		private void label_onLeftClick(object sender, EventArgs e)
 		{
 			UILabel label = (UILabel)sender;
 			int npcType = (int)label.Tag;
@@ -437,7 +436,6 @@ namespace HEROsMod.HEROsModServices
 			{
 				searchResults[npcType].Spawn(Main.myPlayer);
 				//NPC.NewNPC((int)Main.player[Main.myPlayer].position.X, (int)Main.player[Main.myPlayer].position.Y, npcType);
-
 			}
 			else
 			{
@@ -455,7 +453,7 @@ namespace HEROsMod.HEROsModServices
 		//	base.Update();
 		//}
 
-		void RemoveNPCTypeFromList(int type)
+		private void RemoveNPCTypeFromList(int type)
 		{
 			for (int i = 0; i < npcList.Count; i++)
 			{
@@ -467,7 +465,7 @@ namespace HEROsMod.HEROsModServices
 			}
 		}
 
-		void RenameNPCFromList(string name, int type)
+		private void RenameNPCFromList(string name, int type)
 		{
 			for (int i = 0; i < npcList.Count; i++)
 			{
@@ -568,10 +566,11 @@ namespace HEROsMod.HEROsModServices
 		}
 	}
 
-	class MobInfoPanel : UIWindow
+	internal class MobInfoPanel : UIWindow
 	{
-		UIImage mobImage;
+		private UIImage mobImage;
 		public NPCStats CurrentNPC { get; set; }
+
 		public MobInfoPanel()
 		{
 			CurrentNPC = null;
@@ -606,7 +605,6 @@ namespace HEROsMod.HEROsModServices
 			AddChild(mobImage2);
 			//AddChild(mobImage2);
 
-
 			if (mobImage.Width > this.Width - Spacing * 2)
 			{
 				this.Width = mobImage.Width + Spacing * 2;
@@ -617,11 +615,10 @@ namespace HEROsMod.HEROsModServices
 				mobImage.X = Width / 2 - mobImage.Width / 2;
 			}
 
-
 			yPos += mobImage.Height;
 			mobImage2.Position = mobImage.Position;
 
-			//largestWidth = 
+			//largestWidth =
 
 			float statScale = .4f;
 
@@ -741,7 +738,7 @@ namespace HEROsMod.HEROsModServices
 		}
 	}
 
-	class NPCStats
+	internal class NPCStats
 	{
 		public string Name { get; set; }
 		public int NetID { get; set; }
@@ -805,12 +802,12 @@ namespace HEROsMod.HEROsModServices
 		}
 	}
 
-	class WallOfFlesh : NPCStats
+	internal class WallOfFlesh : NPCStats
 	{
 		public WallOfFlesh(NPC npc) : base(npc)
 		{
-
 		}
+
 		public override void Spawn(int playerIndex)
 		{
 			Player player = Main.player[playerIndex];

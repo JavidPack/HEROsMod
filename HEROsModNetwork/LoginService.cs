@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.IO;
-using Microsoft.Xna.Framework;
-
 using Terraria;
 
 namespace HEROsMod.HEROsModNetwork
 {
-	class LoginService
+	internal class LoginService
 	{
-		static BinaryWriter Writer
+		private static BinaryWriter Writer
 		{
 			get { return HEROsModNetwork.Network.writer; }
 		}
@@ -23,6 +19,7 @@ namespace HEROsMod.HEROsModNetwork
 		}
 
 		public static event EventHandler GroupChanged;
+
 		public static event EventHandler MyGroupChanged;
 
 		public static void ProcessData(ref BinaryReader reader, int playerNumber)
@@ -33,48 +30,63 @@ namespace HEROsMod.HEROsModNetwork
 				case MessageType.RequestLogin:
 					ProcessLoginRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.LoginSucess:
 					ProcessLoginSuccess(ref reader);
 					break;
+
 				case MessageType.RequestLogout:
 					ProcessLogoutRequest(playerNumber);
 					break;
+
 				case MessageType.LogoutSucess:
 					ProcessLogoutSuccess(ref reader);
 					break;
+
 				case MessageType.RequestRegistration:
 					ReadRegistrationRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestAddGroup:
 					ProcessAddGroupReqest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestDeleteGroup:
 					ProcessDeleteGroupRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestGroupList:
 					SendGroupList(playerNumber);
 					break;
+
 				case MessageType.GroupList:
 					ProcessGroupList(ref reader);
 					break;
+
 				case MessageType.SetPlayerGroup:
 					ProcessGroupPermissions(ref reader);
 					break;
+
 				case MessageType.RequestSetGroupPermissions:
 					ProcessSetGroupPermissionsRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestPlayerInfo:
 					ProcessPlayerInfoRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.PlayerInfo:
 					ProcessPlayerInfo(ref reader);
 					break;
+
 				case MessageType.RequestSetPlayerGroup:
 					ProcessSetPlayerGroupRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.RequestSetOfflinePlayerGroup:
 					ProcessSetOfflinePlayerGroupRequest(ref reader, playerNumber);
 					break;
+
 				case MessageType.ServerToClientHandshake:
 					Network.ServerUsingHEROsMod = true;
 					HEROsMod.ServiceHotbar.Visible = true;
@@ -219,7 +231,6 @@ namespace HEROsMod.HEROsModNetwork
 
 		public static void ProcessRegistrationRequest(string username, string password, int playerNumber)
 		{
-
 			DatabaseController.RegistrationResult regResult = DatabaseController.Register(username, password);
 			switch (regResult)
 			{
@@ -234,9 +245,11 @@ namespace HEROsMod.HEROsModNetwork
 						}
 					}
 					break;
+
 				case DatabaseController.RegistrationResult.UsernameTaken:
 					Network.SendTextToPlayer("This username has already been taken.", playerNumber);
 					break;
+
 				case DatabaseController.RegistrationResult.Error:
 					Network.SendTextToPlayer("An error occured when trying to register.", playerNumber);
 					break;
@@ -270,7 +283,6 @@ namespace HEROsMod.HEROsModNetwork
 				Network.Groups.Add(newGroup);
 				if (GroupChanged != null)
 					GroupChanged(null, EventArgs.Empty);
-
 			}
 		}
 
@@ -307,7 +319,6 @@ namespace HEROsMod.HEROsModNetwork
 					else
 					{
 						Network.SendTextToPlayer("You can not delete the default group.", playerNumber);
-
 					}
 				}
 				else
@@ -516,7 +527,6 @@ namespace HEROsMod.HEROsModNetwork
 			Writer.Write(playerIndex);
 			Writer.Write(group.ID);
 			Network.SendDataToServer();
-
 		}
 
 		private static void ProcessSetOfflinePlayerGroupRequest(ref BinaryReader reader, int playerNumber)

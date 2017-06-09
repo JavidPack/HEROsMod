@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
-
-using Terraria;
-using Terraria.ModLoader;
+using System.Linq;
 
 namespace HEROsMod.HEROsModNetwork
 {
@@ -51,6 +47,7 @@ namespace HEROsMod.HEROsModNetwork
 		private string _name = String.Empty;
 		public int ID { get; set; }
 		public Dictionary<string, bool> Permissions { get; set; }
+
 		public string Name
 		{
 			get
@@ -148,7 +145,6 @@ namespace HEROsMod.HEROsModNetwork
 			RemoveAllPermissions();
 			foreach (string p in permissions)
 			{
-
 				if (Permissions.ContainsKey(p))
 				{
 					Permissions[p] = true;
@@ -176,6 +172,7 @@ namespace HEROsMod.HEROsModNetwork
 	{
 		public string Key { get; set; }
 		public string Description { get; set; }
+
 		public PermissionInfo(string key, string description)
 		{
 			this.Key = key;

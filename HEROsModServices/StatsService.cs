@@ -4,13 +4,13 @@ using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
-	class StatsService : HEROsModService
+	internal class StatsService : HEROsModService
 	{
-		static Uri statUrl = new Uri("http://javid.ddns.net/tModLoader/herosmod/stats.php");
-		static float checkEventPassedTimer = 0;
-		static float checkEventPassedTime = 60; // Time between checks for time between in seconds
-		static DateTime eventTime;
-		static int playHours = -1;
+		private static Uri statUrl = new Uri("http://javid.ddns.net/tModLoader/herosmod/stats.php");
+		private static float checkEventPassedTimer = 0;
+		private static float checkEventPassedTime = 60; // Time between checks for time between in seconds
+		private static DateTime eventTime;
+		private static int playHours = -1;
 
 		public StatsService()
 		{
@@ -29,7 +29,7 @@ namespace HEROsMod.HEROsModServices
 			base.Update();
 		}
 
-		static DateTime GetNextSendEvent()
+		private static DateTime GetNextSendEvent()
 		{
 			playHours++;
 			DateTime now = DateTime.Now;
@@ -37,7 +37,7 @@ namespace HEROsMod.HEROsModServices
 			return now.AddHours(1);
 		}
 
-		static void CheckForEventPassed()
+		private static void CheckForEventPassed()
 		{
 			DateTime now = DateTime.Now;
 			if (now > eventTime)
@@ -47,7 +47,7 @@ namespace HEROsMod.HEROsModServices
 			}
 		}
 
-		static void SendData()
+		private static void SendData()
 		{
 			try
 			{

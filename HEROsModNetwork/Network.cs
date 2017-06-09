@@ -1,13 +1,8 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HEROsMod.HEROsModServices;
 using System.IO;
-using Microsoft.Xna.Framework;
-
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
 
@@ -32,10 +27,11 @@ namespace HEROsMod.HEROsModNetwork
 		public static BinaryWriter writer;
 		public static Group DefaultGroup;
 		public static Group AdminGroup;
+
 		//public static Group CTFGroup;
 		public static int AuthCode;
 
-		static Color[] chatColor = new Color[]{
+		private static Color[] chatColor = new Color[]{
 			Color.LightBlue,
 			Color.LightCoral,
 			Color.LightCyan,
@@ -46,7 +42,7 @@ namespace HEROsMod.HEROsModNetwork
 			Color.LightYellow
 		};
 
-		static int chatColorIndex = 0;
+		private static int chatColorIndex = 0;
 
 		private static float authMessageTimer = 0f;
 		private static float freezeTimer = 0f;
@@ -59,7 +55,6 @@ namespace HEROsMod.HEROsModNetwork
 		//    get { return (byte)(Main.maxMsg - 1); }
 		//}
 
-		
 		public static void InitializeWorld()
 		{
 			if (NetworkMode == NetworkMode.Server)
@@ -182,7 +177,7 @@ namespace HEROsMod.HEROsModNetwork
 			}
 		}
 
-		static void LoginService_GroupChanged(object sender, EventArgs e)
+		private static void LoginService_GroupChanged(object sender, EventArgs e)
 		{
 			//Send group list to all HEROsMod users
 			LoginService.SendGroupList(-2);
@@ -202,12 +197,10 @@ namespace HEROsMod.HEROsModNetwork
 		{
 			bool canBuild = false;
 
-
 			if (player.Group.IsAdmin/* && !CTF.CaptureTheFlag.GameInProgress*/)
 			{
 				canBuild = true;
 			}
-
 
 			if (!canBuild /*&& !CTF.CaptureTheFlag.GameInProgress*/ && player.Group.HasPermission("ModifyTerrain"))
 			{
@@ -361,45 +354,59 @@ namespace HEROsMod.HEROsModNetwork
 							case TileModifyType.KillTile:
 								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceTile, (float)x, (float)y, (float)tile.type, tile.slope());
 								break;
+
 							case TileModifyType.PlaceTile:
 								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillTile, (float)x, (float)y, (float)placeType, style);
 								break;
+
 							case TileModifyType.KillWall:
 								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceWall, (float)x, (float)y, (float)tile.wall, style);
 								break;
+
 							case TileModifyType.PlaceWall:
 								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillWall, (float)x, (float)y, (float)placeType, style);
 								break;
+
 							case TileModifyType.KillTileNoItem:
 								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceTile, (float)x, (float)y, (float)tile.type, tile.slope());
 								break;
+
 							case TileModifyType.PlaceWire:
 								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillWire, (float)x, (float)y, (float)placeType, style);
 								break;
+
 							case TileModifyType.PlaceWire2:
 								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillWire2, (float)x, (float)y, (float)placeType, style);
 								break;
+
 							case TileModifyType.PlaceWire3:
 								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillWire3, (float)x, (float)y, (float)placeType, style);
 								break;
+
 							case TileModifyType.KillWire:
 								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceWire, (float)x, (float)y, (float)placeType, style);
 								break;
+
 							case TileModifyType.KillWire2:
 								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceWire2, (float)x, (float)y, (float)placeType, style);
 								break;
+
 							case TileModifyType.KillWire3:
 								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceWire3, (float)x, (float)y, (float)placeType, style);
 								break;
+
 							case TileModifyType.KillActuator:
 								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceActuator, (float)x, (float)y, (float)placeType, style);
 								break;
+
 							case TileModifyType.PlaceActuator:
 								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillActuator, (float)x, (float)y, (float)placeType, style);
 								break;
+
 							case TileModifyType.PoundTile:
 								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PoundTile, (float)x, (float)y, (float)placeType, tile.slope());
 								break;
+
 							case TileModifyType.SlopeTile:
 								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.SlopeTile, (float)x, (float)y, (float)placeType, tile.slope());
 								break;
@@ -407,176 +414,179 @@ namespace HEROsMod.HEROsModNetwork
 						return true;
 					}
 					break;
-/*				case 25: //received a chat message
+				/*				case 25: //received a chat message
 
-					binaryReader.ReadByte();
-					Color color = binaryReader.ReadRGB();
-					string text = binaryReader.ReadString();
-					if (NetworkMode == NetworkMode.Client)
-					{
-						if (text == HEROsModCheckMessage)
-						{
-							ServerUsingHEROsMod = true;
-							HEROsMod.ServiceHotbar.Visible = true;
-							GeneralMessages.TellSereverImUsingHEROsMod();
-							return true;
-						}
-					}
-					else if (NetworkMode == NetworkMode.Server)
-					{
-						if (text.Length > 1 && text.Substring(0, 1) == "/")
-						{
-							string[] parameters = text.Substring(1, text.Length - 1).Split(' ');
-							parameters[0] = parameters[0].ToLower();
-							switch (parameters[0])
-							{
-								case "auth":
-									if (parameters.Length != 2 || parameters[1].Length != 6)
+									binaryReader.ReadByte();
+									Color color = binaryReader.ReadRGB();
+									string text = binaryReader.ReadString();
+									if (NetworkMode == NetworkMode.Client)
 									{
-										SendTextToPlayer("Invalid Input", playerNumber);
-										return true;
-									}
-									string authStr = parameters[1];
-									if (authStr == AuthCode.ToString())
-									{
-										if (!Players[playerNumber].UsingHEROsMod)
+										if (text == HEROsModCheckMessage)
 										{
-											SendTextToPlayer("You need HEROsMod Mod to use this feature", playerNumber);
+											ServerUsingHEROsMod = true;
+											HEROsMod.ServiceHotbar.Visible = true;
+											GeneralMessages.TellSereverImUsingHEROsMod();
 											return true;
 										}
-										if (Players[playerNumber].Username.Length > 0)
+									}
+									else if (NetworkMode == NetworkMode.Server)
+									{
+										if (text.Length > 1 && text.Substring(0, 1) == "/")
 										{
-											Players[playerNumber].Group = AdminGroup;
-											DatabaseController.SetPlayerGroup(Players[playerNumber].ID, Players[playerNumber].Group.ID);
-											LoginService.SendPlayerPermissions(playerNumber);
-											SendTextToPlayer("You are now Admin", playerNumber);
-											return true;
+											string[] parameters = text.Substring(1, text.Length - 1).Split(' ');
+											parameters[0] = parameters[0].ToLower();
+											switch (parameters[0])
+											{
+												case "auth":
+													if (parameters.Length != 2 || parameters[1].Length != 6)
+													{
+														SendTextToPlayer("Invalid Input", playerNumber);
+														return true;
+													}
+													string authStr = parameters[1];
+													if (authStr == AuthCode.ToString())
+													{
+														if (!Players[playerNumber].UsingHEROsMod)
+														{
+															SendTextToPlayer("You need HEROsMod Mod to use this feature", playerNumber);
+															return true;
+														}
+														if (Players[playerNumber].Username.Length > 0)
+														{
+															Players[playerNumber].Group = AdminGroup;
+															DatabaseController.SetPlayerGroup(Players[playerNumber].ID, Players[playerNumber].Group.ID);
+															LoginService.SendPlayerPermissions(playerNumber);
+															SendTextToPlayer("You are now Admin", playerNumber);
+															return true;
+														}
+														else
+														{
+															SendTextToPlayer("Please login first", playerNumber);
+															return true;
+														}
+													}
+													else
+													{
+														SendTextToPlayer("Invalid Auth Code", playerNumber);
+														return true;
+													}
+												case "login":
+													if (parameters.Length != 3)
+													{
+														SendTextToPlayer("Invalid Input", playerNumber);
+														return true;
+													}
+													LoginService.ProcessLoginRequest(parameters[1], parameters[2], playerNumber);
+													return true;
+
+												case "logout":
+													if (parameters.Length != 1)
+													{
+														SendTextToPlayer("Invalid Input", playerNumber);
+														return true;
+													}
+													LoginService.ProcessLogoutRequest(playerNumber);
+													return true;
+
+												case "register":
+													if (parameters.Length != 3)
+													{
+														SendTextToPlayer("Invalid Input", playerNumber);
+														return true;
+													}
+													LoginService.ProcessRegistrationRequest(parameters[1], parameters[2], playerNumber);
+													break;
+
+												case "help":
+													if (parameters.Length != 1)
+													{
+														SendTextToPlayer("Invalid Input", playerNumber);
+													}
+													SendTextToPlayer("/login <username> <password> - Login with your account", playerNumber);
+													SendTextToPlayer("/register <username> <password> - Create an account", playerNumber);
+													SendTextToPlayer("/logout - Logout of your account", playerNumber);
+													SendTextToPlayer("Use HEROsMod Mod to unlock all server features.", playerNumber);
+													break;
+
+												default:
+													SendTextToPlayer("Invalid Command, type /help for a list of commands.", playerNumber);
+													break;
+											}
 										}
 										else
 										{
-											SendTextToPlayer("Please login first", playerNumber);
-											return true;
+											string text2 = text.ToLower();
+											if (text2 == Lang.mp[6] || text2 == Lang.mp[21])
+											{
+												string text3 = "";
+												for (int i = 0; i < 255; i++)
+												{
+													if (Main.player[i].active)
+													{
+														if (text3 == "")
+														{
+															text3 = Main.player[i].name;
+														}
+														else
+														{
+															text3 = text3 + ", " + Main.player[i].name;
+														}
+													}
+												}
+												NetMessage.SendData(25, playerNumber, -1, Lang.mp[7] + " " + text3 + ".", 255, 255f, 240f, 20f, 0);
+											}
+											else if (text2.StartsWith("/me "))
+											{
+												NetMessage.SendData(25, -1, -1, "*" + Main.player[playerNumber].name + " " + text.Substring(4), 255, 200f, 100f, 0f, 0);
+											}
+											else if (text2 == Lang.mp[8])
+											{
+												NetMessage.SendData(25, -1, -1, string.Concat(new object[]
+											{
+												"*",
+												Main.player[playerNumber].name,
+												" ",
+												Lang.mp[9],
+												" ",
+												Main.rand.Next(1, 101)
+											}), 255, 255f, 240f, 20f, 0);
+											}
+											else if (text2.StartsWith("/p "))
+											{
+												int num28 = Main.player[playerNumber].team;
+												color = Main.teamColor[num28];
+												if (num28 != 0)
+												{
+													for (int i = 0; i < 255; i++)
+													{
+														if (Main.player[i].team == num28)
+														{
+															NetMessage.SendData(25, i, -1, text.Substring(3), 255, (float)color.R, (float)color.G, (float)color.B, 0);
+														}
+													}
+												}
+												else
+												{
+													NetMessage.SendData(25, playerNumber, -1, Lang.mp[10].ToNetworkText(), 255, 255f, 240f, 20f, 0);
+												}
+											}
+											else
+											{
+												return false;
+												// why are chat messages randomized?
+												//color = chatColor[chatColorIndex];
+												//chatColorIndex++;
+												//if (chatColorIndex >= chatColor.Length) chatColorIndex = 0;
+												//NetMessage.SendData(25, -1, -1, text, 255, (float)color.R, (float)color.G, (float)color.B, 0);
+												//if (Main.dedServ)
+												//{
+												//	Console.WriteLine("<" + Main.player[playerNumber].name + "> " + text);
+												//}
+											}
 										}
-									}
-									else
-									{
-										SendTextToPlayer("Invalid Auth Code", playerNumber);
 										return true;
 									}
-								case "login":
-									if (parameters.Length != 3)
-									{
-										SendTextToPlayer("Invalid Input", playerNumber);
-										return true;
-									}
-									LoginService.ProcessLoginRequest(parameters[1], parameters[2], playerNumber);
-									return true;
-								case "logout":
-									if (parameters.Length != 1)
-									{
-										SendTextToPlayer("Invalid Input", playerNumber);
-										return true;
-									}
-									LoginService.ProcessLogoutRequest(playerNumber);
-									return true;
-								case "register":
-									if (parameters.Length != 3)
-									{
-										SendTextToPlayer("Invalid Input", playerNumber);
-										return true;
-									}
-									LoginService.ProcessRegistrationRequest(parameters[1], parameters[2], playerNumber);
-									break;
-								case "help":
-									if (parameters.Length != 1)
-									{
-										SendTextToPlayer("Invalid Input", playerNumber);
-									}
-									SendTextToPlayer("/login <username> <password> - Login with your account", playerNumber);
-									SendTextToPlayer("/register <username> <password> - Create an account", playerNumber);
-									SendTextToPlayer("/logout - Logout of your account", playerNumber);
-									SendTextToPlayer("Use HEROsMod Mod to unlock all server features.", playerNumber);
-									break;
-								default:
-									SendTextToPlayer("Invalid Command, type /help for a list of commands.", playerNumber);
-									break;
-
-							}
-						}
-						else
-						{
-							string text2 = text.ToLower();
-							if (text2 == Lang.mp[6] || text2 == Lang.mp[21])
-							{
-								string text3 = "";
-								for (int i = 0; i < 255; i++)
-								{
-									if (Main.player[i].active)
-									{
-										if (text3 == "")
-										{
-											text3 = Main.player[i].name;
-										}
-										else
-										{
-											text3 = text3 + ", " + Main.player[i].name;
-										}
-									}
-								}
-								NetMessage.SendData(25, playerNumber, -1, Lang.mp[7] + " " + text3 + ".", 255, 255f, 240f, 20f, 0);
-							}
-							else if (text2.StartsWith("/me "))
-							{
-								NetMessage.SendData(25, -1, -1, "*" + Main.player[playerNumber].name + " " + text.Substring(4), 255, 200f, 100f, 0f, 0);
-							}
-							else if (text2 == Lang.mp[8])
-							{
-								NetMessage.SendData(25, -1, -1, string.Concat(new object[]
-							{
-								"*",
-								Main.player[playerNumber].name,
-								" ",
-								Lang.mp[9],
-								" ",
-								Main.rand.Next(1, 101)
-							}), 255, 255f, 240f, 20f, 0);
-							}
-							else if (text2.StartsWith("/p "))
-							{
-								int num28 = Main.player[playerNumber].team;
-								color = Main.teamColor[num28];
-								if (num28 != 0)
-								{
-									for (int i = 0; i < 255; i++)
-									{
-										if (Main.player[i].team == num28)
-										{
-											NetMessage.SendData(25, i, -1, text.Substring(3), 255, (float)color.R, (float)color.G, (float)color.B, 0);
-										}
-									}
-								}
-								else
-								{
-									NetMessage.SendData(25, playerNumber, -1, Lang.mp[10].ToNetworkText(), 255, 255f, 240f, 20f, 0);
-								}
-							}
-							else
-							{
-								return false;
-								// why are chat messages randomized?
-								//color = chatColor[chatColorIndex];
-								//chatColorIndex++;
-								//if (chatColorIndex >= chatColor.Length) chatColorIndex = 0;
-								//NetMessage.SendData(25, -1, -1, text, 255, (float)color.R, (float)color.G, (float)color.B, 0);
-								//if (Main.dedServ)
-								//{
-								//	Console.WriteLine("<" + Main.player[playerNumber].name + "> " + text);
-								//}
-							}
-						}
-						return true;
-					}
-					break;*/
+									break;*/
 				//case 27:
 				//	if (ItemBanner.ItemsBanned && !Players[playerNumber].Group.IsAdmin)
 				//	{
@@ -661,6 +671,7 @@ namespace HEROsMod.HEROsModNetwork
 						}
 					}
 					break;
+
 				case 64: //wall painted
 					if (NetworkMode == global::HEROsMod.NetworkMode.Server)
 					{
@@ -721,6 +732,7 @@ namespace HEROsMod.HEROsModNetwork
 					case MessageType.GeneralMessage:
 						GeneralMessages.ProcessData(ref binaryReader, playerNumber);
 						break;
+
 					case MessageType.LoginMessage:
 						LoginService.ProcessData(ref binaryReader, playerNumber);
 						break;
@@ -785,7 +797,7 @@ namespace HEROsMod.HEROsModNetwork
 				{
 					if (player.Username == string.Empty)
 					{
-						//player.GameInstance.AddBuff(47, 7200); 
+						//player.GameInstance.AddBuff(47, 7200);
 						//	Console.WriteLine("Freeze " + i);
 						NetMessage.SendData(55, player.Index, -1, null, player.Index, 47, 120, 0f, 0);
 					}
@@ -872,7 +884,6 @@ namespace HEROsMod.HEROsModNetwork
 			}
 			ResetWriter();
 		}
-
 
 		public static Group GetGroupByID(int id)
 		{
@@ -975,8 +986,6 @@ namespace HEROsMod.HEROsModNetwork
 				}
 			}
 		}
-
-
 
 		public enum MessageType
 		{

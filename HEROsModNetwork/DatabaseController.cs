@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.IO;
-
-using Terraria;
+﻿using HEROsMod.HEROsModServices;
 using Microsoft.Xna.Framework;
 using Newtonsoft.Json;
-using Terraria.ModLoader;
-using HEROsMod.HEROsModServices;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Terraria;
 
 // TODO, save position of ui windows, save separate client json
 
@@ -18,15 +16,18 @@ namespace HEROsMod.HEROsModNetwork
 	{
 		// Global to the Server config
 		public List<DatabasePlayer> players;
+
 		public List<DatabaseGroup> groups;
+
 		// Specific to world
 		public List<DatabaseWorld> worlds;
+
 		//public List<DatabaseRegion> regions;
 		//public bool BanDestructiveExplosives;
 	}
 
 	public class DatabasePlayer
-	{ 
+	{
 		public int ID;
 		public string username;
 		public string password;
@@ -37,6 +38,7 @@ namespace HEROsMod.HEROsModNetwork
 	{
 		public int ID;
 		public string name;
+
 		//public byte[] permissions;
 		public string[] permissions;
 	}
@@ -48,8 +50,10 @@ namespace HEROsMod.HEROsModNetwork
 		public bool BanDestructiveExplosives;
 		public bool TimePaused;
 		public double TimePausedTime;
+
 		//public bool TimePausedIsDay;
 		public bool GraveStonesDisabled;
+
 		public bool NPCSpawnsDiabled;
 		public List<DatabaseRegion> regions = new List<DatabaseRegion>();
 		public List<DatabaseWaypoint> waypoints = new List<DatabaseWaypoint>();
@@ -64,8 +68,10 @@ namespace HEROsMod.HEROsModNetwork
 		public int width;
 		public int height;
 		public Color color;
+
 		//public byte[] permissions;
 		public int[] permissionsGroups;
+
 		public int[] permissionsPlayers;
 		//public int world;
 	}
@@ -77,13 +83,14 @@ namespace HEROsMod.HEROsModNetwork
 		public float y;
 	}
 
-	class DatabaseController
+	internal class DatabaseController
 	{
 		//private static SqliteConnection connection;
 		//static int latestDatabaseVersion = 0;
-		static string jsonDatabaseFilename = "HEROsModDatabase";
-		static HEROsModDatabase database;
-		static DatabaseWorld currentDatabaseWorld;
+		private static string jsonDatabaseFilename = "HEROsModDatabase";
+
+		private static HEROsModDatabase database;
+		private static DatabaseWorld currentDatabaseWorld;
 
 		public static void LoadSetting(string settingName)
 		{
@@ -179,7 +186,7 @@ namespace HEROsMod.HEROsModNetwork
 				if (currentDatabaseWorld.TimePaused)
 				{
 					currentDatabaseWorld.TimePausedTime = TimeWeatherChanger.PausedTime;
-				//	currentDatabaseWorld.TimePausedIsDay = TimeWeatherChanger.PausedTimeDayTime;
+					//	currentDatabaseWorld.TimePausedIsDay = TimeWeatherChanger.PausedTimeDayTime;
 				}
 			}
 
@@ -227,7 +234,7 @@ namespace HEROsMod.HEROsModNetwork
 			if (TimeWeatherChanger.TimePaused)
 			{
 				TimeWeatherChanger.PausedTime = currentDatabaseWorld.TimePausedTime;
-			//	TimeWeatherChanger.PausedTimeDayTime = currentDatabaseWorld.TimePausedIsDay;
+				//	TimeWeatherChanger.PausedTimeDayTime = currentDatabaseWorld.TimePausedIsDay;
 			}
 			if (Main.netMode == 0)
 			{
@@ -575,6 +582,7 @@ namespace HEROsMod.HEROsModNetwork
 		}
 	}
 }
+
 //try
 //{
 //	SqliteCommand cmd = new SqliteCommand("SELECT * from Players WHERE username='" + username.ToLower() + "'", connection);
@@ -645,7 +653,6 @@ namespace HEROsMod.HEROsModNetwork
 //{
 //	SqliteCommand cmd = new SqliteCommand("UPDATE Players SET [id]='" + Network.DefaultGroup.ID + "' WHERE [id]='" + group.ID + "'", connection);
 //	connection.Open();
-
 
 //	cmd.CommandText = "DELETE FROM Groups WHERE id='" + group.ID + "'";
 //	cmd.ExecuteNonQuery();
@@ -752,7 +759,6 @@ namespace HEROsMod.HEROsModNetwork
 //		{
 //			permissionsStr = (string)myreader["permissions"];
 //		}
-
 
 //		Region region = new Region(name, x, y, width, height);
 //		region.ID = id;
@@ -1079,7 +1085,6 @@ namespace HEROsMod.HEROsModNetwork
 //                SqliteCommand cmd = new SqliteCommand("UPDATE Players SET [id]='" + Network.DefaultGroup.ID + "' WHERE [id]='" + group.ID + "'", connection);
 //                connection.Open();
 
-
 //                cmd.CommandText = "DELETE FROM Groups WHERE id='" + group.ID + "'";
 //                cmd.ExecuteNonQuery();
 //            }
@@ -1132,7 +1137,7 @@ namespace HEROsMod.HEROsModNetwork
 //                var myreader = cmd.ExecuteReader();
 //                while (myreader.Read())
 //                {
-//                    string name = (string)myreader["name"]; 
+//                    string name = (string)myreader["name"];
 //                    int id = (int)((long)myreader["id"]);
 //                    int x = (int)((long)myreader["x"]);
 //                    int y = (int)((long)myreader["y"]);
@@ -1143,7 +1148,6 @@ namespace HEROsMod.HEROsModNetwork
 //                    {
 //                        permissionsStr = (string)myreader["permissions"];
 //                    }
-
 
 //                    Region region = new Region(name, x, y, width, height);
 //                    region.ID = id;

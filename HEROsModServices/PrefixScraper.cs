@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.Utilities;
 
 namespace HEROsMod.HEROsModServices
 {
-	class PrefixScraper
+	internal class PrefixScraper
 	{
 		//  static List<PrefixGroup> prefixGroups;
 
 		//  public static void Scrape()
 		//  {
 		//      #region prefixStr
-		//      string prefixStr = 
+		//      string prefixStr =
 		//                  @"if (this.type == 1 || this.type == 4 || this.type == 6 || this.type == 7 || this.type == 10 || this.type == 24 || this.type == 45 || this.type == 46 || this.type == 65 || this.type == 103 || this.type == 104 || this.type == 121 || this.type == 122 || this.type == 155 || this.type == 190 || this.type == 196 || this.type == 198 || this.type == 199 || this.type == 200 || this.type == 201 || this.type == 202 || this.type == 203 || this.type == 204 || this.type == 213 || this.type == 217 || this.type == 273 || this.type == 367 || this.type == 368 || this.type == 426 || this.type == 482 || this.type == 483 || this.type == 484 || this.type == 653 || this.type == 654 || this.type == 656 || this.type == 657 || this.type == 659 || this.type == 660 || this.type == 671 || this.type == 672 || this.type == 674 || this.type == 675 || this.type == 676 || this.type == 723 || this.type == 724 || this.type == 757 || this.type == 776 || this.type == 777 || this.type == 778 || this.type == 787 || this.type == 795 || this.type == 797 || this.type == 798 || this.type == 799 || this.type == 881 || this.type == 882 || this.type == 921 || this.type == 922 || this.type == 989 || this.type == 990 || this.type == 991 || this.type == 992 || this.type == 993 || this.type == 1123 || this.type == 1166 || this.type == 1185 || this.type == 1188 || this.type == 1192 || this.type == 1195 || this.type == 1199 || this.type == 1202 || this.type == 1222 || this.type == 1223 || this.type == 1224 || this.type == 1226 || this.type == 1227 || this.type == 1230 || this.type == 1233 || this.type == 1234 || this.type == 1294 || this.type == 1304 || this.type == 1305 || this.type == 1306 || this.type == 1320 || this.type == 1327 || this.type == 1506 || this.type == 1507 || this.type == 1786 || this.type == 1826 || this.type == 1827 || this.type == 1909 || this.type == 1917 || this.type == 1928 || this.type == 2176 || this.type == 2273 || this.type == 2608 || this.type == 2341 || this.type == 2330 || this.type == 2320 || this.type == 2516 || this.type == 2517 || this.type == 2746 || this.type == 2745)
 		//{
 		//	int num9 = Main.rand.Next(40);
@@ -657,7 +653,6 @@ namespace HEROsMod.HEROsModServices
 
 		//public static int[] GetPrefixesForItem(Item item)
 		//{
-
 		//    for(int i = 0;i < prefixGroups.Count; i++)
 		//    {
 		//        if(prefixGroups[i].ItemInGroup(item))
@@ -668,7 +663,7 @@ namespace HEROsMod.HEROsModServices
 		//    return new int[0];
 		//}
 
-			// TODO!! Fix prefixes for new items.
+		// TODO!! Fix prefixes for new items.
 		public static bool IsValidPrefix(int pre, Item item)
 		{
 			if (pre == 0 || item.type == 0)
@@ -688,25 +683,21 @@ namespace HEROsMod.HEROsModServices
 			{
 				int[] valid = new int[] { 36, 37, 38, 53, 54, 55, 39, 40, 56, 41, 57, 59, 60, 61 };
 				return valid.Contains(pre);
-
 			}
 			else if (item.type == 39 || item.type == 44 || item.type == 95 || item.type == 96 || item.type == 98 || item.type == 99 || item.type == 120 || item.type == 164 || item.type == 197 || item.type == 219 || item.type == 266 || item.type == 281 || item.type == 434 || item.type == 435 || item.type == 436 || item.type == 481 || item.type == 506 || item.type == 533 || item.type == 534 || item.type == 578 || item.type == 655 || item.type == 658 || item.type == 661 || item.type == 679 || item.type == 682 || item.type == 725 || item.type == 758 || item.type == 759 || item.type == 760 || item.type == 796 || item.type == 800 || item.type == 905 || item.type == 923 || item.type == 964 || item.type == 986 || item.type == 1156 || item.type == 1187 || item.type == 1194 || item.type == 1201 || item.type == 1229 || item.type == 1254 || item.type == 1255 || item.type == 1258 || item.type == 1265 || item.type == 1319 || item.type == 1553 || item.type == 1782 || item.type == 1784 || item.type == 1835 || item.type == 1870 || item.type == 1910 || item.type == 1929 || item.type == 1946 || item.type == 2223 || item.type == 2269 || item.type == 2270 || item.type == 2624 || item.type == 2515 || item.type == 2747 || item.type == 2796 || item.type == 2797 || item.type == 3052 || item.type == 2888 || item.type == 3019 || item.type == 3029 || item.type == 3007 || item.type == 3008 || item.type == 3210 || item.type == 3107 || item.type == 3245 || item.type == 3475 || item.type == 3540 || item.type == 3480 || item.type == 3486 || item.type == 3492 || item.type == 3498 || item.type == 3504 || item.type == 3510 || item.type == 3516 || item.type == 3350 || item.type == 3546 || RangedPrefix(item))
 			{
 				int[] valid = new int[] { 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 58, 36, 37, 38, 53, 54, 55, 39, 40, 56, 41, 57, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 59, 60, 61, 82 };
 				return valid.Contains(pre);
-
 			}
 			else if (item.type == 64 || item.type == 112 || item.type == 113 || item.type == 127 || item.type == 157 || item.type == 165 || item.type == 218 || item.type == 272 || item.type == 494 || item.type == 495 || item.type == 496 || item.type == 514 || item.type == 517 || item.type == 518 || item.type == 519 || item.type == 683 || item.type == 726 || item.type == 739 || item.type == 740 || item.type == 741 || item.type == 742 || item.type == 743 || item.type == 744 || item.type == 788 || item.type == 1121 || item.type == 1155 || item.type == 1157 || item.type == 1178 || item.type == 1244 || item.type == 1256 || item.type == 1260 || item.type == 1264 || item.type == 1266 || item.type == 1295 || item.type == 1296 || item.type == 1308 || item.type == 1309 || item.type == 1313 || item.type == 1336 || item.type == 1444 || item.type == 1445 || item.type == 1446 || item.type == 1572 || item.type == 1801 || item.type == 1802 || item.type == 1930 || item.type == 1931 || item.type == 2188 || item.type == 2622 || item.type == 2621 || item.type == 2584 || item.type == 2551 || item.type == 2366 || item.type == 2535 || item.type == 2365 || item.type == 2364 || item.type == 2623 || item.type == 2750 || item.type == 2795 || item.type == 3053 || item.type == 3051 || item.type == 3209 || item.type == 3014 || item.type == 3105 || item.type == 2882 || item.type == 3269 || item.type == 3006 || item.type == 3377 || item.type == 3069 || item.type == 2749 || item.type == 3249 || item.type == 3476 || item.type == 3474 || item.type == 3531 || item.type == 3541 || item.type == 3542 || item.type == 3569 || item.type == 3570 || item.type == 3571 || item.type == 3531 || MagicPrefix(item))
 			{
 				int[] valid = new int[] { 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 52, 36, 37, 38, 53, 54, 55, 39, 40, 56, 41, 57, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 59, 60, 61, 83 };
 				return valid.Contains(pre);
-
 			}
 			else if (item.type == 55 || item.type == 119 || item.type == 191 || item.type == 284 || item.type == 670 || item.type == 1122 || item.type == 1513 || item.type == 1569 || item.type == 1571 || item.type == 1825 || item.type == 1918 || item.type == 3054 || item.type == 3262 || (item.type >= 3278 && item.type <= 3292) || (item.type >= 3315 && item.type <= 3317) || item.type == 3389 || item.type == 3030 || item.type == 3543 || WeaponPrefix(item))
 			{
 				int[] valid = new int[] { 36, 37, 38, 53, 54, 55, 39, 40, 56, 41, 57, 59, 60, 61 };
 				return valid.Contains(pre);
-
 			}
 			else
 			{
@@ -714,7 +705,7 @@ namespace HEROsMod.HEROsModServices
 				{
 					return false;
 				}
-				int[] valid = new int[] { 62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80 };
+				int[] valid = new int[] { 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 };
 				return valid.Contains(pre);
 			}
 		}
@@ -723,21 +714,25 @@ namespace HEROsMod.HEROsModServices
 		{
 			return item.maxStack == 1 && item.damage > 0 && item.ammo == 0 && !item.accessory;
 		}
+
 		//add to Terraria.Item.Prefix
 		internal static bool MeleePrefix(Item item)
 		{
 			return item.modItem != null && GeneralPrefix(item) && item.melee && !item.noUseGraphic;
 		}
+
 		//add to Terraria.Item.Prefix
 		internal static bool WeaponPrefix(Item item)
 		{
 			return item.modItem != null && GeneralPrefix(item) && item.melee && item.noUseGraphic;
 		}
+
 		//add to Terraria.Item.Prefix
 		internal static bool RangedPrefix(Item item)
 		{
 			return item.modItem != null && GeneralPrefix(item) && item.ranged;
 		}
+
 		//add to Terraria.Item.Prefix
 		internal static bool MagicPrefix(Item item)
 		{
@@ -745,7 +740,7 @@ namespace HEROsMod.HEROsModServices
 		}
 	}
 
-	class PrefixGroup
+	internal class PrefixGroup
 	{
 		public List<int> Items { get; set; }
 		public List<int> Prefixes { get; set; }

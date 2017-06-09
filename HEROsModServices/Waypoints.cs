@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HEROsMod.UIKit;
+﻿using HEROsMod.UIKit;
 using Microsoft.Xna.Framework;
-using System.IO;
-
+using System;
+using System.Collections.Generic;
 using Terraria;
-using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -52,10 +47,11 @@ namespace HEROsMod.HEROsModServices
 	//	}
 	//}
 
-	class Waypoints : HEROsModService
+	internal class Waypoints : HEROsModService
 	{
 		private static WaypointWindow waypointWindow;
 		public static List<Waypoint> points = new List<Waypoint>();
+
 		public Waypoints()
 		{
 			this._name = "Waypoints";
@@ -68,7 +64,7 @@ namespace HEROsMod.HEROsModServices
 			this.AddUIView(waypointWindow);
 		}
 
-		void HotbarIcon_onLeftClick(object sender, EventArgs e)
+		private void HotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
 			waypointWindow.Visible = !waypointWindow.Visible;
 		}
@@ -85,7 +81,6 @@ namespace HEROsMod.HEROsModServices
 
 		//public static void RequestAddWayPoint()
 		//{
-
 		//}
 
 		public static void ClearPoints()
@@ -111,7 +106,6 @@ namespace HEROsMod.HEROsModServices
 
 		public static void RequestRemoveWaypoint()
 		{
-
 		}
 
 		public static void RemoveWaypoint(int index)
@@ -181,7 +175,7 @@ namespace HEROsMod.HEROsModServices
 		//}
 	}
 
-	class Waypoint
+	internal class Waypoint
 	{
 		public string name;
 		public Vector2 position;
@@ -193,17 +187,17 @@ namespace HEROsMod.HEROsModServices
 		}
 	}
 
-	class WaypointWindow : UIWindow
+	internal class WaypointWindow : UIWindow
 	{
-		static float spacing = 8f;
+		private static float spacing = 8f;
 		private static bool prevGameMenu = true;
 		private UIScrollView scrollView;
+
 		public WaypointWindow()
 		{
 			X = 50;
 			Y = 100;
 			this.CanMove = true;
-
 
 			UILabel title = new UILabel("Waypoints");
 			title.Scale = .6f;
@@ -223,7 +217,6 @@ namespace HEROsMod.HEROsModServices
 			bClose.Position = new Vector2(Width - spacing, Height - spacing);
 			bAddWaypoint.Position = new Vector2(bClose.Position.X - bClose.Width - spacing, bClose.Position.Y);
 
-
 			scrollView = new UIScrollView();
 			scrollView.Position = new Vector2(spacing, spacing);
 			scrollView.Y = title.Y + title.Height + spacing;
@@ -231,19 +224,18 @@ namespace HEROsMod.HEROsModServices
 			scrollView.Width = Width - spacing * 2;
 			scrollView.Height = Height - scrollView.Y - spacing * 2 - bClose.Height;
 
-
 			AddChild(title);
 			AddChild(bClose);
 			AddChild(bAddWaypoint);
 			AddChild(scrollView);
 		}
 
-		void bAddWaypoint_onLeftClick(object sender, EventArgs e)
+		private void bAddWaypoint_onLeftClick(object sender, EventArgs e)
 		{
 			MasterView.gameScreen.AddChild(new NameWaypointWindow(Main.player[Main.myPlayer].position));
 		}
 
-		void bClose_onLeftClick(object sender, EventArgs e)
+		private void bClose_onLeftClick(object sender, EventArgs e)
 		{
 			this.Visible = false;
 		}
@@ -286,7 +278,7 @@ namespace HEROsMod.HEROsModServices
 			scrollView.ContentHeight = scrollView.GetLastChild().Y + scrollView.GetLastChild().Height + spacing;
 		}
 
-		void image_onLeftClick(object sender, EventArgs e)
+		private void image_onLeftClick(object sender, EventArgs e)
 		{
 			UIImage image = (UIImage)sender;
 			int waypointIndex = (int)image.Tag;
@@ -300,7 +292,7 @@ namespace HEROsMod.HEROsModServices
 			}
 		}
 
-		void label_onLeftClick(object sender, EventArgs e)
+		private void label_onLeftClick(object sender, EventArgs e)
 		{
 			UILabel label = (UILabel)sender;
 			int waypointIndex = (int)label.Tag;
@@ -309,11 +301,11 @@ namespace HEROsMod.HEROsModServices
 		}
 	}
 
-	class NameWaypointWindow : UIWindow
+	internal class NameWaypointWindow : UIWindow
 	{
-		UILabel label = null;
-		UITextbox textbox = null;
-		static float spacing = 8f;
+		private UILabel label = null;
+		private UITextbox textbox = null;
+		private static float spacing = 8f;
 		private Vector2 waypointPos;
 
 		public NameWaypointWindow(Vector2 waypointPos)
@@ -355,7 +347,7 @@ namespace HEROsMod.HEROsModServices
 			textbox.Focus();
 		}
 
-		void bSave_onLeftClick(object sender, EventArgs e)
+		private void bSave_onLeftClick(object sender, EventArgs e)
 		{
 			if (textbox.Text.Length > 0)
 			{
@@ -381,7 +373,7 @@ namespace HEROsMod.HEROsModServices
 			}
 		}
 
-		void bCancel_onLeftClick(object sender, EventArgs e)
+		private void bCancel_onLeftClick(object sender, EventArgs e)
 		{
 			this.Close();
 		}

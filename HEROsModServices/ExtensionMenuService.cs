@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HEROsMod.UIKit;
+﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework;
-
+using System;
+using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
-	class ExtensionMenuService : HEROsModService
+	internal class ExtensionMenuService : HEROsModService
 	{
 		private ExtensionMenuWindow _extensionMenuHotbar;
 
@@ -23,7 +18,7 @@ namespace HEROsMod.HEROsModServices
 			genericServices = new List<GenericExtensionService>();
 
 			IsHotbar = true;
-			
+
 			this._hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/extensions"));
 			this.HotbarIcon.Tooltip = "Extension Tools";
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
@@ -35,8 +30,8 @@ namespace HEROsMod.HEROsModServices
 
 			Hotbar = _extensionMenuHotbar;
 		}
-		
-		void HotbarIcon_onLeftClick(object sender, EventArgs e)
+
+		private void HotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
 			bool childAvailable = false;
 			foreach (var item in genericServices)
@@ -54,7 +49,7 @@ namespace HEROsMod.HEROsModServices
 				{
 					_extensionMenuHotbar.selected = true;
 					_extensionMenuHotbar.Show();
-				} 
+				}
 			}
 			else
 			{
@@ -83,7 +78,7 @@ namespace HEROsMod.HEROsModServices
 		}
 	}
 
-	class ExtensionMenuWindow : UIHotbar
+	internal class ExtensionMenuWindow : UIHotbar
 	{
 		public ExtensionMenuWindow()
 		{

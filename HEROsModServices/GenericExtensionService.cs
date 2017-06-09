@@ -1,11 +1,11 @@
 ﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
-using System;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace HEROsMod.HEROsModServices
 {
-	class GenericExtensionService : HEROsModService
+	internal class GenericExtensionService : HEROsModService
 	{
 		private Texture2D texture;
 		private Action buttonClickedAction;

@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
-
+﻿using HEROsMod.UIKit;
+using System;
 using Terraria;
 using Terraria.ModLoader;
-using HEROsMod.UIKit;
 
 namespace HEROsMod.HEROsModServices
 {
-	class InfiniteReach : HEROsModService
+	internal class InfiniteReach : HEROsModService
 	{
 		/* =========Hooks============
          * This feature requires Multiple hooks in Player.cs
@@ -25,7 +20,7 @@ namespace HEROsMod.HEROsModServices
                 Player.tileRangeY = int.MaxValue / 32 - 20;
             }
          * Hook 2:
-         * 
+         *
          */
 		public static bool Enabled { get; set; }
 
@@ -37,7 +32,6 @@ namespace HEROsMod.HEROsModServices
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = "Enable Infinite Reach";
 			Disable();
-
 		}
 
 		private void Enable()
@@ -54,7 +48,7 @@ namespace HEROsMod.HEROsModServices
 			this.HotbarIcon.Tooltip = "Enable Infinite Reach";
 		}
 
-		void _hotbarIcon_onLeftClick(object sender, EventArgs e)
+		private void _hotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
 			if (Enabled)
 			{
@@ -74,7 +68,6 @@ namespace HEROsMod.HEROsModServices
 		//        Player.tileRangeY = Main.maxTilesX;
 		//    }
 		//}
-
 
 		public override void Destroy()
 		{
@@ -105,7 +98,7 @@ namespace HEROsMod.HEROsModServices
 				//	Main.NewText("Smart Cursor automatically disabled in infinte reach mode.");
 				//}
 
-				// Works with: Place tiles, walls. Axe, Hammer, Pick. 
+				// Works with: Place tiles, walls. Axe, Hammer, Pick.
 				Item selected = player.inventory[player.selectedItem];
 				if (selected.createTile >= 0 || selected.createWall >= 0 || selected.pick > 0 || selected.axe > 0 || selected.hammer > 0)
 				{
@@ -122,6 +115,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			return true;
 		}
+
 		public override void ResetEffects()
 		{
 			if (player.whoAmI == Main.myPlayer)
@@ -154,5 +148,4 @@ namespace HEROsMod.HEROsModServices
 		//	}
 		//}
 	}
-
 }

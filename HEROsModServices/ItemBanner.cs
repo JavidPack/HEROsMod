@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HEROsMod.UIKit;
-
-using Terraria;
+﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
+using Microsoft.Xna.Framework;
+using System;
+using System.Linq;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 namespace HEROsMod.HEROsModServices
 {
-	class ItemBanner : HEROsModService
+	internal class ItemBanner : HEROsModService
 	{
 		public static bool ItemsBanned { get; set; }
+
 		public static int[] bannedProjectiles = new int[]
 		{
 			ProjectileID.RocketII,
@@ -39,7 +37,7 @@ namespace HEROsMod.HEROsModServices
 			HEROsModNetwork.GeneralMessages.ItemBannerToggleByServer += GeneralMessages_BannedItemsToggleByServer;
 		}
 
-		void _hotbarIcon_onLeftClick(object sender, EventArgs e)
+		private void _hotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
 			if (ModUtils.NetworkMode == NetworkMode.Client)
 			{
@@ -69,7 +67,7 @@ namespace HEROsMod.HEROsModServices
 		}
 	}
 
-	class ItemBannerGlobalProjectile : GlobalProjectile
+	internal class ItemBannerGlobalProjectile : GlobalProjectile
 	{
 		public override bool Autoload(ref string name) => true;
 
@@ -84,7 +82,7 @@ namespace HEROsMod.HEROsModServices
 					{
 						//Projectile newProj = new Projectile();
 						//newProj.SetDefaults(type);
-						Main.NewText(projectile.Name + " is banned on the server", Color.Red.R, Color.Red.G, Color.Red.B );
+						Main.NewText(projectile.Name + " is banned on the server", Color.Red.R, Color.Red.G, Color.Red.B);
 					}
 					//ErrorLogger.Log(Main.dedServ + " Item Banned");
 					projectile.active = false;

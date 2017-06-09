@@ -9,10 +9,10 @@ using Terraria.ModLoader;
 namespace HEROsMod.HEROsModServices
 {
 	// Gets a message everytime log in.
-	class PSAService : HEROsModService
+	internal class PSAService : HEROsModService
 	{
-		static string psaUrl = "http://javid.ddns.net/tModLoader/herosmod/psa.php";
-		bool psaRequested = false;
+		private static string psaUrl = "http://javid.ddns.net/tModLoader/herosmod/psa.php";
+		private bool psaRequested = false;
 
 		public PSAService()
 		{
@@ -28,7 +28,7 @@ namespace HEROsMod.HEROsModServices
 			}
 		}
 
-		static void GetPSA()
+		private static void GetPSA()
 		{
 			//WebRequest.DefaultWebProxy = null;
 			try
@@ -70,11 +70,11 @@ namespace HEROsMod.HEROsModServices
 		}
 	}
 
-	class PSAResponse
+	internal class PSAResponse
 	{
-		#pragma warning disable 0649
+#pragma warning disable 0649
 		public List<string> psa;
 		public List<string> msgbox;
-		#pragma warning restore 0649
+#pragma warning restore 0649
 	}
 }

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HEROsMod.UIKit;
-
+﻿using HEROsMod.UIKit;
+using System;
 using Terraria;
 
 namespace HEROsMod.HEROsModServices
@@ -11,7 +7,7 @@ namespace HEROsMod.HEROsModServices
 	/// <summary>
 	/// A Service that clears all items on the ground
 	/// </summary>
-	class ItemClearer : HEROsModService
+	internal class ItemClearer : HEROsModService
 	{
 		public ItemClearer()
 		{
@@ -21,7 +17,7 @@ namespace HEROsMod.HEROsModServices
 			this.HotbarIcon.Tooltip = "Clear Items on Ground";
 		}
 
-		void _hotbarIcon_onLeftClick(object sender, EventArgs e)
+		private void _hotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
 			//ClearItems
 			if (ModUtils.NetworkMode == NetworkMode.None)

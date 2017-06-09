@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HEROsMod.UIKit;
+﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework;
-
+using System;
 using Terraria;
 using Terraria.ID;
 
 namespace HEROsMod.HEROsModServices
 {
-	class TestHotbarService : HEROsModService
+	internal class TestHotbarService : HEROsModService
 	{
 		private TestHotbarWindow _testHotbarWindow;
 
@@ -27,7 +23,7 @@ namespace HEROsMod.HEROsModServices
 			this.AddUIView(_testHotbarWindow);
 		}
 
-		void HotbarIcon_onLeftClick(object sender, EventArgs e)
+		private void HotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
 			//Main.NewText("Toggle Hotbar");
 
@@ -52,7 +48,7 @@ namespace HEROsMod.HEROsModServices
 		}
 	}
 
-	class TestHotbarWindow : UIHotbar
+	internal class TestHotbarWindow : UIHotbar
 	{
 		public UIView buttonView;
 		public UIImage bStampTiles;

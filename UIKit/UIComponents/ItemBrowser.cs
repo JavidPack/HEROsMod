@@ -1,11 +1,9 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.IO;
-using System.Text.RegularExpressions;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+
 //using System.Xml.Serialization;
 //using System.Xml;
 //using System.Reflection;
@@ -16,7 +14,6 @@ using Terraria.ModLoader;
 
 namespace HEROsMod.UIKit.UIComponents
 {
-
 	internal class ItemBrowser : UIWindow
 	{
 		private ItemCollectionView _itemView;
@@ -54,13 +51,14 @@ namespace HEROsMod.UIKit.UIComponents
 				_selectedCategory = value;
 				if (CategoriesLoaded)
 				{
-					PopulateFilterView(); // mod/vanilla, 
+					PopulateFilterView(); // mod/vanilla,
 					PopulateSortView(); // damage, value, alpha, itemid
 					CurrentItems = GetItems(); // takes care of filters and sorts
 					PopulateCategoryView();
 				}
 			}
 		}
+
 		private Item[] CurrentItems
 		{
 			get { return _currentItems; }
@@ -70,10 +68,10 @@ namespace HEROsMod.UIKit.UIComponents
 				_itemView.Items = _currentItems;
 			}
 		}
+
 		internal Sort SelectedSort;
 		internal Sort[] AvailableSorts = new Sort[0];
 		//internal Sort[] DefaultSorts;
-
 
 		public ItemBrowser()
 		{
@@ -176,10 +174,9 @@ namespace HEROsMod.UIKit.UIComponents
 
 			//ParseList2();
 			SelectedCategory = null;
-
 		}
 
-		void _bViewAllItems_onLeftClick(object sender, EventArgs e)
+		private void _bViewAllItems_onLeftClick(object sender, EventArgs e)
 		{
 			if (SelectedCategory != null)
 			{
@@ -191,7 +188,7 @@ namespace HEROsMod.UIKit.UIComponents
 			}
 		}
 
-		void _bCollapseCategories_onLeftClick(object sender, EventArgs e)
+		private void _bCollapseCategories_onLeftClick(object sender, EventArgs e)
 		{
 			_collapsed = !_collapsed;
 			if (_collapsed)
@@ -212,7 +209,8 @@ namespace HEROsMod.UIKit.UIComponents
 			}
 		}
 
-		static int numberCategoryColumns = 1;
+		private static int numberCategoryColumns = 1;
+
 		private void PopulateCategoryView()
 		{
 			Category[] categories = Categories;
@@ -323,7 +321,7 @@ namespace HEROsMod.UIKit.UIComponents
 			_spacer.X = _filterView.X + _filterView.Width;
 		}
 
-		void button_onLeftClick(object sender, EventArgs e)
+		private void button_onLeftClick(object sender, EventArgs e)
 		{
 			UIButton button = (UIButton)sender;
 			WhiteAllCategoryButtons();
@@ -367,12 +365,13 @@ namespace HEROsMod.UIKit.UIComponents
 			}
 			base.Update();
 		}
-		void bClose_onLeftClick(object sender, EventArgs e)
+
+		private void bClose_onLeftClick(object sender, EventArgs e)
 		{
 			this.Visible = false;
 		}
 
-		void textbox_KeyPressed(object sender, char key)
+		private void textbox_KeyPressed(object sender, char key)
 		{
 			//if (_selectedCategory != null)
 			//{
@@ -386,7 +385,6 @@ namespace HEROsMod.UIKit.UIComponents
 			//	List<Item> matches = new List<Item>();
 			//	foreach (Item item in CurrentItems)
 			//	{
-
 			//		if (item.name.ToLower().IndexOf(SearchBox.Text.ToLower(), System.StringComparison.Ordinal) != -1)
 			//		{
 			//			matches.Add(item);
@@ -505,6 +503,7 @@ namespace HEROsMod.UIKit.UIComponents
 
 		public static bool CategoriesLoaded = false;
 		public static Category[] Categories { get; set; }
+
 		public static Filter[] Filters { get; set; } = new Filter[]
 		{
 			new Filter( new UIImage(GetEmbeddedTexture("Images/filterMod")) {Tooltip = "Mod Filter"}, x=>x.modItem != null),
@@ -674,7 +673,6 @@ namespace HEROsMod.UIKit.UIComponents
 			// Filters: string match, mod specific/vanilla/Anymod. Global?, multiple active
 			// Sorts: default: ID, damage, alphabetical, add at each level?, 1 active at a time
 
-
 			//   string resourceName = "HEROsModMod.Categories.xml";
 			//         XmlSerializer serializer = new XmlSerializer(typeof(CategoryCollection));
 			//         CategoryCollection cc;
@@ -718,10 +716,12 @@ namespace HEROsMod.UIKit.UIComponents
 	internal class MyComparer : IComparer<Item>
 	{
 		internal ItemBrowser br;
+
 		public MyComparer(ItemBrowser br)
 		{
 			this.br = br;
 		}
+
 		public int Compare(Item a, Item b)
 		{
 			//if (br.SelectedSort.reversed)
@@ -741,6 +741,7 @@ namespace HEROsMod.UIKit.UIComponents
 		public Predicate<Item> filter;
 		internal UIImage button;
 		internal bool enabled = false;
+
 		public Filter(UIImage button, Predicate<Item> filter)
 		{
 			this.filter = filter;
@@ -760,6 +761,7 @@ namespace HEROsMod.UIKit.UIComponents
 	{
 		public Func<Item, Item, int> sort;
 		internal UIImage button;
+
 		//internal bool enabled = false;
 		public Sort(UIImage button, Func<Item, Item, int> sort)
 		{
@@ -787,6 +789,7 @@ namespace HEROsMod.UIKit.UIComponents
 	{
 		//private Category _parentCategory = null;
 		public Category ParentCategory;
+
 		//{
 		//	get { return _parentCategory; }
 		//}
@@ -797,6 +800,7 @@ namespace HEROsMod.UIKit.UIComponents
 		public List<Item> Items { get; set; }
 		public List<Category> SubCategories { get; set; }
 		internal Sort[] Sorts { get; set; }
+
 		public Category(string name)
 		{
 			this.Name = name;
@@ -1063,7 +1067,6 @@ namespace HEROsMod.UIKit.UIComponents
 //    int[] items = new int[itemView.allItemsSlots.Length];
 //    for (int i = 0; i < itemView.allItemsSlots.Length; i++) items[i] = i;
 //    itemView.category = items;
-
 
 //    itemView.activeSlots = itemView.category;
 

@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HEROsMod.UIKit;
+﻿using HEROsMod.UIKit;
 using Microsoft.Xna.Framework;
-
+using System;
+using System.Linq;
 using Terraria;
 using Terraria.ID;
 
 namespace HEROsMod.HEROsModServices
 {
-	class BuffService : HEROsModService
+	internal class BuffService : HEROsModService
 	{
 		private BuffWindow _buffWindow;
+
 		//public static int[] Buffs = new int[] {
 		//	112, 107, 1, 2, 3 , 4, 5, 6, 7, 8, 9, 10, 11, 12, 106, 13, 14,
 		//	15, 16 ,17, 18, 19, 26, 27, 29, 93, 48, 63, 59, 58
@@ -23,6 +21,7 @@ namespace HEROsMod.HEROsModServices
 			BuffID.MinecartLeft, BuffID.MinecartLeftMech, BuffID.MinecartLeftWood, BuffID.MinecartRight, BuffID.MinecartRightMech, BuffID.MinecartRightWood,
 			BuffID.SharknadoMinion, BuffID.UFOMinion, BuffID.DeadlySphere, BuffID.SolarShield1, BuffID.SolarShield2, BuffID.SolarShield3, BuffID.StardustDragonMinion,
 			BuffID.StardustGuardianMinion, BuffID.HornetMinion, BuffID.PirateMinion, BuffID.StardustMinion };
+
 		public BuffService()
 		{
 			this._hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/buffs")/*Main.buffTexture[2]*/);
@@ -57,7 +56,7 @@ namespace HEROsMod.HEROsModServices
 			//base.MyGroupUpdated();
 		}
 
-		void HotbarIcon_onLeftClick(object sender, EventArgs e)
+		private void HotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
 			if (_buffWindow == null)
 			{
@@ -75,9 +74,10 @@ namespace HEROsMod.HEROsModServices
 		}
 	}
 
-	class BuffWindow : UIWindow
+	internal class BuffWindow : UIWindow
 	{
-		UITextbox tbSeconds;
+		private UITextbox tbSeconds;
+
 		public BuffWindow()
 		{
 			this.CanMove = true;
@@ -163,12 +163,12 @@ namespace HEROsMod.HEROsModServices
 			AddChild(bClose);
 		}
 
-		void bClose_onLeftClick(object sender, EventArgs e)
+		private void bClose_onLeftClick(object sender, EventArgs e)
 		{
 			this.Visible = false;
 		}
 
-		void bg_onLeftClick(object sender, EventArgs e)
+		private void bg_onLeftClick(object sender, EventArgs e)
 		{
 			UIView view = (UIView)sender;
 			int buffType = (int)view.Tag;

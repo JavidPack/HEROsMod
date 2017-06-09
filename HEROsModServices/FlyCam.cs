@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using HEROsMod.UIKit;
-using HEROsMod.UIKit.UIComponents;
-
+using ReLogic.Graphics;
+using System;
 using Terraria;
 using Terraria.GameInput;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Graphics;
 
 namespace HEROsMod.HEROsModServices
 {
-	class FlyCam : HEROsModService
+	internal class FlyCam : HEROsModService
 	{
 		/* ====Hooks=====
          * FlyCam requires a that you wrap the code that locks the camera
-         * to the players position in an if statement.  This code is in 
+         * to the players position in an if statement.  This code is in
          * the Draw method of the main class.  Refer to previous implementations
          * look for 'if(!HEROsMod.ModUtils.FreeCamera)'
          */
@@ -56,8 +50,7 @@ namespace HEROsMod.HEROsModServices
 			this.HotbarIcon.Tooltip = "Enable Fly Camera";
 		}
 
-
-		void _hotbarIcon_onLeftClick(object sender, EventArgs e)
+		private void _hotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
 			Enabled = !Enabled;
 			if (Enabled)
@@ -114,7 +107,6 @@ namespace HEROsMod.HEROsModServices
 					else if (cursorWorldPosition.X + player.width > mapWidth) cursorWorldPosition.X = mapWidth - player.width;
 					if (cursorWorldPosition.Y < 0) cursorWorldPosition.Y = 0;
 					else if (cursorWorldPosition.Y + player.height > mapHeight) cursorWorldPosition.Y = mapHeight - player.height;
-
 
 					player.position = cursorWorldPosition;
 					player.velocity = Vector2.Zero;

@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Reflection;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.IO;
-
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.GameContent.Events;
 using ReLogic.Graphics;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+using Terraria;
+using Terraria.GameContent.Events;
+using Terraria.ModLoader;
 
 namespace HEROsMod
 {
-	static class ModUtils
+	internal static class ModUtils
 	{
 		private static MethodInfo _drawPlayerHeadMethod;
 		private static MethodInfo _loadPlayersMethod;
@@ -23,10 +19,12 @@ namespace HEROsMod
 		private static MethodInfo _stopRainMethod;
 		private static MethodInfo _startSandstormMethod;
 		private static MethodInfo _stopSandstormMethod;
+
 		//private static MethodInfo _loadNPCMethod;
 		//private static MethodInfo _loadProjectileMethod;
 		//private static MethodInfo _loadTilesMethod;
 		private static MethodInfo _mouseTextMethod;
+
 		private static MethodInfo _invasionWarningMethod;
 		private static MethodInfo _itemSortingSortMethod;
 		private static FieldInfo _npcDefaultSpawnRate;
@@ -36,6 +34,7 @@ namespace HEROsMod
 
 		//   private static FieldInfo _mapIconTextures;
 		private static FieldInfo _hueTexture;
+
 		//   private static FieldInfo _hoverItem;
 
 		private static Texture2D _dummyTexture;
@@ -46,6 +45,7 @@ namespace HEROsMod
 		private static Texture2D _testTubeTexture;
 
 		private static Item[] previosInvenotryItems;
+
 		public static event EventHandler InventoryChanged;
 
 		public static bool InterfaceVisible { get; set; }
@@ -145,10 +145,8 @@ namespace HEROsMod
 			}
 		}
 
-
 		public static void Init()
 		{
-
 			InitReflection();
 			InterfaceVisible = true;
 
@@ -193,7 +191,7 @@ namespace HEROsMod
 
 				//	_mapIconTextures = Main.instance.GetType().GetField("mapIconTexture", BindingFlags.NonPublic | BindingFlags.Instance); // pub
 				_hueTexture = Main.instance.GetType().GetField("hueTexture", BindingFlags.NonPublic | BindingFlags.Instance); // private
-																																	   //   _hoverItem = typeof(Main).GetField("toolTip", BindingFlags.NonPublic | BindingFlags.Static); //Main.toolTip
+																															  //   _hoverItem = typeof(Main).GetField("toolTip", BindingFlags.NonPublic | BindingFlags.Static); //Main.toolTip
 				Assembly terraria = Assembly.GetAssembly(typeof(Main));
 				_itemSortingSortMethod = terraria.GetType("Terraria.UI.ItemSorting").GetMethod("Sort", BindingFlags.Public | BindingFlags.Static);
 			}
@@ -212,7 +210,6 @@ namespace HEROsMod
 					if (InventoryChanged != null)
 					{
 						InventoryChanged(null, EventArgs.Empty);
-
 					}
 					SetPreviousInventory();
 				}
@@ -288,6 +285,7 @@ namespace HEROsMod
 		{
 			Main.instance.LoadProjectile(i);
 		}
+
 		public static void LoadTiles(int i)
 		{
 			Main.instance.LoadTiles(i);
@@ -359,6 +357,7 @@ namespace HEROsMod
 		{
 			_deltaTime = 1f / 60f;// (float)gameTime.ElapsedGameTime.TotalSeconds;
 		}
+
 		public static void SetDeltaTime(float deltaTime)
 		{
 			_deltaTime = deltaTime;
@@ -381,7 +380,7 @@ namespace HEROsMod
 		//public static void SelectedMenuHook(ref int selectedMenu)
 		//{
 		//    switch (Main.menuMode)
-		//    { 
+		//    {
 		//        case 0: //if main menu
 		//            switch (selectedMenu) //Main menu
 		//            {
@@ -438,7 +437,7 @@ namespace HEROsMod
 		//{
 		//    switch (Main.menuMode)
 		//    {
-		//        case 0:    
+		//        case 0:
 		//            Main.eclipse = false;
 		//            Main.pumpkinMoon = false;
 		//            Main.snowMoon = false;
@@ -669,14 +668,17 @@ namespace HEROsMod
 						pos.X = position.X - boarderSize;
 						pos.Y = position.Y;
 						break;
+
 					case 1:
 						pos.X = position.X + boarderSize;
 						pos.Y = position.Y;
 						break;
+
 					case 2:
 						pos.X = position.X;
 						pos.Y = position.Y - boarderSize;
 						break;
+
 					case 3:
 						pos.X = position.X;
 						pos.Y = position.Y + boarderSize;
@@ -829,7 +831,6 @@ namespace HEROsMod
 		//    Main.spriteBatch.Draw(_logoTexture, new Vector2((float)(Main.screenWidth / 2), 100f), new Rectangle?(new Rectangle(0, 0, Main.logoTexture.Width, Main.logoTexture.Height)), color, rotation, new Vector2((float)(Main.logoTexture.Width / 2), (float)(Main.logoTexture.Height / 2)), scale, SpriteEffects.None, 0f);
 		//    Main.spriteBatch.Draw(_logoTexture2, new Vector2((float)(Main.screenWidth / 2), 100f), new Rectangle?(new Rectangle(0, 0, Main.logoTexture.Width, Main.logoTexture.Height)), color2, rotation, new Vector2((float)(Main.logoTexture.Width / 2), (float)(Main.logoTexture.Height / 2)), scale, SpriteEffects.None, 0f);
 
-
 		//    //DrawTestTube(spriteBatch, new Vector2(50,50), rotation, scale);
 		//    spriteBatch.End();
 		//    spriteBatch.Begin();
@@ -856,7 +857,7 @@ namespace HEROsMod
 		//    spriteBatch.Draw(_testTubeTexture, transsformedPos + pos, liquidCapSource, Color.Red, rotation, Vector2.Zero, scale, SpriteEffects.None, 0);
 		//}
 
-		static Dictionary<int, Color> rarityColors = new Dictionary<int, Color>()
+		private static Dictionary<int, Color> rarityColors = new Dictionary<int, Color>()
 		{
 			{-11, new Color(255, 175, 0) },
 			{-1, new Color(130, 130, 130) },
@@ -878,9 +879,10 @@ namespace HEROsMod
 				return rarityColors[item.rare];
 			}
 			return Color.White;
-
 		}
-		static bool debug = false;
+
+		private static bool debug = false;
+
 		public static void DebugText(string message)
 		{
 			if (debug)

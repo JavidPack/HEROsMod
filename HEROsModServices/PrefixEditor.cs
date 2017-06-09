@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HEROsMod.UIKit;
+﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 
 namespace HEROsMod.HEROsModServices
 {
-	class PrefixEditor : HEROsModService
+	internal class PrefixEditor : HEROsModService
 	{
-		PrefixWindow _prefixWindow;
+		private PrefixWindow _prefixWindow;
+
 		public PrefixEditor()
 		{
 			this._hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/reforge")/*Main.itemTexture[24]*/);
@@ -27,7 +26,7 @@ namespace HEROsMod.HEROsModServices
 			_prefixWindow.Visible = false;
 		}
 
-		void _hotbarIcon_onLeftClick(object sender, EventArgs e)
+		private void _hotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
 			_prefixWindow.Visible = !_prefixWindow.Visible;
 			if (_prefixWindow.Visible)
@@ -43,17 +42,17 @@ namespace HEROsMod.HEROsModServices
 		}
 	}
 
-	class PrefixWindow : UIWindow
+	internal class PrefixWindow : UIWindow
 	{
-		Slot itemSlot;
-		UIScrollView prefixList;
-		int[] prefixes;
-		List<Particle> particles;
-		float _particleTimer;
-		float _newParticleTime = .1f;
-		List<Item> validPrefixes;
+		private Slot itemSlot;
+		private UIScrollView prefixList;
+		private int[] prefixes;
+		private List<Particle> particles;
+		private float _particleTimer;
+		private float _newParticleTime = .1f;
+		private List<Item> validPrefixes;
 
-		static Dictionary<int, Color> rarityColors = new Dictionary<int, Color>()
+		private static Dictionary<int, Color> rarityColors = new Dictionary<int, Color>()
 		{
 			{-11, new Color(255, 175, 0) },
 			{-1, new Color(130, 130, 130) },
@@ -105,7 +104,6 @@ namespace HEROsMod.HEROsModServices
 			_particleTimer -= ModUtils.DeltaTime;
 			if (_particleTimer <= 0)
 			{
-
 			}
 			for (int i = 0; i < particles.Count; i++)
 			{
@@ -128,12 +126,12 @@ namespace HEROsMod.HEROsModServices
 			}
 		}
 
-		void bClsoe_onLeftClick(object sender, EventArgs e)
+		private void bClsoe_onLeftClick(object sender, EventArgs e)
 		{
 			this.Visible = false;
 		}
 
-		void itemSlot_ItemChanged(object sender, EventArgs e)
+		private void itemSlot_ItemChanged(object sender, EventArgs e)
 		{
 			prefixes = new int[83];
 			for (int i = 0; i < 83; i++)
@@ -145,7 +143,7 @@ namespace HEROsMod.HEROsModServices
 			PopulatePrefixDropDown();
 		}
 
-		void GetValidPrefixesForItem()
+		private void GetValidPrefixesForItem()
 		{
 			validPrefixes = new List<Item>();
 			Item backUpItem = itemSlot.item.Clone();
@@ -166,7 +164,7 @@ namespace HEROsMod.HEROsModServices
 			validPrefixes = validPrefixes.OrderBy(x => -x.rare).ToList();
 		}
 
-		void PopulatePrefixDropDown()
+		private void PopulatePrefixDropDown()
 		{
 			prefixList.ClearContent();
 			float yPos = Spacing;
@@ -189,7 +187,7 @@ namespace HEROsMod.HEROsModServices
 			prefixList.ContentHeight = yPos + Spacing;
 		}
 
-		void label_onHover(object sender, EventArgs e)
+		private void label_onHover(object sender, EventArgs e)
 		{
 			UILabel label = (UILabel)sender;
 			Item item = (Item)label.Tag;
@@ -197,7 +195,7 @@ namespace HEROsMod.HEROsModServices
 			HoverItem = item.Clone();
 		}
 
-		void label_onLeftClick(object sender, EventArgs e)
+		private void label_onLeftClick(object sender, EventArgs e)
 		{
 			UILabel label = (UILabel)sender;
 			Item item = (Item)label.Tag;
@@ -219,24 +217,24 @@ namespace HEROsMod.HEROsModServices
              */
 		}
 
-		void bReforge_onLeftClick(object sender, EventArgs e)
+		private void bReforge_onLeftClick(object sender, EventArgs e)
 		{
 			itemSlot.item.Prefix(-2);
 		}
 	}
 
-	class PrefixEntry
+	internal class PrefixEntry
 	{
 		public string Name { get; set; }
 		public int Type { get; set; }
 		public Item Item { get; set; }
+
 		public PrefixEntry()
 		{
-
 		}
 	}
 
-	class Particle
+	internal class Particle
 	{
 		public Texture2D Texture { get; set; }
 		public Vector2 Position { get; set; }
@@ -300,5 +298,4 @@ namespace HEROsMod.HEROsModServices
 			spriteBatch.Draw(Texture, Position + drawPosition, Source, Color.White, Rotation, origin, Scale, SpriteEffects.None, 0);
 		}
 	}
-
 }
