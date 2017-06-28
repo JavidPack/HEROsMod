@@ -905,6 +905,24 @@ namespace HEROsMod
 				}
 			}
 		}
+
+		public static Rectangle GetClippingRectangle(SpriteBatch spriteBatch, Rectangle r)
+		{
+			//Vector2 vector = new Vector2(this._innerDimensions.X, this._innerDimensions.Y);
+			//Vector2 position = new Vector2(this._innerDimensions.Width, this._innerDimensions.Height) + vector;
+			Vector2 vector = new Vector2(r.X, r.Y);
+			Vector2 position = new Vector2(r.Width, r.Height) + vector;
+			vector = Vector2.Transform(vector, Main.UIScaleMatrix);
+			position = Vector2.Transform(position, Main.UIScaleMatrix);
+			Rectangle result = new Rectangle((int)vector.X, (int)vector.Y, (int)(position.X - vector.X), (int)(position.Y - vector.Y));
+			int width = spriteBatch.GraphicsDevice.Viewport.Width;
+			int height = spriteBatch.GraphicsDevice.Viewport.Height;
+			result.X = Utils.Clamp<int>(result.X, 0, width);
+			result.Y = Utils.Clamp<int>(result.Y, 0, height);
+			result.Width = Utils.Clamp<int>(result.Width, 0, width - result.X);
+			result.Height = Utils.Clamp<int>(result.Height, 0, height - result.Y);
+			return result;
+		}
 	}
 
 	public enum NetworkMode : byte

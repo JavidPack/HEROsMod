@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\AdminInstructionsCommand.cs" />
+    <Compile Include="Commands\BecomeAdmin.cs" />
     <Compile Include="HEROsModNetwork\DatabaseController.cs" />
     <Compile Include="HEROsModNetwork\HEROsModPlayer.cs" />
     <Compile Include="HEROsModNetwork\GeneralMessages.cs" />

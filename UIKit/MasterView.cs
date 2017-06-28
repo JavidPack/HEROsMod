@@ -93,10 +93,10 @@ namespace HEROsMod.UIKit
 		public static void DrawMaster(SpriteBatch spriteBatch)
 		{
 			spriteBatch.End();
-			spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied);
+			spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState.AnisotropicClamp, DepthStencilState.None, null, null, Main.UIScaleMatrix);
 			masterView.Draw(spriteBatch);
 			spriteBatch.End();
-			spriteBatch.Begin();
+			spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState.AnisotropicClamp, DepthStencilState.None, null, null, Main.UIScaleMatrix);
 			//Console.WriteLine("update: " + UpdateCalls + "draws: " + DrawCalls);
 		}
 

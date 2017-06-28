@@ -5,11 +5,13 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
+using Terraria.UI;
 
 // TODO, freeze is bypassable.
 // TODO, regions prevent all the chest movement and right click.
@@ -134,7 +136,7 @@ namespace HEROsMod
 		public override void Load()
 		{
 			// Since we are using hooks not in older versions, and since ItemID.Count changed, we need to do this.
-			if (ModLoader.version < new Version(0, 9, 2))
+			if (ModLoader.version < new Version(0, 10))
 			{
 				throw new Exception("\nThis mod uses functionality only present in the latest tModLoader. Please update tModLoader to use this mod\n\n");
 			}
@@ -199,23 +201,35 @@ namespace HEROsMod
 			MapRevealer.instance.PostDrawFullScreenMap();
 		}
 
-		public override void PostDrawInterface(SpriteBatch spriteBatch)
+		public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
 		{
-			try
+			int inventoryLayerIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
+			if (inventoryLayerIndex != -1)
 			{
-				HEROsMod.Update();
+				layers.Insert(inventoryLayerIndex, new LegacyGameInterfaceLayer(
+					"HerosMod: UI",
+					delegate
+					{
+						try
+						{
+							HEROsMod.Update();
 
-				HEROsMod.ServiceHotbar.Update();
+							HEROsMod.ServiceHotbar.Update();
 
-				HEROsMod.DrawBehindUI(spriteBatch);
+							HEROsMod.DrawBehindUI(Main.spriteBatch);
 
-				HEROsMod.Draw(spriteBatch);
+							HEROsMod.Draw(Main.spriteBatch);
 
-				KeybindController.DoPreviousKeyState();
-			}
-			catch (Exception e)
-			{
-				ModUtils.DebugText("PostDrawInInventory Error: " + e.Message + e.StackTrace);
+							KeybindController.DoPreviousKeyState();
+						}
+						catch (Exception e)
+						{
+							ModUtils.DebugText("PostDrawInInventory Error: " + e.Message + e.StackTrace);
+						}
+						return true;
+					},
+					InterfaceScaleType.UI)
+				);
 			}
 		}
 

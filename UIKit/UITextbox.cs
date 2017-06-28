@@ -265,7 +265,7 @@ namespace HEROsMod.UIKit
 					OnEnterPress?.Invoke(this, new EventArgs());
 				}
 				spriteBatch.End();
-				spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+				spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Main.UIScaleMatrix);
 				Main.instance.DrawWindowsIMEPanel(new Vector2(98f, (float)(Main.screenHeight - 36)), 0f);
 			}
 
@@ -286,10 +286,10 @@ namespace HEROsMod.UIKit
 			if (pos.X <= Main.screenWidth && pos.Y <= Main.screenHeight && pos.X + Width >= 0 && pos.Y + Height >= 0)
 			{
 				spriteBatch.End();
-				spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, _rasterizerState);
+				spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, _rasterizerState, null, Main.UIScaleMatrix);
 
 				Rectangle cutRect = new Rectangle((int)pos.X, (int)pos.Y, (int)Width, (int)Height);
-				if (cutRect.X < 0)
+				/*if (cutRect.X < 0)
 				{
 					cutRect.Width += cutRect.X;
 					cutRect.X = 0;
@@ -300,7 +300,8 @@ namespace HEROsMod.UIKit
 					cutRect.Y = 0;
 				}
 				if (cutRect.X + Width > Main.screenWidth) cutRect.Width = Main.screenWidth - cutRect.X;
-				if (cutRect.Y + Height > Main.screenHeight) cutRect.Height = Main.screenHeight - cutRect.Y;
+				if (cutRect.Y + Height > Main.screenHeight) cutRect.Height = Main.screenHeight - cutRect.Y;*/
+				cutRect = ModUtils.GetClippingRectangle(spriteBatch, cutRect);
 
 				Rectangle currentRect = spriteBatch.GraphicsDevice.ScissorRectangle;
 				spriteBatch.GraphicsDevice.ScissorRectangle = cutRect;
@@ -309,7 +310,7 @@ namespace HEROsMod.UIKit
 
 				spriteBatch.GraphicsDevice.ScissorRectangle = currentRect;
 				spriteBatch.End();
-				spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied);
+				spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, null, null, null, null, Main.UIScaleMatrix);
 			}
 		}
 	}
