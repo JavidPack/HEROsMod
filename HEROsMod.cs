@@ -15,120 +15,9 @@ using Terraria.UI;
 
 // TODO, freeze is bypassable.
 // TODO, regions prevent all the chest movement and right click.
-
+// TODO -- Should I have all services use the same Global hooks?
 namespace HEROsMod
 {
-	internal class HEROsModModWorld : ModWorld
-	{
-		public override bool Autoload(ref string name) => true;
-
-		//private const int saveVersion = 0;
-
-		// When a world is loaded on Server or client, we need to load settings.
-		public override void Initialize()
-		{
-			HEROsModNetwork.DatabaseController.InitializeWorld();
-			HEROsModNetwork.Network.InitializeWorld();
-		}
-
-		public override TagCompound Save()
-		{
-			//if (Main.dedServ) // What about clients? do they save?
-			{
-				HEROsModNetwork.DatabaseController.SaveSetting();
-			}
-			return null;
-		}
-	}
-
-	//class HEROsModGlobalItem : GlobalItem
-	//{
-	//	double time;
-
-	//	public override void PostDrawInInventory(Item item, SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-	//	{
-	//		if (time != Main.time)
-	//		{
-	//			try
-	//			{
-	//				time = Main.time;
-
-	//				HEROsMod.Update();
-
-	//				HEROsMod.ServiceHotbar.Update();
-
-	//				HEROsMod.DrawBehindUI(spriteBatch);
-
-	//				HEROsMod.Draw(spriteBatch);
-
-	//				KeybindController.DoPreviousKeyState();
-
-	//			}
-	//			catch (Exception e)
-	//			{
-	//				ModUtils.DebugText("PostDrawInInventory Error: " + e.Message + e.StackTrace);
-	//			}
-	//		}
-	//		base.PostDrawInInventory(item, spriteBatch, position, frame, drawColor, itemColor, origin, scale);
-	//	}
-	//}
-
-	// TODO -- Should I have all services use the same Global hooks?
-	public class HEROsModModPlayer : ModPlayer
-	{
-		public override void SetControls()
-		{
-			if (FlyCam.Enabled)
-			{
-				player.controlDown = false;
-				player.controlUp = false;
-				player.controlLeft = false;
-				player.controlRight = false;
-
-				player.controlMount = false;
-				player.controlHook = false;
-				player.controlThrow = false;
-				//	player.controlJump = false;
-				player.controlSmart = false;
-				player.controlTorch = false;
-			}
-		}
-
-		public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
-		{
-			if (GodModeService.Enabled)
-			{
-				return false;
-			}
-			return true;
-		}
-
-		public override void PreUpdate()
-		{
-			if (GodModeService.Enabled)
-			{
-				player.statLife = player.statLifeMax2;
-				player.statMana = player.statManaMax2;
-			}
-		}
-
-		// TODO - make tmodloader hook, this only gets called while there are players in the world.
-		private double time;
-
-		public override void PostUpdate()
-		{
-			if (Main.dedServ)
-			{
-				if (time != Main.time)
-				{
-					time = Main.time;
-					HEROsModNetwork.Network.Update();
-				}
-			}
-		}
-	}
-
-	// renamed from Mod to HEROsModMod
 	internal class HEROsMod : Mod
 	{
 		public static HEROsMod instance;
@@ -271,7 +160,6 @@ namespace HEROsMod
 		//	return Transform;
 		//}
 
-		//public const string Version = "3.0";
 		//public static bool CreateiveDisabled = false;
 
 		private static bool _prevGameMenu = true;
@@ -390,15 +278,6 @@ namespace HEROsMod
 			//modExtensions.AddButton(texture, buttonClickedAction, tooltip);
 		}
 
-		//private static void IncreaseNetworkMessageSize()
-		//{
-		//	Main.maxMsg += 1;
-		//	Main.rxMsgType = new int[Main.maxMsg];
-		//	Main.rxDataType = new int[Main.maxMsg];
-		//	Main.txMsgType = new int[Main.maxMsg];
-		//	Main.txDataType = new int[Main.maxMsg];
-		//}
-
 		private MiscOptions miscOptions;
 		private ExtensionMenuService extensionMenuService;
 
@@ -473,10 +352,6 @@ namespace HEROsMod
 			//HEROsModVideo.Services.NPCSpawnData.NPCSpawnDataBuilder.Start();
 			//HEROsModVideo.Services.ChestDropsInfo.ChestDropBuilder.Start();
 		}
-
-		private static float angle = 0f;
-		private static float angle2 = 0f;
-		private static float zoom = 1f;
 
 		public static void Update(/*GameTime gameTime*/)
 		{

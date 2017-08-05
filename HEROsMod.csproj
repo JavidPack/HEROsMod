@@ -60,6 +60,8 @@
   <ItemGroup>
     <Compile Include="Commands\AdminInstructionsCommand.cs" />
     <Compile Include="Commands\BecomeAdmin.cs" />
+    <Compile Include="HEROsModModPlayer.cs" />
+    <Compile Include="HEROsModModWorld.cs" />
     <Compile Include="HEROsModNetwork\DatabaseController.cs" />
     <Compile Include="HEROsModNetwork\HEROsModPlayer.cs" />
     <Compile Include="HEROsModNetwork\GeneralMessages.cs" />
@@ -105,7 +107,7 @@
     <Compile Include="HEROsModServices\TimeWeatherChanger.cs" />
     <Compile Include="HEROsModVideo\Services\MobHUD\MobInfo.cs" />
     <Compile Include="HEROsModVideo\Services\MobHUD\MobInfoView.cs" />
-    <Compile Include="Mod.cs" />
+    <Compile Include="HEROsMod.cs" />
     <Compile Include="ModUtils.cs" />
     <Compile Include="UIKit\ColorSliders.cs" />
     <Compile Include="UIKit\MasterView.cs" />
