@@ -12,7 +12,7 @@ namespace HEROsMod.HEROsModServices
 			IsInHotbar = true;
 			HotbarParent = hotbar;
 			this._name = "Spawn Point Setter";
-			this._hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/spawn")/*Main.itemTexture[69]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/spawn")/*Main.itemTexture[69]*/);
 			this._hotbarIcon.Tooltip = "Set Spawn Point";
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 		}

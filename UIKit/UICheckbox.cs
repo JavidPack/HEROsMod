@@ -6,8 +6,8 @@ namespace HEROsMod.UIKit
 {
 	internal class UICheckbox : UIView
 	{
-		private static Texture2D checkboxTexture = UIView.GetEmbeddedTexture("Images/UIKit/checkBox");
-		private static Texture2D checkmarkTexture = UIView.GetEmbeddedTexture("Images/UIKit/checkMark");
+		internal static Texture2D checkboxTexture;
+		internal static Texture2D checkmarkTexture;
 
 		private bool selected = false;
 

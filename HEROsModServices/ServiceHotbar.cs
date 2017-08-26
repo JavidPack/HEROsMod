@@ -137,9 +137,9 @@ namespace HEROsMod.HEROsModServices
 			_iconView.Height = this.Height;
 			this.AddChild(_iconView);
 
-			collapseButton = new UIImage(UIView.GetEmbeddedTexture("Images/CollapseBar/CollapseButtonHorizontal"));
+			collapseButton = new UIImage(HEROsMod.instance.GetTexture("Images/CollapseBar/CollapseButtonHorizontal"));
 			collapseButton.UpdateWhenOutOfBounds = true;
-			collapseArrow = new UIImage(UIView.GetEmbeddedTexture("Images/CollapseBar/CollapseArrowHorizontal"));
+			collapseArrow = new UIImage(HEROsMod.instance.GetTexture("Images/CollapseBar/CollapseArrowHorizontal"));
 			collapseArrow.UpdateWhenOutOfBounds = true;
 			collapseButton.Anchor = AnchorPosition.Top;
 			collapseArrow.Anchor = AnchorPosition.Top;

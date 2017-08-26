@@ -27,7 +27,7 @@ namespace HEROsMod.HEROsModServices
 
 			TimePaused = false;
 			this._name = "Time Weather Control";
-			this._hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/timeRain"));
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/timeRain"));
 			this.HotbarIcon.Tooltip = "Change Time/Rain";
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
@@ -124,7 +124,7 @@ namespace HEROsMod.HEROsModServices
 		//{
 		//	get
 		//	{
-		//		if (_rainTexture == null) _rainTexture = GetEmbeddedTexture("Images/rainIcon");
+		//		if (_rainTexture == null) _rainTexture = HEROsMod.instance.GetTexture("Images/rainIcon");
 		//		return _rainTexture;
 		//	}
 		//}
@@ -132,7 +132,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			get
 			{
-				if (_playTexture == null) _playTexture = GetEmbeddedTexture("Images/speed1");
+				if (_playTexture == null) _playTexture = HEROsMod.instance.GetTexture("Images/speed1");
 				return _playTexture;
 			}
 		}
@@ -141,7 +141,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			get
 			{
-				if (_pauseTexture == null) _pauseTexture = GetEmbeddedTexture("Images/speed0");
+				if (_pauseTexture == null) _pauseTexture = HEROsMod.instance.GetTexture("Images/speed0");
 				return _pauseTexture;
 			}
 		}
@@ -157,7 +157,7 @@ namespace HEROsMod.HEROsModServices
 			base.Anchor = AnchorPosition.Top;
 			this.AddChild(this.buttonView);
 
-			//UIImage bStopRain = new UIImage(GetEmbeddedTexture("Images/sunIcon"));
+			//UIImage bStopRain = new UIImage(HEROsMod.instance.GetTexture("Images/sunIcon"));
 			//UIImage bStartRain = new UIImage(rainTexture);
 			//bStartRain.Tooltip = "Start Rain";
 			//bStopRain.Tooltip = "Stop Rain";
@@ -166,10 +166,10 @@ namespace HEROsMod.HEROsModServices
 			//AddChild(bStopRain);
 			//AddChild(bStartRain);
 
-			//UIImage nightButton = new UIImage(GetEmbeddedTexture("Images/moonIcon"));
+			//UIImage nightButton = new UIImage(HEROsMod.instance.GetTexture("Images/moonIcon"));
 			//nightButton.Tooltip = "Night";
 			//nightButton.onLeftClick += nightButton_onLeftClick;
-			//UIImage noonButton = new UIImage(GetEmbeddedTexture("Images/sunIcon"));
+			//UIImage noonButton = new UIImage(HEROsMod.instance.GetTexture("Images/sunIcon"));
 			//noonButton.Tooltip = "Noon";
 			//noonButton.onLeftClick += noonButton_onLeftClick;
 			//bPause = new UIImage(pauseTexture);
@@ -198,8 +198,8 @@ namespace HEROsMod.HEROsModServices
 			Height = 54;
 			UpdateWhenOutOfBounds = true;
 
-			UIImage bStopRain = new UIImage(GetEmbeddedTexture("Images/rainStop"));
-			UIImage bStartRain = new UIImage(GetEmbeddedTexture("Images/rainIcon"));
+			UIImage bStopRain = new UIImage(HEROsMod.instance.GetTexture("Images/rainStop"));
+			UIImage bStartRain = new UIImage(HEROsMod.instance.GetTexture("Images/rainIcon"));
 			bStartRain.Tooltip = "Start Rain";
 			bStopRain.Tooltip = "Stop Rain";
 			bStartRain.onLeftClick += bStartRain_onLeftClick;
@@ -207,8 +207,8 @@ namespace HEROsMod.HEROsModServices
 			buttonView.AddChild(bStopRain);
 			buttonView.AddChild(bStartRain);
 
-			UIImage bStopSandstorm = new UIImage(GetEmbeddedTexture("Images/rainStop"));
-			UIImage bStartSandstorm = new UIImage(GetEmbeddedTexture("Images/rainIcon"));
+			UIImage bStopSandstorm = new UIImage(HEROsMod.instance.GetTexture("Images/rainStop"));
+			UIImage bStartSandstorm = new UIImage(HEROsMod.instance.GetTexture("Images/rainIcon"));
 			bStartSandstorm.Tooltip = "Start Sandstorm";
 			bStopSandstorm.Tooltip = "Stop Sandstorm";
 			bStartSandstorm.onLeftClick += bStartSandstorm_onLeftClick;
@@ -216,10 +216,10 @@ namespace HEROsMod.HEROsModServices
 			buttonView.AddChild(bStopSandstorm);
 			buttonView.AddChild(bStartSandstorm);
 
-			UIImage nightButton = new UIImage(GetEmbeddedTexture("Images/moonIcon"));
+			UIImage nightButton = new UIImage(HEROsMod.instance.GetTexture("Images/moonIcon"));
 			nightButton.Tooltip = "Night";
 			nightButton.onLeftClick += nightButton_onLeftClick;
-			UIImage noonButton = new UIImage(GetEmbeddedTexture("Images/sunIcon"));
+			UIImage noonButton = new UIImage(HEROsMod.instance.GetTexture("Images/sunIcon"));
 			noonButton.Tooltip = "Noon";
 			noonButton.onLeftClick += noonButton_onLeftClick;
 			bPause = new UIImage(TimeWeatherChanger.TimePaused ? playTexture : pauseTexture);
@@ -230,7 +230,7 @@ namespace HEROsMod.HEROsModServices
 			buttonView.AddChild(noonButton);
 			buttonView.AddChild(bPause);
 
-			UIImage sundialButton = new UIImage(GetEmbeddedTexture("Images/timeRain"));
+			UIImage sundialButton = new UIImage(HEROsMod.instance.GetTexture("Images/timeRain"));
 			sundialButton.Tooltip = "Force Enchanted Sundial";
 			sundialButton.onLeftClick += sundialButton_onLeftClick;
 			buttonView.AddChild(sundialButton);
@@ -428,6 +428,12 @@ namespace HEROsMod.HEROsModServices
 				//pauseTime = true;
 				//previousTime = Main.time;
 			}
+		}
+
+		internal static void Unload()
+		{
+			_playTexture = null;
+			_pauseTexture = null;
 		}
 
 		//public override void Update()

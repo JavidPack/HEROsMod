@@ -6,7 +6,7 @@ namespace HEROsMod.UIKit
 {
 	internal class UIButton : UIView
 	{
-		public static Texture2D buttonBackground = UIView.GetEmbeddedTexture("Images/UIKit/buttonEdge");
+		public static Texture2D buttonBackground;
 		private static Texture2D buttonFill;
 
 		public static Texture2D ButtonFill

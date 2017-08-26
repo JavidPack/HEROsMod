@@ -46,7 +46,7 @@ namespace HEROsMod.HEROsModServices
 			canEdit = false;
 			canView = false;
 			this._name = "Region Service";
-			this._hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/region")/*Main.itemTexture[1337]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/region")/*Main.itemTexture[1337]*/);
 			this.HotbarIcon.Tooltip = "Open regions window";
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 			this.HasPermissionToUse = true;

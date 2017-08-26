@@ -155,9 +155,9 @@ namespace HEROsMod
 				FreeCamera = false;
 				//keyBoardInput.ClearEventListener();
 				//StartListeningForKeyEvents();
-				//_logoTexture = GetEmbeddedTexture("Images/LogoNew0");
-				//_logoTexture2 = GetEmbeddedTexture("Images/LogoNew1");
-				//_testTubeTexture = GetEmbeddedTexture("Images/testTubeSpritesheet");
+				//_logoTexture = HEROsMod.instance.GetTexture("Images/LogoNew0");
+				//_logoTexture2 = HEROsMod.instance.GetTexture("Images/LogoNew1");
+				//_testTubeTexture = HEROsMod.instance.GetTexture("Images/testTubeSpritesheet");
 				//ItemTooltip = new UIKit.UIComponents.ItemTooltip();
 				//UIKit.MasterView.gameScreen.AddChild(ItemTooltip);
 				previosInvenotryItems = new Item[Main.player[Main.myPlayer].inventory.Length];
@@ -333,21 +333,6 @@ namespace HEROsMod
 		//{
 		//    keyBoardInput.newKeyEvent -= KeyEvent;
 		//}
-
-		public static Texture2D GetEmbeddedTexture(string name)
-		{
-			return HEROsMod.instance.GetTexture(name);
-
-			//System.Reflection.Assembly myAssembly = System.Reflection.Assembly.GetExecutingAssembly();
-			//         System.IO.Stream stream = myAssembly.GetManifestResourceStream("HEROsModMod." + name);
-
-			//         if (stream != null)
-			//         {
-			//             return Texture2D.FromStream(HEROsMod.GraphicsDeviceReference, stream);
-			//         }
-			//         else
-			//             return null;
-		}
 
 		/// <summary>
 		/// Set the Delta Time

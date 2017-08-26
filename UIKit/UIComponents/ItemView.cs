@@ -16,7 +16,7 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				if (_demonAltarTexture == null)
 				{
-					_demonAltarTexture = ModUtils.GetEmbeddedTexture("Images/Demon_Altar");
+					_demonAltarTexture = HEROsMod.instance.GetTexture("Images/Demon_Altar");
 				}
 				return _demonAltarTexture;
 			}

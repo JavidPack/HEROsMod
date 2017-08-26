@@ -34,8 +34,19 @@ namespace HEROsMod
 			{
 				instance = this;
 				//	AddGlobalItem("HEROsModGlobalItem", new HEROsModGlobalItem());
-				AddPlayer("HEROsModModPlayer", new HEROsModModPlayer());
+				// AddPlayer("HEROsModModPlayer", new HEROsModModPlayer());
 				//if (ModUtils.NetworkMode != NetworkMode.Server)
+
+				UIKit.UIButton.buttonBackground = HEROsMod.instance.GetTexture("Images/UIKit/buttonEdge");
+				UIKit.UIView.closeTexture = HEROsMod.instance.GetTexture("Images/closeButton");
+				UIKit.UITextbox.textboxBackground = HEROsMod.instance.GetTexture("Images/UIKit/textboxEdge");
+				UIKit.UISlider.barTexture = HEROsMod.instance.GetTexture("Images/UIKit/barEdge");
+				UIKit.UIScrollView.ScrollbgTexture = GetTexture("Images/UIKit/scrollbgEdge");
+				UIKit.UIScrollBar.ScrollbarTexture = HEROsMod.instance.GetTexture("Images/UIKit/scrollbarEdge");
+				UIKit.UIDropdown.capUp = HEROsMod.instance.GetTexture("Images/UIKit/dropdownCapUp");
+				UIKit.UIDropdown.capDown = HEROsMod.instance.GetTexture("Images/UIKit/dropdownCapDown");
+				UIKit.UICheckbox.checkboxTexture = HEROsMod.instance.GetTexture("Images/UIKit/checkBox");
+				UIKit.UICheckbox.checkmarkTexture = HEROsMod.instance.GetTexture("Images/UIKit/checkMark");
 
 				Init();
 			}
@@ -48,6 +59,18 @@ namespace HEROsMod
 		// Clear EVERYthing, mod is unloaded.
 		public override void Unload()
 		{
+			UIKit.UIComponents.ItemBrowser.Filters = null;
+			UIKit.UIComponents.ItemBrowser.DefaultSorts = null;
+			UIKit.UIButton.buttonBackground = null;
+			UIKit.UIView.closeTexture = null;
+			UIKit.UITextbox.textboxBackground = null;
+			UIKit.UISlider.barTexture = null;
+			UIKit.UIScrollView.ScrollbgTexture = null;
+			UIKit.UIScrollBar.ScrollbarTexture = null;
+			UIKit.UIDropdown.capUp = null;
+			UIKit.UIDropdown.capDown = null;
+			UIKit.UICheckbox.checkboxTexture = null;
+			UIKit.UICheckbox.checkmarkTexture = null;
 			try
 			{
 				KeybindController.bindings.Clear();
@@ -71,6 +94,12 @@ namespace HEROsMod
 			{
 				ModUtils.DebugText("Unload:\n" + e.Message + "\n" + e.StackTrace + "\n");
 			}
+			extensionMenuService = null;
+			miscOptions = null;
+			_hotbar = null;
+			ServiceController = null;
+			TimeWeatherControlHotbar.Unload();
+			instance = null;
 		}
 
 		public override void PostSetupContent()
@@ -168,15 +197,9 @@ namespace HEROsMod
 		// Holds all the loaded services.
 		public static ServiceController ServiceController;
 
-		/// <summary>
-		/// A reference to teh instance of the Graphics Device.
-		/// </summary>
-		public static GraphicsDevice GraphicsDeviceReference;
-
 		public static RenderTarget2D RenderTarget { get; set; }
 
 		private static ServiceHotbar _hotbar;
-
 		public static ServiceHotbar ServiceHotbar
 		{
 			get { return _hotbar; }

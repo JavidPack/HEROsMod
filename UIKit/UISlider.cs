@@ -9,7 +9,7 @@ namespace HEROsMod.UIKit
 	{
 		protected static int padding = 8;
 		protected static Texture2D sliderTexture = Main.colorSliderTexture;
-		private static Texture2D barTexture = UIView.GetEmbeddedTexture("Images/UIKit/barEdge");
+		internal static Texture2D barTexture;
 		private static Texture2D barFill;
 
 		private static Texture2D BarFill

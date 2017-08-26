@@ -21,7 +21,7 @@ namespace HEROsMod.UIKit
 
 	internal class UIView
 	{
-		protected static Texture2D closeTexture = GetEmbeddedTexture("Images/closeButton");
+		internal static Texture2D closeTexture;
 
 		//statics
 		public static UIView exclusiveControl = null;
@@ -536,22 +536,6 @@ namespace HEROsMod.UIKit
 		{
 			this.Parent.children.Remove(this);
 			this.Parent.children.Add(this);
-		}
-
-		public static Texture2D GetEmbeddedTexture(string name)
-		{
-			if (Main.dedServ) return null;
-			return HEROsMod.instance.GetTexture(name);
-
-			//System.Reflection.Assembly myAssembly = System.Reflection.Assembly.GetExecutingAssembly();
-			//System.IO.Stream stream = myAssembly.GetManifestResourceStream("HEROsModMod." + name);
-
-			//if (stream != null)
-			//{
-			//    return Texture2D.FromStream(graphics, stream);
-			//}
-			//else
-			//    return null;
 		}
 	}
 }

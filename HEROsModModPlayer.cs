@@ -17,6 +17,8 @@ namespace HEROsMod
 {
 	public class HEROsModModPlayer : ModPlayer
 	{
+		public override bool Autoload(ref string name) => true;
+
 		public override void SetControls()
 		{
 			if (FlyCam.Enabled)

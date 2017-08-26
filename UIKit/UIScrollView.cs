@@ -9,7 +9,7 @@ namespace HEROsMod.UIKit
 	internal class UIScrollView : UIView
 	{
 		private RasterizerState _rasterizerState = new RasterizerState() { ScissorTestEnable = true };
-		private static Texture2D ScrollbgTexture = GetEmbeddedTexture("Images/UIKit/scrollbgEdge");
+		internal static Texture2D ScrollbgTexture;
 		private static Texture2D scrollbgFill;
 
 		private static Texture2D ScrollbgFill

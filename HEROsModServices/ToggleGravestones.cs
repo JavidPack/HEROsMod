@@ -30,7 +30,7 @@ namespace HEROsMod.HEROsModServices
 			//MultiplayerOnly = true;
 			this._name = "Gravestones Toggler";
 			ModUtils.LoadProjectile(43);
-			this._hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/gravestone")/*Main.projectileTexture[43]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/gravestone")/*Main.projectileTexture[43]*/);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = "Disable Gravestones";
 			this._hotbarIcon.Opacity = 1f;

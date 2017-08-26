@@ -78,9 +78,9 @@ namespace HEROsMod.UIKit.UIComponents
 			this.CanMove = true;
 			//Height = 420;
 
-			_expandTexture = ModUtils.GetEmbeddedTexture("Images/ExpandIcon");
-			_collapseTexture = ModUtils.GetEmbeddedTexture("Images/CollapseIcon");
-			_spacerTexture = ModUtils.GetEmbeddedTexture("Images/spacer");
+			_expandTexture = HEROsMod.instance.GetTexture("Images/ExpandIcon");
+			_collapseTexture = HEROsMod.instance.GetTexture("Images/CollapseIcon");
+			_spacerTexture = HEROsMod.instance.GetTexture("Images/spacer");
 
 			//UILabel lTitle = new UILabel("Item Browser");
 			//lTitle.Scale = .6f;
@@ -104,7 +104,7 @@ namespace HEROsMod.UIKit.UIComponents
 
 			Width = _categoryView.X + _categoryView.Width + LargeSpacing;
 
-			_bClose = new UIImage(GetEmbeddedTexture("Images/closeButton"));
+			_bClose = new UIImage(HEROsMod.instance.GetTexture("Images/closeButton"));
 			_bClose.Anchor = AnchorPosition.TopRight;
 			_bClose.Position = new Vector2(Width - LargeSpacing, LargeSpacing);
 			_bClose.onLeftClick += bClose_onLeftClick;
@@ -121,10 +121,10 @@ namespace HEROsMod.UIKit.UIComponents
 			_filterView.Position = new Vector2(LargeSpacing, Spacing);
 			//_filterView.onLeftClick += _bViewAllItems_onLeftClick;
 			//{
-			//	UIImage test = new UIImage(GetEmbeddedTexture("Images/closeButton"));
+			//	UIImage test = new UIImage(HEROsMod.instance.GetTexture("Images/closeButton"));
 			//	test.onLeftClick += bClose_onLeftClick;
 			//	_filterView.AddChild(test);
-			//	UIImage test2 = new UIImage(GetEmbeddedTexture("Images/closeButton"));
+			//	UIImage test2 = new UIImage(HEROsMod.instance.GetTexture("Images/closeButton"));
 			//	test2.onLeftClick += bClose_onLeftClick;
 			//	test2.Position = test.Position;
 			//	test2.X += test.Width;
@@ -241,6 +241,15 @@ namespace HEROsMod.UIKit.UIComponents
 
 		private void PopulateSortView()
 		{
+			if(DefaultSorts == null)
+			{
+				DefaultSorts = new Sort[]
+				{
+					new Sort( new UIImage(HEROsMod.instance.GetTexture("Images/sortItemID")){Tooltip = "ItemID"} , (x,y)=>x.type.CompareTo(y.type)),
+					new Sort( new UIImage(HEROsMod.instance.GetTexture("Images/sortValue")){Tooltip = "Value"} , (x,y)=>x.value.CompareTo(y.value)),
+					new Sort( new UIImage(HEROsMod.instance.GetTexture("Images/sortAZ")){Tooltip = "Alphabetical"} , (x,y)=>x.Name.CompareTo(y.Name)),
+				};
+			}
 			List<Sort> sorts = DefaultSorts.ToList();
 
 			if (SelectedCategory != null)
@@ -279,6 +288,13 @@ namespace HEROsMod.UIKit.UIComponents
 
 		private void PopulateFilterView()
 		{
+			if (Filters == null)
+			{
+				Filters = new Filter[]
+				{
+					new Filter( new UIImage(HEROsMod.instance.GetTexture("Images/filterMod")) {Tooltip = "Mod Filter"}, x=>x.modItem != null),
+				};
+			}
 			//Category[] categories = Categories;
 			//if (SelectedCategory != null)
 			//{
@@ -432,7 +448,7 @@ namespace HEROsMod.UIKit.UIComponents
 			}
 			if (SelectedSort == null || !AvailableSorts.Contains(SelectedSort))
 			{
-				ErrorLogger.Log("Default Sort Selected");
+				//ErrorLogger.Log("Default Sort Selected");
 				SelectedSort = DefaultSorts[0];
 			}
 			SelectedSort.button.ForegroundColor = Color.White;
@@ -504,19 +520,9 @@ namespace HEROsMod.UIKit.UIComponents
 		public static bool CategoriesLoaded = false;
 		public static Category[] Categories { get; set; }
 
-		public static Filter[] Filters { get; set; } = new Filter[]
-		{
-			new Filter( new UIImage(GetEmbeddedTexture("Images/filterMod")) {Tooltip = "Mod Filter"}, x=>x.modItem != null),
-			//new Filter( new UIImage(GetEmbeddedTexture("Images/closeButton")) {Tooltip = "Third"} , x=>x.type % 3 == 0),
-		//	new Filter( new UIImage(GetEmbeddedTexture("Images/closeButton"))  {Tooltip = "Half"}, x=>x.type % 2 == 0),
-		};
+		public static Filter[] Filters { get; set; }
 
-		public static Sort[] DefaultSorts { get; set; } = new Sort[]
-		{
-			new Sort( new UIImage(GetEmbeddedTexture("Images/sortItemID")){Tooltip = "ItemID"} , (x,y)=>x.type.CompareTo(y.type)),
-			new Sort( new UIImage(GetEmbeddedTexture("Images/sortValue")){Tooltip = "Value"} , (x,y)=>x.value.CompareTo(y.value)),
-			new Sort( new UIImage(GetEmbeddedTexture("Images/sortAZ")){Tooltip = "Alphabetical"} , (x,y)=>x.Name.CompareTo(y.Name)),
-		};
+		public static Sort[] DefaultSorts { get; set; }
 
 		internal static void Unload()
 		{
@@ -552,19 +558,19 @@ namespace HEROsMod.UIKit.UIComponents
 						new Category("Magic", x=>x.magic),
 						new Category("Ranged", x=>x.ranged && x.ammo == 0) // TODO and ammo no
 						{
-							Sorts = new Sort[] { new Sort(new UIImage(GetEmbeddedTexture("Images/sortAmmo")){Tooltip = "Use Ammo Type"}, (x,y)=>x.useAmmo.CompareTo(y.useAmmo)), }
+							Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortAmmo")){Tooltip = "Use Ammo Type"}, (x,y)=>x.useAmmo.CompareTo(y.useAmmo)), }
 						},
 						new Category("Throwing", x=>x.thrown),
 						new Category("Summon", x=>x.summon && !x.sentry),
 						new Category("Sentry", x=>x.summon && x.sentry),
 					},
-					Sorts = new Sort[] { new Sort(new UIImage(GetEmbeddedTexture("Images/sortDamage")){Tooltip = "Damage"}, (x,y)=>x.damage.CompareTo(y.damage)), }
+					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortDamage")){Tooltip = "Damage"}, (x,y)=>x.damage.CompareTo(y.damage)), }
 				},
 				new Category("Tools"/*,x=>x.pick>0||x.axe>0||x.hammer>0*/) {
 					SubCategories = new List<Category>() {
-						new Category("Pickaxes", x=>x.pick>0) { Sorts = new Sort[] { new Sort(new UIImage(GetEmbeddedTexture("Images/sortPick")){Tooltip = "Pick Power"}, (x,y)=>x.pick.CompareTo(y.pick)), } },
-						new Category("Axes", x=>x.axe>0){ Sorts = new Sort[] { new Sort(new UIImage(GetEmbeddedTexture("Images/sortAxe")){Tooltip = "Axe Power"}, (x,y)=>x.axe.CompareTo(y.axe)), } },
-						new Category("Hammers", x=>x.hammer>0){ Sorts = new Sort[] { new Sort(new UIImage(GetEmbeddedTexture("Images/sortHammer")){Tooltip = "Hammer Power"}, (x,y)=>x.hammer.CompareTo(y.hammer)), } },
+						new Category("Pickaxes", x=>x.pick>0) { Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortPick")){Tooltip = "Pick Power"}, (x,y)=>x.pick.CompareTo(y.pick)), } },
+						new Category("Axes", x=>x.axe>0){ Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortAxe")){Tooltip = "Axe Power"}, (x,y)=>x.axe.CompareTo(y.axe)), } },
+						new Category("Hammers", x=>x.hammer>0){ Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortHammer")){Tooltip = "Hammer Power"}, (x,y)=>x.hammer.CompareTo(y.hammer)), } },
 					},
 				},
 				new Category("Armor"/*,  x=>x.headSlot!=-1||x.bodySlot!=-1||x.legSlot!=-1*/) {
@@ -573,7 +579,7 @@ namespace HEROsMod.UIKit.UIComponents
 						new Category("Body", x=>x.bodySlot!=-1),
 						new Category("Legs", x=>x.legSlot!=-1),
 					},
-					Sorts = new Sort[] { new Sort(new UIImage(GetEmbeddedTexture("Images/sortDefense")){Tooltip = "Defense"}, (x,y)=>x.defense.CompareTo(y.defense)), }
+					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortDefense")){Tooltip = "Defense"}, (x,y)=>x.defense.CompareTo(y.defense)), }
 				},
 				new Category("Placeables"/*,  x=>x.createTile!=-1||x.createWall!=-1*/) {
 					SubCategories = new List<Category>() {
@@ -584,7 +590,7 @@ namespace HEROsMod.UIKit.UIComponents
 				new Category("Accessories", x=>x.accessory),
 				new Category("Ammo", x=>x.ammo!=0)
 				{
-					Sorts = new Sort[] { new Sort(new UIImage(GetEmbeddedTexture("Images/sortAmmo")){Tooltip = "Ammo Type"}, (x,y)=>x.ammo.CompareTo(y.ammo)), }
+					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortAmmo")){Tooltip = "Ammo Type"}, (x,y)=>x.ammo.CompareTo(y.ammo)), }
 				},
 				new Category("Potions", x=>(x.UseSound != null && x.UseSound.Style == 3)),
 				new Category("Expert", x=>x.expert),
@@ -597,13 +603,13 @@ namespace HEROsMod.UIKit.UIComponents
 				new Category("Mounts", x=>x.mountType != -1),
 				new Category("Dyes", x=>x.dye != 0),
 				new Category("Boss Summons", x=>ItemID.Sets.SortingPriorityBossSpawns[x.type] != -1 && x.type != ItemID.LifeCrystal && x.type != ItemID.ManaCrystal && x.type != ItemID.CellPhone && x.type != ItemID.IceMirror && x.type != ItemID.MagicMirror && x.type != ItemID.LifeFruit) {
-					Sorts = new Sort[] { new Sort(new UIImage(GetEmbeddedTexture("Images/sortDamage")){Tooltip = "Progression Order"}, (x,y)=>ItemID.Sets.SortingPriorityBossSpawns[x.type].CompareTo(ItemID.Sets.SortingPriorityBossSpawns[y.type])), }
+					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortDamage")){Tooltip = "Progression Order"}, (x,y)=>ItemID.Sets.SortingPriorityBossSpawns[x.type].CompareTo(ItemID.Sets.SortingPriorityBossSpawns[y.type])), }
 				},
 				new Category("Consumables", x=>x.consumable),
 				new Category("Fishing"/*, x=> x.fishingPole > 0 || x.bait>0|| x.questItem*/){
 					SubCategories = new List<Category>() {
-						new Category("Poles", x=>x.fishingPole > 0) {Sorts = new Sort[] { new Sort(new UIImage(GetEmbeddedTexture("Images/sortFish")){Tooltip = "Pole Power"}, (x,y)=>x.fishingPole.CompareTo(y.fishingPole)), } },
-						new Category("Bait", x=>x.bait>0) {Sorts = new Sort[] { new Sort(new UIImage(GetEmbeddedTexture("Images/sortBait")){Tooltip = "Bait Power"}, (x,y)=>x.bait.CompareTo(y.bait)), } },
+						new Category("Poles", x=>x.fishingPole > 0) {Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortFish")){Tooltip = "Pole Power"}, (x,y)=>x.fishingPole.CompareTo(y.fishingPole)), } },
+						new Category("Bait", x=>x.bait>0) {Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortBait")){Tooltip = "Bait Power"}, (x,y)=>x.bait.CompareTo(y.bait)), } },
 						new Category("Quest Fish", x=>x.questItem),
 					}
 				},

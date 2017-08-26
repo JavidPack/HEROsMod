@@ -5,7 +5,7 @@ namespace HEROsMod.UIKit
 {
 	internal class UIScrollBar : UIView
 	{
-		private static Texture2D ScrollbarTexture = GetEmbeddedTexture("Images/UIKit/scrollbarEdge");
+		internal static Texture2D ScrollbarTexture;
 		private static Texture2D scrollbarFill;
 
 		private static Texture2D ScrollbarFill

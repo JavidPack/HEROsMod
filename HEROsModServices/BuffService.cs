@@ -24,7 +24,7 @@ namespace HEROsMod.HEROsModServices
 
 		public BuffService()
 		{
-			this._hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/buffs")/*Main.buffTexture[2]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/buffs")/*Main.buffTexture[2]*/);
 			this.HotbarIcon.Tooltip = "Open Buff Window";
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 

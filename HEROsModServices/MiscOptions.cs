@@ -13,7 +13,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			IsHotbar = true;
 
-			this._hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/settings")/*Main.buffTexture[BuffID.Confused]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/settings")/*Main.buffTexture[BuffID.Confused]*/);
 			this.HotbarIcon.Tooltip = "Misc. Options";
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 

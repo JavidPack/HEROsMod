@@ -20,7 +20,7 @@ namespace HEROsMod.HEROsModServices
 
 		public MobSpawner()
 		{
-			this._hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/npcs")/*Main.itemTexture[666]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/npcs")/*Main.itemTexture[666]*/);
 			this.HotbarIcon.Tooltip = "Open Mob Spawn Window";
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 

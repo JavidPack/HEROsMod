@@ -16,7 +16,7 @@ namespace HEROsMod.HEROsModServices
 
 		public InvasionService()
 		{
-			this._hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/event")/*Main.itemTexture[14]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/event")/*Main.itemTexture[14]*/);
 			this._hotbarIcon.Tooltip = "Open Event Starter";
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 

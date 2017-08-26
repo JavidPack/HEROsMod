@@ -7,8 +7,8 @@ namespace HEROsMod.UIKit
 {
 	internal class UIDropdown : UIView
 	{
-		private static Texture2D capUp = GetEmbeddedTexture("Images/UIKit/dropdownCapUp");
-		private static Texture2D capDown = GetEmbeddedTexture("Images/UIKit/dropdownCapDown");
+		internal static Texture2D capUp;
+		internal static Texture2D capDown;
 		private bool itemsShown = false;
 		private UIWindow itemsWindow = new UIWindow();
 		private int selectedItem = 0;

@@ -18,7 +18,7 @@ namespace HEROsMod.HEROsModServices
 		//	_name = "Undefined";
 		//	IsInHotbar = true;
 		//	HotbarParent = hotbar;
-		//	_hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/spawn")/*Main.itemTexture[69]*/);
+		//	_hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/spawn")/*Main.itemTexture[69]*/);
 		//	_hotbarIcon.Tooltip = "Set Spawn Point";
 		//	HotbarIcon.onLeftClick += new EventHandler(button_onLeftClick);
 		//	HotbarIcon.onHover += new EventHandler(button_onHover);

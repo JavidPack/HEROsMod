@@ -27,7 +27,7 @@ namespace HEROsMod.HEROsModServices
 
 		public GodModeService()
 		{
-			this._hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/godMode")/*Main.itemTexture[1990]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/godMode")/*Main.itemTexture[1990]*/);
 			this.HotbarIcon.Tooltip = "Toggle God Mode";
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 			GodModeToggled += GodModeService_GodModeToggled;

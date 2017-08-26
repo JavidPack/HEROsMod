@@ -8,8 +8,8 @@ namespace HEROsMod.UIKit
 	internal class UITextbox : UIView
 	{
 		private RasterizerState _rasterizerState = new RasterizerState() { ScissorTestEnable = true };
-		private static Texture2D textboxBackground = UIView.GetEmbeddedTexture("Images/UIKit/textboxEdge");
-		private static Texture2D textboxFill;
+		internal static Texture2D textboxBackground;
+		internal static Texture2D textboxFill;
 
 		private static Texture2D TextboxFill
 		{

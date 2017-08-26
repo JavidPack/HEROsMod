@@ -15,7 +15,7 @@ namespace HEROsMod.HEROsModServices
 
 		public PrefixEditor()
 		{
-			this._hotbarIcon = new UIImage(UIView.GetEmbeddedTexture("Images/reforge")/*Main.itemTexture[24]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/reforge")/*Main.itemTexture[24]*/);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = "Prefix Editor";
 

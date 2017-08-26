@@ -30,11 +30,11 @@ namespace HEROsMod.HEROsModServices
 			MultiplayerOnly = true;
 			if (_loginTexture == null)
 			{
-				_loginTexture = UIView.GetEmbeddedTexture("Images/login");
+				_loginTexture = HEROsMod.instance.GetTexture("Images/login");
 			}
 			if (_logoutTexture == null)
 			{
-				_logoutTexture = UIView.GetEmbeddedTexture("Images/logout");
+				_logoutTexture = HEROsMod.instance.GetTexture("Images/logout");
 			}
 			this._name = "Login";
 			this._hotbarIcon = new UIImage(_loginTexture);
