@@ -1,5 +1,4 @@
-﻿/*
-using HEROsMod.HEROsModNetwork;
+﻿using HEROsMod.HEROsModNetwork;
 using System;
 using Terraria;
 using Terraria.ModLoader;
@@ -47,4 +46,3 @@ namespace HEROsMod.Commands
 		}
 	}
 }
-*/

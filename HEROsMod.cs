@@ -74,6 +74,8 @@ namespace HEROsMod
 			UIKit.UIDropdown.capDown = null;
 			UIKit.UICheckbox.checkboxTexture = null;
 			UIKit.UICheckbox.checkmarkTexture = null;
+			HEROsModServices.Login._loginTexture = null;
+			HEROsModServices.Login._logoutTexture = null;
 			try
 			{
 				KeybindController.bindings.Clear();

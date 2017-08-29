@@ -20,8 +20,8 @@ namespace HEROsMod.HEROsModServices
 			}
 		}
 
-		private static Texture2D _loginTexture;
-		private static Texture2D _logoutTexture;
+		internal static Texture2D _loginTexture;
+		internal static Texture2D _logoutTexture;
 
 		private static event EventHandler LoginStatusChanged;
 
