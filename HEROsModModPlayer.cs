@@ -21,7 +21,7 @@ namespace HEROsMod
 
 		public override void SetControls()
 		{
-			if (FlyCam.Enabled)
+			if (FlyCam.Enabled && !FlyCam.LockCamera)
 			{
 				player.controlDown = false;
 				player.controlUp = false;
