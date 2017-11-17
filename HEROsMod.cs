@@ -351,6 +351,7 @@ namespace HEROsMod
 			ServiceController.AddService(instance.miscOptions);
 			ServiceController.AddService(new SpawnPointSetter(instance.miscOptions.Hotbar));
 			ServiceController.AddService(new MapRevealer(instance.miscOptions.Hotbar));
+			ServiceController.AddService(new LightHack(instance.miscOptions.Hotbar));
 			ServiceController.AddService(new ItemBanner(instance.miscOptions.Hotbar));
 			ServiceController.AddService(new ToggleGravestones(instance.miscOptions.Hotbar));
 			ServiceController.AddService(new GroupInspector(instance.miscOptions.Hotbar));

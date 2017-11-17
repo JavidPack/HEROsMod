@@ -86,6 +86,7 @@
     <Compile Include="HEROsModServices\ItemBrowser.cs" />
     <Compile Include="HEROsModServices\ItemClearer.cs" />
     <Compile Include="HEROsModServices\KeybindController.cs" />
+    <Compile Include="HEROsModServices\LightHack.cs" />
     <Compile Include="HEROsModServices\Login.cs" />
     <Compile Include="HEROsModServices\MapRevealer.cs" />
     <Compile Include="HEROsModServices\MobSpawner.cs" />

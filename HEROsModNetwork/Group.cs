@@ -21,6 +21,7 @@ namespace HEROsMod.HEROsModNetwork
 			new PermissionInfo("Flycam", "Fly Camera"),
 			new PermissionInfo("ClearItems", "Clear Items on Ground"),
 			new PermissionInfo("RevealMap", "Reveal Map"),
+			new PermissionInfo("LightHack", "Light Hack"),
 			new PermissionInfo("SpawnNPCs", "Spawn NPCs"),
 			new PermissionInfo("Kick", "Kick Players"),
 			new PermissionInfo("Ban", "Ban Players"),

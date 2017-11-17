@@ -53,6 +53,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			this.HasPermissionToUse = HEROsModNetwork.LoginService.MyGroup.HasPermission("ToggleBannedItems") ||
 			HEROsModNetwork.LoginService.MyGroup.HasPermission("RevealMap") ||
+			HEROsModNetwork.LoginService.MyGroup.HasPermission("LightHack") ||
 			HEROsModNetwork.LoginService.MyGroup.IsAdmin ||
 			HEROsModNetwork.LoginService.MyGroup.HasPermission("ToggleHardmodeEnemies") ||
 			HEROsModNetwork.LoginService.MyGroup.HasPermission("ToggleGravestones");
