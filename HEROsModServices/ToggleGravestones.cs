@@ -32,7 +32,7 @@ namespace HEROsMod.HEROsModServices
 			ModUtils.LoadProjectile(43);
 			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/gravestone")/*Main.projectileTexture[43]*/);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
-			this.HotbarIcon.Tooltip = "Disable Gravestones";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("DisableGravestones");
 			this._hotbarIcon.Opacity = 1f;
 			HEROsModNetwork.GeneralMessages.GravestonesToggleByServer += GeneralMessages_GravestonesToggleByServer;
 		}
@@ -42,12 +42,12 @@ namespace HEROsMod.HEROsModServices
 			if (gravestonesCanSpawn)
 			{
 				this._hotbarIcon.Opacity = 1f;
-				this.HotbarIcon.Tooltip = "Disable Gravestones";
+				this.HotbarIcon.Tooltip = HEROsMod.HeroText("DisableGravestones");
 			}
 			else
 			{
 				this._hotbarIcon.Opacity = .5f;
-				this.HotbarIcon.Tooltip = "Enable Gravestones";
+				this.HotbarIcon.Tooltip = HEROsMod.HeroText("EnableGravestones");
 			}
 			Network.GravestonesAllowed = gravestonesCanSpawn;
 		}
@@ -60,7 +60,10 @@ namespace HEROsMod.HEROsModServices
 			}
 			else
 			{
-				Main.NewText("You have " + (Network.GravestonesAllowed ? "disabled" : "enabled") + " gravestones");
+				if (Network.GravestonesAllowed)
+					Main.NewText(HEROsMod.HeroText("YouHaveDisabledGravestones"));
+				else
+					Main.NewText(HEROsMod.HeroText("YouHaveEnabledGravestones"));
 				GeneralMessages_GravestonesToggleByServer(!Network.GravestonesAllowed);
 			}
 		}

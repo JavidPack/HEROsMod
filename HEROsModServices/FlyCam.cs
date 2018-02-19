@@ -35,7 +35,7 @@ namespace HEROsMod.HEROsModServices
 			this._hotbarIcon = new UIKit.UIImage(Main.itemTexture[493]);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this._hotbarIcon.onRightClick += _hotbarIcon_onRightClick;
-			this.HotbarIcon.Tooltip = "Enable Fly Camera (RMB: Lock Camera)";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("FlyCamEnableTooltip");
 			//Make sure FreeCamera is off by default
 			Disable();
 		}
@@ -45,7 +45,7 @@ namespace HEROsMod.HEROsModServices
 			this._hotbarIcon.Opacity = 1f;
 			Enabled = true;
 			LockCamera = false;
-			this.HotbarIcon.Tooltip = "Disable Fly Camera (RMB: Lock Camera)";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("FlyCamDisableTooltip");
 		}
 
 		private void Disable()
@@ -53,7 +53,7 @@ namespace HEROsMod.HEROsModServices
 			this._hotbarIcon.Opacity = .5f;
 			Enabled = false;
 			LockCamera = false;
-			this.HotbarIcon.Tooltip = "Enable Fly Camera (RMB: Lock Camera)";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("FlyCamEnableTooltip");
 		}
 
 		private void _hotbarIcon_onLeftClick(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace HEROsMod.HEROsModServices
 				Enable();
 				this._hotbarIcon.Opacity = .75f;
 				LockCamera = true;
-				HotbarIcon.Tooltip = "Enable Fly Camera (RMB: Disable Lock Camera)";
+				HotbarIcon.Tooltip = HEROsMod.HeroText("FlyCamDisableTooltip");
 			}
 			else
 			{
@@ -164,8 +164,8 @@ namespace HEROsMod.HEROsModServices
 		{
 			if (Enabled && !LockCamera)
 			{
-				Main.spriteBatch.DrawString(Main.fontMouseText, "Right Click to teleport", new Vector2(15, Main.screenHeight - 120), Color.White);
-				Main.spriteBatch.DrawString(Main.fontMouseText, "Arrow Keys to pan, Shift for faster, Alt for slower", new Vector2(15, Main.screenHeight - 90), Color.White);
+				Main.spriteBatch.DrawString(Main.fontMouseText, HEROsMod.HeroText("RightClickToTeleport"), new Vector2(15, Main.screenHeight - 120), Color.White);
+				Main.spriteBatch.DrawString(Main.fontMouseText, HEROsMod.HeroText("FlyCamInstructions"), new Vector2(15, Main.screenHeight - 90), Color.White);
 			}
 		}
 	}

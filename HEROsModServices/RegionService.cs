@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Localization;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -23,11 +24,11 @@ namespace HEROsMod.HEROsModServices
 				{
 					if (value)
 					{
-						Main.NewText("Regions Visible");
+						Main.NewText(HEROsMod.HeroText("RegionsVisible"));
 					}
 					else
 					{
-						Main.NewText("Regions Invisible");
+						Main.NewText(HEROsMod.HeroText("RegionsInvisible"));
 					}
 					_regionsVisible = value;
 				}
@@ -47,7 +48,7 @@ namespace HEROsMod.HEROsModServices
 			canView = false;
 			this._name = "Region Service";
 			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/region")/*Main.itemTexture[1337]*/);
-			this.HotbarIcon.Tooltip = "Open regions window";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenRegionsWindow");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 			this.HasPermissionToUse = true;
 
@@ -69,12 +70,12 @@ namespace HEROsMod.HEROsModServices
 
 		private void bAddGroup_onLeftClick(object sender, EventArgs e)
 		{
-			this.AddUIView(new PlayerGroupSelectionWindow(_regionWindow.SelectedRegion, "Select Group", false));
+			this.AddUIView(new PlayerGroupSelectionWindow(_regionWindow.SelectedRegion, HEROsMod.HeroText("SelectGroup"), false));
 		}
 
 		private void bAddPlayer_onLeftClick(object sender, EventArgs e)
 		{
-			this.AddUIView(new PlayerGroupSelectionWindow(_regionWindow.SelectedRegion, "Select Player", true));
+			this.AddUIView(new PlayerGroupSelectionWindow(_regionWindow.SelectedRegion, HEROsMod.HeroText("SelectPlayer"), true));
 		}
 
 		private void GeneralMessages_RegionsUpdated(object sender, EventArgs e)
@@ -107,14 +108,14 @@ namespace HEROsMod.HEROsModServices
 
 			if (canEdit)
 			{
-				this.HotbarIcon.Tooltip = "Open regions window";
+				this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenRegionsWindow");
 			}
 			else if (canView)
 			{
 				_confirmationWindow.Close();
 				_regionWindow.Close();
 				SelectionTool.Reset();
-				HotbarIcon.Tooltip = "Toggle Regions Visible";
+				HotbarIcon.Tooltip = HEROsMod.HeroText("ToggleRegionsVisible");
 			}
 
 			//base.MyGroupUpdated();
@@ -142,7 +143,7 @@ namespace HEROsMod.HEROsModServices
 			}
 			else
 			{
-				Main.NewText("Please make a selection.");
+				Main.NewText(HEROsMod.HeroText("PleaseMakeASelection"));
 			}
 		}
 
@@ -171,7 +172,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			Vector2 mouseTile = ModUtils.CursorTileCoords;
 			int id = 0;
-			string str = "Last changed by " + id;
+			string str = string.Format(HEROsMod.HeroText("LastChangedBy"), id);
 			UIView.HoverText = str;
 			//ModUtils.MouseText(str);
 			base.Update();
@@ -209,16 +210,16 @@ namespace HEROsMod.HEROsModServices
 			this.CanMove = true;
 			this.Width = 600;
 			this.Anchor = AnchorPosition.Center;
-			bCreateRegion = new UIButton("Create Region");
-			lTitle = new UILabel("Regions");
+			bCreateRegion = new UIButton(HEROsMod.HeroText("CreateRegion"));
+			lTitle = new UILabel(HEROsMod.HeroText("Regions"));
 			scrollView = new UIScrollView();
-			bDeleteRegion = new UIButton("Delete Region");
-			bAddGroup = new UIButton("Add Group");
-			bAddPlayer = new UIButton("Add Player");
-			bBack = new UIButton("Back");
-			UIButton bToggleRegions = new UIButton("Toggle Regions Visible");
+			bDeleteRegion = new UIButton(HEROsMod.HeroText("DeleteRegion"));
+			bAddGroup = new UIButton(HEROsMod.HeroText("AddGroup"));
+			bAddPlayer = new UIButton(HEROsMod.HeroText("AddPlayer"));
+			bBack = new UIButton(Language.GetTextValue("UI.Back"));
+			UIButton bToggleRegions = new UIButton(HEROsMod.HeroText("ToggleRegionsVisible"));
 			colorSlider = new UIColorSlider();
-			bSaveColor = new UIButton("Save Color");
+			bSaveColor = new UIButton(HEROsMod.HeroText("SaveColor"));
 			UIImage bClose = new UIImage(closeTexture);
 
 			lTitle.X = Spacing;
@@ -359,7 +360,7 @@ namespace HEROsMod.HEROsModServices
 			for (int i = 0; i < HEROsModNetwork.Network.Regions.Count; i++)
 			{
 				HEROsModNetwork.Region region = HEROsModNetwork.Network.Regions[i];
-				UIButton bEdit = new UIButton("Edit");
+				UIButton bEdit = new UIButton(Language.GetTextValue("LegacyInterface.48")); // "Edit"
 				UIRect bg = new UIRect();
 				bg.X = LargeSpacing;
 				bg.Y = yPos;
@@ -434,7 +435,7 @@ namespace HEROsMod.HEROsModServices
 			scrollView.ClearContent();
 
 			SelectedRegion = region;
-			ModUtils.DebugText($"Selected Region {region.Name} {region.ID}");
+			ModUtils.DebugText(string.Format(HEROsMod.HeroText("SelectedRegion") ,region.Name, region.ID));
 			bCreateRegion.Visible = false;
 			bDeleteRegion.Visible = true;
 			bAddGroup.Visible = true;
@@ -453,7 +454,7 @@ namespace HEROsMod.HEROsModServices
 				Group group = Network.GetGroupByID(region.AllowedGroupsIDs[i]);
 				if (group == null) continue;
 
-				UIButton bRemove = new UIButton("Remove");
+				UIButton bRemove = new UIButton(HEROsMod.HeroText("Remove"));
 				UIRect bg = new UIRect();
 				bg.X = LargeSpacing;
 				bg.Y = yPos;
@@ -464,7 +465,7 @@ namespace HEROsMod.HEROsModServices
 
 				bg.ForegroundColor = itemCount % 2 == 0 ? Color.Transparent : Color.Blue * .1f;
 
-				UILabel label = new UILabel("Group");
+				UILabel label = new UILabel(HEROsMod.HeroText("Group"));
 				label.X = Spacing;
 				label.Y = Spacing;
 				label.Scale = .5f;
@@ -500,7 +501,7 @@ namespace HEROsMod.HEROsModServices
 				}
 				if (user == null) continue;
 
-				UIButton bRemove = new UIButton("Remove");
+				UIButton bRemove = new UIButton(HEROsMod.HeroText("Remove"));
 				UIRect bg = new UIRect();
 				bg.X = LargeSpacing;
 				bg.Y = yPos;
@@ -511,7 +512,7 @@ namespace HEROsMod.HEROsModServices
 
 				bg.ForegroundColor = itemCount % 2 == 0 ? Color.Transparent : Color.Blue * .1f;
 
-				UILabel label = new UILabel("User");
+				UILabel label = new UILabel(HEROsMod.HeroText("User"));
 				label.X = Spacing;
 				label.Y = Spacing;
 				label.Scale = .5f;
@@ -583,8 +584,8 @@ namespace HEROsMod.HEROsModServices
 		public SelectionConformationWindow()
 		{
 			this.Anchor = AnchorPosition.BottomRight;
-			bConfirm = new UIButton("Confirm");
-			bCancel = new UIButton("Cancel");
+			bConfirm = new UIButton(HEROsMod.HeroText("Confirm"));
+			bCancel = new UIButton(HEROsMod.HeroText("Cancel"));
 			bConfirm.X = Spacing;
 			bConfirm.Y = Spacing;
 			bCancel.X = bConfirm.X + bConfirm.Width + Spacing;
@@ -623,10 +624,10 @@ namespace HEROsMod.HEROsModServices
 			Height = 100;
 			this.Anchor = AnchorPosition.Center;
 
-			label = new UILabel("Region Name");
+			label = new UILabel(HEROsMod.HeroText("RegionName"));
 			textbox = new UITextbox();
-			bSave = new UIButton("Ok");
-			UIButton bCancel = new UIButton("Cancel");
+			bSave = new UIButton(HEROsMod.HeroText("Ok"));
+			UIButton bCancel = new UIButton(HEROsMod.HeroText("Cancel"));
 
 			label.Scale = .5f;
 
@@ -665,7 +666,7 @@ namespace HEROsMod.HEROsModServices
 			else
 			{
 				SelectionTool.Reset();
-				Main.NewText("Region name must be at least 3 characters long");
+				Main.NewText(HEROsMod.HeroText("RegionNameTooShort"));
 			}
 			this.Close();
 		}
@@ -708,7 +709,7 @@ namespace HEROsMod.HEROsModServices
 			UIView.exclusiveControl = this;
 			UILabel lTitle = new UILabel(title);
 			UIScrollView scrollView = new UIScrollView();
-			UIButton bCancel = new UIButton("Cancel");
+			UIButton bCancel = new UIButton(HEROsMod.HeroText("Cancel"));
 
 			lTitle.X = Spacing;
 			lTitle.Y = Spacing;

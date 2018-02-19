@@ -28,7 +28,7 @@ namespace HEROsMod.HEROsModServices
 			TimePaused = false;
 			this._name = "Time Weather Control";
 			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/timeRain"));
-			this.HotbarIcon.Tooltip = "Change Time/Rain";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ChangeTimeRain");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
 			//timeWeatherHotbar = new TimeWeatherControlHotbar();
@@ -200,8 +200,8 @@ namespace HEROsMod.HEROsModServices
 
 			UIImage bStopRain = new UIImage(HEROsMod.instance.GetTexture("Images/rainStop"));
 			UIImage bStartRain = new UIImage(HEROsMod.instance.GetTexture("Images/rainIcon"));
-			bStartRain.Tooltip = "Start Rain";
-			bStopRain.Tooltip = "Stop Rain";
+			bStartRain.Tooltip = HEROsMod.HeroText("StartRain");
+			bStopRain.Tooltip = HEROsMod.HeroText("StopRain");
 			bStartRain.onLeftClick += bStartRain_onLeftClick;
 			bStopRain.onLeftClick += bStopRain_onLeftClick;
 			buttonView.AddChild(bStopRain);
@@ -209,29 +209,29 @@ namespace HEROsMod.HEROsModServices
 
 			UIImage bStopSandstorm = new UIImage(HEROsMod.instance.GetTexture("Images/rainStop"));
 			UIImage bStartSandstorm = new UIImage(HEROsMod.instance.GetTexture("Images/rainIcon"));
-			bStartSandstorm.Tooltip = "Start Sandstorm";
-			bStopSandstorm.Tooltip = "Stop Sandstorm";
+			bStartSandstorm.Tooltip = HEROsMod.HeroText("StartSandstorm");
+			bStopSandstorm.Tooltip = HEROsMod.HeroText("StopSandstorm");
 			bStartSandstorm.onLeftClick += bStartSandstorm_onLeftClick;
 			bStopSandstorm.onLeftClick += bStopSandstorm_onLeftClick;
 			buttonView.AddChild(bStopSandstorm);
 			buttonView.AddChild(bStartSandstorm);
 
 			UIImage nightButton = new UIImage(HEROsMod.instance.GetTexture("Images/moonIcon"));
-			nightButton.Tooltip = "Night";
+			nightButton.Tooltip = HEROsMod.HeroText("Night");
 			nightButton.onLeftClick += nightButton_onLeftClick;
 			UIImage noonButton = new UIImage(HEROsMod.instance.GetTexture("Images/sunIcon"));
-			noonButton.Tooltip = "Noon";
+			noonButton.Tooltip = HEROsMod.HeroText("Noon");
 			noonButton.onLeftClick += noonButton_onLeftClick;
 			bPause = new UIImage(TimeWeatherChanger.TimePaused ? playTexture : pauseTexture);
 			bPause.onLeftClick += bPause_onLeftClick;
-			bPause.Tooltip = TimeWeatherChanger.TimePaused ? "Resume Time" : "Pause Time";// "Toggle Freeze Time";
+			bPause.Tooltip = TimeWeatherChanger.TimePaused ? HEROsMod.HeroText("ResumeTime") : HEROsMod.HeroText("PauseTime");// "Toggle Freeze Time";
 
 			buttonView.AddChild(nightButton);
 			buttonView.AddChild(noonButton);
 			buttonView.AddChild(bPause);
 
 			UIImage sundialButton = new UIImage(HEROsMod.instance.GetTexture("Images/timeRain"));
-			sundialButton.Tooltip = "Force Enchanted Sundial";
+			sundialButton.Tooltip = HEROsMod.HeroText("ForceEnchantedSundial");
 			sundialButton.onLeftClick += sundialButton_onLeftClick;
 			buttonView.AddChild(sundialButton);
 
@@ -321,7 +321,10 @@ namespace HEROsMod.HEROsModServices
 				TimeWeatherChanger.ToggleTimePause();
 				UIImage b = (UIImage)sender;
 				TimePausedOfResumed();
-				Main.NewText("Time has " + (TimeWeatherChanger.TimePaused ? "been paused" : "resumed"));
+				if(TimeWeatherChanger.TimePaused)
+					Main.NewText(HEROsMod.HeroText("TimeHasBeenPaused"));
+				else
+					Main.NewText(HEROsMod.HeroText("TimeHasResumed"));
 			}
 			else
 			{
@@ -336,7 +339,7 @@ namespace HEROsMod.HEROsModServices
 				HEROsModNetwork.GeneralMessages.RequestStopRain();
 				return;
 			}
-			Main.NewText("Rain has been turned off");
+			Main.NewText(HEROsMod.HeroText("RainHasBeenTurnedOff"));
 
 			ModUtils.StopRain();
 		}
@@ -348,7 +351,7 @@ namespace HEROsMod.HEROsModServices
 				HEROsModNetwork.GeneralMessages.RequestStartRain();
 				return;
 			}
-			Main.NewText("Rain has been turned on");
+			Main.NewText(HEROsMod.HeroText("RainHasBeenTurnedOn"));
 			ModUtils.StartRain();
 		}
 
@@ -359,7 +362,7 @@ namespace HEROsMod.HEROsModServices
 				HEROsModNetwork.GeneralMessages.RequestStopSandstorm();
 				return;
 			}
-			Main.NewText("Sandstorm has been turned off");
+			Main.NewText(HEROsMod.HeroText("SandstormHasBeenTurnedOff"));
 
 			ModUtils.StopSandstorm();
 		}
@@ -371,7 +374,7 @@ namespace HEROsMod.HEROsModServices
 				HEROsModNetwork.GeneralMessages.RequestStartSandstorm();
 				return;
 			}
-			Main.NewText("Sandstorm has been turned on");
+			Main.NewText(HEROsMod.HeroText("SandstormHasBeenTurnedOn"));
 			ModUtils.StartSandstorm();
 		}
 
@@ -385,7 +388,7 @@ namespace HEROsMod.HEROsModServices
 			{
 				bPause.Texture = pauseTexture;
 			}
-			bPause.Tooltip = TimeWeatherChanger.TimePaused ? "Resume Time" : "Pause Time";
+			bPause.Tooltip = TimeWeatherChanger.TimePaused ? HEROsMod.HeroText("ResumeTime") : HEROsMod.HeroText("PauseTime");
 		}
 
 		private void nightButton_onLeftClick(object sender, EventArgs e)

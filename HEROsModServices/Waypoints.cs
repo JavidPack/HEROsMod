@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Localization;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -56,7 +57,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			this._name = "Waypoints";
 			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/waypointIcon"));
-			this.HotbarIcon.Tooltip = "View Waypoints";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ViewWaypoints");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
 			waypointWindow = new WaypointWindow();
@@ -199,7 +200,7 @@ namespace HEROsMod.HEROsModServices
 			Y = 100;
 			this.CanMove = true;
 
-			UILabel title = new UILabel("Waypoints");
+			UILabel title = new UILabel(HEROsMod.HeroText("Waypoints"));
 			title.Scale = .6f;
 			title.X = spacing;
 			title.Y = spacing;
@@ -207,8 +208,8 @@ namespace HEROsMod.HEROsModServices
 
 			Height = 300 + title.Height + spacing * 2;
 
-			UIButton bAddWaypoint = new UIButton("Add Waypoint");
-			UIButton bClose = new UIButton("Close");
+			UIButton bAddWaypoint = new UIButton(HEROsMod.HeroText("AddWaypoint"));
+			UIButton bClose = new UIButton(Language.GetTextValue("LegacyInterface.71"));
 			bAddWaypoint.Anchor = AnchorPosition.BottomRight;
 			bClose.Anchor = AnchorPosition.BottomRight;
 			bClose.onLeftClick += bClose_onLeftClick;
@@ -317,10 +318,10 @@ namespace HEROsMod.HEROsModServices
 			Height = 100;
 			this.Anchor = AnchorPosition.Center;
 
-			label = new UILabel("Waypoint Name");
+			label = new UILabel(HEROsMod.HeroText("WaypointName"));
 			textbox = new UITextbox();
-			UIButton bSave = new UIButton("Ok");
-			UIButton bCancel = new UIButton("Cancel");
+			UIButton bSave = new UIButton(Language.GetTextValue("UI.Save"));
+			UIButton bCancel = new UIButton(Language.GetTextValue("UI.Cancel"));
 
 			label.Scale = .5f;
 
@@ -357,7 +358,7 @@ namespace HEROsMod.HEROsModServices
 				{
 					if (!Waypoints.AddWaypoint(textbox.Text, waypointPos))
 					{
-						UIMessageBox mb = new UIMessageBox("A waypoint with this name already exists, please enter another name.", UIMessageBoxType.Ok, true);
+						UIMessageBox mb = new UIMessageBox(HEROsMod.HeroText("WaypointAlreadyExistsNote"), UIMessageBoxType.Ok, true);
 						this.AddChild(mb);
 					}
 					else

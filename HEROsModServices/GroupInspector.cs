@@ -20,7 +20,7 @@ namespace HEROsMod.HEROsModServices
 			this._name = "Group Inspector";
 			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/manageGroups"));
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
-			this.HotbarIcon.Tooltip = "Open Group Management";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenGroupManagement");
 			HEROsModNetwork.LoginService.GroupChanged += LoginService_GroupChanged;
 		}
 
@@ -82,11 +82,11 @@ namespace HEROsMod.HEROsModServices
 
 		public GroupManagementWindow()
 		{
-			UILabel title = new UILabel("Group Management");
-			UIButton bApply = new UIButton("Apply");
-			UIButton bDelete = new UIButton("Delete Group");
-			UIButton bNew = new UIButton("New Group");
-			UILabel label = new UILabel("Groups:");
+			UILabel title = new UILabel(HEROsMod.HeroText("GroupManagement"));
+			UIButton bApply = new UIButton(HEROsMod.HeroText("Apply"));
+			UIButton bDelete = new UIButton(HEROsMod.HeroText("DeleteGroup"));
+			UIButton bNew = new UIButton(HEROsMod.HeroText("NewGroup"));
+			UILabel label = new UILabel(HEROsMod.HeroText("Groups") + ":");
 			UIImage bClose = new UIImage(closeTexture);
 			dropdown.selectedChanged += dropdown_selectedChanged;
 			this.Anchor = AnchorPosition.Center;
@@ -144,7 +144,7 @@ namespace HEROsMod.HEROsModServices
 
 		private void bDelete_onLeftClick(object sender, EventArgs e)
 		{
-			UIMessageBox mb = new UIMessageBox("Are you sure you want to delete the " + dropdown.Text + " group?", UIMessageBoxType.YesNo, true);
+			UIMessageBox mb = new UIMessageBox(string.Format(HEROsMod.HeroText("AreYouSureDeleteGroup"), dropdown.Text ), UIMessageBoxType.YesNo, true);
 			mb.yesClicked += mb_yesClicked;
 			this.Parent.AddChild(mb);
 		}
@@ -269,10 +269,10 @@ namespace HEROsMod.HEROsModServices
 			Height = 100;
 			this.Anchor = AnchorPosition.Center;
 
-			label = new UILabel("Group Name:");
+			label = new UILabel(HEROsMod.HeroText("Group Name") + ":");
 			textbox = new UITextbox();
-			UIButton bSave = new UIButton("Create");
-			UIButton bCancel = new UIButton("Cancel");
+			UIButton bSave = new UIButton(HEROsMod.HeroText("Create"));
+			UIButton bCancel = new UIButton(HEROsMod.HeroText("Cancel"));
 
 			label.Scale = .5f;
 

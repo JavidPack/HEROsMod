@@ -21,7 +21,7 @@ namespace HEROsMod.HEROsModServices
 		public MobSpawner()
 		{
 			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/npcs")/*Main.itemTexture[666]*/);
-			this.HotbarIcon.Tooltip = "Open Mob Spawn Window";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenMobSpawnWindow");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
 			_spawnWindow = new MobSpawnWindow();
@@ -91,7 +91,7 @@ namespace HEROsMod.HEROsModServices
 			//GetNPCList();
 
 			this.CanMove = true;
-			UILabel lTiltle = new UILabel("NPC Spawner");
+			UILabel lTiltle = new UILabel(HEROsMod.HeroText("NPCSpawner"));
 			lTiltle.OverridesMouse = false;
 			scrollView = new UIScrollView();
 			searchBox = new UITextbox();
@@ -117,28 +117,28 @@ namespace HEROsMod.HEROsModServices
 			//searchResults = category;
 			// BuildList();
 
-			bAllNPCs = new UIButton("All");
+			bAllNPCs = new UIButton(HEROsMod.HeroText("All"));
 			bAllNPCs.X = scrollView.X + scrollView.Width + Spacing;
 			bAllNPCs.Y = scrollView.Y;
 			bAllNPCs.onLeftClick += bAllNPCs_onLeftClick;
 			bAllNPCs.SetTextColor(Color.Yellow);
 
-			bTownNPCs = new UIButton("Town NPCs");
+			bTownNPCs = new UIButton(HEROsMod.HeroText("TownNPCs"));
 			bTownNPCs.X = bAllNPCs.X;
 			bTownNPCs.Y = bAllNPCs.Y + bAllNPCs.Height + Spacing;
 			bTownNPCs.onLeftClick += bTownNPCs_onLeftClick;
 
-			bFriendly = new UIButton("Friendly");
+			bFriendly = new UIButton(HEROsMod.HeroText("Friendly"));
 			bFriendly.X = bTownNPCs.X;
 			bFriendly.Y = bTownNPCs.Y + bTownNPCs.Height + Spacing;
 			bFriendly.onLeftClick += bFriendly_onLeftClick;
 
-			bBoss = new UIButton("Boss");
+			bBoss = new UIButton(HEROsMod.HeroText("Boss"));
 			bBoss.X = bFriendly.X;
 			bBoss.Y = bFriendly.Y + bFriendly.Height + Spacing;
 			bBoss.onLeftClick += bBoss_onLeftClick;
 
-			bMod = new UIButton("Mod");
+			bMod = new UIButton(HEROsMod.HeroText("Mod"));
 			bMod.X = bBoss.X;
 			bMod.Y = bBoss.Y + bBoss.Height + Spacing;
 			bMod.onLeftClick += bMod_onLeftClick;
@@ -816,7 +816,7 @@ namespace HEROsMod.HEROsModServices
 
 			if (pos.Y / 16f < (float)(Main.maxTilesY - 205))
 			{
-				Main.NewText("Please move to the underworld to spawn WoF");
+				Main.NewText(HEROsMod.HeroText("UnderworldToSpawnWoF"));
 				return;
 			}
 			if (Main.netMode == 1)

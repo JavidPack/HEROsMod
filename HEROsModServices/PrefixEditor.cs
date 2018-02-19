@@ -17,7 +17,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/reforge")/*Main.itemTexture[24]*/);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
-			this.HotbarIcon.Tooltip = "Prefix Editor";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("PrefixEditor");
 
 			_prefixWindow = new PrefixWindow();
 			_prefixWindow.Y = 270;

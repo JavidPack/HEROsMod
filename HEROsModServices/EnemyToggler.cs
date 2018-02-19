@@ -17,7 +17,7 @@ namespace HEROsMod.HEROsModServices
 			this._name = "Enemy Toggler";
 			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/npcIcon"));
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
-			this.HotbarIcon.Tooltip = "Disable Enemy Spawns";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("DisableEnemySpawns");
 			this._hotbarIcon.Opacity = 1f;
 			HEROsModNetwork.GeneralMessages.EnemiesToggledByServer += GeneralMessages_EnemiesToggledByServer;
 		}
@@ -27,12 +27,12 @@ namespace HEROsMod.HEROsModServices
 			if (enemiesCanSpawn)
 			{
 				this._hotbarIcon.Opacity = 1f;
-				this.HotbarIcon.Tooltip = "Disable Enemy Spawns";
+				this.HotbarIcon.Tooltip = HEROsMod.HeroText("DisableEnemySpawns");
 			}
 			else
 			{
 				this._hotbarIcon.Opacity = .5f;
-				this.HotbarIcon.Tooltip = "Enable Enemy Spawns";
+				this.HotbarIcon.Tooltip = HEROsMod.HeroText("EnableEnemySpawns");
 			}
 		}
 
@@ -69,14 +69,17 @@ namespace HEROsMod.HEROsModServices
 				if (EnemiesAllowed)
 				{
 					this._hotbarIcon.Opacity = 1f;
-					this.HotbarIcon.Tooltip = "Disable Enemy Spawns";
+					this.HotbarIcon.Tooltip = HEROsMod.HeroText("DisableEnemySpawns");
 				}
 				else
 				{
 					this._hotbarIcon.Opacity = .5f;
-					this.HotbarIcon.Tooltip = "Enable Enemy Spawns";
+					this.HotbarIcon.Tooltip = HEROsMod.HeroText("EnableEnemySpawns");
 				}
-				Main.NewText("Enemy spawns " + (EnemiesAllowed ? "enabled" : "disabled"));
+				if(EnemiesAllowed)
+					Main.NewText(HEROsMod.HeroText("EnemySpawnsEnabled"));
+				else
+					Main.NewText(HEROsMod.HeroText("EnemySpawnsDisabled"));
 			}
 		}
 

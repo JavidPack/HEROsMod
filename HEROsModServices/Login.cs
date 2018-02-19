@@ -40,7 +40,7 @@ namespace HEROsMod.HEROsModServices
 			this._hotbarIcon = new UIImage(_loginTexture);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			LoginStatusChanged += Login_LoginStatusChanged;
-			this.HotbarIcon.Tooltip = "Login";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("Login");
 			this.HasPermissionToUse = true;
 		}
 
@@ -50,12 +50,12 @@ namespace HEROsMod.HEROsModServices
 			if (LoggedIn)
 			{
 				this._hotbarIcon.Texture = _logoutTexture;
-				this.HotbarIcon.Tooltip = "Logout";
+				this.HotbarIcon.Tooltip = HEROsMod.HeroText("Logout");
 			}
 			else
 			{
 				this._hotbarIcon.Texture = _loginTexture;
-				this.HotbarIcon.Tooltip = "Login";
+				this.HotbarIcon.Tooltip = HEROsMod.HeroText("Login");
 			}
 		}
 
@@ -95,14 +95,14 @@ namespace HEROsMod.HEROsModServices
 			Width = 600;
 			this.Anchor = AnchorPosition.Center;
 
-			lUsername = new UILabel("Username");
+			lUsername = new UILabel(HEROsMod.HeroText("Username"));
 			tbUsername = new UITextbox();
-			lPassword = new UILabel("Password");
+			lPassword = new UILabel(HEROsMod.HeroText("Password"));
 			tbPassword = new UITextbox();
 			tbPassword.PasswordBox = true;
-			UIButton bLogin = new UIButton("Login");
-			UIButton bCancel = new UIButton("Cancel");
-			UIButton bRegister = new UIButton("Register");
+			UIButton bLogin = new UIButton(HEROsMod.HeroText("Login"));
+			UIButton bCancel = new UIButton(HEROsMod.HeroText("Cancel"));
+			UIButton bRegister = new UIButton(HEROsMod.HeroText("Register"));
 			bRegister.AutoSize = false;
 			bRegister.Width = 100;
 
@@ -157,7 +157,7 @@ namespace HEROsMod.HEROsModServices
 			}
 			else
 			{
-				Main.NewText("Please fill in the Username and Password fields.");
+				Main.NewText(HEROsMod.HeroText("PleaseFillInUsernamePassword"));
 			}
 		}
 
@@ -184,7 +184,7 @@ namespace HEROsMod.HEROsModServices
 			}
 			else
 			{
-				Main.NewText("Please fill in the Username and Password fields.");
+				Main.NewText(HEROsMod.HeroText("PleaseFillInUsernamePassword"));
 			}
 		}
 

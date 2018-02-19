@@ -11,7 +11,7 @@ namespace HEROsMod.Commands
 
 		public override string Command => "auth";
 
-		public override string Description => "Makes you Admin in HERO's Mod";
+		public override string Description => HEROsMod.HeroText("MakesYouAdminInHEROsMod");
 
 		public override string Usage => "/auth SecretCode";
 
@@ -33,16 +33,16 @@ namespace HEROsMod.Commands
 					Network.Players[caller.Player.whoAmI].Group = Network.AdminGroup;
 					DatabaseController.SetPlayerGroup(Network.Players[caller.Player.whoAmI].ID, Network.Players[caller.Player.whoAmI].Group.ID);
 					LoginService.SendPlayerPermissions(caller.Player.whoAmI);
-					Network.SendTextToPlayer("You are now Admin", caller.Player.whoAmI);
+					Network.SendTextToPlayer(HEROsMod.HeroText("YouAreNowAdmin"), caller.Player.whoAmI);
 					return;
 				}
 				else
 				{
-					Network.SendTextToPlayer("Please login first", caller.Player.whoAmI);
+					Network.SendTextToPlayer(HEROsMod.HeroText("PleaseLoginFirst"), caller.Player.whoAmI);
 					return;
 				}
 			}
-			throw new UsageException("Auth code is incorrect");
+			throw new UsageException(HEROsMod.HeroText("AuthCodeIsIncorrect"));
 		}
 	}
 }

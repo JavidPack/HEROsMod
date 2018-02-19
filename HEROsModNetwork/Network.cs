@@ -132,7 +132,7 @@ namespace HEROsMod.HEROsModNetwork
 
 				AuthCode = Main.rand.Next(100000, 999999);
 				Console.ForegroundColor = ConsoleColor.Yellow;
-				Console.WriteLine("HERO's Mod: Create an account, login, and type /auth " + AuthCode + " to become Admin.");
+				Console.WriteLine(string.Format(HEROsMod.HeroText("DedicatedServerAutoMessage"), AuthCode));
 				Console.ResetColor();
 			}
 		}
@@ -346,7 +346,7 @@ namespace HEROsMod.HEROsModNetwork
 						}
 						else
 						{
-							SendTextToPlayer("You do not have permission to build here", playerNumber, Color.Red);
+							SendTextToPlayer(HEROsMod.HeroText("YouDoNotHavePermissionToBuildHere"), playerNumber, Color.Red);
 						}
 
 						switch (tileModifyType)
@@ -666,7 +666,7 @@ namespace HEROsMod.HEROsModNetwork
 						else
 						{
 							NetMessage.SendData(63, playerNumber, -1, null, x, (float)y, (float)Main.tile[x, y].color());
-							SendTextToPlayer("You do not have permission to build here", playerNumber, Color.Red);
+							SendTextToPlayer(HEROsMod.HeroText("YouDoNotHavePermissionToBuildHere"), playerNumber, Color.Red);
 							return true;
 						}
 					}
@@ -689,7 +689,7 @@ namespace HEROsMod.HEROsModNetwork
 						else
 						{
 							NetMessage.SendData(64, playerNumber, -1, null, x, (float)y, (float)Main.tile[x, y].wallColor());
-							SendTextToPlayer("You do not have permission to build here", playerNumber, Color.Red);
+							SendTextToPlayer(HEROsMod.HeroText("YouDoNotHavePermissionToBuildHere"), playerNumber, Color.Red);
 							return true;
 						}
 					}

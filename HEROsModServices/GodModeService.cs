@@ -28,7 +28,7 @@ namespace HEROsMod.HEROsModServices
 		public GodModeService()
 		{
 			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/godMode")/*Main.itemTexture[1990]*/);
-			this.HotbarIcon.Tooltip = "Toggle God Mode";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ToggleGodMode");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 			GodModeToggled += GodModeService_GodModeToggled;
 			Enabled = false;
@@ -39,13 +39,13 @@ namespace HEROsMod.HEROsModServices
 			if (enabled)
 			{
 				if (enabled != prevEnabled)
-					Main.NewText("God Mode Enabled");
+					Main.NewText(HEROsMod.HeroText("GodModeEnabled"));
 				this.HotbarIcon.Opacity = 1f;
 			}
 			else
 			{
 				if (enabled != prevEnabled)
-					Main.NewText("God Mode Disabled");
+					Main.NewText(HEROsMod.HeroText("GodModeDisabled"));
 				this.HotbarIcon.Opacity = .5f;
 			}
 		}

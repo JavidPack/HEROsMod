@@ -25,7 +25,7 @@ namespace HEROsMod.HEROsModServices
 		public BuffService()
 		{
 			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/buffs")/*Main.buffTexture[2]*/);
-			this.HotbarIcon.Tooltip = "Open Buff Window";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenBuffWindow");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
 			//_buffWindow = new BuffWindow();
@@ -81,8 +81,8 @@ namespace HEROsMod.HEROsModServices
 		public BuffWindow()
 		{
 			this.CanMove = true;
-			UILabel lTitle = new UILabel("Buffs");
-			UILabel lSeconds = new UILabel("Seconds");
+			UILabel lTitle = new UILabel(HEROsMod.HeroText("Buffs"));
+			UILabel lSeconds = new UILabel(HEROsMod.HeroText("Seconds"));
 			tbSeconds = new UITextbox();
 			UIScrollView scrollView = new UIScrollView();
 			UIImage bClose = new UIImage(closeTexture);

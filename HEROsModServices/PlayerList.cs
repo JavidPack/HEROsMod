@@ -16,7 +16,7 @@ namespace HEROsMod.HEROsModServices
 			this._name = "Player List";
 			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/connectedPlayers"));
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
-			this.HotbarIcon.Tooltip = "View Connected Players";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ViewConnectedPlayers");
 		}
 
 		private void _hotbarIcon_onLeftClick(object sender, EventArgs e)
@@ -40,6 +40,7 @@ namespace HEROsMod.HEROsModServices
 
 		public override void MyGroupUpdated()
 		{
+			// TODO! This prevents snoop, since IsAdmin might not be true.
 			this.HasPermissionToUse = HEROsModNetwork.LoginService.MyGroup.IsAdmin;
 			if (!HasPermissionToUse)
 			{
@@ -75,7 +76,7 @@ namespace HEROsMod.HEROsModServices
 			CanMove = true;
 			Anchor = AnchorPosition.Center;
 			CenterToParent();
-			UILabel title = new UILabel("Connected Players");
+			UILabel title = new UILabel(HEROsMod.HeroText("ConnectedPlayers"));
 			UIImage bClose = new UIImage(closeTexture);
 
 			bClose.Anchor = AnchorPosition.TopRight;
@@ -136,7 +137,7 @@ namespace HEROsMod.HEROsModServices
 			// TODO changes to offline users might not prop to all admin?
 			if (HEROsModNetwork.LoginService.MyGroup.IsAdmin)
 			{
-				UILabel lOfflinePlayers = new UILabel("Offline Users");
+				UILabel lOfflinePlayers = new UILabel(HEROsMod.HeroText("Offline Users"));
 				lOfflinePlayers.Scale = .6f;
 				lOfflinePlayers.X = Spacing;
 				lOfflinePlayers.Y = yPos + Spacing;

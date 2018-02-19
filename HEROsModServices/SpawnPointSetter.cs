@@ -13,7 +13,7 @@ namespace HEROsMod.HEROsModServices
 			HotbarParent = hotbar;
 			this._name = "Spawn Point Setter";
 			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/spawn")/*Main.itemTexture[69]*/);
-			this._hotbarIcon.Tooltip = "Set Spawn Point";
+			this._hotbarIcon.Tooltip = HEROsMod.HeroText("SetSpawnPoint");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 		}
 
@@ -35,7 +35,7 @@ namespace HEROsMod.HEROsModServices
 				Main.spawnTileX = (int)(player.position.X - 8 + player.width / 2) / 16;
 				Main.spawnTileY = (int)(player.position.Y + player.height) / 16;
 
-				Main.NewText(string.Format("Spawn Point set to X:{0} Y:{1}", Main.spawnTileX, Main.spawnTileY));
+				Main.NewText(string.Format(HEROsMod.HeroText("SpawnPointSetToXY"), Main.spawnTileX, Main.spawnTileY));
 			}
 			else
 			{

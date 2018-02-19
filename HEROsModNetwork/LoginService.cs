@@ -125,7 +125,7 @@ namespace HEROsMod.HEROsModNetwork
 			{
 				if (Network.Players[i].Username.ToLower() == username.ToLower())
 				{
-					Network.SendTextToPlayer("This account is already logged on in this server.", playerNumber);
+					Network.SendTextToPlayer(HEROsMod.HeroText("AccountAlreadyLoggedIn"), playerNumber);
 					return;
 				}
 			}
@@ -141,11 +141,11 @@ namespace HEROsMod.HEROsModNetwork
 				Network.Players[playerNumber].Group = Network.GetGroupByID(groupID);
 				if (Network.Players[playerNumber].UsingHEROsMod)
 					LoginSuccess(playerNumber);
-				Network.SendTextToPlayer("You have successfully logged in.  You are in the " + Network.Players[playerNumber].Group.Name + " Group.", playerNumber, Color.Green);
+				Network.SendTextToPlayer(string.Format(HEROsMod.HeroText("LoggedInSuccessfully"),  Network.Players[playerNumber].Group.Name), playerNumber, Color.Green);
 			}
 			else
 			{
-				Network.SendTextToPlayer("Invalid Username or Password", playerNumber, Color.Red);
+				Network.SendTextToPlayer(HEROsMod.HeroText("InvalidUsernameOrPassword"), playerNumber, Color.Red);
 			}
 		}
 
@@ -235,7 +235,7 @@ namespace HEROsMod.HEROsModNetwork
 			switch (regResult)
 			{
 				case DatabaseController.RegistrationResult.Sucess:
-					Network.SendTextToPlayer("You have successfully registered.  Please login.", playerNumber);
+					Network.SendTextToPlayer(HEROsMod.HeroText("SuccessfullyRegistered"), playerNumber);
 					for (int i = 0; i < Network.Players.Length; i++)
 					{
 						HEROsModPlayer player = Network.Players[i];
@@ -247,7 +247,7 @@ namespace HEROsMod.HEROsModNetwork
 					break;
 
 				case DatabaseController.RegistrationResult.UsernameTaken:
-					Network.SendTextToPlayer("This username has already been taken.", playerNumber);
+					Network.SendTextToPlayer(HEROsMod.HeroText("UsernameAlreadyTaken"), playerNumber);
 					break;
 
 				case DatabaseController.RegistrationResult.Error:
@@ -274,7 +274,7 @@ namespace HEROsMod.HEROsModNetwork
 					//Check to make sure that group does not already exist
 					if (Network.Groups[i].Name.ToLower() == newGroupName.ToLower())
 					{
-						Network.SendTextToPlayer("A group with this name already exist", playerNumber);
+						Network.SendTextToPlayer(HEROsMod.HeroText("GroupAlreadyExists"), playerNumber);
 						return;
 					}
 				}
@@ -318,7 +318,7 @@ namespace HEROsMod.HEROsModNetwork
 					}
 					else
 					{
-						Network.SendTextToPlayer("You can not delete the default group.", playerNumber);
+						Network.SendTextToPlayer(HEROsMod.HeroText("CantDeleteDefaultGroup"), playerNumber);
 					}
 				}
 				else

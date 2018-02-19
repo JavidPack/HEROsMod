@@ -20,7 +20,7 @@ namespace HEROsMod.HEROsModServices
 			IsHotbar = true;
 
 			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/extensions"));
-			this.HotbarIcon.Tooltip = "Extension Tools";
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ExtensionTools");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
 			_extensionMenuHotbar = new ExtensionMenuWindow();
@@ -53,7 +53,7 @@ namespace HEROsMod.HEROsModServices
 			}
 			else
 			{
-				Main.NewText("No mods loaded that add Extensions. See forum post for compatible mods.");
+				Main.NewText(HEROsMod.HeroText("NoExtensionsLoadedNote"));
 			}
 		}
 

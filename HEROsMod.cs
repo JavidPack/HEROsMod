@@ -7,8 +7,11 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.UI;
@@ -21,18 +24,24 @@ namespace HEROsMod
 	internal class HEROsMod : Mod
 	{
 		public static HEROsMod instance;
+		internal static Dictionary<string, ModTranslation> translations; // reference to private field.
 
 		public override void Load()
 		{
 			// Since we are using hooks not in older versions, and since ItemID.Count changed, we need to do this.
 			if (ModLoader.version < new Version(0, 10))
 			{
-				throw new Exception("\nThis mod uses functionality only present in the latest tModLoader. Please update tModLoader to use this mod\n\n");
+				throw new Exception(HEROsMod.HeroText("UpdateTModLoaderToUse"));
 			}
 
 			try
 			{
 				instance = this;
+
+				FieldInfo translationsField = typeof(Mod).GetField("translations", BindingFlags.Instance | BindingFlags.NonPublic);
+				translations = (Dictionary<string, ModTranslation>)translationsField.GetValue(this);
+				LoadTranslations();
+
 				//	AddGlobalItem("HEROsModGlobalItem", new HEROsModGlobalItem());
 				// AddPlayer("HEROsModModPlayer", new HEROsModModPlayer());
 				//if (ModUtils.NetworkMode != NetworkMode.Server)
@@ -59,9 +68,17 @@ namespace HEROsMod
 			}
 		}
 
+		internal static string HeroText(string key)
+		{
+			return translations[$"Mods.HEROsMod.{key}"].GetTranslation(Language.ActiveCulture);
+			// This isn't good until after load....
+			// return Language.GetTextValue($"Mods.HEROsMod.{category}.{key}");
+		}
+
 		// Clear EVERYthing, mod is unloaded.
 		public override void Unload()
 		{
+			translations = null;
 			UIKit.UIComponents.ItemBrowser.Filters = null;
 			UIKit.UIComponents.ItemBrowser.DefaultSorts = null;
 			UIKit.UIButton.buttonBackground = null;
@@ -183,6 +200,50 @@ namespace HEROsMod
 				return true;
 			}
 			return false;
+		}
+
+		private void LoadTranslations()
+		{
+			// 0.10.1.2 already does this
+			if (ModLoader.version >= new Version(0, 10, 1, 2))
+				return;
+
+			var modTranslationDictionary = new Dictionary<string, ModTranslation>();
+			var translationFiles = File.Where(x => Path.GetExtension(x.Key) == ".lang");
+			foreach (var translationFile in translationFiles)
+			{
+				string translationFileContents = System.Text.Encoding.UTF8.GetString(translationFile.Value);
+				GameCulture culture = GameCulture.FromName(Path.GetFileNameWithoutExtension(translationFile.Key));
+
+				using (StringReader reader = new StringReader(translationFileContents))
+				{
+					string line;
+					while ((line = reader.ReadLine()) != null)
+					{
+						int split = line.IndexOf('=');
+						if (split < 0)
+							continue; // lines witout a = are ignored
+						string key = line.Substring(0, split).Trim().Replace(" ", "_");
+						string value = line.Substring(split + 1).Trim();
+						if (value.Length == 0)
+						{
+							continue;
+						}
+						value = value.Replace("\\n", "\n");
+						// TODO: Maybe prepend key with filename: en.US.ItemName.lang would automatically assume "ItemName." for all entries.
+						//string key = key;
+						ModTranslation mt;
+						if (!modTranslationDictionary.TryGetValue(key, out mt))
+							modTranslationDictionary[key] = mt = CreateTranslation(key);
+						mt.AddTranslation(culture, value);
+					}
+				}
+			}
+
+			foreach (var value in modTranslationDictionary.Values)
+			{
+				AddTranslation(value);
+			}
 		}
 
 		//public override Matrix ModifyTransformMatrix(Matrix Transform)

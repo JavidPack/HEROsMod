@@ -62,7 +62,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			if (HasPermissionToUse)
 			{
-				Main.spriteBatch.DrawString(Main.fontMouseText, "Right Click to teleport", new Vector2(15, Main.screenHeight - 80), Color.White);
+				Main.spriteBatch.DrawString(Main.fontMouseText, HEROsMod.HeroText("RightClickToTeleport"), new Vector2(15, Main.screenHeight - 80), Color.White);
 
 				if (Main.mouseRight && Main.keyState.IsKeyUp(Microsoft.Xna.Framework.Input.Keys.LeftControl))
 				{

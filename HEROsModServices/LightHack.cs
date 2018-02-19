@@ -14,7 +14,7 @@ namespace HEROsMod.HEROsModServices
 	{
 		internal static int LightStrength;
 		internal static float[] LightStrengthValues = new float[] { 0, .25f, .5f, 1f };
-		private static string[] LightStrengthStrings = new string[] { "LightHack: Disabled", "LightHack: 25%", "LightHack: 50%", "LightHack: 100%" };
+		private static string[] LightStrengthStrings = new string[] { HEROsMod.HeroText("LightHackDisabled"), HEROsMod.HeroText("LightHack25%"), HEROsMod.HeroText("LightHack50%"), HEROsMod.HeroText("LightHack100%") };
 
 		public LightHack(UIHotbar hotbar)
 		{

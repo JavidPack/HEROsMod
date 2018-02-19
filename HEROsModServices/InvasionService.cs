@@ -17,7 +17,7 @@ namespace HEROsMod.HEROsModServices
 		public InvasionService()
 		{
 			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/event")/*Main.itemTexture[14]*/);
-			this._hotbarIcon.Tooltip = "Open Event Starter";
+			this._hotbarIcon.Tooltip = HEROsMod.HeroText("OpenEventStarter");
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 
 			_eventWindow = new EventWindow();
@@ -45,7 +45,7 @@ namespace HEROsMod.HEROsModServices
 				Main.eclipse = false;
 				Main.stopMoonEvent();
 				EnemyToggler.ClearNPCs();
-				Main.NewText("All events have been stopped");
+				Main.NewText(HEROsMod.HeroText("AllEventsHaveBeenStopped"));
 			}
 			else
 			{
@@ -198,7 +198,7 @@ namespace HEROsMod.HEROsModServices
 			this.CanMove = true;
 			int buttonWidth = 175;
 
-			UILabel lTitle = new UILabel("Events");
+			UILabel lTitle = new UILabel(HEROsMod.HeroText("Events"));
 			lTitle.Scale = .6f;
 			lTitle.X = LargeSpacing;
 			lTitle.Y = LargeSpacing;
@@ -226,7 +226,7 @@ namespace HEROsMod.HEROsModServices
 				AddChild(buttons[i]);
 			}
 
-			UIButton bStopEvents = new UIButton("Stop Events");
+			UIButton bStopEvents = new UIButton(HEROsMod.HeroText("Stop Events"));
 			bStopEvents.AutoSize = false;
 			bStopEvents.Width = buttonWidth;
 			bStopEvents.X = LargeSpacing;
