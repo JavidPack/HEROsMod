@@ -192,7 +192,7 @@ namespace HEROsMod.HEROsModServices
 			UILabel label = (UILabel)sender;
 			Item item = (Item)label.Tag;
 			HoverText = item.Name;
-			HoverItem = item.Clone();
+			//HoverItem = item.Clone();
 		}
 
 		private void label_onLeftClick(object sender, EventArgs e)

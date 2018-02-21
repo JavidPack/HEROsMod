@@ -44,7 +44,7 @@ namespace HEROsMod
 		private static Texture2D _logoTexture2;
 		private static Texture2D _testTubeTexture;
 
-		private static Item[] previosInvenotryItems;
+		internal static Item[] previousInventoryItems;
 
 		public static event EventHandler InventoryChanged;
 
@@ -115,11 +115,11 @@ namespace HEROsMod
 			}
 		}
 
-		public static Item HoverItem
-		{
-			get { return Main.HoverItem; }// (Item)_hoverItem.GetValue(null); }
-			set { Main.HoverItem = value; }// _hoverItem.SetValue(null, value); }
-		}
+		//public static Item HoverItem
+		//{
+		//	get { return Main.HoverItem; }// (Item)_hoverItem.GetValue(null); }
+		//	set { Main.HoverItem = value; }// _hoverItem.SetValue(null, value); }
+		//}
 
 		/// <summary>
 		/// Gets or Sets if the game camera is free to move from the players position
@@ -160,7 +160,7 @@ namespace HEROsMod
 				//_testTubeTexture = HEROsMod.instance.GetTexture("Images/testTubeSpritesheet");
 				//ItemTooltip = new UIKit.UIComponents.ItemTooltip();
 				//UIKit.MasterView.gameScreen.AddChild(ItemTooltip);
-				previosInvenotryItems = new Item[Main.player[Main.myPlayer].inventory.Length];
+				previousInventoryItems = new Item[Main.player[Main.myPlayer].inventory.Length];
 				SetPreviousInventory();
 				Matrix projection = Matrix.CreateOrthographicOffCenter(0, Main.screenWidth, Main.screenHeight, 0, -10000, 10000);
 				//Effect effect = HEROsMod.Content.Load<Effect>("effects");
@@ -221,7 +221,7 @@ namespace HEROsMod
 			Player player = Main.player[Main.myPlayer];
 			for (int i = 0; i < player.inventory.Length - 1; i++)
 			{
-				if (player.inventory[i].IsNotTheSameAs(previosInvenotryItems[i]))
+				if (player.inventory[i].IsNotTheSameAs(previousInventoryItems[i]))
 				{
 					return true;
 				}
@@ -234,7 +234,7 @@ namespace HEROsMod
 			Player player = Main.player[Main.myPlayer];
 			for (int i = 0; i < player.inventory.Length; i++)
 			{
-				previosInvenotryItems[i] = player.inventory[i].Clone();
+				previousInventoryItems[i] = player.inventory[i].Clone();
 			}
 		}
 

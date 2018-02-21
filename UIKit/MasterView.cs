@@ -84,7 +84,7 @@ namespace HEROsMod.UIKit
 			UIView.ScrollAmount = PlayerInput.ScrollWheelDeltaForUI;
 			// UIView.ScrollAmount = (mouseState.ScrollWheelValue - previousMouseState.ScrollWheelValue) / 2;
 			previousMouseState = mouseState;
-			HoverItem = EmptyItem;
+			//HoverItem = EmptyItem;
 			HoverText = "";
 			GameMouseOverwritten = false;
 			masterView.Update();

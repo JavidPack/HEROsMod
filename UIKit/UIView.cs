@@ -36,7 +36,7 @@ namespace HEROsMod.UIKit
 		public static int ScrollAmount = 0;
 
 		public static string HoverText = "";
-		public static Item HoverItem = new Item();
+		//public static Item HoverItem = new Item();
 		protected static readonly Item EmptyItem = new Item();
 		public static bool HoverOverridden = false;
 

@@ -35,7 +35,7 @@ namespace HEROsMod.UIKit.UIComponents
 		private void Slot2_onHover(object sender, EventArgs e)
 		{
 			HoverText = item.Name;
-			HoverItem = item.Clone();
+			//HoverItem = item.Clone();
 		}
 
 		public override void Draw(SpriteBatch spriteBatch)

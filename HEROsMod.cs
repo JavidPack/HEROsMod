@@ -78,9 +78,10 @@ namespace HEROsMod
 		// Clear EVERYthing, mod is unloaded.
 		public override void Unload()
 		{
-			translations = null;
 			UIKit.UIComponents.ItemBrowser.Filters = null;
 			UIKit.UIComponents.ItemBrowser.DefaultSorts = null;
+			UIKit.UIComponents.ItemBrowser.Categories = null;
+			UIKit.UIComponents.ItemBrowser.CategoriesLoaded = false;
 			UIKit.UIButton.buttonBackground = null;
 			UIKit.UIView.closeTexture = null;
 			UIKit.UITextbox.textboxBackground = null;
@@ -121,6 +122,8 @@ namespace HEROsMod
 			_hotbar = null;
 			ServiceController = null;
 			TimeWeatherControlHotbar.Unload();
+			ModUtils.previousInventoryItems = null;
+			translations = null;
 			instance = null;
 		}
 
