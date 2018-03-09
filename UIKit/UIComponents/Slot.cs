@@ -13,7 +13,7 @@ namespace HEROsMod.UIKit.UIComponents
 		public int index = -1;
 		public static Texture2D backgroundTexture = Main.inventoryBack9Texture;
 		public bool functionalSlot = false;
-		public bool IsTrachCan { get; set; }
+		public bool IsTrashCan { get; set; }
 
 		public event EventHandler ItemChanged;
 
@@ -61,7 +61,7 @@ namespace HEROsMod.UIKit.UIComponents
 
 		private void Slot2_onLeftClick(object sender, EventArgs e)
 		{
-			if (IsTrachCan)
+			if (IsTrashCan)
 			{
 				Player player = Main.player[Main.myPlayer];
 				//if (Main.mouseItem.type != 0)
@@ -223,14 +223,14 @@ namespace HEROsMod.UIKit.UIComponents
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			spriteBatch.Draw(IsTrachCan ? Main.inventoryBack7Texture : backgroundTexture, this.DrawPosition, null, Color.White, 0f, Vector2.Zero, Scale, SpriteEffects.None, 0f);
+			spriteBatch.Draw(IsTrashCan ? Main.inventoryBack7Texture : backgroundTexture, this.DrawPosition, null, Color.White, 0f, Vector2.Zero, Scale, SpriteEffects.None, 0f);
 
-			if (this.IsTrachCan)
+			if (this.IsTrashCan)
 			{
 				this.item = Main.player[Main.myPlayer].trashItem;
 			}
 			Texture2D texture = Main.itemTexture[item.type];
-			if (this.IsTrachCan && item.type == 0)
+			if (this.IsTrashCan && item.type == 0)
 			{
 				texture = Main.trashTexture;
 			}
@@ -262,7 +262,7 @@ namespace HEROsMod.UIKit.UIComponents
 			pos.X += backgroundTexture.Width * Scale / 2 - (rectangle2.Width * itemScale / 2);
 			pos.Y += backgroundTexture.Height * Scale / 2 - (rectangle2.Height * itemScale / 2);
 
-			if (this.IsTrachCan && item.type == 0)
+			if (this.IsTrashCan && item.type == 0)
 			{
 				spriteBatch.Draw(texture, pos, null, new Color(100, 100, 100, 100), 0f, Vector2.Zero, itemScale, SpriteEffects.None, 0f);
 			}

@@ -137,7 +137,7 @@ namespace HEROsMod.HEROsModServices
 			// TODO changes to offline users might not prop to all admin?
 			if (HEROsModNetwork.LoginService.MyGroup.IsAdmin)
 			{
-				UILabel lOfflinePlayers = new UILabel(HEROsMod.HeroText("Offline Users"));
+				UILabel lOfflinePlayers = new UILabel(HEROsMod.HeroText("OfflineUsers"));
 				lOfflinePlayers.Scale = .6f;
 				lOfflinePlayers.X = Spacing;
 				lOfflinePlayers.Y = yPos + Spacing;
@@ -454,7 +454,7 @@ namespace HEROsMod.HEROsModServices
 			for (int i = 0; i < 50; i++)
 			{
 				Slot slot = new Slot(0, true);
-				slot.ItemChanged += itemSlot_ItemChanged;
+				slot.ItemChanged += ItemSlot_ItemChanged;
 				slot.X = 8 + i % 10 * slot.Width;
 				slot.Y = 8 + i / 10 * slot.Height;
 
@@ -498,7 +498,7 @@ namespace HEROsMod.HEROsModServices
 			itemsView.AddChild(label);
 		}
 
-		private void itemSlot_ItemChanged(object sender, EventArgs e)
+		private void ItemSlot_ItemChanged(object sender, EventArgs e)
 		{
 			Slot slot = (Slot)sender;
 

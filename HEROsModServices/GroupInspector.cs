@@ -144,7 +144,7 @@ namespace HEROsMod.HEROsModServices
 
 		private void bDelete_onLeftClick(object sender, EventArgs e)
 		{
-			UIMessageBox mb = new UIMessageBox(string.Format(HEROsMod.HeroText("AreYouSureDeleteGroup"), dropdown.Text ), UIMessageBoxType.YesNo, true);
+			UIMessageBox mb = new UIMessageBox(string.Format(HEROsMod.HeroText("AreYouSureDeleteGroup"), dropdown.Text), UIMessageBoxType.YesNo, true);
 			mb.yesClicked += mb_yesClicked;
 			this.Parent.AddChild(mb);
 		}
@@ -269,7 +269,7 @@ namespace HEROsMod.HEROsModServices
 			Height = 100;
 			this.Anchor = AnchorPosition.Center;
 
-			label = new UILabel(HEROsMod.HeroText("Group Name") + ":");
+			label = new UILabel(HEROsMod.HeroText("GroupName") + ":");
 			textbox = new UITextbox();
 			UIButton bSave = new UIButton(HEROsMod.HeroText("Create"));
 			UIButton bCancel = new UIButton(HEROsMod.HeroText("Cancel"));
