@@ -1,5 +1,6 @@
 # Translation by: Terraria Phone&PC Team
 
+# UpdateTModLoaderToUse=\nThis mod uses functionality only present in the latest tModLoader. Please update tModLoader to use this mod\n\n
 EnableInfiniteReach=Включить бесконечную дальность использования
 DisableInfiniteReach=Отключить бесконечную дальность использования
 SmartCursorAutomaticallyDisabledInfinteReachMod=Умный курсор автоматически отключен в режиме бесконечной дальности.
@@ -125,7 +126,7 @@ LoggedInSuccessfully=Вы успешно вошли. Вы в группе {0}.
 InvalidUsernameOrPassword=Неверное имя пользователя или пароль
 UsernameAlreadyTaken=Это имя уже занято
 SuccessfullyRegistered=Вы успешно зарегистрировались, пожалуйста, войдите.
-roupAlreadyExists=Группа с этим названием уже существет
+GroupAlreadyExists=Группа с этим названием уже существет
 CantDeleteDefaultGroup=Вы не можете удалить стандартную группу.
 LoginInstructions=Нажмите кнопку 'Войти' на панели, дабы Войти или Создать аккаунт.
 TimeChangedNoonBy=Время было изменено на полдень игроком {0}

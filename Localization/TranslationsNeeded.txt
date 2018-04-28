@@ -1,0 +1,6 @@
+ru-RU 1
+pt-BR 153
+pl-PL 153
+it-IT 153
+fr-FR 153
+es-ES 153

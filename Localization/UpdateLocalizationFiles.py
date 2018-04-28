@@ -1,14 +1,19 @@
 import os.path
 
-# Run this script after updating en-US.tModLoader.json with new keys. python 3.
+# tModLoader .lang file updater by jopojelly. (v1.0)
+# Run this script after updating en-US.lang with new keys. python 3.
 # Also make sure the file encodings are UTF-8 not UTF-8-BOM.
+# You can use this script for your own mod if you credit me.
 
 filename = './{0}.lang'
 
 languages = ['zh-Hans', 'ru-RU', 'pt-BR', 'pl-PL', 'it-IT', 'fr-FR', 'es-ES', 'de-DE']
+missings = []
 for language in languages:
     if not os.path.isfile(filename.format(language)):
-        continue
+        with open(filename.format(language), 'w', encoding='utf-8') as output:
+            output.write("# Translation by: \n\nmissing=missing")
+        #continue
     #language = 'zh-Hans'
     otherLanguage = ''
     missing = 0
@@ -18,6 +23,7 @@ for language in languages:
         
         # Preserve Credits (comment lines on first few lines)
         otherLinesAll = other.readlines()
+
         for otherLine in otherLinesAll:
             if otherLine.startswith('#'):
                 otherLanguage += otherLine
@@ -27,6 +33,8 @@ for language in languages:
         # Skip empty whitespace and comment lines to end up with only json lines.
         otherLines = [x for x in otherLinesAll if not (x.startswith("#") or len(x.strip()) == 0)]
 
+        if len(otherLines) == 0:
+            otherLines.append('TrashEntry') # just to prevent Index out of Range
         otherIndex = 0
         engComments = True
         for englishIndex, englishLine in enumerate(enLines):
@@ -54,9 +62,16 @@ for language in languages:
             #print(otherLanguage)
     # Save changes.
     if missing > 0:
+        missings.append( (language, missing) )
         print(language,missing)
     with open(filename.format(language), 'w', encoding='utf-8') as output:
         output.write(otherLanguage)
 
+with open('./TranslationsNeeded.txt', 'w', encoding='utf-8') as output:
+    if len(missings) == 0:
+        output.write('All Translations up-to-date!')
+    else:
+        for entry in missings: 
+            output.write(str(entry[0]) + " " + str(entry[1]) + "\n")
 #print("Make sure to run Diff.")
 #input("Press Enter to continue...")

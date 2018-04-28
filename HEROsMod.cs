@@ -29,7 +29,7 @@ namespace HEROsMod
 		public override void Load()
 		{
 			// Since we are using hooks not in older versions, and since ItemID.Count changed, we need to do this.
-			if (ModLoader.version < new Version(0, 10))
+			if (ModLoader.version < new Version(0, 10, 1, 3))
 			{
 				throw new Exception(HEROsMod.HeroText("UpdateTModLoaderToUse"));
 			}
@@ -40,7 +40,7 @@ namespace HEROsMod
 
 				FieldInfo translationsField = typeof(Mod).GetField("translations", BindingFlags.Instance | BindingFlags.NonPublic);
 				translations = (Dictionary<string, ModTranslation>)translationsField.GetValue(this);
-				LoadTranslations();
+				//LoadTranslations();
 
 				//	AddGlobalItem("HEROsModGlobalItem", new HEROsModGlobalItem());
 				// AddPlayer("HEROsModModPlayer", new HEROsModModPlayer());
@@ -205,6 +205,7 @@ namespace HEROsMod
 			return false;
 		}
 
+		/*
 		private void LoadTranslations()
 		{
 			// 0.10.1.2 already does this
@@ -248,6 +249,7 @@ namespace HEROsMod
 				AddTranslation(value);
 			}
 		}
+		*/
 
 		//public override Matrix ModifyTransformMatrix(Matrix Transform)
 		//{
