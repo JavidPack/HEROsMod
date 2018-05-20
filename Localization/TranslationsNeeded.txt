@@ -1,6 +1,8 @@
-ru-RU 1
-pt-BR 153
-pl-PL 153
-it-IT 153
-fr-FR 153
-es-ES 153
+zh-Hans 4
+ru-RU 49
+pt-BR 201
+pl-PL 201
+it-IT 201
+fr-FR 201
+es-ES 201
+de-DE 48

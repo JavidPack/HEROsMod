@@ -10,12 +10,15 @@ using System.Linq;
 
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace HEROsMod.UIKit.UIComponents
 {
 	internal class ItemBrowser : UIWindow
 	{
+		internal static string HeroText(string key, string category = "ItemBrowser") => HEROsMod.HeroText($"{category}.{key}");
+
 		private ItemCollectionView _itemView;
 		private Slot _trashCan;
 		private UIScrollView _categoryView;
@@ -157,7 +160,7 @@ namespace HEROsMod.UIKit.UIComponents
 			//_trashCan.Y = _itemView.Y - _trashCan.Height - SmallSpacing/2;
 			//AddChild(_trashCan);
 
-			_bBack = new UIButton("Back");
+			_bBack = new UIButton(Language.GetTextValue("UI.Back"));
 			_bBack.X = _categoryView.X;
 			_bBack.Y = _categoryView.Y - _bBack.Height - Spacing;
 			_bBack.onLeftClick += _bViewAllItems_onLeftClick;
@@ -224,7 +227,7 @@ namespace HEROsMod.UIKit.UIComponents
 			float yPos = 0;
 			for (int i = 0; i < categories.Length; i++)
 			{
-				UIButton button = new UIButton(categories[i].Name);
+				UIButton button = new UIButton(categories[i].LocalizedName);
 				button.Tag = categories[i];
 				button.AutoSize = false;
 				button.Width = 100;
@@ -245,9 +248,9 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				DefaultSorts = new Sort[]
 				{
-					new Sort( new UIImage(HEROsMod.instance.GetTexture("Images/sortItemID")){Tooltip = "ItemID"} , (x,y)=>x.type.CompareTo(y.type)),
-					new Sort( new UIImage(HEROsMod.instance.GetTexture("Images/sortValue")){Tooltip = "Value"} , (x,y)=>x.value.CompareTo(y.value)),
-					new Sort( new UIImage(HEROsMod.instance.GetTexture("Images/sortAZ")){Tooltip = "Alphabetical"} , (x,y)=>x.Name.CompareTo(y.Name)),
+					new Sort( new UIImage(HEROsMod.instance.GetTexture("Images/sortItemID")){Tooltip = HeroText("SortName.ItemID")} , (x,y)=>x.type.CompareTo(y.type)),
+					new Sort( new UIImage(HEROsMod.instance.GetTexture("Images/sortValue")){Tooltip = HeroText("SortName.Value")} , (x,y)=>x.value.CompareTo(y.value)),
+					new Sort( new UIImage(HEROsMod.instance.GetTexture("Images/sortAZ")){Tooltip = HeroText("SortName.Alphabetical")} , (x,y)=>x.Name.CompareTo(y.Name)),
 				};
 			}
 			List<Sort> sorts = DefaultSorts.ToList();
@@ -292,7 +295,7 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				Filters = new Filter[]
 				{
-					new Filter( new UIImage(HEROsMod.instance.GetTexture("Images/filterMod")) {Tooltip = "Mod Filter"}, x=>x.modItem != null),
+					new Filter( new UIImage(HEROsMod.instance.GetTexture("Images/filterMod")) {Tooltip = HeroText("FilterName.ModFilter")}, x=>x.modItem != null),
 				};
 			}
 			//Category[] categories = Categories;
@@ -548,7 +551,7 @@ namespace HEROsMod.UIKit.UIComponents
 			foreach (Mod loadedMod in ModLoader.LoadedMods)
 			{
 				if (loadedMod.Name != "ModLoader")
-					modCategory.SubCategories.Add(new Category(loadedMod.Name, x => x.modItem != null && x.modItem.mod.Name == loadedMod.Name));
+					modCategory.SubCategories.Add(new Category(loadedMod.Name, x => x.modItem != null && x.modItem.mod.Name == loadedMod.Name, skipLocalization:true));
 			}
 
 			Categories = new Category[] {
@@ -558,19 +561,19 @@ namespace HEROsMod.UIKit.UIComponents
 						new Category("Magic", x=>x.magic),
 						new Category("Ranged", x=>x.ranged && x.ammo == 0) // TODO and ammo no
 						{
-							Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortAmmo")){Tooltip = "Use Ammo Type"}, (x,y)=>x.useAmmo.CompareTo(y.useAmmo)), }
+							Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortAmmo")){Tooltip = HeroText("SortName.UseAmmoType")}, (x,y)=>x.useAmmo.CompareTo(y.useAmmo)), }
 						},
 						new Category("Throwing", x=>x.thrown),
 						new Category("Summon", x=>x.summon && !x.sentry),
 						new Category("Sentry", x=>x.summon && x.sentry),
 					},
-					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortDamage")){Tooltip = "Damage"}, (x,y)=>x.damage.CompareTo(y.damage)), }
+					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortDamage")){Tooltip = HeroText("SortName.Damage")}, (x,y)=>x.damage.CompareTo(y.damage)), }
 				},
 				new Category("Tools"/*,x=>x.pick>0||x.axe>0||x.hammer>0*/) {
 					SubCategories = new List<Category>() {
-						new Category("Pickaxes", x=>x.pick>0) { Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortPick")){Tooltip = "Pick Power"}, (x,y)=>x.pick.CompareTo(y.pick)), } },
-						new Category("Axes", x=>x.axe>0){ Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortAxe")){Tooltip = "Axe Power"}, (x,y)=>x.axe.CompareTo(y.axe)), } },
-						new Category("Hammers", x=>x.hammer>0){ Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortHammer")){Tooltip = "Hammer Power"}, (x,y)=>x.hammer.CompareTo(y.hammer)), } },
+						new Category("Pickaxes", x=>x.pick>0) { Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortPick")){Tooltip = HeroText("SortName.PickPower")}, (x,y)=>x.pick.CompareTo(y.pick)), } },
+						new Category("Axes", x=>x.axe>0){ Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortAxe")){Tooltip = HeroText("SortName.AxePower")}, (x,y)=>x.axe.CompareTo(y.axe)), } },
+						new Category("Hammers", x=>x.hammer>0){ Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortHammer")){Tooltip = HeroText("SortName.HammerPower")}, (x,y)=>x.hammer.CompareTo(y.hammer)), } },
 					},
 				},
 				new Category("Armor"/*,  x=>x.headSlot!=-1||x.bodySlot!=-1||x.legSlot!=-1*/) {
@@ -579,7 +582,7 @@ namespace HEROsMod.UIKit.UIComponents
 						new Category("Body", x=>x.bodySlot!=-1),
 						new Category("Legs", x=>x.legSlot!=-1),
 					},
-					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortDefense")){Tooltip = "Defense"}, (x,y)=>x.defense.CompareTo(y.defense)), }
+					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortDefense")){Tooltip = HeroText("SortName.Defense")}, (x,y)=>x.defense.CompareTo(y.defense)), }
 				},
 				new Category("Placeables"/*,  x=>x.createTile!=-1||x.createWall!=-1*/) {
 					SubCategories = new List<Category>() {
@@ -590,27 +593,27 @@ namespace HEROsMod.UIKit.UIComponents
 				new Category("Accessories", x=>x.accessory),
 				new Category("Ammo", x=>x.ammo!=0)
 				{
-					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortAmmo")){Tooltip = "Ammo Type"}, (x,y)=>x.ammo.CompareTo(y.ammo)), }
+					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortAmmo")){Tooltip = HeroText("SortName.AmmoType")}, (x,y)=>x.ammo.CompareTo(y.ammo)), }
 				},
 				new Category("Potions", x=>(x.UseSound != null && x.UseSound.Style == 3)),
 				new Category("Expert", x=>x.expert),
 				new Category("Pets"/*, x=> x.buffType > 0 && (Main.vanityPet[x.buffType] || Main.lightPet[x.buffType])*/){
 					SubCategories = new List<Category>() {
 						new Category("Pets", x=>Main.vanityPet[x.buffType]),
-						new Category("Light Pets", x=>Main.lightPet[x.buffType]),
+						new Category("LightPets", x=>Main.lightPet[x.buffType]),
 					}
 				},
 				new Category("Mounts", x=>x.mountType != -1),
 				new Category("Dyes", x=>x.dye != 0),
-				new Category("Boss Summons", x=>ItemID.Sets.SortingPriorityBossSpawns[x.type] != -1 && x.type != ItemID.LifeCrystal && x.type != ItemID.ManaCrystal && x.type != ItemID.CellPhone && x.type != ItemID.IceMirror && x.type != ItemID.MagicMirror && x.type != ItemID.LifeFruit && x.netID != ItemID.TreasureMap || x.netID == ItemID.PirateMap) { // vanilla bug.
-					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortDamage")){Tooltip = "Progression Order"}, (x,y)=>ItemID.Sets.SortingPriorityBossSpawns[x.type].CompareTo(ItemID.Sets.SortingPriorityBossSpawns[y.type])), }
+				new Category("BossSummons", x=>ItemID.Sets.SortingPriorityBossSpawns[x.type] != -1 && x.type != ItemID.LifeCrystal && x.type != ItemID.ManaCrystal && x.type != ItemID.CellPhone && x.type != ItemID.IceMirror && x.type != ItemID.MagicMirror && x.type != ItemID.LifeFruit && x.netID != ItemID.TreasureMap || x.netID == ItemID.PirateMap) { // vanilla bug.
+					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortDamage")){Tooltip = HeroText("SortName.ProgressionOrder")}, (x,y)=>ItemID.Sets.SortingPriorityBossSpawns[x.type].CompareTo(ItemID.Sets.SortingPriorityBossSpawns[y.type])), }
 				},
 				new Category("Consumables", x=>x.consumable),
 				new Category("Fishing"/*, x=> x.fishingPole > 0 || x.bait>0|| x.questItem*/){
 					SubCategories = new List<Category>() {
-						new Category("Poles", x=>x.fishingPole > 0) {Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortFish")){Tooltip = "Pole Power"}, (x,y)=>x.fishingPole.CompareTo(y.fishingPole)), } },
-						new Category("Bait", x=>x.bait>0) {Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortBait")){Tooltip = "Bait Power"}, (x,y)=>x.bait.CompareTo(y.bait)), } },
-						new Category("Quest Fish", x=>x.questItem),
+						new Category("Poles", x=>x.fishingPole > 0) {Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortFish")){Tooltip = HeroText("SortName.PolePower")}, (x,y)=>x.fishingPole.CompareTo(y.fishingPole)), } },
+						new Category("Bait", x=>x.bait>0) {Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortBait")){Tooltip = HeroText("SortName.BaitPower")}, (x,y)=>x.bait.CompareTo(y.bait)), } },
+						new Category("QuestFish", x=>x.questItem),
 					}
 				},
 				modCategory,
@@ -678,44 +681,6 @@ namespace HEROsMod.UIKit.UIComponents
 			// Categories, subcats: what is it
 			// Filters: string match, mod specific/vanilla/Anymod. Global?, multiple active
 			// Sorts: default: ID, damage, alphabetical, add at each level?, 1 active at a time
-
-			//   string resourceName = "HEROsModMod.Categories.xml";
-			//         XmlSerializer serializer = new XmlSerializer(typeof(CategoryCollection));
-			//         CategoryCollection cc;
-			//Stream s = new MemoryStream(HEROsMod.instance.GetFileBytes("Categories.xml"));
-			//         //using (StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName)))
-			//using (StreamReader reader = new StreamReader(s))
-			//         {
-			//             cc = (CategoryCollection)serializer.Deserialize(reader);
-			//         }
-
-			// List<Category> categories = new List<Category>();
-
-			//categories.Add()
-
-			//foreach(XMLCategory category in cc.Categories)
-			//{
-			//    categories.Add(category.Convert());
-			//}
-			//Categories = categories.OrderBy(x => x.Name).ToArray();
-
-			/*
-            categoryNames = categNames.ToList();
-            for (int i = 0; i < categoryNums.Length; i++)
-            {
-                categories.Add(new List<int>());
-                for (int j = 0; j < categoryNums[i].Length; j++)
-                {
-                    categories[i].Add(categoryNums[i][j]);
-                }
-            }
-             */
-			//itemView.category = itemView.allItemsSlots;
-			/*
-            int[] items = new int[itemView.allItemsSlots.Length];
-            for (int i = 0; i < itemView.allItemsSlots.Length; i++) items[i] = i;
-            itemView.category = items;
-            */
 		}
 	}
 
@@ -803,6 +768,7 @@ namespace HEROsMod.UIKit.UIComponents
 		public Predicate<Item> belongs;
 
 		public string Name { get; set; }
+		public string LocalizedName { get; set; }
 		public List<Item> Items { get; set; }
 		public List<Category> SubCategories { get; set; }
 		internal Sort[] Sorts { get; set; }
@@ -810,15 +776,17 @@ namespace HEROsMod.UIKit.UIComponents
 		public Category(string name)
 		{
 			this.Name = name;
+			this.LocalizedName = HEROsMod.HeroText($"ItemBrowser.CategoryName.{name}");
 			Items = new List<Item>();
 			SubCategories = new List<Category>();
 			Sorts = new Sort[0];
 			this.belongs = x => false;
 		}
 
-		public Category(string name, Predicate<Item> belongs)
+		public Category(string name, Predicate<Item> belongs, bool skipLocalization = false)
 		{
 			this.Name = name;
+			this.LocalizedName = skipLocalization ? name : HEROsMod.HeroText($"ItemBrowser.CategoryName.{name}");
 			Items = new List<Item>();
 			SubCategories = new List<Category>();
 			Sorts = new Sort[0];

@@ -1,6 +1,6 @@
 import os.path
 
-# tModLoader .lang file updater by jopojelly. (v1.0)
+# tModLoader .lang file updater by jopojelly. (v1.1)
 # Run this script after updating en-US.lang with new keys. python 3.
 # Also make sure the file encodings are UTF-8 not UTF-8-BOM.
 # You can use this script for your own mod if you credit me.
@@ -45,7 +45,7 @@ for language in languages:
             
             # For lines with key values pairs, copy translation or add commented translation placeholder.
             if englishLine.find("=") != -1:
-                if otherLines[otherIndex].startswith(englishLine[:englishLine.find("=")]):
+                if len(otherLines) > otherIndex and otherLines[otherIndex].startswith(englishLine[:englishLine.find("=")]):
                     otherLanguage += otherLines[otherIndex]
                     otherIndex += 1
                 else:
