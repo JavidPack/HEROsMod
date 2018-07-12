@@ -257,11 +257,11 @@ namespace HEROsMod.UIKit
 				{
 					KeyPressed?.Invoke(this, ' ');
 				}
-				if (Main.keyState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Tab))
+				if (Main.keyState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Tab) && !Main.oldInputText.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Tab))
 				{
 					OnTabPress?.Invoke(this, new EventArgs());
 				}
-				if (Main.keyState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Enter))
+				if (Main.keyState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Enter) && !Main.oldInputText.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Enter))
 				{
 					OnEnterPress?.Invoke(this, new EventArgs());
 				}
