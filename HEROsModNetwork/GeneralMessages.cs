@@ -209,6 +209,10 @@ namespace HEROsMod.HEROsModNetwork
 				case MessageType.RequestTeleport:
 					ProcessRequestTeleport(ref reader, playerNumber);
 					break;
+
+				case MessageType.SyncItemNonOwner:
+					HEROsModServices.SnoopWindow.ProcessSyncItemNonOwner(ref reader, playerNumber);
+					break;
 			}
 		}
 
@@ -1222,7 +1226,7 @@ namespace HEROsMod.HEROsModNetwork
 			Network.SendDataToServer();
 		}
 
-		private enum MessageType : byte
+		internal enum MessageType : byte
 		{
 			UsingHEROsMod,
 			RequestTimeChange,
@@ -1267,7 +1271,8 @@ namespace HEROsMod.HEROsModNetwork
 			RequestBanPlayer,
 			RequestTeleport,
 			RequestForcedSundial,
-			CurrentToggles
+			CurrentToggles,
+			SyncItemNonOwner
 		}
 
 		public enum TimeChangeType

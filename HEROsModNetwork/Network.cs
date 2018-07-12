@@ -991,6 +991,7 @@ namespace HEROsMod.HEROsModNetwork
 		{
 			GeneralMessage,
 			LoginMessage,
+			SnoopMessage,
 			CTFMessage
 		}
 

@@ -1,8 +1,10 @@
 ﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
 using System;
+using System.IO;
 using System.Linq;
 using Terraria;
+using HEROsMod.HEROsModNetwork;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -416,7 +418,7 @@ namespace HEROsMod.HEROsModServices
 			}
 			else
 			{
-				//send new group to servera
+				//send new group to server
 				HEROsModNetwork.Group playersNewGroup = HEROsModNetwork.Network.GetGroupByName(dropdown.GetItem(dropdown.SelectedItem));
 				HEROsModNetwork.LoginService.RequestSetPlayerGroup(playerIndex, playersNewGroup);
 			}
@@ -453,8 +455,10 @@ namespace HEROsMod.HEROsModServices
 			//itemsView.Y = spacing;
 			for (int i = 0; i < 50; i++)
 			{
-				Slot slot = new Slot(0, true);
-				slot.ItemChanged += ItemSlot_ItemChanged;
+				Slot slot = new Slot(0, false);
+				slot.functionalSlot = true;
+				int index = i;
+				slot.ItemChanged += (a, b) => ItemSlot_ItemChanged(slot, index);
 				slot.X = 8 + i % 10 * slot.Width;
 				slot.Y = 8 + i / 10 * slot.Height;
 
@@ -465,20 +469,28 @@ namespace HEROsMod.HEROsModServices
 			for (int i = 50; i < 58; i++)
 			{
 				int index = i - 50;
-				Slot slot = new Slot(0, true);
+				Slot slot = new Slot(0, false);
+				slot.functionalSlot = true;
+				int idx = i;
+				slot.ItemChanged += (a, b) => ItemSlot_ItemChanged(slot, idx);
 				slot.Scale = .6f;
 				slot.X = 8 + index % 2 * slot.Width;
 				slot.Y = yPos + index / 2 * slot.Height;
 				itemsView.AddChild(slot);
 			}
-			Slot mouseSlot = new Slot(0, true);
+			Slot mouseSlot = new Slot(0, false);
+			mouseSlot.functionalSlot = true;
+			mouseSlot.ItemChanged += (a, b) => ItemSlot_ItemChanged(mouseSlot, 58);
 			mouseSlot.X = itemsView.GetLastChild().X + itemsView.GetLastChild().Width + 4;
 			mouseSlot.Y = itemsView.GetLastChild().Y + itemsView.GetLastChild().Height - mouseSlot.Height;
 			itemsView.AddChild(mouseSlot);
 			float xPos = mouseSlot.X + mouseSlot.Width + 4;
 			for (int i = 0; i < 16; i++)
 			{
-				Slot slot = new Slot(0, true);
+				Slot slot = new Slot(0, false);
+				slot.functionalSlot = true;
+				int index = i;
+				slot.ItemChanged += (a, b) => ItemSlot_ItemChanged(slot, index, true);
 				slot.Scale = .7f;
 				slot.X = xPos + i % 8 * slot.Width;
 				slot.Y = yPos + i / 8 * slot.Height;
@@ -498,10 +510,10 @@ namespace HEROsMod.HEROsModServices
 			itemsView.AddChild(label);
 		}
 
-		private void ItemSlot_ItemChanged(object sender, EventArgs e)
+		private void ItemSlot_ItemChanged(Slot slot, int index, bool armor = false)
 		{
-			Slot slot = (Slot)sender;
-
+			Main.playerInventory = true;
+			RequestSyncItemNonOwner(player, slot.item, index + (armor ? 59 : 0));
 			//ErrorLogger.Log("Slot " + slot.item.type);
 		}
 
@@ -526,6 +538,57 @@ namespace HEROsMod.HEROsModServices
 		public void SetPlayer(Player player)
 		{
 			this.player = player;
+		}
+
+		internal static void RequestSyncItemNonOwner(Player player, Item item, int index)
+		{
+			var packet = HEROsMod.instance.GetPacket();
+			packet.Write((byte)Network.MessageType.GeneralMessage);
+			packet.Write((byte)GeneralMessages.MessageType.SyncItemNonOwner);
+			packet.Write((byte)player.whoAmI);
+			packet.Write((byte)index);
+			Terraria.ModLoader.IO.ItemIO.Send(item, packet, true);
+			packet.Send();
+		}
+
+		internal static void ProcessSyncItemNonOwner(ref BinaryReader reader, int playerNumber)
+		{
+			if (Main.netMode == Terraria.ID.NetmodeID.Server)
+			{
+				if (Network.Players[playerNumber].Group.HasPermission("Snoop"))
+				{
+					byte player = reader.ReadByte();
+					int inventoryindex = reader.ReadByte();
+					Item item = Terraria.ModLoader.IO.ItemIO.Receive(reader, true);
+
+					var packet = HEROsMod.instance.GetPacket();
+					packet.Write((byte)Network.MessageType.GeneralMessage);
+					packet.Write((byte)GeneralMessages.MessageType.SyncItemNonOwner);
+					packet.Write((byte)player);
+					packet.Write((byte)inventoryindex);
+					Terraria.ModLoader.IO.ItemIO.Send(item, packet, true);
+					packet.Send(player);
+				}
+			}
+			else
+			{
+				byte player = reader.ReadByte();
+				int inventoryindex = reader.ReadByte();
+				Item item = Terraria.ModLoader.IO.ItemIO.Receive(reader, true);
+
+				if (player == Main.myPlayer)
+				{
+					if (inventoryindex < 59)
+						Main.LocalPlayer.inventory[inventoryindex] = item;
+					else
+						Main.LocalPlayer.armor[inventoryindex - 59] = item;
+					// send 5 or just let clientClone take care of it?
+				}
+				else
+				{
+					// Bug
+				}
+			}
 		}
 	}
 }

@@ -91,6 +91,7 @@ namespace HEROsMod.UIKit
 		public UITextbox()
 		{
 			this.onLeftClick += new EventHandler(UITextbox_onLeftClick);
+			this.onRightClick += (a, b) => Text = "";
 			label.ForegroundColor = Color.Black;
 			label.Scale = Height / label.Height;
 			label.TextOutline = false;
