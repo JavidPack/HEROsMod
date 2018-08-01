@@ -68,7 +68,7 @@ UnderworldToSpawnWoF=请在地狱召唤血肉之墙
 MiscOptions=杂项
 RevealMap=点亮全图
 ClearItemsOnGround=清除地面物品
-ItemsOnTheGroundWere地面物品已被清除
+ItemsOnTheGroundWereCleared=地面物品已被清除
 ItemBrowser=物品浏览器
 OpenEventStarter==打开事件召唤器
 AllEventsHaveBeenStopped=已停止所有事件
@@ -129,7 +129,7 @@ SuccessfullyRegistered=注册成功.请登录.
 GroupAlreadyExists=已存在同名组
 CantDeleteDefaultGroup=你无法删除默认组.
 LoginInstructions=点击菜单条上的 '登录' 按钮来登录或创建一个账户
-TimeChangedNoonBy==时间已被 {0} 改为中午
+TimeChangedNoonBy=时间已被 {0} 改为中午
 TimeChangedMidnightBy=时间已被 {0} 改为午夜
 TimeChangedNightBy=时间已被 {0} 改为夜晚
 TimePausedBy=时间已被 {0} 暂停

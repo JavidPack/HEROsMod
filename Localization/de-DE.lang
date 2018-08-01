@@ -153,6 +153,7 @@ YouDontHavePermissionToDoThat=Du hast keine befugnisse oder erlaubnis dafür.
 EventsStoppedBy=Alle Events wurden gestoppt von {0}
 DestructiveExplosivesBannedBy=Destruktive Explosions Gegenstände wurden gesperrt von {0}
 DestructiveExplosivesUnbannedBy=Destruktive Explosions Gegenstände wurden entgesperrt von {0}# ItemBrowser.FilterName.ModFilter=Mod Filter
+# ItemBrowser.FilterName.ModFilter=Mod Filter
 # ItemBrowser.SortName.ItemID=ItemID
 # ItemBrowser.SortName.Value=Value
 # ItemBrowser.SortName.Alphabetical=Alphabetical

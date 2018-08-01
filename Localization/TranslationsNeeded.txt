@@ -1,5 +1,4 @@
-zh-Hans 4
-ru-RU 49
+ru-RU 1
 pt-BR 201
 pl-PL 201
 it-IT 201
