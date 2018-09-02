@@ -80,6 +80,14 @@ namespace HEROsMod.HEROsModNetwork
 					ProcessStopRainRequest(playerNumber);
 					break;
 
+				case MessageType.RequestStartSandstorm:
+					ProcessStartSandstormRequest(playerNumber);
+					break;
+
+				case MessageType.RequestStopSandstorm:
+					ProcessStopSandstormRequest(playerNumber);
+					break;
+
 				case MessageType.RequestForcedSundial:
 					ProcessForcedSundialRequest(playerNumber);
 					break;

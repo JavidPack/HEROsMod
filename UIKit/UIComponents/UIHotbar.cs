@@ -86,6 +86,7 @@ namespace HEROsMod.UIKit.UIComponents
 					{
 						HEROsMod.ServiceHotbar.HotBarChild.selected = false;
 					}
+					this.CenterXAxisToParentCenter();
 					HEROsMod.ServiceHotbar.HotBarChild = this;
 				}
 				arrived = false;
