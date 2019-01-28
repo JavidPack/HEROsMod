@@ -340,10 +340,11 @@ namespace HEROsMod
 			}
 			else if (message == "HasPermission")
 			{
-				//ModUtils.DebugText("HasPermission?...");
-				//bool hasPermission = HEROsModNetwork.LoginService.MyGroup.HasPermission((int)args[1], args[1] as string);
-				//ModUtils.DebugText("...HasPermission End");
-				//return hasPermission;
+				if (Main.netMode != Terraria.ID.NetmodeID.Server || args.Length != 3) // for now, only allow this call on Server (2)
+					return false;
+				//int player = Convert.ToInt32(args[1]); // Convert.ToInt32 doesn't throw exception, casting does. Exception is better in this case.
+				//string permission = args[2] as string;
+				return Network.Players[(int)args[1]].Group.HasPermission(args[2] as string);
 			}
 			return null;
 		}
