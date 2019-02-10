@@ -548,6 +548,7 @@ namespace HEROsMod.UIKit.UIComponents
 		{
 			Category modCategory = new Category("Mod");
 			modCategory.SubCategories = new List<Category>();
+			// TODO: 0.11 code: foreach (Mod loadedMod in ModLoader.Mods)
 			foreach (Mod loadedMod in ModLoader.LoadedMods)
 			{
 				if (loadedMod.Name != "ModLoader")
