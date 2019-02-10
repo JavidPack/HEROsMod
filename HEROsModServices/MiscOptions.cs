@@ -77,7 +77,7 @@ namespace HEROsMod.HEROsModServices
 		public MiscOptionsWindow()
 		{
 			this.buttonView = new UIView();
-			base.Visible = false;
+			//base.Visible = false;
 			//bStampTiles = new UIImage(Main.itemTexture[ItemID.Paintbrush]);
 			//bEyeDropper = new UIImage(Main.itemTexture[ItemID.EmptyDropper]);
 			//bFlipHorizontal = new UIImage(Main.itemTexture[ItemID.PadThai]);
@@ -95,12 +95,13 @@ namespace HEROsMod.HEROsModServices
 			//buttonView.AddChild(bToggleTransparentSelection);
 
 			//base.Width = 200f;
-			base.Height = 55f;
+			Height = 55f;
+			UpdateWhenOutOfBounds = true;
 			this.buttonView.Height = base.Height;
 			base.Anchor = AnchorPosition.Top;
 			this.AddChild(this.buttonView);
-			base.Position = new Vector2(Position.X, this.hiddenPosition);
-			base.CenterXAxisToParentCenter();
+			//base.Position = new Vector2(Position.X, this.hiddenPosition);
+			//base.CenterXAxisToParentCenter();
 			float num = this.spacing;
 			for (int i = 0; i < this.buttonView.children.Count; i++)
 			{
@@ -114,7 +115,7 @@ namespace HEROsMod.HEROsModServices
 			this.Resize();
 		}
 
-		public override void test()
+		public override void RefreshHotbar()
 		{
 			//ModUtils.DebugText("TEST " + buttonView.ChildCount);
 			//base.Width = 200f;
@@ -138,13 +139,6 @@ namespace HEROsMod.HEROsModServices
 			//buttonView.BackgroundColor = Color.Pink;
 			//buttonView.ForegroundColor = Color.Red;
 			//base.Visible = false;
-		}
-
-		public override void Update()
-		{
-			DoSlideMovement();
-			//base.CenterXAxisToParentCenter();
-			base.Update();
 		}
 
 		public void Resize()

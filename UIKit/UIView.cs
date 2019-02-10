@@ -84,7 +84,7 @@ namespace HEROsMod.UIKit
 				{
 					return Parent.DrawPosition + Position + Offset - Parent.Origin;
 				}
-				else return Position + offset;
+				else return Position + Offset;
 			}
 		}
 
@@ -128,52 +128,17 @@ namespace HEROsMod.UIKit
 
 		public int ChildCount { get { return children.Count; } }
 
-		private Color foregroundColor = Color.White;
-		private Color backgroundColor = Color.White;
+		public Color ForegroundColor { get; set; } = Color.White;
 
-		public Color ForegroundColor
-		{
-			get { return foregroundColor; }
-			set { foregroundColor = value; }
-		}
+		public Color BackgroundColor { get; set; } = Color.White;
 
-		public Color BackgroundColor
-		{
-			get { return backgroundColor; }
-			set { backgroundColor = value; }
-		}
+		public AnchorPosition Anchor { get; set; } = AnchorPosition.TopLeft;
 
-		private AnchorPosition anchor = AnchorPosition.TopLeft;
+		public Vector2 Origin => GetOrigin();
 
-		public AnchorPosition Anchor
-		{
-			get { return anchor; }
-			set { anchor = value; }
-		}
+		public Vector2 Offset { get; set; } = Vector2.Zero;
 
-		public Vector2 Origin
-		{
-			get
-			{
-				return GetOrigin();
-			}
-		}
-
-		private Vector2 offset = Vector2.Zero;
-
-		public Vector2 Offset
-		{
-			get { return offset; }
-			set { offset = value; }
-		}
-
-		private float scale = 1f;
-
-		public float Scale
-		{
-			get { return scale; }
-			set { scale = value; }
-		}
+		public float Scale { get; set; } = 1f;
 
 		private float opacity = 1f;
 

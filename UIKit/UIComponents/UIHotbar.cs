@@ -57,8 +57,14 @@ namespace HEROsMod.UIKit.UIComponents
 			Visible = true;
 		}
 
-		public virtual void test()
+		public virtual void RefreshHotbar()
 		{
+		}
+
+		public override void Update()
+		{
+			DoSlideMovement();
+			base.Update();
 		}
 
 		internal float spacing = 8f;
@@ -130,6 +136,10 @@ namespace HEROsMod.UIKit.UIComponents
 					float y2 = MathHelper.SmoothStep(this.hiddenPosition, this.shownPosition, this.lerpAmount);
 					base.Position = new Vector2(base.Position.X, y2);
 				}
+			}
+			else if(!hidden)
+			{
+				Position = new Vector2(Position.X, shownPosition);
 			}
 		}
 

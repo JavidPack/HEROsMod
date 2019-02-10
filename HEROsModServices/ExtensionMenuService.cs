@@ -82,15 +82,15 @@ namespace HEROsMod.HEROsModServices
 	{
 		public ExtensionMenuWindow()
 		{
-			this.buttonView = new UIView();
-			base.Visible = false;
+			buttonView = new UIView();
+			Visible = false;
 
-			base.Height = 55f;
-			this.buttonView.Height = base.Height;
-			base.Anchor = AnchorPosition.Top;
-			this.AddChild(this.buttonView);
-			base.Position = new Vector2(Position.X, this.hiddenPosition);
-			base.CenterXAxisToParentCenter();
+			Height = 55f;
+			buttonView.Height = Height;
+			Anchor = AnchorPosition.Top;
+			AddChild(buttonView);
+			Position = new Vector2(Position.X, hiddenPosition);
+			CenterXAxisToParentCenter();
 			float num = this.spacing;
 			for (int i = 0; i < this.buttonView.children.Count; i++)
 			{
@@ -103,7 +103,7 @@ namespace HEROsMod.HEROsModServices
 			this.Resize();
 		}
 
-		public override void test()
+		public override void RefreshHotbar()
 		{
 			base.CenterXAxisToParentCenter();
 			float num = this.spacing;
@@ -116,12 +116,6 @@ namespace HEROsMod.HEROsModServices
 				num += this.buttonView.children[i].Width + this.spacing;
 			}
 			this.Resize();
-		}
-
-		public override void Update()
-		{
-			DoSlideMovement();
-			base.Update();
 		}
 
 		public void Resize()

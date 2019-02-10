@@ -16,7 +16,6 @@ namespace HEROsMod.HEROsModServices
 		private UIView _iconView;
 
 		private List<UIView> _view = new List<UIView>();
-		private bool _collapsed = false;
 		private float _lerpAmount = 0f;
 		private UIImage collapseArrow;
 		private UIImage collapseButton;
@@ -26,32 +25,17 @@ namespace HEROsMod.HEROsModServices
 		/// <summary>
 		/// Target Y Position for the hotbar when not hidden.
 		/// </summary>
-		private float _shownYPosition
-		{
-			get
-			{
-				return Main.screenHeight - this.Height - 12;
-			}
-		}
+		private float _shownYPosition => Main.screenHeight - this.Height - 12;
 
 		/// <summary>
 		/// Target Y Position for the hotbar when hidden.
 		/// </summary>
-		private float _hiddenYPosition
-		{
-			get
-			{
-				return Main.screenHeight;
-			}
-		}
+		private float _hiddenYPosition => Main.screenHeight;
 
 		/// <summary>
 		/// Returns if the hotbar is collapsed or not
 		/// </summary>
-		public bool Collapsed
-		{
-			get { return _collapsed; }
-		}
+		public bool Collapsed { get; private set; } = false;
 
 		public Vector2 ChatOffsetPosition
 		{
@@ -84,7 +68,7 @@ namespace HEROsMod.HEROsModServices
 				if (service.IsHotbar)
 				{
 					service.Hotbar.buttonView.RemoveAllChildren();
-					service.Hotbar.test();
+					service.Hotbar.RefreshHotbar();
 				}
 				if (service.IsInHotbar/* && service.HotbarParent.buttonView != null*/)
 				{
@@ -101,7 +85,7 @@ namespace HEROsMod.HEROsModServices
 					//_iconView.AddChild(icon);
 					//icon.CenterYAxisToParentCenter();
 
-					service.HotbarParent.test();
+					service.HotbarParent.RefreshHotbar();
 
 					//ModUtils.DebugText("added " + service.Name);
 				}
@@ -160,7 +144,7 @@ namespace HEROsMod.HEROsModServices
 				//HotBarChild = null;
 				return;
 			}
-			_collapsed = !Collapsed;
+			Collapsed = !Collapsed;
 			if (Collapsed)
 			{
 				//if(HotBarChild != null)
@@ -180,6 +164,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			if (HotBarChild != null && HotBarChild.Visible)
 			{
+				HotBarChild.CenterXAxisToParentCenter();
 				collapseButton.Position = new Vector2(0, -collapseButton.Height - (Y - HotBarChild.Y));
 				collapseButton.CenterXAxisToParentCenter();
 				collapseArrow.Position = collapseButton.Position;

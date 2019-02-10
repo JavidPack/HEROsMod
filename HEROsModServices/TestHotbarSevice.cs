@@ -96,13 +96,6 @@ namespace HEROsMod.HEROsModServices
 			this.Resize();
 		}
 
-		public override void Update()
-		{
-			DoSlideMovement();
-			//base.CenterXAxisToParentCenter();
-			base.Update();
-		}
-
 		public void Resize()
 		{
 			float num = this.spacing;

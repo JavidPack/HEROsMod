@@ -10,13 +10,8 @@ namespace HEROsMod.HEROsModServices
 	internal class TimeWeatherChanger : HEROsModService
 	{
 		public static bool TimePaused { get; set; }
-		private static double _pausedTime = 0;
 
-		public static double PausedTime
-		{
-			get { return _pausedTime; }
-			set { _pausedTime = value; }
-		}
+		public static double PausedTime { get; set; } = 0;
 
 		//	public static bool PausedTimeDayTime = false;
 		private TimeWeatherControlHotbar timeWeatherHotbar;
@@ -148,53 +143,17 @@ namespace HEROsMod.HEROsModServices
 
 		public TimeWeatherControlHotbar()
 		{
-			this.buttonView = new UIView();
+			buttonView = new UIView();
 			Height = 54;
 			UpdateWhenOutOfBounds = true;
-			//this.Visible = false;
 
-			this.buttonView.Height = base.Height;
-			base.Anchor = AnchorPosition.Top;
-			this.AddChild(this.buttonView);
-
-			//UIImage bStopRain = new UIImage(HEROsMod.instance.GetTexture("Images/sunIcon"));
-			//UIImage bStartRain = new UIImage(rainTexture);
-			//bStartRain.Tooltip = "Start Rain";
-			//bStopRain.Tooltip = "Stop Rain";
-			//bStartRain.onLeftClick += bStartRain_onLeftClick;
-			//bStopRain.onLeftClick += bStopRain_onLeftClick;
-			//AddChild(bStopRain);
-			//AddChild(bStartRain);
-
-			//UIImage nightButton = new UIImage(HEROsMod.instance.GetTexture("Images/moonIcon"));
-			//nightButton.Tooltip = "Night";
-			//nightButton.onLeftClick += nightButton_onLeftClick;
-			//UIImage noonButton = new UIImage(HEROsMod.instance.GetTexture("Images/sunIcon"));
-			//noonButton.Tooltip = "Noon";
-			//noonButton.onLeftClick += noonButton_onLeftClick;
-			//bPause = new UIImage(pauseTexture);
-			//bPause.onLeftClick += bPause_onLeftClick;
-			//AddChild(nightButton);
-			//AddChild(noonButton);
-			//AddChild(bPause);
-
-			//float xPos = spacing;
-			//for (int i = 0; i < children.Count; i++)
-			//{
-			//	if (children[i].Visible)
-			//	{
-			//		children[i].X = xPos;
-			//		xPos += children[i].Width + spacing;
-			//		children[i].Y = Height / 2 - children[i].Height / 2;
-			//	}
-			//}
-			//Width = xPos;
+			buttonView.Height = Height;
+			Anchor = AnchorPosition.Top;
+			AddChild(buttonView);
 		}
 
-		public override void test()
+		public override void RefreshHotbar()
 		{
-			//	ModUtils.DebugText("TEST " + buttonView.ChildCount);
-
 			Height = 54;
 			UpdateWhenOutOfBounds = true;
 
@@ -261,13 +220,6 @@ namespace HEROsMod.HEROsModServices
 			//this.Resize();
 			base.Width = num;
 			this.buttonView.Width = base.Width;
-		}
-
-		public override void Update()
-		{
-			DoSlideMovement();
-			//base.CenterXAxisToParentCenter();
-			base.Update();
 		}
 
 		//public void Resize()

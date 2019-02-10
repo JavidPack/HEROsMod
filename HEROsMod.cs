@@ -7,13 +7,10 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
 using Terraria.UI;
 
 // TODO, freeze is bypassable.
@@ -29,7 +26,7 @@ namespace HEROsMod
 		public override void Load()
 		{
 			// Since we are using hooks not in older versions, and since ItemID.Count changed, we need to do this.
-			if (ModLoader.version < new Version(0, 10, 1, 3))
+			if (ModLoader.version < new Version(0, 10, 1, 5))
 			{
 				throw new Exception(HEROsMod.HeroText("UpdateTModLoaderToUse"));
 			}
@@ -182,7 +179,7 @@ namespace HEROsMod
 			KeybindController.HotKeyPressed(name);
 		}
 
-		public override void UpdateMusic(ref int music)
+		public override void UpdateMusic(ref int music, ref MusicPriority priority)
 		{
 			CheckIfGameEnteredOrLeft();
 			//Console.WriteLine("?");
