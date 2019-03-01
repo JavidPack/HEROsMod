@@ -27,6 +27,7 @@ namespace HEROsMod.HEROsModNetwork
 		public static BinaryWriter writer;
 		public static Group DefaultGroup;
 		public static Group AdminGroup;
+        public static bool stuff = false;
 
 		//public static Group CTFGroup;
 		public static int AuthCode;
@@ -193,56 +194,114 @@ namespace HEROsMod.HEROsModNetwork
 			writer = new BinaryWriter(memoryStream);
 		}
 
-		public static bool PlayerHasPermissionToBuildAtBlock(HEROsModPlayer player, int x, int y)
-		{
-			bool canBuild = false;
+        public static bool PlayerHasPermissionToBuildAtBlock(HEROsModPlayer player, int x, int y)
+        {
+            bool canBuild = false;
 
-			if (player.Group.IsAdmin/* && !CTF.CaptureTheFlag.GameInProgress*/)
-			{
-				canBuild = true;
-			}
+            if (player.Group.IsAdmin/* && !CTF.CaptureTheFlag.GameInProgress*/)
+            {
+                canBuild = true;
+            }
 
-			if (!canBuild /*&& !CTF.CaptureTheFlag.GameInProgress*/ && player.Group.HasPermission("ModifyTerrain"))
-			{
-				canBuild = true;
-				for (int i = 0; i < Regions.Count; i++)
-				{
-					//if region contains tile
-					if (Regions[i].ContainsTile(x, y))
-					{
-						bool canBuildInRegion = false;
-						for (int j = 0; j < Regions[i].AllowedGroupsIDs.Count; j++)
-						{
-							if (player.Group.ID == Regions[i].AllowedGroupsIDs[j])
-							{
-								//can build in region
-								canBuildInRegion = true;
-								break;
-							}
-						}
-						// if can't build in region chack if player can build in the region
-						if (!canBuildInRegion)
-						{
-							for (int j = 0; j < Regions[i].AllowedPlayersIDs.Count; j++)
-							{
-								if (player.ID == Regions[i].AllowedPlayersIDs[j])
-								{
-									canBuildInRegion = true;
-									break;
-								}
-							}
-						}
-						canBuild = canBuildInRegion;
-						if (!canBuild)
-							break;
-					}
-				}
-			}
-			return canBuild;
-		}
+            if (!canBuild /*&& !CTF.CaptureTheFlag.GameInProgress*/ && player.Group.HasPermission("ModifyTerrain"))
+            {
+                canBuild = true;
+                for (int i = 0; i < Regions.Count; i++)
+                {
+                    //if region contains tile
+                    if (Regions[i].ContainsTile(x, y))
+                    {
+                        bool canBuildInRegion = false;
+                        for (int j = 0; j < Regions[i].AllowedGroupsIDs.Count; j++)
+                        {
+                            if (player.Group.ID == Regions[i].AllowedGroupsIDs[j])
+                            {
+                                //can build in region
+                                canBuildInRegion = true;
+                                break;
+                            }
+                        }
+                        // if can't build in region chack if player can build in the region
+                        if (!canBuildInRegion)
+                        {
+                            for (int j = 0; j < Regions[i].AllowedPlayersIDs.Count; j++)
+                            {
+                                if (player.ID == Regions[i].AllowedPlayersIDs[j])
+                                {
+                                    canBuildInRegion = true;
+                                    break;
+                                }
+                            }
+                        }
+                        canBuild = canBuildInRegion;
+                        if (!canBuild)
+                            break;
+                    }
+                }
+            }
+            return canBuild;
+        }
 
-		// TODO -- How will any of these work....?
-		public static bool CheckIncomingDataForHEROsModMessage(ref byte msgType, ref BinaryReader binaryReader, int playerNumber)
+        /// <summary>
+        /// Checks to see whether the player can open a chest inside a region at this tile location. Returns true if user is trusted or is in a trusted group.
+        /// </summary>
+        /// <param name="player">Player that is opening the chest.</param>
+        /// <param name="x">X coordinate of chest.</param>
+        /// <param name="y">Y coordinate of chest.</param>
+        /// <returns></returns>
+        public static bool PlayerHasPermissionToOpenChestAtLocation(HEROsModPlayer player, int x, int y)
+        {
+            bool canOpen = true;
+
+            // Admins have global access
+            if (player.Group.IsAdmin)
+                return true;
+
+            //if (!canOpen && player.Group.HasPermission("OpenChests?")) 
+            for (int i = 0; i < Regions.Count; i++)
+            {
+                //if region contains tile
+                if (Regions[i].ContainsTile(x, y) && Regions[i].ChestsProtected == true)
+                {
+                    canOpen = PlayerTrustedInRegion(Regions[i], player);
+                    if (!canOpen)
+                        break;
+                }
+            }
+            return canOpen;
+        }
+
+        /// <summary>
+        /// Determines whether a player has access to the region. Searches through groups and individual trusts.
+        /// </summary>
+        /// <param name="region">Region to check.</param>
+        /// <param name="player">Player to check against.</param>
+        /// <returns>True if trusted.</returns>
+        public static bool PlayerTrustedInRegion(Region region, HEROsModPlayer player)
+        {
+            // Verify player is in trusted group for region
+            for (int i = 0; i < region.AllowedGroupsIDs.Count; i++)
+            {
+                if (player.Group.ID == region.AllowedGroupsIDs[i])
+                {
+                    return true;
+                }
+            }
+
+            // Verify player is a trusted player in this region
+            for (int i = 0; i < region.AllowedPlayersIDs.Count; i++)
+            {
+                if (player.ID == region.AllowedPlayersIDs[i])
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        // TODO -- How will any of these work....?
+        public static bool CheckIncomingDataForHEROsModMessage(ref byte msgType, ref BinaryReader binaryReader, int playerNumber)
 		{
 			long readerPos = binaryReader.BaseStream.Position;
 
@@ -414,7 +473,7 @@ namespace HEROsMod.HEROsModNetwork
 						return true;
 					}
 					break;
-				/*				case 25: //received a chat message
+                /*				case 25: //received a chat message
 
 									binaryReader.ReadByte();
 									Color color = binaryReader.ReadRGB();
@@ -587,69 +646,84 @@ namespace HEROsMod.HEROsModNetwork
 										return true;
 									}
 									break;*/
-				//case 27:
-				//	if (ItemBanner.ItemsBanned && !Players[playerNumber].Group.IsAdmin)
-				//	{
-				//		int projIdentity = (int)binaryReader.ReadInt16();
-				//		Vector2 position = binaryReader.ReadVector2();
-				//		Vector2 velocity = binaryReader.ReadVector2();
-				//		float knockback = binaryReader.ReadSingle();
-				//		int damage = (int)binaryReader.ReadInt16();
-				//		int owner = (int)binaryReader.ReadByte();
-				//		int type = (int)binaryReader.ReadInt16();
+                //case 27:
+                //	if (ItemBanner.ItemsBanned && !Players[playerNumber].Group.IsAdmin)
+                //	{
+                //		int projIdentity = (int)binaryReader.ReadInt16();
+                //		Vector2 position = binaryReader.ReadVector2();
+                //		Vector2 velocity = binaryReader.ReadVector2();
+                //		float knockback = binaryReader.ReadSingle();
+                //		int damage = (int)binaryReader.ReadInt16();
+                //		int owner = (int)binaryReader.ReadByte();
+                //		int type = (int)binaryReader.ReadInt16();
 
-				//		Console.WriteLine("Prof: " + type);
-				//		int[] bannedProjectiles = ItemBanner.bannedProjectiles;
-				//		for (int i = 0; i < bannedProjectiles.Length; i++)
-				//		{
-				//			if (bannedProjectiles[i] == type)
-				//			{
-				//				Projectile newProj = new Projectile();
-				//				newProj.SetDefaults(type);
-				//				SendTextToPlayer(newProj.name + " is banned on the server", playerNumber, Color.Red);
+                //		Console.WriteLine("Prof: " + type);
+                //		int[] bannedProjectiles = ItemBanner.bannedProjectiles;
+                //		for (int i = 0; i < bannedProjectiles.Length; i++)
+                //		{
+                //			if (bannedProjectiles[i] == type)
+                //			{
+                //				Projectile newProj = new Projectile();
+                //				newProj.SetDefaults(type);
+                //				SendTextToPlayer(newProj.name + " is banned on the server", playerNumber, Color.Red);
 
-				//				int projIndex = 0;
-				//				for (int j = 0; j < 1000; j++)
-				//				{
-				//					if (!Main.projectile[j].active)
-				//					{
-				//						Projectile proj = Main.projectile[j];
-				//						proj.owner = owner;
-				//						projIndex = j;
-				//						break;
-				//					}
-				//				}
+                //				int projIndex = 0;
+                //				for (int j = 0; j < 1000; j++)
+                //				{
+                //					if (!Main.projectile[j].active)
+                //					{
+                //						Projectile proj = Main.projectile[j];
+                //						proj.owner = owner;
+                //						projIndex = j;
+                //						break;
+                //					}
+                //				}
 
-				//				NetMessage.SendData(27, playerNumber, -1, "", projIndex);
-				//				NetMessage.SendData(29, playerNumber, -1, "", projIdentity, (float)owner);
-				//				return true;
-				//			}
-				//		}
-				//	}
-				//	break;
-				//case 30:
-				//	if (NetworkMode == global::HEROsModMod.NetworkMode.Server)
-				//	{
-				//		if (CTF.CaptureTheFlag.GameInProgress)
-				//		{
-				//			SendTextToPlayer("You cannot change your hostility while Capture the Flag is in progress.", playerNumber);
-				//			CTF.CaptureTheFlag.SetPlayerHostility(Players[playerNumber]);
-				//			return true;
-				//		}
-				//	}
-				//	break;
-				//case 45:
-				//	if (NetworkMode == global::HEROsModMod.NetworkMode.Server)
-				//	{
-				//		if (CTF.CaptureTheFlag.GameInProgress)
-				//		{
-				//			SendTextToPlayer("You cannot change parties while Capture the Flag is in progress.", playerNumber);
-				//			CTF.CaptureTheFlag.SetPlayerHostility(Players[playerNumber]);
-				//			return true;
-				//		}
-				//	}
-				//	break;
-				case 63: //block painted
+                //				NetMessage.SendData(27, playerNumber, -1, "", projIndex);
+                //				NetMessage.SendData(29, playerNumber, -1, "", projIdentity, (float)owner);
+                //				return true;
+                //			}
+                //		}
+                //	}
+                //	break;
+                //case 30:
+                //	if (NetworkMode == global::HEROsModMod.NetworkMode.Server)
+                //	{
+                //		if (CTF.CaptureTheFlag.GameInProgress)
+                //		{
+                //			SendTextToPlayer("You cannot change your hostility while Capture the Flag is in progress.", playerNumber);
+                //			CTF.CaptureTheFlag.SetPlayerHostility(Players[playerNumber]);
+                //			return true;
+                //		}
+                //	}
+                //	break;
+                case 31:
+                    if (NetworkMode == global::HEROsMod.NetworkMode.Server)
+                    {
+                        int chestX = (int)binaryReader.ReadInt16();
+                        int chestY = (int)binaryReader.ReadInt16();
+                        HEROsModPlayer player = Players[playerNumber];
+
+                        if (!PlayerHasPermissionToOpenChestAtLocation(player, chestX, chestY))
+                        {
+                            SendTextToPlayer("This chest is protected.", playerNumber, Color.Red);
+                            return true;
+                        }
+                        return false;
+                    }
+                    break;
+                //case 45:
+                //	if (NetworkMode == global::HEROsModMod.NetworkMode.Server)
+                //	{
+                //		if (CTF.CaptureTheFlag.GameInProgress)
+                //		{
+                //			SendTextToPlayer("You cannot change parties while Capture the Flag is in progress.", playerNumber);
+                //			CTF.CaptureTheFlag.SetPlayerHostility(Players[playerNumber]);
+                //			return true;
+                //		}
+                //	}
+                //	break;
+                case 63: //block painted
 					if (NetworkMode == global::HEROsMod.NetworkMode.Server)
 					{
 						int x = (int)binaryReader.ReadInt16();

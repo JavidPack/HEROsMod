@@ -171,10 +171,13 @@ namespace HEROsMod.HEROsModNetwork
 				case MessageType.RequestChangeRegionColor:
 					ProcessChangeRegionColorRequest(ref reader, playerNumber);
 					break;
-				//case MessageType.RequestToggleHardmodeEnemies:
-				//	ProcessToggleHardmodeEnemiesRequest(playerNumber);
-				//	break;
-				case MessageType.RequestGodMode:
+                case MessageType.RequestToChangeRegionChestProtection:
+                    ProcessChangeRegionChestProtectionRequest(ref reader, playerNumber);
+                    break;
+                //case MessageType.RequestToggleHardmodeEnemies:
+                //	ProcessToggleHardmodeEnemiesRequest(playerNumber);
+                //	break;
+                case MessageType.RequestGodMode:
 					ProcessGodModeRequest(playerNumber);
 					break;
 
@@ -933,7 +936,7 @@ namespace HEROsMod.HEROsModNetwork
 			Network.SendDataToServer();
 		}
 
-		private static void ProcessChangeRegionColorRequest(ref BinaryReader reader, int playerNumber)
+        private static void ProcessChangeRegionColorRequest(ref BinaryReader reader, int playerNumber)
 		{
 			if (Network.Players[playerNumber].Group.IsAdmin)
 			{
@@ -947,7 +950,34 @@ namespace HEROsMod.HEROsModNetwork
 			}
 		}
 
-		public static void RequestRestoreTiles(int playerID, bool onlinePlayer)
+        public static void RequestToChangeChestProtectionOfRegion(Region region, bool protectionEnabled)
+        {
+            WriteHeader(MessageType.RequestToChangeRegionChestProtection);
+            Writer.Write(region.ID);
+            Writer.Write(protectionEnabled);
+            Network.SendDataToServer();
+        }
+
+        public static void ProcessChangeRegionChestProtectionRequest(ref BinaryReader reader, int playerNumber)
+        {
+            if (Network.Players[playerNumber].Group.IsAdmin)
+            {
+                Region region = Network.GetRegionByID(reader.ReadInt32());
+                if (region == null) return;
+                bool protectionEnabled = reader.ReadBoolean();
+
+                region.ChestsProtected = protectionEnabled;
+                DatabaseController.WriteRegionChestProtection(region);
+                SendRegionListToAllPlayers();
+
+                if(protectionEnabled)
+                    Network.SendTextToPlayer($"Chest protection now enabled for region: {region.Name}", playerNumber, Color.Aqua);
+                else
+                    Network.SendTextToPlayer($"Chest protection now disabled for region: {region.Name}", playerNumber, Color.Aqua);
+            }
+        }
+
+        public static void RequestRestoreTiles(int playerID, bool onlinePlayer)
 		{
 			WriteHeader(MessageType.RequestRestoreTiles);
 
@@ -1262,7 +1292,7 @@ namespace HEROsMod.HEROsModNetwork
 			RequestAddGroupToRegion,
 			RequestChangeRegionColor,
 			RequestRemoveGroupFromRegion,
-			RequestRestoreTiles,
+            RequestRestoreTiles,
 			RequestSetSpawnPoint,
 			RequestToggleGravestones,
 			GravestonesToggled,
@@ -1280,8 +1310,9 @@ namespace HEROsMod.HEROsModNetwork
 			RequestTeleport,
 			RequestForcedSundial,
 			CurrentToggles,
-			SyncItemNonOwner
-		}
+            SyncItemNonOwner,
+            RequestToChangeRegionChestProtection
+        }
 
 		public enum TimeChangeType
 		{

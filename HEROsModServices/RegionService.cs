@@ -203,8 +203,9 @@ namespace HEROsMod.HEROsModServices
 		private UIButton bBack;
 		private UIColorSlider colorSlider;
 		private UIButton bSaveColor;
+        private UIButton bProtectChests;
 
-		public RegionWindow()
+        public RegionWindow()
 		{
 			SelectedRegion = null;
 			this.CanMove = true;
@@ -218,7 +219,8 @@ namespace HEROsMod.HEROsModServices
 			bAddPlayer = new UIButton(HEROsMod.HeroText("AddPlayer"));
 			bBack = new UIButton(Language.GetTextValue("UI.Back"));
 			UIButton bToggleRegions = new UIButton(HEROsMod.HeroText("ToggleRegionsVisible"));
-			colorSlider = new UIColorSlider();
+            bProtectChests = new UIButton("Protect Chests");
+            colorSlider = new UIColorSlider();
 			bSaveColor = new UIButton(HEROsMod.HeroText("SaveColor"));
 			UIImage bClose = new UIImage(closeTexture);
 
@@ -250,14 +252,17 @@ namespace HEROsMod.HEROsModServices
 			bDeleteRegion.Y = bCreateRegion.Y;
 			bBack.X = bDeleteRegion.X + bDeleteRegion.Width + Spacing;
 			bBack.Y = bDeleteRegion.Y;
-
+            
 			colorSlider.Anchor = AnchorPosition.Left;
 			colorSlider.X = Spacing;
 			bSaveColor.Y = bBack.Y + bBack.Height + Spacing;
 			bSaveColor.X = colorSlider.X + colorSlider.Width + Spacing;
 			colorSlider.Y = bSaveColor.Y + bSaveColor.Height / 2;
 
-			bAddGroup.X = Width - bAddGroup.Width - Spacing;
+            bProtectChests.X = colorSlider.X + colorSlider.Width + bSaveColor.Width + Spacing * 2;
+            bProtectChests.Y = bBack.Y + bBack.Height + Spacing;
+
+            bAddGroup.X = Width - bAddGroup.Width - Spacing;
 			bAddGroup.Y = bDeleteRegion.Y;
 			bAddPlayer.X = bAddGroup.X;
 			bAddPlayer.Y = bAddGroup.Y + bAddPlayer.Height + Spacing;
@@ -270,10 +275,11 @@ namespace HEROsMod.HEROsModServices
 			bToggleRegions.X = scrollView.X;
 			bToggleRegions.Y = scrollView.Y + scrollView.Height + Spacing;
 
-			bBack.onLeftClick += bBack_onLeftClick;
+            bBack.onLeftClick += bBack_onLeftClick;
 			bDeleteRegion.onLeftClick += bDeleteRegion_onLeftClick;
 			bToggleRegions.onLeftClick += bToggleRegions_onLeftClick;
-			colorSlider.valueChanged += colorSlider_valueChanged;
+            bProtectChests.onLeftClick += bProtectChests_onLeftClick;
+            colorSlider.valueChanged += colorSlider_valueChanged;
 			bSaveColor.onLeftClick += bSaveColor_onLeftClick;
 
 			bDeleteRegion.Visible = false;
@@ -282,8 +288,9 @@ namespace HEROsMod.HEROsModServices
 			bBack.Visible = false;
 			colorSlider.Visible = false;
 			bSaveColor.Visible = false;
+            bProtectChests.Visible = false;
 
-			this.Height = bToggleRegions.Y + bToggleRegions.Height + Spacing;
+            this.Height = bToggleRegions.Y + bToggleRegions.Height + Spacing;
 
 			AddChild(lTitle);
 			AddChild(bClose);
@@ -294,7 +301,8 @@ namespace HEROsMod.HEROsModServices
 			AddChild(bAddGroup);
 			AddChild(bBack);
 			AddChild(bToggleRegions);
-			AddChild(colorSlider);
+            AddChild(bProtectChests);
+            AddChild(colorSlider);
 			AddChild(bSaveColor);
 
 			this.CenterToParent();
@@ -326,7 +334,12 @@ namespace HEROsMod.HEROsModServices
 			RegionService.RegionsVisible = !RegionService.RegionsVisible;
 		}
 
-		private void bDeleteRegion_onLeftClick(object sender, EventArgs e)
+        private void bProtectChests_onLeftClick(object sender, EventArgs e)
+        {
+            GeneralMessages.RequestToChangeChestProtectionOfRegion(SelectedRegion, !SelectedRegion.ChestsProtected);
+        }
+
+        private void bDeleteRegion_onLeftClick(object sender, EventArgs e)
 		{
 			if (SelectedRegion == null)
 			{
@@ -353,8 +366,9 @@ namespace HEROsMod.HEROsModServices
 			bBack.Visible = false;
 			colorSlider.Visible = false;
 			bSaveColor.Visible = false;
+            bProtectChests.Visible = false;
 
-			SelectedRegion = null;
+            SelectedRegion = null;
 
 			float yPos = Spacing;
 			for (int i = 0; i < HEROsModNetwork.Network.Regions.Count; i++)
@@ -443,8 +457,9 @@ namespace HEROsMod.HEROsModServices
 			bBack.Visible = true;
 			colorSlider.Visible = true;
 			bSaveColor.Visible = true;
+            bProtectChests.Visible = true;
 
-			colorSlider.Value = Main.rgbToHsl(region.Color).X;
+            colorSlider.Value = Main.rgbToHsl(region.Color).X;
 			//_prevRegionColor = new Color(region.Color.ToVector3());
 
 			float yPos = Spacing;
