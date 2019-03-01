@@ -67,8 +67,8 @@ namespace HEROsMod.HEROsModNetwork
 		public int y;
 		public int width;
 		public int height;
-        public bool chestsprotected;
-        public Color color;
+		public bool chestsprotected;
+		public Color color;
 
 		//public byte[] permissions;
 		public int[] permissionsGroups;
@@ -531,11 +531,11 @@ namespace HEROsMod.HEROsModNetwork
 			dbRegion.y = region.Y;
 			dbRegion.width = region.Width;
 			dbRegion.height = region.Height;
-            dbRegion.chestsprotected = region.ChestsProtected;
-            //byte[] colorData = new byte[] { region.Color.R, region.Color.G, region.Color.B, region.Color.A };
-            //int colorNum = BitConverter.ToInt32(colorData, 0);
-            //dbRegion.color = colorNum;
-            dbRegion.color = region.Color;
+			dbRegion.chestsprotected = region.ChestsProtected;
+			//byte[] colorData = new byte[] { region.Color.R, region.Color.G, region.Color.B, region.Color.A };
+			//int colorNum = BitConverter.ToInt32(colorData, 0);
+			//dbRegion.color = colorNum;
+			dbRegion.color = region.Color;
 			//dbRegion.permissions = region.ExportPermissions();
 			dbRegion.permissionsPlayers = region.AllowedPlayersIDs.ToArray();
 			dbRegion.permissionsGroups = region.AllowedGroupsIDs.ToArray();
@@ -566,17 +566,17 @@ namespace HEROsMod.HEROsModNetwork
 			SaveSetting(jsonDatabaseFilename);
 		}
 
-        public static void WriteRegionChestProtection(Region region)
-        {
-            DatabaseRegion r = currentDatabaseWorld.regions.Where(x => region.ID == x.ID).FirstOrDefault();
-            if (r != null)
-            {
-                r.chestsprotected = region.ChestsProtected;
-            }
-            SaveSetting(jsonDatabaseFilename);
-        }
+		public static void WriteRegionChestProtection(Region region)
+		{
+			DatabaseRegion r = currentDatabaseWorld.regions.Where(x => region.ID == x.ID).FirstOrDefault();
+			if (r != null)
+			{
+				r.chestsprotected = region.ChestsProtected;
+			}
+			SaveSetting(jsonDatabaseFilename);
+		}
 
-        public static void RemoveRegion(Region region)
+		public static void RemoveRegion(Region region)
 		{
 			DatabaseRegion databaseRegion = currentDatabaseWorld.regions.Where(x => x.ID == region.ID).FirstOrDefault();
 			if (databaseRegion != null)
