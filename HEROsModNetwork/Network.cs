@@ -698,7 +698,7 @@ namespace HEROsMod.HEROsModNetwork
 				//	}
 				//	break;
 				case 31:
-					if (NetworkMode == global::HEROsMod.NetworkMode.Server)
+					if (NetworkMode == NetworkMode.Server)
 					{
 						int chestX = (int)binaryReader.ReadInt16();
 						int chestY = (int)binaryReader.ReadInt16();
@@ -706,7 +706,7 @@ namespace HEROsMod.HEROsModNetwork
 
 						if (!PlayerHasPermissionToOpenChestAtLocation(player, chestX, chestY))
 						{
-							SendTextToPlayer("This chest is protected.", playerNumber, Color.Red);
+							SendTextToPlayer(HEROsMod.HeroText("ThisChestIsProtected"), playerNumber, Color.Red);
 							return true;
 						}
 						return false;

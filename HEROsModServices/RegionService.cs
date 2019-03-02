@@ -203,7 +203,7 @@ namespace HEROsMod.HEROsModServices
 		private UIButton bBack;
 		private UIColorSlider colorSlider;
 		private UIButton bSaveColor;
-		private UIButton bProtectChests;
+		private UICheckbox bProtectChests;
 
 		public RegionWindow()
 		{
@@ -219,7 +219,7 @@ namespace HEROsMod.HEROsModServices
 			bAddPlayer = new UIButton(HEROsMod.HeroText("AddPlayer"));
 			bBack = new UIButton(Language.GetTextValue("UI.Back"));
 			UIButton bToggleRegions = new UIButton(HEROsMod.HeroText("ToggleRegionsVisible"));
-			bProtectChests = new UIButton("Protect Chests");
+			bProtectChests = new UICheckbox(HEROsMod.HeroText("ProtectChests"));
 			colorSlider = new UIColorSlider();
 			bSaveColor = new UIButton(HEROsMod.HeroText("SaveColor"));
 			UIImage bClose = new UIImage(closeTexture);
@@ -458,6 +458,7 @@ namespace HEROsMod.HEROsModServices
 			colorSlider.Visible = true;
 			bSaveColor.Visible = true;
 			bProtectChests.Visible = true;
+			bProtectChests.Selected = region.ChestsProtected;
 
 			colorSlider.Value = Main.rgbToHsl(region.Color).X;
 			//_prevRegionColor = new Color(region.Color.ToVector3());

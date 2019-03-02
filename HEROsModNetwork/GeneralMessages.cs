@@ -971,9 +971,9 @@ namespace HEROsMod.HEROsModNetwork
 				SendRegionListToAllPlayers();
 
 				if (protectionEnabled)
-					Network.SendTextToPlayer($"Chest protection now enabled for region: {region.Name}", playerNumber, Color.Aqua);
+					Network.SendTextToPlayer(string.Format(HEROsMod.HeroText("ChestProtectionNowEnabledForRegion"), region.Name), playerNumber, Color.Aqua);
 				else
-					Network.SendTextToPlayer($"Chest protection now disabled for region: {region.Name}", playerNumber, Color.Aqua);
+					Network.SendTextToPlayer(string.Format(HEROsMod.HeroText("ChestProtectionNowDisabledForRegion"), region.Name), playerNumber, Color.Aqua);
 			}
 		}
 
