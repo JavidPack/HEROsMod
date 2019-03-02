@@ -35,12 +35,13 @@ namespace HEROsMod.HEROsModNetwork
 			}
 		}
 
+		public bool ChestsProtected { get; set; }
 		public List<int> AllowedPlayersIDs { get; set; }
 		public List<int> AllowedGroupsIDs { get; set; }
 
 		public Color Color { get; set; }
 
-		public Region(string name, int x, int y, int width, int height)
+		public Region(string name, int x, int y, int width, int height, bool chestsprotected = false)
 		{
 			this.Name = name;
 			this.X = x;
@@ -48,6 +49,7 @@ namespace HEROsMod.HEROsModNetwork
 			this.Width = width;
 			this.Height = height;
 			this.ID = -1;
+			this.ChestsProtected = chestsprotected;
 			AllowedPlayersIDs = new List<int>();
 			AllowedGroupsIDs = new List<int>();
 			this.Color = GetRandomColor();
@@ -59,6 +61,7 @@ namespace HEROsMod.HEROsModNetwork
 			this.Position = position;
 			this.Size = size;
 			this.ID = -1;
+			this.ChestsProtected = false;
 			AllowedPlayersIDs = new List<int>();
 			AllowedGroupsIDs = new List<int>();
 			this.Color = GetRandomColor();
@@ -154,6 +157,7 @@ namespace HEROsMod.HEROsModNetwork
 						writer.Write(AllowedGroupsIDs[j]);
 					}
 					writer.WriteRGB(Color);
+					writer.Write(ChestsProtected);
 					writer.Close();
 					memoryStream.Close();
 					return memoryStream.ToArray();
@@ -181,6 +185,7 @@ namespace HEROsMod.HEROsModNetwork
 				region.AllowedGroupsIDs.Add(reader.ReadInt32());
 			}
 			region.Color = reader.ReadRGB();
+			region.ChestsProtected = reader.ReadBoolean();
 			return region;
 		}
 
