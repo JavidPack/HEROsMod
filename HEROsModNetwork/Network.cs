@@ -27,6 +27,7 @@ namespace HEROsMod.HEROsModNetwork
 		public static BinaryWriter writer;
 		public static Group DefaultGroup;
 		public static Group AdminGroup;
+		public static bool stuff = false;
 
 		//public static Group CTFGroup;
 		public static int AuthCode;
@@ -239,6 +240,64 @@ namespace HEROsMod.HEROsModNetwork
 				}
 			}
 			return canBuild;
+		}
+
+		/// <summary>
+		/// Checks to see whether the player can open a chest inside a region at this tile location. Returns true if user is trusted or is in a trusted group.
+		/// </summary>
+		/// <param name="player">Player that is opening the chest.</param>
+		/// <param name="x">X coordinate of chest.</param>
+		/// <param name="y">Y coordinate of chest.</param>
+		/// <returns></returns>
+		public static bool PlayerHasPermissionToOpenChestAtLocation(HEROsModPlayer player, int x, int y)
+		{
+			bool canOpen = true;
+
+			// Admins have global access
+			if (player.Group.IsAdmin)
+				return true;
+
+			//if (!canOpen && player.Group.HasPermission("OpenChests?")) 
+			for (int i = 0; i < Regions.Count; i++)
+			{
+				//if region contains tile
+				if (Regions[i].ContainsTile(x, y) && Regions[i].ChestsProtected == true)
+				{
+					canOpen = PlayerTrustedInRegion(Regions[i], player);
+					if (!canOpen)
+						break;
+				}
+			}
+			return canOpen;
+		}
+
+		/// <summary>
+		/// Determines whether a player has access to the region. Searches through groups and individual trusts.
+		/// </summary>
+		/// <param name="region">Region to check.</param>
+		/// <param name="player">Player to check against.</param>
+		/// <returns>True if trusted.</returns>
+		public static bool PlayerTrustedInRegion(Region region, HEROsModPlayer player)
+		{
+			// Verify player is in trusted group for region
+			for (int i = 0; i < region.AllowedGroupsIDs.Count; i++)
+			{
+				if (player.Group.ID == region.AllowedGroupsIDs[i])
+				{
+					return true;
+				}
+			}
+
+			// Verify player is a trusted player in this region
+			for (int i = 0; i < region.AllowedPlayersIDs.Count; i++)
+			{
+				if (player.ID == region.AllowedPlayersIDs[i])
+				{
+					return true;
+				}
+			}
+
+			return false;
 		}
 
 		// TODO -- How will any of these work....?
@@ -638,6 +697,21 @@ namespace HEROsMod.HEROsModNetwork
 				//		}
 				//	}
 				//	break;
+				case 31:
+					if (NetworkMode == NetworkMode.Server)
+					{
+						int chestX = (int)binaryReader.ReadInt16();
+						int chestY = (int)binaryReader.ReadInt16();
+						HEROsModPlayer player = Players[playerNumber];
+
+						if (!PlayerHasPermissionToOpenChestAtLocation(player, chestX, chestY))
+						{
+							SendTextToPlayer(HEROsMod.HeroText("ThisChestIsProtected"), playerNumber, Color.Red);
+							return true;
+						}
+						return false;
+					}
+					break;
 				//case 45:
 				//	if (NetworkMode == global::HEROsModMod.NetworkMode.Server)
 				//	{

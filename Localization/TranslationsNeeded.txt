@@ -1,7 +1,8 @@
-ru-RU 1
-pt-BR 201
-pl-PL 201
-it-IT 201
-fr-FR 201
-es-ES 201
-de-DE 48
+zh-Hans 4
+ru-RU 4
+pt-BR 205
+pl-PL 205
+it-IT 205
+fr-FR 205
+es-ES 205
+de-DE 52
