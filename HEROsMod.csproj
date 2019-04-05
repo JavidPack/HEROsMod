@@ -56,6 +56,10 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Terraria, Version=1.3.5.1, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Terraria\Terraria.exe</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\AdminInstructionsCommand.cs" />
@@ -146,15 +150,9 @@
     <Content Include="build.txt" />
     <Content Include="description.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Modding\tModLoader\src\tModLoader\Terraria.csproj">
-      <Project>{3996d5fa-6e59-4fe4-9f2b-40eeef9645d5}</Project>
-      <Name>Terraria</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>"C:\Program Files (x86)\Steam\steamapps\common\terraria\tModLoaderServerDebug.exe" -build "$(ProjectDir)\" -eac "$(TargetPath)"</PostBuildEvent>
+    <PostBuildEvent>"C:\Program Files (x86)\Steam\steamapps\common\terraria\tModLoaderServer.exe" -build "$(ProjectDir)\" -eac "$(TargetPath)"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

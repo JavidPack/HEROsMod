@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -39,12 +40,21 @@ namespace HEROsMod.HEROsModServices
 		{
 			this.HasPermissionToUse = HEROsModNetwork.LoginService.MyGroup.HasPermission("PrefixEditor");
 			//base.MyGroupUpdated();
+			if (!HasPermissionToUse)
+			{
+				_prefixWindow.bClose_onLeftClick(null, null);
+			}
+		}
+
+		internal void PreSaveAndQuit()
+		{
+			_prefixWindow.bClose_onLeftClick(null, null);
 		}
 	}
 
 	internal class PrefixWindow : UIWindow
 	{
-		private Slot itemSlot;
+		internal Slot itemSlot;
 		private UIScrollView prefixList;
 		private int[] prefixes;
 		private List<Particle> particles;
@@ -89,7 +99,7 @@ namespace HEROsMod.HEROsModServices
 			UIImage bClsoe = new UIImage(closeTexture);
 			bClsoe.X = Width - bClsoe.Width - LargeSpacing;
 			bClsoe.Y = LargeSpacing;
-			bClsoe.onLeftClick += bClsoe_onLeftClick;
+			bClsoe.onLeftClick += bClose_onLeftClick;
 
 			AddChild(itemSlot);
 			AddChild(prefixList);
@@ -126,12 +136,41 @@ namespace HEROsMod.HEROsModServices
 			}
 		}
 
-		private void bClsoe_onLeftClick(object sender, EventArgs e)
+		internal void bClose_onLeftClick(object sender, EventArgs e)
 		{
 			this.Visible = false;
+			ClearOutItemSlots();
 		}
 
-		private void itemSlot_ItemChanged(object sender, EventArgs e)
+		internal void ClearOutItemSlots()
+		{
+			if (!itemSlot.item.IsAir)
+			{
+				Item item = itemSlot.item.Clone();
+
+				Player player = Main.LocalPlayer;
+				item.position = player.Center;
+				Item item2 = player.GetItem(player.whoAmI, item, false, true);
+				if (item2.stack > 0)
+				{
+					int num = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, item2.type, item2.stack, false, (int)item.prefix, true, false);
+					Main.item[num].newAndShiny = false;
+					if (Main.netMode == 1)
+					{
+						NetMessage.SendData(21, -1, -1, null, num, 1f, 0f, 0f, 0, 0, 0);
+					}
+					else
+					{
+						ErrorLogger.Log("HerosMod: You left an item in the prefix editor with a full inventory and have lost the item: " + item2.Name);
+					}
+
+				}
+				itemSlot.item.TurnToAir();
+				itemSlot_ItemChanged(null, null);
+			}
+		}
+
+		internal void itemSlot_ItemChanged(object sender, EventArgs e)
 		{
 			prefixes = new int[83];
 			for (int i = 0; i < 83; i++)

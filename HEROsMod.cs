@@ -116,6 +116,7 @@ namespace HEROsMod
 			}
 			extensionMenuService = null;
 			miscOptions = null;
+			prefixEditor = null;
 			_hotbar = null;
 			ServiceController = null;
 			TimeWeatherControlHotbar.Unload();
@@ -371,6 +372,7 @@ namespace HEROsMod
 		}
 
 		private MiscOptions miscOptions;
+		internal PrefixEditor prefixEditor;
 		private ExtensionMenuService extensionMenuService;
 
 		// TODO, is this ok to do on load rather than on enter?
@@ -404,7 +406,8 @@ namespace HEROsMod
 			ServiceController.AddService(new MobSpawner());
 			ServiceController.AddService(new BuffService());
 			ServiceController.AddService(new GodModeService());
-			ServiceController.AddService(new PrefixEditor());
+			instance.prefixEditor = new PrefixEditor();
+			ServiceController.AddService(instance.prefixEditor);
 			//		ServiceController.AddService(new InvasionService());
 			ServiceController.AddService(new Teleporter());
 			ServiceController.AddService(new RegionService());
@@ -561,6 +564,11 @@ namespace HEROsMod
 			ModUtils.DebugText("Game left");
 			Login.LoggedIn = false;
 			ServiceController.MyGroupChanged();
+		}
+
+		public override void PreSaveAndQuit()
+		{
+			instance.prefixEditor.PreSaveAndQuit();
 		}
 
 		//public static void SaveSettings()
