@@ -950,7 +950,15 @@ namespace HEROsMod.HEROsModNetwork
 				{
 					var a = HEROsMod.instance.GetPacket();
 					a.Write(memoryStream.ToArray());
-					a.Send(i);
+					try
+					{
+						a.Send(i);
+					}
+					catch (ObjectDisposedException e)
+					{
+						Console.WriteLine($"HERO's Mod: Resetting Player[{i}]");
+						Players[i].Reset();
+					}
 					ResetWriter();
 					//NetMessage.SendData(HEROsModNetworkMessageType, i);
 					writer.Write(bytes);
