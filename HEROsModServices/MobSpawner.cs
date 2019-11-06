@@ -232,8 +232,9 @@ namespace HEROsMod.HEROsModServices
 
 		private void bMod_onLeftClick(object sender, EventArgs e)
 		{
-			string[] mods = ModLoader.GetLoadedMods();
-			// TODO: 0.11 code: string[] mods = ModLoader.Mods.Select(x=>x.Name).ToArray();
+			//string[] mods = ModLoader.GetLoadedMods();
+			// TODO: 0.11 code: 
+			string[] mods = ModLoader.Mods.Select(x=>x.Name).ToArray();
 			if (bMod.Tooltip == "")
 			{
 			}

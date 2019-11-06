@@ -881,7 +881,7 @@ namespace HEROsMod
 				{
 					if (Main.gameMenu)
 					{
-						ErrorLogger.Log(header + Main.myPlayer + ": " + message);
+						HEROsMod.instance.Logger.Debug(header + Main.myPlayer + ": " + message);
 					}
 					else
 					{

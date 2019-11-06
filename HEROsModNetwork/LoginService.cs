@@ -451,8 +451,9 @@ namespace HEROsMod.HEROsModNetwork
 
 				for (int i = 0; i < Network.Players.Length; i++)
 				{
+					//if (Network.Players[i].Group?.ID == group.ID)
 					if (Network.Players[i].Group == group)
-					{
+						{
 						SendPlayerPermissions(i);
 					}
 				}

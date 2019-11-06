@@ -22,6 +22,7 @@ namespace HEROsMod
 	{
 		public static HEROsMod instance;
 		internal static Dictionary<string, ModTranslation> translations; // reference to private field.
+		internal Dictionary<string, Action<bool>> crossModGroupUpdated = new Dictionary<string, Action<bool>>();
 
 		public override void Load()
 		{
@@ -287,6 +288,7 @@ namespace HEROsMod
 				UIView.exclusiveControl = null;
 				//HEROsModVideo.Services.DropRateInfo.DropTableBuilder.ImportDropTable();
 				InventoryManager.SetKeyBindings();
+				//AchievementManger.Load();
 				//ZoomToolsService.SetKeyBindings();
 				//KeybindController.LoadBindings();
 				//UIKit.UIComponents.ItemTooltip.SetKeyBindings();
@@ -313,36 +315,60 @@ namespace HEROsMod
 
 		public override object Call(params object[] args)
 		{
-			string message = args[0] as string;
-			if (message == "AddSimpleButton")
+			int argsLength = args.Length;
+			Array.Resize(ref args, 6);
+
+			try
 			{
-				ModUtils.DebugText("Button Adding...");
-				RegisterButton(
-					args[1] as string,
-					args[2] as Texture2D,
-					args[3] as Action,
-					args[4] as Action<bool>,
-					args[5] as Func<string>
-				);
-				ModUtils.DebugText("...Button Added");
+				string message = args[0] as string;
+				if (message == "AddSimpleButton")
+				{
+					ModUtils.DebugText("Button Adding...");
+					RegisterButton(
+						args[1] as string,
+						args[2] as Texture2D,
+						args[3] as Action,
+						args[4] as Action<bool>,
+						args[5] as Func<string>
+					);
+					ModUtils.DebugText("...Button Added");
+				}
+				else if (message == "AddPermission")
+				{
+					ModUtils.DebugText("Permission Adding...");
+					// Internal,
+					RegisterPermission(
+						args[1] as string,
+						args[2] as string,
+						args[3] as Action<bool>
+					);
+					ModUtils.DebugText("...Permission Added");
+				}
+				else if (message == "HasPermission")
+				{
+					if (/*Main.netMode != Terraria.ID.NetmodeID.Server ||*/ argsLength != 3) // for now, only allow this call on Server (2) --> why??
+						return false;
+					//int player = Convert.ToInt32(args[1]); // Convert.ToInt32 doesn't throw exception, casting does. Exception is better in this case.
+					//string permission = args[2] as string;
+					return Network.Players[(int)args[1]].Group?.HasPermission(args[2] as string) ?? false; // Group might be null, so checking permissions on entering world won't work reliably.
+				}
+				else if (message == "HideHotbar")
+				{
+					if (!ServiceHotbar.Collapsed)
+					{
+						ServiceHotbar.collapseArrow_onLeftClick(null, null);
+						if(!ServiceHotbar.Collapsed) // sub hotbars
+							ServiceHotbar.collapseArrow_onLeftClick(null, null);
+					}
+				}
+				else
+				{
+					Logger.Error("Call Error: Unknown Message: " + message);
+				}
 			}
-			else if (message == "AddPermission")
+			catch (Exception e)
 			{
-				ModUtils.DebugText("Permission Adding...");
-				// Internal,
-				RegisterPermission(
-					args[1] as string,
-					args[2] as string
-				);
-				ModUtils.DebugText("...Permission Added");
-			}
-			else if (message == "HasPermission")
-			{
-				if (Main.netMode != Terraria.ID.NetmodeID.Server || args.Length != 3) // for now, only allow this call on Server (2)
-					return false;
-				//int player = Convert.ToInt32(args[1]); // Convert.ToInt32 doesn't throw exception, casting does. Exception is better in this case.
-				//string permission = args[2] as string;
-				return Network.Players[(int)args[1]].Group.HasPermission(args[2] as string);
+				Logger.Error("Call Error: " + e.StackTrace + e.Message);
 			}
 			return null;
 		}
@@ -358,7 +384,7 @@ namespace HEROsMod
 			}
 		}
 
-		public void RegisterPermission(string permissionName, string permissionDisplayName)
+		public void RegisterPermission(string permissionName, string permissionDisplayName, Action<bool> groupUpdated)
 		{
 			ModUtils.DebugText($"RegisterPermission: {permissionName} - {permissionDisplayName}");
 			Group.PermissionList.Add(new PermissionInfo(permissionName, permissionDisplayName));
@@ -367,6 +393,11 @@ namespace HEROsMod
 			//}
 			//Network.DefaultGroup.Permissions.Add(permissionName, false);
 			Network.AdminGroup.Permissions.Add(permissionName, true);
+
+			if (groupUpdated != null)
+			{
+				crossModGroupUpdated[permissionName] = groupUpdated;
+			}
 
 			//modExtensions.AddButton(texture, buttonClickedAction, tooltip);
 		}

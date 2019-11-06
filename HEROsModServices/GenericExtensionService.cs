@@ -8,7 +8,7 @@ namespace HEROsMod.HEROsModServices
 	internal class GenericExtensionService : HEROsModService
 	{
 		private Texture2D texture;
-		private Action buttonClickedAction;
+		private Action buttonClickedAction; // TODO: need left and right click. Use vanilla UIElement MouseEvent maybe?
 		private Action<bool> groupUpdated;
 		private Func<string> tooltip;
 		private string permissionName;

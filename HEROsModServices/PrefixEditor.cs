@@ -161,7 +161,7 @@ namespace HEROsMod.HEROsModServices
 					}
 					else
 					{
-						ErrorLogger.Log("HerosMod: You left an item in the prefix editor with a full inventory and have lost the item: " + item2.Name);
+						HEROsMod.instance.Logger.Warn("HerosMod: You left an item in the prefix editor with a full inventory and have lost the item: " + item2.Name);
 					}
 
 				}

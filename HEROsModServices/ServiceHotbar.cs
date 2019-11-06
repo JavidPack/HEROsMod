@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -136,7 +137,7 @@ namespace HEROsMod.HEROsModServices
 			collapseArrow.onLeftClick += collapseArrow_onLeftClick;
 		}
 
-		private void collapseArrow_onLeftClick(object sender, EventArgs e)
+		public void collapseArrow_onLeftClick(object sender, EventArgs e)
 		{
 			if (HotBarChild != null && HotBarChild.selected)
 			{
@@ -157,6 +158,12 @@ namespace HEROsMod.HEROsModServices
 			{
 				//HotBarChild?.Show();
 				collapseArrow.SpriteEffect = SpriteEffects.FlipVertically;
+
+				Mod cheatSheet = ModLoader.GetMod("CheatSheet");
+				if (cheatSheet != null)
+				{
+					cheatSheet.Call("HideHotbar");
+				}
 			}
 		}
 
@@ -166,6 +173,12 @@ namespace HEROsMod.HEROsModServices
 			{
 				HotBarChild.CenterXAxisToParentCenter();
 				collapseButton.Position = new Vector2(0, -collapseButton.Height - (Y - HotBarChild.Y));
+				collapseButton.CenterXAxisToParentCenter();
+				collapseArrow.Position = collapseButton.Position;
+			}
+			else
+			{
+				collapseButton.Position = new Vector2(0, -collapseButton.Height);
 				collapseButton.CenterXAxisToParentCenter();
 				collapseArrow.Position = collapseButton.Position;
 			}

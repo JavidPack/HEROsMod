@@ -73,6 +73,11 @@ namespace HEROsMod.HEROsModNetwork
 				Permissions.Add(p.Key, false);
 			}
 			Permissions["ModifyTerrain"] = true;
+
+			if (name == "Default")
+			{
+				Network.DefaultGroup = this;
+			}
 		}
 
 		public bool HasPermission(string permissionName)

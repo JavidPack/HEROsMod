@@ -41,6 +41,11 @@ namespace HEROsMod.HEROsModServices
 					//ErrorLogger.Log("MyGroupChanged for " + service.Name);
 					service.MyGroupUpdated();
 				}
+				// These not bound to a service because of complicated UI coupling
+				foreach (var item in HEROsMod.instance.crossModGroupUpdated)
+				{
+					item.Value.Invoke(HEROsModNetwork.LoginService.MyGroup.HasPermission(item.Key));
+				}
 				ServiceRemoved(null);
 			}
 		}
