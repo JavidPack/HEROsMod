@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.UI;
@@ -18,6 +19,8 @@ namespace HEROsMod
 	public class HEROsModModPlayer : ModPlayer
 	{
 		public override bool Autoload(ref string name) => true;
+
+		private float FreezeNonLoggedInMessageTimer = 7f;
 
 		public override void SetControls()
 		{
@@ -34,6 +37,16 @@ namespace HEROsMod
 				//	player.controlJump = false;
 				player.controlSmart = false;
 				player.controlTorch = false;
+			}
+			if(Main.netMode == NetmodeID.MultiplayerClient && !HEROsModServices.Login.LoggedIn && ModContent.GetInstance<HEROsModServerConfig>().FreezeNonLoggedIn)
+			{
+				player.frozen = true;
+				FreezeNonLoggedInMessageTimer -= ModUtils.DeltaTime;
+				if (FreezeNonLoggedInMessageTimer <= 0)
+				{
+					FreezeNonLoggedInMessageTimer = 7f;
+					Main.NewText(HEROsMod.HeroText("LoginInstructions"), Color.Red);
+				}
 			}
 		}
 
@@ -67,6 +80,11 @@ namespace HEROsMod
 					time = Main.time;
 					HEROsModNetwork.Network.Update();
 				}
+			}
+			if (Main.myPlayer == player.whoAmI && Main.netMode == NetmodeID.MultiplayerClient && !HEROsModServices.Login.LoggedIn && ModContent.GetInstance<HEROsModServerConfig>().FreezeNonLoggedIn)
+			{
+				// For visuals. Other players won't see this, but less error prone than Frozen debuff.
+				player.frozen = true;
 			}
 		}
 	}

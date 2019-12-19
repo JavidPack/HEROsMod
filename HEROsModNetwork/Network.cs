@@ -145,6 +145,7 @@ namespace HEROsMod.HEROsModNetwork
 				ModUtils.SetDeltaTime();
 				//ErrorLogger.Log("Network.Update");
 				//Console.WriteLine("Network.Update");
+				/*			
 				freezeTimer -= ModUtils.DeltaTime;
 				if (freezeTimer <= 0)
 				{
@@ -153,6 +154,7 @@ namespace HEROsMod.HEROsModNetwork
 
 					FreezeNonLoggedInPlayers();
 				}
+				*/
 				//authMessageTimer -= ModUtils.DeltaTime;
 				//if (authMessageTimer <= 0)
 				//{
@@ -170,7 +172,7 @@ namespace HEROsMod.HEROsModNetwork
 						sendTimeTimer -= ModUtils.DeltaTime;
 						if (sendTimeTimer <= 0)
 						{
-							sendTimeTimer = 1f;
+							sendTimeTimer = 10f; // very inefficient, this shouldn't be spammed. 
 							NetMessage.SendData(7, -1, -1, null, 0, 0f, 0f, 0f, 0);
 						}
 					}
