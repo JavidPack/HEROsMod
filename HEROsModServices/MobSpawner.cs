@@ -141,7 +141,8 @@ namespace HEROsMod.HEROsModServices
 			bMod = new UIButton(HEROsMod.HeroText("Mod"));
 			bMod.X = bBoss.X;
 			bMod.Y = bBoss.Y + bBoss.Height + Spacing;
-			bMod.onLeftClick += bMod_onLeftClick;
+			bMod.onLeftClick += (a, b) => bMod_onLeftClick(a, b, true);
+			bMod.onRightClick += (a, b) => bMod_onLeftClick(a, b, false);
 			bMod.Tooltip = "";
 
 			bAllNPCs.AutoSize = false;
@@ -230,21 +231,22 @@ namespace HEROsMod.HEROsModServices
 		// increment
 		public int lastModNameNumber = 0;
 
-		private void bMod_onLeftClick(object sender, EventArgs e)
+		private void bMod_onLeftClick(object sender, EventArgs e, bool left)
 		{
-			//string[] mods = ModLoader.GetLoadedMods();
-			// TODO: 0.11 code: 
-			string[] mods = ModLoader.Mods.Select(x=>x.Name).ToArray();
+			var mods = ModLoader.Mods.Select(x=>x.Name).ToList();
+			mods = mods.Intersect(npcList.Select(npc => npc.Mod?.Name)).ToList();
+			mods.Sort();
+			if (mods.Count == 0)
+			{
+				Main.NewText("No NPC have been added by mods.");
+				return;
+			}
 			if (bMod.Tooltip == "")
 			{
 			}
 			else
 			{
-				lastModNameNumber = (lastModNameNumber + 1) % mods.Length;
-				if (mods[lastModNameNumber] == "ModLoader")
-				{
-					lastModNameNumber = (lastModNameNumber + 1) % mods.Length;
-				}
+				lastModNameNumber = left ? (lastModNameNumber + 1) % mods.Count : (mods.Count + lastModNameNumber - 1) % mods.Count;
 			}
 			string currentMod = mods[lastModNameNumber];
 

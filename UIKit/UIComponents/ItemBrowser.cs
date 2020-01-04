@@ -548,10 +548,9 @@ namespace HEROsMod.UIKit.UIComponents
 		{
 			Category modCategory = new Category("Mod");
 			modCategory.SubCategories = new List<Category>();
-			foreach (Mod loadedMod in ModLoader.Mods)
+			foreach (Mod loadedMod in ModLoader.Mods.OrderBy(x => x.Name))
 			{
-				if (loadedMod.Name != "ModLoader")
-					modCategory.SubCategories.Add(new Category(loadedMod.Name, x => x.modItem != null && x.modItem.mod.Name == loadedMod.Name, skipLocalization:true));
+				modCategory.SubCategories.Add(new Category(loadedMod.Name, x => x.modItem != null && x.modItem.mod.Name == loadedMod.Name, skipLocalization: true));
 			}
 
 			Categories = new Category[] {
@@ -657,7 +656,8 @@ namespace HEROsMod.UIKit.UIComponents
 						{
 							if (subCategory.belongs(item))
 							{
-								other = false;
+								if (category != modCategory)
+									other = false; // Don't count modded items as not Other just because of modCategory
 								subCategory.Items.Add(item);
 							}
 						}
@@ -668,6 +668,7 @@ namespace HEROsMod.UIKit.UIComponents
 					}
 				}
 			}
+			modCategory.SubCategories.RemoveAll(sub => sub.Items.Count == 0);
 			foreach (var category in Categories)
 			{
 				// Sort? Value, damage, Tile/Placestyle, rare.
