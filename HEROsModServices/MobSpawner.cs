@@ -787,7 +787,7 @@ namespace HEROsMod.HEROsModServices
 			Player player = Main.player[playerIndex];
 			if (IsTownNPC || boundNPC.Contains(Type))
 			{
-				for (int i = 0; i < Main.npc.Length; i++)
+				for (int i = 0; i < Main.maxNPCs; i++)
 				{
 					NPC npc = Main.npc[i];
 					if (npc.type == NetID)

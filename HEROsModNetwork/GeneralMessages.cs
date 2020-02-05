@@ -1173,7 +1173,7 @@ namespace HEROsMod.HEROsModNetwork
 
 				if (newNPC.townNPC || global::HEROsMod.HEROsModServices.NPCStats.boundNPC.Contains(npcType))
 				{
-					for (int i = 0; i < Main.npc.Length; i++)
+					for (int i = 0; i < Main.maxNPCs; i++)
 					{
 						NPC npc = Main.npc[i];
 						if (npc.type == newNPC.type)

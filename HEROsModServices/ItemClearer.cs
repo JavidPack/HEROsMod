@@ -22,7 +22,7 @@ namespace HEROsMod.HEROsModServices
 			//ClearItems
 			if (ModUtils.NetworkMode == NetworkMode.None)
 			{
-				for (int i = 0; i < Main.item.Length; i++)
+				for (int i = 0; i < Main.maxItems; i++)
 				{
 					Main.item[i].active = false;
 				}

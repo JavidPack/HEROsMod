@@ -1003,7 +1003,7 @@ namespace HEROsMod.HEROsModNetwork
 
 		public static void ClearGroundItems()
 		{
-			for (int i = 0; i < Main.item.Length; i++)
+			for (int i = 0; i < Main.maxItems; i++)
 			{
 				if (Main.item[i].active)
 				{
@@ -1016,7 +1016,7 @@ namespace HEROsMod.HEROsModNetwork
 		public static void SpawnNPC(int type, Vector2 position)
 		{
 			bool npcFound = false;
-			for (int i = 0; i < Main.npc.Length; i++)
+			for (int i = 0; i < Main.maxNPCs; i++)
 			{
 				NPC n = Main.npc[i];
 				if (n.type == type)

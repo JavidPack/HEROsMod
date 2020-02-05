@@ -13,7 +13,7 @@ namespace HEROsMod.HEROsModVideo.Services.MobHUD
 
 		public static void Update()
 		{
-			for (int i = 0; i < Main.npc.Length; i++)
+			for (int i = 0; i < Main.maxNPCs; i++)
 			{
 				NPC npc = Main.npc[i];
 				if (npc.active && NPCOnScreen(npc))

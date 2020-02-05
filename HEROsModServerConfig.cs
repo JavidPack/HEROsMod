@@ -25,6 +25,12 @@ namespace HEROsMod
 		[DefaultValue(false)]
 		public bool FreezeNonLoggedIn { get; set; }
 
+		[Label("Telemetry")]
+		[Tooltip("Disable this to disable update notifications and other telemetry.")]
+		[DefaultValue(true)]
+		[ReloadRequired]
+		public bool Telemetry { get; set; }
+
 		public override bool AcceptClientChanges(ModConfig pendingConfig, int whoAmI, ref string message)
 		{
 			if (Network.Players[whoAmI].Group.IsAdmin)

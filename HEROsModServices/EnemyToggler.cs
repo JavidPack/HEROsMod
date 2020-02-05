@@ -47,7 +47,7 @@ namespace HEROsMod.HEROsModServices
 
 		public static void ClearNPCs()
 		{
-			for (int i = 0; i < Main.npc.Length; i++)
+			for (int i = 0; i < Main.maxNPCs; i++)
 			{
 				if (Main.npc[i] != null && !Main.npc[i].townNPC)
 				{
