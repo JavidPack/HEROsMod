@@ -55,8 +55,12 @@ namespace HEROsMod.UIKit.UIComponents
 
 		private void Slot2_onHover(object sender, EventArgs e)
 		{
-			HoverText = item.Name;
+			//HoverText = item.Name;
 			//HoverItem = item.Clone();
+
+			Main.hoverItemName = item.Name;
+			Main.HoverItem = item.Clone();
+			Main.HoverItem.SetNameOverride(Main.HoverItem.Name + (Main.HoverItem.modItem != null ? " [" + Main.HoverItem.modItem.mod.Name + "]" : ""));
 		}
 
 		private void Slot2_onLeftClick(object sender, EventArgs e)
