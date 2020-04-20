@@ -193,7 +193,6 @@ namespace HEROsMod.HEROsModServices
 				item.SetDefaults(item.type);
 				item.Prefix(-2);
 				remainingAttempts--;
-				Console.WriteLine(item.rare + "" + item.damage);
 				if (item.prefix != 0 && validPrefixValues.Add(item.prefix))
 				{
 					remainingAttempts = 100;
