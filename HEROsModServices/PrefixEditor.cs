@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
@@ -56,7 +57,6 @@ namespace HEROsMod.HEROsModServices
 	{
 		internal Slot itemSlot;
 		private UIScrollView prefixList;
-		private int[] prefixes;
 		private List<Particle> particles;
 		private float _particleTimer;
 		private float _newParticleTime = .1f;
@@ -64,17 +64,20 @@ namespace HEROsMod.HEROsModServices
 
 		private static Dictionary<int, Color> rarityColors = new Dictionary<int, Color>()
 		{
-			{-11, new Color(255, 175, 0) },
-			{-1, new Color(130, 130, 130) },
-			{1, new Color(150, 150, 255) },
-			{2, new Color(150, 255, 150) },
-			{3, new Color(255, 200, 150) },
-			{4, new Color(255, 150, 150) },
-			{5, new Color(255, 150, 255) },
-			{6, new Color(210, 160, 255) },
-			{7, new Color(150, 255, 10) },
-			{8, new Color(255, 255, 10) },
-			{9, new Color(5, 200, 255) },
+			{-11, Terraria.ID.Colors.RarityAmber },
+			{-1, Terraria.ID.Colors.RarityTrash },
+			{0, Color.White },
+			{1, Terraria.ID.Colors.RarityBlue },
+			{2, Terraria.ID.Colors.RarityGreen },
+			{3, Terraria.ID.Colors.RarityOrange },
+			{4, Terraria.ID.Colors.RarityRed },
+			{5, Terraria.ID.Colors.RarityPink },
+			{6, Terraria.ID.Colors.RarityPurple },
+			{7, Terraria.ID.Colors.RarityLime },
+			{8, Terraria.ID.Colors.RarityYellow },
+			{9, Terraria.ID.Colors.RarityCyan },
+			{10, new Color(255, 40, 100) },
+			{11, new Color(180, 40, 255) },
 		};
 
 		public PrefixWindow()
@@ -172,12 +175,6 @@ namespace HEROsMod.HEROsModServices
 
 		internal void itemSlot_ItemChanged(object sender, EventArgs e)
 		{
-			prefixes = new int[83];
-			for (int i = 0; i < 83; i++)
-			{
-				prefixes[i] = i + 1;
-			}
-			//prefixes = PrefixScraper.GetPrefixesForItem(itemSlot.item);
 			GetValidPrefixesForItem();
 			PopulatePrefixDropDown();
 		}
@@ -185,21 +182,25 @@ namespace HEROsMod.HEROsModServices
 		private void GetValidPrefixesForItem()
 		{
 			validPrefixes = new List<Item>();
-			Item backUpItem = itemSlot.item.Clone();
-			Item item = itemSlot.item;
-			for (int i = 0; i < prefixes.Length; i++)
+			if (itemSlot.item.IsAir)
+				return;
+			Item item = itemSlot.item.Clone();
+
+			var validPrefixValues = new HashSet<int>();
+			int remainingAttempts = 100;
+			while (remainingAttempts > 0)
 			{
-				if (PrefixScraper.IsValidPrefix(prefixes[i], item))
+				item.SetDefaults(item.type);
+				item.Prefix(-2);
+				remainingAttempts--;
+				Console.WriteLine(item.rare + "" + item.damage);
+				if (item.prefix != 0 && validPrefixValues.Add(item.prefix))
 				{
-					item.SetDefaults(item.type);
-					item.Prefix(prefixes[i]);
-					if (item.prefix == prefixes[i])
-					{
-						validPrefixes.Add(item.Clone());
-					}
+					remainingAttempts = 100;
+					validPrefixes.Add(item.Clone());
 				}
 			}
-			itemSlot.item = backUpItem.Clone();
+
 			validPrefixes = validPrefixes.OrderBy(x => -x.rare).ToList();
 		}
 
@@ -210,6 +211,8 @@ namespace HEROsMod.HEROsModServices
 			foreach (Item item in validPrefixes)
 			{
 				UILabel label = new UILabel(Lang.prefix[item.prefix].Value);
+				if (item.prefix == 0)
+					label.Text = "No Prefix";
 				label.Scale = .4f;
 				label.X = Spacing;
 				label.Y = yPos;
@@ -221,6 +224,8 @@ namespace HEROsMod.HEROsModServices
 				{
 					label.ForegroundColor = rarityColors[item.rare];
 				}
+				if(item.rare > 11)
+					label.ForegroundColor = rarityColors[11];
 				prefixList.AddChild(label);
 			}
 			prefixList.ContentHeight = yPos + Spacing;
@@ -238,7 +243,12 @@ namespace HEROsMod.HEROsModServices
 		{
 			UILabel label = (UILabel)sender;
 			Item item = (Item)label.Tag;
-			itemSlot.item = item.Clone();
+			Item reforgeItem = new Item();
+			reforgeItem.netDefaults(itemSlot.item.netID);
+			reforgeItem = reforgeItem.CloneWithModdedDataFrom(itemSlot.item);
+			reforgeItem.Prefix(item.prefix);
+			itemSlot.item = reforgeItem.Clone();
+			Main.PlaySound(SoundID.Item37);
 			//ModUtils.SetPrefix(itemSlot.item, prefixNum);
 			//itemSlot.itemPrefix2(prefixNum);
 			//Console.WriteLine(item.prefix);
