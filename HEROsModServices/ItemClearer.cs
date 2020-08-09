@@ -12,7 +12,7 @@ namespace HEROsMod.HEROsModServices
 		public ItemClearer()
 		{
 			this._name = "Item Clearer";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/canIcon"));
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/canIcon").Value);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ClearItemsOnGround");
 		}

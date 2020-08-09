@@ -17,7 +17,7 @@ namespace HEROsMod
 {
 	internal class HEROsModModWorld : ModWorld
 	{
-		public override bool Autoload(ref string name) => true;
+	//	public override bool Autoload(ref string name) => true;
 
 		//private const int saveVersion = 0;
 

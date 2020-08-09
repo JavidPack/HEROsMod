@@ -14,7 +14,7 @@ namespace HEROsMod.HEROsModServices
 		public CheckTileModificationTool()
 		{
 			MultiplayerOnly = true;
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/tileModification")/*Main.itemTexture[1999]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/tileModification").Value/*Main.itemTexture[1999]*/);
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("CheckTileForLastModification");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 			this.HasPermissionToUse = true;

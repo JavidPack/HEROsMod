@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Graphics;
 using System;
 using Terraria;
+using Terraria.GameContent;
 
 namespace HEROsMod.UIKit.UIComponents
 {
@@ -16,7 +17,7 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				if (_demonAltarTexture == null)
 				{
-					_demonAltarTexture = HEROsMod.instance.GetTexture("Images/Demon_Altar");
+					_demonAltarTexture = HEROsMod.instance.GetTexture("Images/Demon_Altar").Value;
 				}
 				return _demonAltarTexture;
 			}
@@ -48,7 +49,8 @@ namespace HEROsMod.UIKit.UIComponents
 			}
 			else
 			{
-				texture = Main.itemTexture[item.type];
+				Main.instance.LoadItem(item.type);
+				texture = TextureAssets.Item[item.type].Value;
 			}
 
 			float itemScale = 1f;
@@ -82,7 +84,7 @@ namespace HEROsMod.UIKit.UIComponents
 			}
 			if (item.stack > 1)
 			{
-				spriteBatch.DrawString(Main.fontItemStack, item.stack.ToString(), new Vector2(DrawPosition.X + 10f * Scale, DrawPosition.Y + 26f * Scale), Color.White, 0f, Vector2.Zero, Scale, SpriteEffects.None, 0f);
+				spriteBatch.DrawString(FontAssets.ItemStack.Value, item.stack.ToString(), new Vector2(DrawPosition.X + 10f * Scale, DrawPosition.Y + 26f * Scale), Color.White, 0f, Vector2.Zero, Scale, SpriteEffects.None, 0f);
 			}
 			base.Draw(spriteBatch);
 		}

@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Input;
 using ReLogic.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 
 namespace HEROsMod.UIKit.UIComponents
 {
@@ -11,7 +13,7 @@ namespace HEROsMod.UIKit.UIComponents
 	{
 		public Item item = new Item();
 		public int index = -1;
-		public static Texture2D backgroundTexture = Main.inventoryBack9Texture;
+		public static Texture2D backgroundTexture = TextureAssets.InventoryBack9.Value;
 		public bool functionalSlot = false;
 		public bool IsTrashCan { get; set; }
 
@@ -60,7 +62,7 @@ namespace HEROsMod.UIKit.UIComponents
 
 			Main.hoverItemName = item.Name;
 			Main.HoverItem = item.Clone();
-			Main.HoverItem.SetNameOverride(Main.HoverItem.Name + (Main.HoverItem.modItem != null ? " [" + Main.HoverItem.modItem.mod.Name + "]" : ""));
+			Main.HoverItem.SetNameOverride(Main.HoverItem.Name + (Main.HoverItem.modItem != null ? " [" + Main.HoverItem.modItem.Mod.Name + "]" : ""));
 		}
 
 		private void Slot2_onLeftClick(object sender, EventArgs e)
@@ -199,7 +201,7 @@ namespace HEROsMod.UIKit.UIComponents
 						{
 							if (j == 0)
 							{
-								Main.PlaySound(18, -1, -1, 1);
+								SoundEngine.PlaySound(18, -1, -1, 1);
 							}
 							if (Main.mouseItem.type == 0)
 							{
@@ -227,16 +229,17 @@ namespace HEROsMod.UIKit.UIComponents
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			spriteBatch.Draw(IsTrashCan ? Main.inventoryBack7Texture : backgroundTexture, this.DrawPosition, null, Color.White, 0f, Vector2.Zero, Scale, SpriteEffects.None, 0f);
+			spriteBatch.Draw(IsTrashCan ? TextureAssets.InventoryBack7.Value : backgroundTexture, this.DrawPosition, null, Color.White, 0f, Vector2.Zero, Scale, SpriteEffects.None, 0f);
 
 			if (this.IsTrashCan)
 			{
 				this.item = Main.player[Main.myPlayer].trashItem;
 			}
-			Texture2D texture = Main.itemTexture[item.type];
+			Main.instance.LoadItem(item.type);
+			Texture2D texture = TextureAssets.Item[item.type].Value;
 			if (this.IsTrashCan && item.type == 0)
 			{
-				texture = Main.trashTexture;
+				texture = TextureAssets.Trash.Value;
 			}
 			Rectangle rectangle2;
 			if (Main.itemAnimations[item.type] != null)
@@ -279,7 +282,7 @@ namespace HEROsMod.UIKit.UIComponents
 				}
 				if (item.stack > 1)
 				{
-					spriteBatch.DrawString(Main.fontItemStack, item.stack.ToString(), new Vector2(DrawPosition.X + 10f * Scale, DrawPosition.Y + 26f * Scale), Color.White, 0f, Vector2.Zero, Scale, SpriteEffects.None, 0f);
+					spriteBatch.DrawString(FontAssets.ItemStack.Value, item.stack.ToString(), new Vector2(DrawPosition.X + 10f * Scale, DrawPosition.Y + 26f * Scale), Color.White, 0f, Vector2.Zero, Scale, SpriteEffects.None, 0f);
 				}
 			}
 

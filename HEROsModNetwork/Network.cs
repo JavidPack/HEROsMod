@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
+using Terraria.Chat;
 using Terraria.ID;
 using Terraria.Localization;
 
@@ -897,14 +898,14 @@ namespace HEROsMod.HEROsModNetwork
 		{
 			Color c = color.GetValueOrDefault(Color.White);
 			//NetMessage.SendData(25, playerIndex, -1, msg, 255, c.R, c.G, c.B, 0);
-			NetMessage.SendChatMessageToClient(NetworkText.FromLiteral(msg), c, playerIndex);
+			ChatHelper.SendChatMessageToClient(NetworkText.FromLiteral(msg), c, playerIndex);
 		}
 
 		public static void SendTextToAllPlayers(string msg, Color? color = null)
 		{
 			Color c = color.GetValueOrDefault(Color.White);
 			//NetMessage.SendData(25, -1, -1, msg, 255, c.R, c.G, c.B, 0);
-			NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(msg), c, -1);
+			ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(msg), c, -1);
 		}
 
 		public static void SendDataToServer()

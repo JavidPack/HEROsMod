@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.GameContent;
 
 namespace HEROsMod.UIKit.UIComponents
 {
@@ -20,7 +21,7 @@ namespace HEROsMod.UIKit.UIComponents
 		private int slotColumns = 8;
 		private float slotSize = Slot.backgroundTexture.Width * .85f;
 		private int slotRows = 4;
-		private Slot[] slots = new Slot[Main.itemTexture.Length];
+		private Slot[] slots = new Slot[TextureAssets.Item.Length];
 
 		public ItemCollectionView()
 		{

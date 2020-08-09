@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Linq;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 
 namespace HEROsMod.HEROsModServices
@@ -24,7 +25,7 @@ namespace HEROsMod.HEROsModServices
 
 		public BuffService()
 		{
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/buffs")/*Main.buffTexture[2]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/buffs").Value/*Main.buffTexture[2]*/);
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenBuffWindow");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
@@ -123,7 +124,7 @@ namespace HEROsMod.HEROsModServices
 				bg.Tooltip = (buffDescription == null ? "" : buffDescription);
 				bg.onLeftClick += bg_onLeftClick;
 
-				UIImage buffImage = new UIImage(Main.buffTexture[buffType]);
+				UIImage buffImage = new UIImage(TextureAssets.Buff[buffType].Value);
 				buffImage.X = Spacing;
 				buffImage.Y = SmallSpacing / 2;
 				buffImage.OverridesMouse = false;

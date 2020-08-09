@@ -2,12 +2,13 @@
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Graphics;
 using Terraria;
+using Terraria.GameContent;
 
 namespace HEROsMod.UIKit
 {
 	internal class UILabel : UIView
 	{
-		public static DynamicSpriteFont defaultFont { get { return Main.fontDeathText; } }
+		public static DynamicSpriteFont defaultFont { get { return FontAssets.DeathText.Value; } }
 		public DynamicSpriteFont font;
 		private string text = "";
 

@@ -56,7 +56,7 @@ namespace HEROsMod.HEROsModServices
 					client.DownloadStringAsync(new Uri(statUrl
 						+ "?tmodversion=" + ModLoader.version.ToString()
 						+ "&version=" + HEROsMod.instance.Version.ToString()
-						+ "&platform=" + ModLoader.compressedPlatformRepresentation
+						+ "&platform=" + ModLoader.CompressedPlatformRepresentation
 						+ "&playhours=" + playHours
 						+ "&steamid64=" + ModUtils.SteamID
 					));

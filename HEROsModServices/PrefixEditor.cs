@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -17,7 +18,7 @@ namespace HEROsMod.HEROsModServices
 
 		public PrefixEditor()
 		{
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/reforge")/*Main.itemTexture[24]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/reforge").Value/*Main.itemTexture[24]*/);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("PrefixEditor");
 
@@ -153,7 +154,7 @@ namespace HEROsMod.HEROsModServices
 
 				Player player = Main.LocalPlayer;
 				item.position = player.Center;
-				Item item2 = player.GetItem(player.whoAmI, item, false, true);
+				Item item2 = player.GetItem(player.whoAmI, item, GetItemSettings.GetItemInDropItemCheck);
 				if (item2.stack > 0)
 				{
 					int num = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, item2.type, item2.stack, false, (int)item.prefix, true, false);
@@ -247,7 +248,7 @@ namespace HEROsMod.HEROsModServices
 			reforgeItem = reforgeItem.CloneWithModdedDataFrom(itemSlot.item);
 			reforgeItem.Prefix(item.prefix);
 			itemSlot.item = reforgeItem.Clone();
-			Main.PlaySound(SoundID.Item37);
+			SoundEngine.PlaySound(SoundID.Item37);
 			//ModUtils.SetPrefix(itemSlot.item, prefixNum);
 			//itemSlot.itemPrefix2(prefixNum);
 			//Console.WriteLine(item.prefix);

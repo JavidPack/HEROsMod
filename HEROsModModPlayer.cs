@@ -18,7 +18,7 @@ namespace HEROsMod
 {
 	public class HEROsModModPlayer : ModPlayer
 	{
-		public override bool Autoload(ref string name) => true;
+	//	public override bool Autoload(ref string name) => true;
 
 		private float FreezeNonLoggedInMessageTimer = 7f;
 

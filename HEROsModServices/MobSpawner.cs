@@ -7,6 +7,8 @@ using System.Linq;
 //using HEROsMod.HEROsModVideo.Services.DropRateInfo;
 
 using Terraria;
+using Terraria.Chat;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -20,7 +22,7 @@ namespace HEROsMod.HEROsModServices
 
 		public MobSpawner()
 		{
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/npcs")/*Main.itemTexture[666]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/npcs").Value/*Main.itemTexture[666]*/);
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenMobSpawnWindow");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
@@ -486,7 +488,7 @@ namespace HEROsMod.HEROsModServices
 			npcList = new List<NPCStats>();
 			NPC npc;
 			npc = new NPC();
-			for (int i = 0; i < Main.npcTexture.Length; i++)
+			for (int i = 0; i < TextureAssets.Npc.Length; i++)
 			{
 				npc.SetDefaults(i);
 				//if (npc.name != string.Empty)
@@ -502,7 +504,7 @@ namespace HEROsMod.HEROsModServices
 					npcList.Add(new NPCStats(npc));
 				}
 			}
-			ModUtils.DebugText("GetNPCList Loaded " + npcList.Count + " npc. npcTexture: " + Main.npcTexture.Length);
+			ModUtils.DebugText("GetNPCList Loaded " + npcList.Count + " npc. npcTexture: " + TextureAssets.Npc.Length);
 
 			//Golem
 			RemoveNPCTypeFromList(246);
@@ -597,7 +599,7 @@ namespace HEROsMod.HEROsModServices
 			//if (npc.NetID < 0) return;
 			CurrentNPC = npc;
 			ModUtils.LoadNPC(npc.Type);
-			mobImage.Texture = Main.npcTexture[npc.Type];
+			mobImage.Texture = TextureAssets.Npc[npc.Type].Value;
 			mobImage.SourceRectangle = new Rectangle(0, 0, (int)mobImage.Texture.Width, (int)mobImage.Texture.Height / Main.npcFrameCount[npc.Type]);
 			//mobImage.ForegroundColor = CurrentNPC.AlphaColor;
 			AddChild(mobImage);
@@ -772,7 +774,7 @@ namespace HEROsMod.HEROsModServices
 			this.Color = npc.color;
 			this.AlphaColor = npc.GetAlpha(Color.White);
 			this.Type = npc.type;
-			this.Mod = npc.modNPC?.mod;
+			this.Mod = npc.modNPC?.Mod;
 		}
 
 		public override string ToString()
@@ -876,12 +878,12 @@ namespace HEROsMod.HEROsModServices
 			int num7 = NPC.NewNPC(num2, num3, 113, 0);
 			if (Main.netMode == 0)
 			{
-				Main.NewText(Language.GetTextValue("Announcement.HasAwoken", Main.npc[num7].TypeName), 175, 75, 255, false);
+				Main.NewText(Language.GetTextValue("Announcement.HasAwoken", Main.npc[num7].TypeName), 175, 75, 255);
 				return;
 			}
 			if (Main.netMode == 2)
 			{
-				NetMessage.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
+				ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
 						{
 							Main.npc[num7].GetTypeNetName()
 						}), new Color(175, 75, 255), -1);

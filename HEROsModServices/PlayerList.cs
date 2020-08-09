@@ -16,7 +16,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			MultiplayerOnly = true;
 			this._name = "Player List";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/connectedPlayers"));
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/connectedPlayers").Value);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ViewConnectedPlayers");
 		}

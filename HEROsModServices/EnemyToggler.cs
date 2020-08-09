@@ -15,7 +15,7 @@ namespace HEROsMod.HEROsModServices
 		public EnemyToggler()
 		{
 			this._name = "Enemy Toggler";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/npcIcon"));
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/npcIcon").Value);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("DisableEnemySpawns");
 			this._hotbarIcon.Opacity = 1f;
@@ -99,7 +99,7 @@ namespace HEROsMod.HEROsModServices
 
 	public class EnemyTogglerGlobalNPC : GlobalNPC
 	{
-		public override bool Autoload(ref string name) => true;
+	//	public override bool Autoload(ref string name) => true;
 
 		public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
 		{

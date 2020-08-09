@@ -19,7 +19,7 @@ namespace HEROsMod.HEROsModServices
 
 			IsHotbar = true;
 
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/extensions"));
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/extensions").Value);
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ExtensionTools");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 

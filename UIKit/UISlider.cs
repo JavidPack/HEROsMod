@@ -2,13 +2,14 @@
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
+using Terraria.GameContent;
 
 namespace HEROsMod.UIKit
 {
 	internal class UISlider : UIView
 	{
 		protected static int padding = 8;
-		protected static Texture2D sliderTexture = Main.colorSliderTexture;
+		protected static Texture2D sliderTexture = TextureAssets.ColorSlider.Value;
 		internal static Texture2D barTexture;
 		private static Texture2D barFill;
 

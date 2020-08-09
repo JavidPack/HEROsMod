@@ -80,7 +80,7 @@ namespace HEROsMod.UIKit
 			if (Visible && (IsMouseInside()/* || button.MouseInside*/))
 			{
 				Main.player[Main.myPlayer].mouseInterface = true;
-				Main.player[Main.myPlayer].showItemIcon = false;
+				Main.player[Main.myPlayer].cursorItemIconEnabled = false;
 			}
 		}
 

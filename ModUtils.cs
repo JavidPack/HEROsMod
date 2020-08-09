@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.GameContent.Events;
 using Terraria.ModLoader;
 
@@ -111,7 +112,8 @@ namespace HEROsMod
 		{
 			get
 			{
-				return (Texture2D)_hueTexture.GetValue(Main.instance);
+				return TextureAssets.Hue.Value;
+				//return (Texture2D)_hueTexture.GetValue(Main.instance);
 			}
 		}
 
@@ -630,7 +632,7 @@ namespace HEROsMod
 			Vector2 pos = ModUtils.GetWorldCoordsFromTileCoords(position) - Main.screenPosition;
 			pos.X += 2;
 			pos.Y += 2;
-			spriteBatch.DrawString(Main.fontMouseText, text, pos, Color.White, 0f, Vector2.Zero, .7f, SpriteEffects.None, 0);
+			spriteBatch.DrawString(FontAssets.MouseText.Value, text, pos, Color.White, 0f, Vector2.Zero, .7f, SpriteEffects.None, 0);
 		}
 
 		//public static void DrawModVersion(SpriteBatch spriteBatch)

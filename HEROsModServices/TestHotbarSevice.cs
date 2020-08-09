@@ -3,6 +3,7 @@ using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 
 namespace HEROsMod.HEROsModServices
@@ -13,7 +14,7 @@ namespace HEROsMod.HEROsModServices
 
 		public TestHotbarService()
 		{
-			this._hotbarIcon = new UIImage(Main.buffTexture[3]);
+			this._hotbarIcon = new UIImage(TextureAssets.Buff[3].Value);
 			this.HotbarIcon.Tooltip = "Test Hotbar";
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
@@ -61,11 +62,15 @@ namespace HEROsMod.HEROsModServices
 		{
 			this.buttonView = new UIView();
 			base.Visible = false;
-			bStampTiles = new UIImage(Main.itemTexture[ItemID.Paintbrush]);
-			bEyeDropper = new UIImage(Main.itemTexture[ItemID.EmptyDropper]);
-			bFlipHorizontal = new UIImage(Main.itemTexture[ItemID.PadThai]);
-			bFlipVertical = new UIImage(Main.itemTexture[ItemID.Safe]);
-			bToggleTransparentSelection = new UIImage(Main.buffTexture[BuffID.Invisibility]);
+			Main.instance.LoadItem(ItemID.Paintbrush);
+			Main.instance.LoadItem(ItemID.EmptyDropper);
+			Main.instance.LoadItem(ItemID.PadThai);
+			Main.instance.LoadItem(ItemID.Safe);
+			bStampTiles = new UIImage(TextureAssets.Item[ItemID.Paintbrush].Value);
+			bEyeDropper = new UIImage(TextureAssets.Item[ItemID.EmptyDropper].Value);
+			bFlipHorizontal = new UIImage(TextureAssets.Item[ItemID.PadThai].Value);
+			bFlipVertical = new UIImage(TextureAssets.Item[ItemID.Safe].Value);
+			bToggleTransparentSelection = new UIImage(TextureAssets.Buff[BuffID.Invisibility].Value);
 			bStampTiles.Tooltip = "    Paint Tiles";
 			bEyeDropper.Tooltip = "    Eye Dropper";
 			bFlipHorizontal.Tooltip = "    Flip Horizontal";

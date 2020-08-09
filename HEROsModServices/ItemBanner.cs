@@ -31,7 +31,7 @@ namespace HEROsMod.HEROsModServices
 			HotbarParent = hotbar;
 			MultiplayerOnly = true;
 			this._name = "Item Banner";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/explosives")/*Main.itemTexture[888]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/explosives").Value/*Main.itemTexture[888]*/);
 			this._hotbarIcon.Tooltip = HEROsMod.HeroText("BanDestructiveExplosives");
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			HEROsModNetwork.GeneralMessages.ItemBannerToggleByServer += GeneralMessages_BannedItemsToggleByServer;
@@ -69,7 +69,7 @@ namespace HEROsMod.HEROsModServices
 
 	internal class ItemBannerGlobalProjectile : GlobalProjectile
 	{
-		public override bool Autoload(ref string name) => true;
+	//	public override bool Autoload(ref string name) => true;
 
 		// Is only called on server??
 		public override bool PreAI(Projectile projectile)

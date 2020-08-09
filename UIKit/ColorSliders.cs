@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
+using Terraria.GameContent;
 
 namespace HEROsMod.UIKit
 {
@@ -34,13 +35,13 @@ namespace HEROsMod.UIKit
 		{
 			Vector2 pos = DrawPosition;
 			pos.Y += (sliderTexture.Height - ModUtils.HueTexture.Height) / 2;
-			Main.spriteBatch.Draw(Main.colorBarTexture, pos, Color.White);
+			Main.spriteBatch.Draw(TextureAssets.ColorBar.Value, pos, Color.White);
 			int fillWidth = 167;
 			for (int k = 0; k <= fillWidth; k++)
 			{
 				float saturation = (float)k / (float)fillWidth;
 				Color color4 = Main.hslToRgb(Hue, saturation, Luminosity);
-				Main.spriteBatch.Draw(Main.colorBlipTexture, new Vector2((float)(pos.X + k + 5), (float)(pos.Y + 4)), color4);
+				Main.spriteBatch.Draw(TextureAssets.ColorBlip.Value, new Vector2((float)(pos.X + k + 5), (float)(pos.Y + 4)), color4);
 			}
 		}
 	}
@@ -59,14 +60,14 @@ namespace HEROsMod.UIKit
 		{
 			Vector2 pos = DrawPosition;
 			pos.Y += (sliderTexture.Height - ModUtils.HueTexture.Height) / 2;
-			Main.spriteBatch.Draw(Main.colorBarTexture, pos, Color.White);
+			Main.spriteBatch.Draw(TextureAssets.ColorBar.Value, pos, Color.White);
 
 			int fillWidth = 167;
 			for (int l = 0; l <= fillWidth; l++)
 			{
 				float luminosity = (float)l / (float)fillWidth;
 				Color color5 = Main.hslToRgb(Hue, Saturation, luminosity);
-				Main.spriteBatch.Draw(Main.colorBlipTexture, new Vector2((float)(pos.X + l + 5), (float)(pos.Y + 4)), color5);
+				Main.spriteBatch.Draw(TextureAssets.ColorBlip.Value, new Vector2((float)(pos.X + l + 5), (float)(pos.Y + 4)), color5);
 			}
 		}
 	}

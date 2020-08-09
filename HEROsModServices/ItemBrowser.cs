@@ -12,7 +12,7 @@ namespace HEROsMod.HEROsModServices
 		public ItemBrowser()
 		{
 			this._name = "Item Browser";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/items")/*Main.itemTexture[10]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/items").Value/*Main.itemTexture[10]*/);
 			this.HotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ItemBrowser");
 

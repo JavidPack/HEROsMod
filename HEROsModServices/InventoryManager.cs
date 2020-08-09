@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.UI;
 
 namespace HEROsMod.HEROsModServices
@@ -114,7 +116,7 @@ namespace HEROsMod.HEROsModServices
 			{
 				player.inventory[40 + i] = (Item)tempItems[i].Clone();
 			}
-			Main.PlaySound(7, -1, -1, 1);
+			SoundEngine.PlaySound(7, -1, -1, 1);
 		}
 
 		private static Item MoveItemToContainer(Item _item, byte destination, int invNum)
@@ -152,7 +154,7 @@ namespace HEROsMod.HEROsModServices
 						if (item.stack <= 0) //if the stack is empty
 						{
 							item.SetDefaults(0, false);
-							Main.PlaySound(7, -1, -1, 1);
+							SoundEngine.PlaySound(7, -1, -1, 1);
 							break;
 						}
 					}
@@ -176,7 +178,7 @@ namespace HEROsMod.HEROsModServices
 									else if (destination == 0) NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
 								}
 							}
-							Main.PlaySound(7, -1, -1, 1);
+							SoundEngine.PlaySound(7, -1, -1, 1);
 							break;
 						}
 					}
@@ -203,7 +205,7 @@ namespace HEROsMod.HEROsModServices
 									else if (destination == 0) NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
 								}
 							}
-							Main.PlaySound(7, -1, -1, 1);
+							SoundEngine.PlaySound(7, -1, -1, 1);
 							break;
 						}
 					}
@@ -357,7 +359,7 @@ namespace HEROsMod.HEROsModServices
 						{
 							float scale = .75f;
 							Vector2 pos = new Vector2(itemPosX + 25, itemPosY + 2);
-							spriteBatch.Draw(Main.HBLockTexture[0], pos, null, Color.DarkGray * .8f, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
+							spriteBatch.Draw(TextureAssets.HbLock[0].Value, pos, null, Color.DarkGray * .8f, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
 						}
 					}
 				}
@@ -390,7 +392,7 @@ namespace HEROsMod.HEROsModServices
 					int num76 = (int)(46f - 26f * inventoryScale);
 					int num77 = (int)(410f + Main.availableRecipeY[num75] * inventoryScale - 30f * inventoryScale + (float)num50);
 
-					if (Main.mouseX >= num76 && (float)Main.mouseX <= (float)num76 + (float)Main.inventoryBackTexture.Width * inventoryScale && Main.mouseY >= num77 && (float)Main.mouseY <= (float)num77 + (float)Main.inventoryBackTexture.Height * inventoryScale)
+					if (Main.mouseX >= num76 && (float)Main.mouseX <= (float)num76 + (float)TextureAssets.InventoryBack.Value.Width * inventoryScale && Main.mouseY >= num77 && (float)Main.mouseY <= (float)num77 + (float)TextureAssets.InventoryBack.Value.Height * inventoryScale)
 					{
 						Main.player[Main.myPlayer].mouseInterface = true;
 						if (Main.focusRecipe == num75 && Main.guideItem.type == 0)
@@ -419,7 +421,7 @@ namespace HEROsMod.HEROsModServices
 									if (playsound)
 									{
 										Main.mouseLeftRelease = false;
-										Main.PlaySound(7, -1, -1, 1);
+										SoundEngine.PlaySound(7, -1, -1, 1);
 									}
 									Main.mouseItem = (Item)tempItem.Clone();
 									Recipe.FindRecipes();
@@ -462,7 +464,7 @@ namespace HEROsMod.HEROsModServices
 										if (playsound)
 										{
 											Main.mouseRightRelease = false;
-											Main.PlaySound(7, -1, -1, 1);
+											SoundEngine.PlaySound(7, -1, -1, 1);
 										}
 										if (tempItem.stack > 0)
 										{
@@ -509,7 +511,7 @@ namespace HEROsMod.HEROsModServices
 						int num123 = (int)((float)invBottom + (float)(num121 * 56) * inventoryScale);
 						int num124 = num120 + num121 * 10;
 						Color white13 = new Color(100, 100, 100, 100);
-						if (Main.mouseX >= num122 && (float)Main.mouseX <= (float)num122 + (float)Main.inventoryBackTexture.Width * inventoryScale && Main.mouseY >= num123 && (float)Main.mouseY <= (float)num123 + (float)Main.inventoryBackTexture.Height * inventoryScale)
+						if (Main.mouseX >= num122 && (float)Main.mouseX <= (float)num122 + (float)TextureAssets.InventoryBack.Value.Width * inventoryScale && Main.mouseY >= num123 && (float)Main.mouseY <= (float)num123 + (float)TextureAssets.InventoryBack.Value.Height * inventoryScale)
 						{
 							Main.player[Main.myPlayer].mouseInterface = true;
 
@@ -532,7 +534,7 @@ namespace HEROsMod.HEROsModServices
 												playsound = true;
 												tempItem.stack++;
 											}
-											if (playsound) Main.PlaySound(18, -1, -1, 1);
+											if (playsound) SoundEngine.PlaySound(18, -1, -1, 1);
 											if (tempItem.stack > 0)
 												Main.mouseItem = (Item)tempItem.Clone();
 											Recipe.FindRecipes();
@@ -560,7 +562,7 @@ namespace HEROsMod.HEROsModServices
 													playsound = true;
 												}
 
-												if (playsound) Main.PlaySound(18, -1, -1, 1);
+												if (playsound) SoundEngine.PlaySound(18, -1, -1, 1);
 												if (tempItem.stack > 0)
 												{
 													for (int i = 0; i < p.inventory.Length - 9; i++)

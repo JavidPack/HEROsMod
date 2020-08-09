@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using ReLogic.Graphics;
 using System;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.GameInput;
 using Terraria.ModLoader;
 
@@ -32,7 +33,8 @@ namespace HEROsMod.HEROsModServices
 			Enabled = false;
 			LockCamera = false;
 			this._name = "Fly Camera";
-			this._hotbarIcon = new UIKit.UIImage(Main.itemTexture[493]);
+			Main.instance.LoadItem(493);
+			this._hotbarIcon = new UIKit.UIImage(TextureAssets.Item[493].Value);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this._hotbarIcon.onRightClick += _hotbarIcon_onRightClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("FlyCamEnableTooltip");
@@ -164,15 +166,15 @@ namespace HEROsMod.HEROsModServices
 		{
 			if (Enabled && !LockCamera)
 			{
-				Main.spriteBatch.DrawString(Main.fontMouseText, HEROsMod.HeroText("RightClickToTeleport"), new Vector2(15, Main.screenHeight - 120), Color.White);
-				Main.spriteBatch.DrawString(Main.fontMouseText, HEROsMod.HeroText("FlyCamInstructions"), new Vector2(15, Main.screenHeight - 90), Color.White);
+				Main.spriteBatch.DrawString(FontAssets.MouseText.Value, HEROsMod.HeroText("RightClickToTeleport"), new Vector2(15, Main.screenHeight - 120), Color.White);
+				Main.spriteBatch.DrawString(FontAssets.MouseText.Value, HEROsMod.HeroText("FlyCamInstructions"), new Vector2(15, Main.screenHeight - 90), Color.White);
 			}
 		}
 	}
 
 	public class FlyCamModPlayer : ModPlayer
 	{
-		public override bool Autoload(ref string name) => true;
+	//	public override bool Autoload(ref string name) => true;
 
 		public override void ModifyScreenPosition()
 		{

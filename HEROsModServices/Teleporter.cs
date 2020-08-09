@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using ReLogic.Graphics;
 using Terraria;
+using Terraria.GameContent;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -62,7 +63,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			if (HasPermissionToUse)
 			{
-				Main.spriteBatch.DrawString(Main.fontMouseText, HEROsMod.HeroText("RightClickToTeleport"), new Vector2(15, Main.screenHeight - 80), Color.White);
+				Main.spriteBatch.DrawString(FontAssets.MouseText.Value, HEROsMod.HeroText("RightClickToTeleport"), new Vector2(15, Main.screenHeight - 80), Color.White);
 
 				if (Main.mouseRight && Main.keyState.IsKeyUp(Microsoft.Xna.Framework.Input.Keys.LeftControl))
 				{
