@@ -557,15 +557,15 @@ namespace HEROsMod.UIKit.UIComponents
 			Categories = new Category[] {
 				new Category("Weapons"/*, x=>x.damage>0*/) {
 					SubCategories = new List<Category>() {
-						new Category("Melee", x=>x.melee),
-						new Category("Magic", x=>x.magic),
-						new Category("Ranged", x=>x.ranged && x.ammo == 0) // TODO and ammo no
+						new Category("Melee", x=>x.DamageType == DamageClass.Melee),
+						new Category("Magic", x=>x.DamageType == DamageClass.Magic),
+						new Category("Ranged", x=>x.DamageType == DamageClass.Ranged && x.ammo == 0) // TODO and ammo no
 						{
 							Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortAmmo").Value) {Tooltip = HeroText("SortName.UseAmmoType")}, (x,y)=>x.useAmmo.CompareTo(y.useAmmo)), }
 						},
 						//new Category("Throwing", x=>x.thrown),
-						new Category("Summon", x=>x.summon && !x.sentry),
-						new Category("Sentry", x=>x.summon && x.sentry),
+						new Category("Summon", x=>x.DamageType == DamageClass.Summon && !x.sentry),
+						new Category("Sentry", x=>x.DamageType == DamageClass.Summon && x.sentry),
 					},
 					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortDamage").Value) {Tooltip = HeroText("SortName.Damage")}, (x,y)=>x.damage.CompareTo(y.damage)), }
 				},
