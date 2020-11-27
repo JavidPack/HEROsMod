@@ -199,7 +199,7 @@ namespace HEROsMod.HEROsModNetwork
 				}
 				if (Network.WillFreezeNonLoggedIn)
 				{
-					Network.SendPlayerToPosition(player, new Vector2(Main.spawnTileX * 16, Main.spawnTileY * 16));
+				//	Network.SendPlayerToPosition(player, new Vector2(Main.spawnTileX * 16, Main.spawnTileY * 16));
 				}
 			}
 		}
