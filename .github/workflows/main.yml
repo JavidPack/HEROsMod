@@ -20,5 +20,5 @@ jobs:
        
       - uses: actions/upload-artifact@v2
         with:
-          name: tMod Build
+          name: .tmod file
           path: $HOME/tModLoader/ModLoader/Mods/HEROsMod.tmod
