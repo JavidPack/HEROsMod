@@ -8,6 +8,6 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <Target Name="BuildMod" AfterTargets="Build">
-    <Exec Command="&quot;$(tMLBuildServerPath)&quot; -build $(ProjectDir) -eac $(TargetPath) -define $(DefineConstants) -unsafe $(AllowUnsafeBlocks)" />
+    <Exec Command="&quot;$(tMLBuildServerPath)&quot; -build $(ProjectDir) -eac $(TargetPath) -unsafe $(AllowUnsafeBlocks)" />
   </Target>
 </Project>
