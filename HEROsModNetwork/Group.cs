@@ -29,7 +29,7 @@ namespace HEROsMod.HEROsModNetwork
 			new PermissionInfo("Snoop", "Snoop Player Inventories"),
             //new PermissionInfo("ControlWeather", "Control Weather"),
             new PermissionInfo("EditWaypoints", "Edit Waypoints"),
-			new PermissionInfo("AccessWaypoints", "Access Wayppoints"),
+			new PermissionInfo("AccessWaypoints", "Access Waypoints"),
             //new PermissionInfo("StartCTF", "Start CTF Match"),
             new PermissionInfo("ToggleGravestones", "Toggle Gravestones"),
 			new PermissionInfo("CanUseBuffs", "Open Buff Window"),
