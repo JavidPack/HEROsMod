@@ -1,0 +1,52 @@
+name: Test Linux Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  buildmod:
+    name: Build Mod
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+       
+      - run: |
+        echo pwd is: ${PWD}
+        echo ls -l is:
+        ls -l
+        echo CD to Home
+        cd $HOME
+        mkdir tModLoader
+        cd tModLoader
+        echo Downloading tModLoader
+        curl -s -L https://github.com/tModLoader/tModLoader/releases/download/v0.11.8/tModLoader.Linux.v0.11.8.zip -o tModLoader.zip
+        unzip -q tModLoader.zip
+        echo Downloading ModCompile
+        curl -s -L https://github.com/tModLoader/tModLoader/releases/download/v0.11.8/ModCompile_XNA.zip -o ModCompile.zip
+        unzip -q ModCompile.zip -d ./ModCompile
+        touch savehere.txt
+        mkdir -p ModLoader/Mod\ Sources/
+        echo pwd is: ${PWD}
+        echo ls -l is:
+        ls -l
+        echo Copy Workspace to correct foldername for build
+        cp -r $GITHUB_WORKSPACE ModLoader/Mod\ Sources/HEROsMod
+        cd ModLoader/Mod\ Sources/HEROsMod
+        ls -l
+        cd ../../..
+        echo pwd is: ${PWD}
+        echo Building Mod
+        ls -l
+        echo Upgrade to tModLoader-mono	
+        cp ./tModLoader-mono ./tModLoaderServer
+        echo Initialize tModLoader.targets
+        ./tModLoaderServer -build ModLoader/Mod\ Sources/HEROsMod
+        echo Build XNA dll
+        cd ModLoader/Mod\ Sources/HEROsMod
+        dotnet restore
+        cd ../../..
+        echo Build tmod file
+        ./tModLoaderServer -build ModLoader/Mod\ Sources/HEROsMod -eac ModLoader/Mod\ Sources/HEROsMod/bin/Debug/net45/HEROsMod.dll -unsafe false
+        echo Done Building
+        cd ModLoader/Mods
+        ls -l
