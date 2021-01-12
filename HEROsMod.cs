@@ -138,56 +138,56 @@ namespace HEROsMod
 			}
 		}
 
-		public override void PostDrawFullscreenMap(ref string mouseText)
-		{
-			Teleporter.instance.PostDrawFullScreenMap();
-			MapRevealer.instance.PostDrawFullScreenMap();
-		}
+		//public override void PostDrawFullscreenMap(ref string mouseText)
+		//{
+		//	Teleporter.instance.PostDrawFullScreenMap();
+		//	MapRevealer.instance.PostDrawFullScreenMap();
+		//}
 
-		public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
-		{
-			int inventoryLayerIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
-			if (inventoryLayerIndex != -1)
-			{
-				layers.Insert(inventoryLayerIndex, new LegacyGameInterfaceLayer(
-					"HerosMod: UI",
-					delegate
-					{
-						try
-						{
-							HEROsMod.Update();
+		//public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
+		//{
+		//	int inventoryLayerIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
+		//	if (inventoryLayerIndex != -1)
+		//	{
+		//		layers.Insert(inventoryLayerIndex, new LegacyGameInterfaceLayer(
+		//			"HerosMod: UI",
+		//			delegate
+		//			{
+		//				try
+		//				{
+		//					HEROsMod.Update();
 
-							HEROsMod.ServiceHotbar.Update();
+		//					HEROsMod.ServiceHotbar.Update();
 
-							HEROsMod.DrawBehindUI(Main.spriteBatch);
+		//					HEROsMod.DrawBehindUI(Main.spriteBatch);
 
-							HEROsMod.Draw(Main.spriteBatch);
+		//					HEROsMod.Draw(Main.spriteBatch);
 
-							KeybindController.DoPreviousKeyState();
-						}
-						catch (Exception e)
-						{
-							ModUtils.DebugText("PostDrawInInventory Error: " + e.Message + e.StackTrace);
-						}
-						return true;
-					},
-					InterfaceScaleType.UI)
-				);
-			}
-		}
+		//					KeybindController.DoPreviousKeyState();
+		//				}
+		//				catch (Exception e)
+		//				{
+		//					ModUtils.DebugText("PostDrawInInventory Error: " + e.Message + e.StackTrace);
+		//				}
+		//				return true;
+		//			},
+		//			InterfaceScaleType.UI)
+		//		);
+		//	}
+		//}
 
-		public override void HotKeyPressed(string name)
-		{
-			//	ErrorLogger.Log("HKP " + name);
-			KeybindController.HotKeyPressed(name);
-		}
+		//public override void HotKeyPressed(string name)
+		//{
+		//	//	ErrorLogger.Log("HKP " + name);
+		//	KeybindController.HotKeyPressed(name);
+		//}
 
-		public override void UpdateMusic(ref int music, ref MusicPriority priority)
-		{
-			CheckIfGameEnteredOrLeft();
-			//Console.WriteLine("?");
-			//KeybindController.DoPreviousKeyState();
-		}
+		//public override void UpdateMusic(ref int music, ref MusicPriority priority)
+		//{
+		//	CheckIfGameEnteredOrLeft();
+		//	//Console.WriteLine("?");
+		//	//KeybindController.DoPreviousKeyState();
+		//}
 
 		public override void HandlePacket(BinaryReader reader, int whoAmI)
 		{
@@ -558,7 +558,7 @@ namespace HEROsMod
 		}
 
 		//Not working since update not called in title screen.
-		private static void CheckIfGameEnteredOrLeft()
+		internal static void CheckIfGameEnteredOrLeft()
 		{
 			if (Main.gameMenu && !_prevGameMenu)
 			{
@@ -601,10 +601,10 @@ namespace HEROsMod
 			ServiceController.MyGroupChanged();
 		}
 
-		public override void PreSaveAndQuit()
-		{
-			instance.prefixEditor.PreSaveAndQuit();
-		}
+		//public override void PreSaveAndQuit()
+		//{
+		//	instance.prefixEditor.PreSaveAndQuit();
+		//}
 
 		//public static void SaveSettings()
 		//{

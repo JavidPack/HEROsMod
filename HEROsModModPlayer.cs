@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
@@ -87,6 +88,11 @@ namespace HEROsMod
 				// For visuals. Other players won't see this, but less error prone than Frozen debuff.
 				player.frozen = true;
 			}
+		}
+
+		public override void ProcessTriggers(TriggersSet triggersSet)
+		{
+			KeybindController.HotKeyPressed(triggersSet.KeyStatus);
 		}
 	}
 

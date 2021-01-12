@@ -595,7 +595,7 @@ namespace HEROsMod.UIKit.UIComponents
 				{
 					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.GetTexture("Images/sortAmmo").Value) {Tooltip = HeroText("SortName.AmmoType")}, (x,y)=>x.ammo.CompareTo(y.ammo)), }
 				},
-				new Category("Potions", x=>(x.UseSound != null && x.UseSound.Style == 3)),
+				new Category("Potions", x=>(x.UseSound != null/* && x.UseSound.Style == 3*/)),
 				new Category("Expert", x=>x.expert),
 				new Category("Pets"/*, x=> x.buffType > 0 && (Main.vanityPet[x.buffType] || Main.lightPet[x.buffType])*/){
 					SubCategories = new List<Category>() {

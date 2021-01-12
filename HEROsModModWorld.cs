@@ -15,20 +15,20 @@ using Terraria.UI;
 
 namespace HEROsMod
 {
-	internal class HEROsModModWorld : ModWorld
+	internal class HEROsModModWorld : ModSystem
 	{
-	//	public override bool Autoload(ref string name) => true;
+		//	public override bool Autoload(ref string name) => true;
 
 		//private const int saveVersion = 0;
 
 		// When a world is loaded on Server or client, we need to load settings.
-		public override void Initialize()
+		public override void OnWorldLoad()
 		{
 			HEROsModNetwork.DatabaseController.InitializeWorld();
 			HEROsModNetwork.Network.InitializeWorld();
 		}
 
-		public override TagCompound Save()
+		public override TagCompound SaveWorldData()
 		{
 			//if (Main.dedServ) // What about clients? do they save?
 			{

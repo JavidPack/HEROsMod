@@ -4,6 +4,7 @@ using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.ModLoader.Container;
 using Terraria.UI;
 
 namespace HEROsMod.HEROsModServices
@@ -126,7 +127,8 @@ namespace HEROsMod.HEROsModServices
 
 			if (item.type > 0)
 			{
-				Item[] container = new Item[0];
+				// TODO: More mystery magic
+				TerrariaInventory container = new TerrariaInventory(player.inventory.Length);
 				if (destination == 0) container = player.inventory;
 				else if (destination == 1) container = Main.chest[player.chest].item;
 				else if (destination == 2) container = player.bank.item;

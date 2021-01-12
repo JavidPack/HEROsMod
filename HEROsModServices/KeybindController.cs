@@ -22,17 +22,18 @@ namespace HEROsMod.HEROsModServices
 			}
 			ModUtils.DebugText("Binding " + bindName);
 			HEROsMod.instance.RegisterHotKey(bindName, key);
-			KeyBinding bind = new KeyBinding(bindName);
+			KeyBinding bind = new KeyBinding("HEROsMod: " + bindName);
 			bindings.Add(bind);
 			return bind;
 			//return currentCategory.AddKeyBinding(bindName, key);
 		}
 
-		internal static void HotKeyPressed(string name)
+		internal static void HotKeyPressed(/*string name*/Dictionary<string, bool> keyStatus)
 		{
 			foreach (var hotkey in bindings)
 			{
-				if (hotkey.name == name)
+				// TODO: ???
+				if (keyStatus[hotkey.name])
 				{
 					hotkey.Down = true;
 					break;
