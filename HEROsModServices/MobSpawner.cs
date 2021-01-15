@@ -774,7 +774,7 @@ namespace HEROsMod.HEROsModServices
 			this.Color = npc.color;
 			this.AlphaColor = npc.GetAlpha(Color.White);
 			this.Type = npc.type;
-			this.Mod = npc.modNPC?.Mod;
+			this.Mod = npc.ModNPC?.Mod;
 		}
 
 		public override string ToString()

@@ -296,7 +296,7 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				Filters = new Filter[]
 				{
-					new Filter( new UIImage(HEROsMod.instance.GetTexture("Images/filterMod").Value) {Tooltip = HeroText("FilterName.ModFilter")}, x=>x.modItem != null),
+					new Filter( new UIImage(HEROsMod.instance.GetTexture("Images/filterMod").Value) {Tooltip = HeroText("FilterName.ModFilter")}, x=>x.ModItem != null),
 				};
 			}
 			//Category[] categories = Categories;
@@ -551,7 +551,7 @@ namespace HEROsMod.UIKit.UIComponents
 			modCategory.SubCategories = new List<Category>();
 			foreach (Mod loadedMod in ModLoader.Mods.OrderBy(x => x.Name))
 			{
-				modCategory.SubCategories.Add(new Category(loadedMod.Name, x => x.modItem != null && x.modItem.Mod.Name == loadedMod.Name, skipLocalization: true));
+				modCategory.SubCategories.Add(new Category(loadedMod.Name, x => x.ModItem != null && x.ModItem.Mod.Name == loadedMod.Name, skipLocalization: true));
 			}
 
 			Categories = new Category[] {

@@ -16,8 +16,8 @@ namespace HEROsMod
 	{
 		private static MethodInfo _drawPlayerHeadMethod;
 		private static MethodInfo _loadPlayersMethod;
-		private static MethodInfo _startRainMethod;
-		private static MethodInfo _stopRainMethod;
+		//private static MethodInfo _startRainMethod;
+		//private static MethodInfo _stopRainMethod;
 		private static MethodInfo _startSandstormMethod;
 		private static MethodInfo _stopSandstormMethod;
 
@@ -177,8 +177,8 @@ namespace HEROsMod
 				//	Main.DrawPlayerHead
 				_drawPlayerHeadMethod = Main.instance.GetType().GetMethod("DrawPlayerHead", BindingFlags.NonPublic | BindingFlags.Instance);
 				_loadPlayersMethod = typeof(Main).GetMethod("LoadPlayers", BindingFlags.NonPublic | BindingFlags.Static);
-				_startRainMethod = typeof(Main).GetMethod("StartRain", BindingFlags.NonPublic | BindingFlags.Static);
-				_stopRainMethod = typeof(Main).GetMethod("StopRain", BindingFlags.NonPublic | BindingFlags.Static);
+				//_startRainMethod = typeof(Main).GetMethod("StartRain", BindingFlags.NonPublic | BindingFlags.Static);
+				//_stopRainMethod = typeof(Main).GetMethod("StopRain", BindingFlags.NonPublic | BindingFlags.Static);
 				_startSandstormMethod = typeof(Sandstorm).GetMethod("StartSandstorm", BindingFlags.NonPublic | BindingFlags.Static);
 				_stopSandstormMethod = typeof(Sandstorm).GetMethod("StopSandstorm", BindingFlags.NonPublic | BindingFlags.Static);
 				//   _loadNPCMethod = typeof(Main).GetMethod("LoadNPC", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -260,12 +260,14 @@ namespace HEROsMod
 
 		public static void StartRain()
 		{
-			_startRainMethod.Invoke(null, null);
+			//_startRainMethod.Invoke(null, null);
+			Main.StartRain();
 		}
 
 		public static void StopRain()
 		{
-			_stopRainMethod.Invoke(null, null);
+			//_stopRainMethod.Invoke(null, null);
+			Main.StopRain();
 		}
 
 		public static void StartSandstorm()

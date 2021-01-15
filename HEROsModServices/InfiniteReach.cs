@@ -119,7 +119,7 @@ namespace HEROsMod.HEROsModServices
 
 		public override void ResetEffects()
 		{
-			if (player.whoAmI == Main.myPlayer)
+			if (Player.whoAmI == Main.myPlayer)
 			{
 				if (InfiniteReach.Enabled)
 				{
