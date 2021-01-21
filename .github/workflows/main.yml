@@ -13,12 +13,13 @@ jobs:
       - uses: actions/checkout@v2
        
       # Mod Browser integration
-      - uses: JavidPack/tModLoaderPublishIntegration@master
+      - uses: JavidPack/tModLoaderPublishIntegration@v0.11.8
         with:
           STEAMID64: ${{secrets.STEAMID64}}
           MODBROWSERPASSPHRASE: ${{secrets.MODBROWSERPASSPHRASE}}
           MODNAME: HEROsMod
-       
+     
+      # Upload artifact for all builds
       - uses: actions/upload-artifact@v2
         with:
           name: .tmod file
