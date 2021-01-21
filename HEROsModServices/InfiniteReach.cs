@@ -23,6 +23,11 @@ namespace HEROsMod.HEROsModServices
          * Hook 2:
          *
          */
+	 	public static bool IsPaintbrush(Item item)
+		{
+			return item.type == ItemID.Paintbrush
+			|| item.type == ItemID.SpectrePaintbrush;
+		}
 		public static bool Enabled { get; set; }
 
 		public InfiniteReach()
@@ -101,7 +106,7 @@ namespace HEROsMod.HEROsModServices
 
 				// Works with: Place tiles, walls. Axe, Hammer, Pick.
 				Item selected = player.inventory[player.selectedItem];
-				if (selected.createTile >= 0 || selected.createWall >= 0 || selected.pick > 0 || selected.axe > 0 || selected.hammer > 0)
+				if (selected.createTile >= 0 || selected.createWall >= 0 || selected.pick > 0 || selected.axe > 0 || selected.hammer > 0 || IsPaintbrush(item))
 				{
 					// TODO, hammering tile destorys walls too??
 					player.itemTime = 0;
