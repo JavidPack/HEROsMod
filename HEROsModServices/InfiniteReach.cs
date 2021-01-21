@@ -1,6 +1,7 @@
 ﻿using HEROsMod.UIKit;
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -106,7 +107,7 @@ namespace HEROsMod.HEROsModServices
 
 				// Works with: Place tiles, walls. Axe, Hammer, Pick.
 				Item selected = player.inventory[player.selectedItem];
-				if (selected.createTile >= 0 || selected.createWall >= 0 || selected.pick > 0 || selected.axe > 0 || selected.hammer > 0 || IsPaintbrush(item))
+				if (selected.createTile >= 0 || selected.createWall >= 0 || selected.pick > 0 || selected.axe > 0 || selected.hammer > 0 || IsPaintbrush(selected))
 				{
 					// TODO, hammering tile destorys walls too??
 					player.itemTime = 0;
