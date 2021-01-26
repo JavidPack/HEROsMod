@@ -54,7 +54,7 @@ namespace HEROsMod.HEROsModServices
 				using (WebClient client = new WebClient())
 				{
 					client.DownloadStringAsync(new Uri(statUrl
-						+ "?tmodversion=" + ModLoader.version.ToString()
+						+ "?tmodversion=" + BuildInfo.tMLVersion.ToString()
 						+ "&version=" + HEROsMod.instance.Version.ToString()
 						+ "&platform=" + ModLoader.CompressedPlatformRepresentation
 						+ "&playhours=" + playHours

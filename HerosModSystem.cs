@@ -1,6 +1,7 @@
 ﻿using HEROsMod.HEROsModServices;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.UI;
@@ -56,6 +57,16 @@ namespace HEROsMod
 			HEROsMod.CheckIfGameEnteredOrLeft();
 			//Console.WriteLine("?");
 			//KeybindController.DoPreviousKeyState();
+		}
+
+		public override bool HijackGetData(ref byte messageType, ref BinaryReader reader, int playerNumber)
+		{
+			if (HEROsModNetwork.Network.CheckIncomingDataForHEROsModMessage(ref messageType, ref reader, playerNumber))
+			{
+				//ErrorLogger.Log("Hijacking: " + messageType);
+				return true;
+			}
+			return false;
 		}
 	}
 }
