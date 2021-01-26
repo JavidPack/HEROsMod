@@ -37,7 +37,7 @@ namespace HEROsMod.HEROsModServices
 				{
 					client.DownloadStringCompleted += ProcessPSA;
 					client.DownloadStringAsync(new Uri(psaUrl
-						+ "?tmodversion=" + ModLoader.version.ToString()
+						+ "?tmodversion=" + BuildInfo.tMLVersion.ToString()
 						+ "&version=" + HEROsMod.instance.Version.ToString()
 						+ "&platform=" + ModLoader.CompressedPlatformRepresentation
 						+ "&steamid64=" + ModUtils.SteamID

@@ -414,7 +414,7 @@ namespace HEROsMod.HEROsModNetwork
 						switch (tileModifyType)
 						{
 							case TileModifyType.KillTile:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceTile, (float)x, (float)y, (float)tile.type, tile.slope());
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceTile, (float)x, (float)y, (float)tile.type, (int)tile.Slope);
 								break;
 
 							case TileModifyType.PlaceTile:
@@ -430,7 +430,7 @@ namespace HEROsMod.HEROsModNetwork
 								break;
 
 							case TileModifyType.KillTileNoItem:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceTile, (float)x, (float)y, (float)tile.type, tile.slope());
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceTile, (float)x, (float)y, (float)tile.type, (int)tile.Slope);
 								break;
 
 							case TileModifyType.PlaceWire:
@@ -466,11 +466,11 @@ namespace HEROsMod.HEROsModNetwork
 								break;
 
 							case TileModifyType.PoundTile:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PoundTile, (float)x, (float)y, (float)placeType, tile.slope());
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PoundTile, (float)x, (float)y, (float)placeType, (int)tile.Slope);
 								break;
 
 							case TileModifyType.SlopeTile:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.SlopeTile, (float)x, (float)y, (float)placeType, tile.slope());
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.SlopeTile, (float)x, (float)y, (float)placeType, (int)tile.Slope);
 								break;
 						}
 						return true;
@@ -742,7 +742,7 @@ namespace HEROsMod.HEROsModNetwork
 						}
 						else
 						{
-							NetMessage.SendData(63, playerNumber, -1, null, x, (float)y, (float)Main.tile[x, y].color());
+							NetMessage.SendData(63, playerNumber, -1, null, x, (float)y, (float)Main.tile[x, y].Color);
 							SendTextToPlayer(HEROsMod.HeroText("YouDoNotHavePermissionToBuildHere"), playerNumber, Color.Red);
 							return true;
 						}
@@ -765,7 +765,7 @@ namespace HEROsMod.HEROsModNetwork
 						}
 						else
 						{
-							NetMessage.SendData(64, playerNumber, -1, null, x, (float)y, (float)Main.tile[x, y].wallColor());
+							NetMessage.SendData(64, playerNumber, -1, null, x, (float)y, (float)Main.tile[x, y].WallColor);
 							SendTextToPlayer(HEROsMod.HeroText("YouDoNotHavePermissionToBuildHere"), playerNumber, Color.Red);
 							return true;
 						}

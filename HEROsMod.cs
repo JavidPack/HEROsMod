@@ -28,7 +28,7 @@ namespace HEROsMod
 		public override void Load()
 		{
 			// Since we are using hooks not in older versions, and since ItemID.Count changed, we need to do this.
-			if (ModLoader.version < new Version(0, 10, 1, 5))
+			if (BuildInfo.tMLVersion < new Version(0, 10, 1, 5))
 			{
 				throw new Exception(HEROsMod.HeroText("UpdateTModLoaderToUse"));
 			}
@@ -193,16 +193,6 @@ namespace HEROsMod
 		{
 			//ErrorLogger.Log("HandlePacket");
 			HEROsModNetwork.Network.HEROsModMessaged(reader, whoAmI);
-		}
-
-		public override bool HijackGetData(ref byte messageType, ref BinaryReader reader, int playerNumber)
-		{
-			if (HEROsModNetwork.Network.CheckIncomingDataForHEROsModMessage(ref messageType, ref reader, playerNumber))
-			{
-				//ErrorLogger.Log("Hijacking: " + messageType);
-				return true;
-			}
-			return false;
 		}
 
 		/*
