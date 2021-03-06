@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -754,7 +754,8 @@ namespace HEROsMod.HEROsModNetwork
 
 		private static void ProcessCreateRegionRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			// if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				Region region = Region.GetRegionFromBinaryReader(ref reader);
 				DatabaseController.AddRegion(ref region);
@@ -773,7 +774,8 @@ namespace HEROsMod.HEROsModNetwork
 
 		private static void ProcessRemoveRegionRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			// if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				int regionID = reader.ReadInt32();
 				Region region = Network.GetRegionByID(regionID);
@@ -846,7 +848,8 @@ namespace HEROsMod.HEROsModNetwork
 
 		private static void ProcessAddPlayerToRegionRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			// if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				Region region = Network.GetRegionByID(reader.ReadInt32());
 				if (region == null) return;
@@ -869,7 +872,8 @@ namespace HEROsMod.HEROsModNetwork
 
 		private static void ProcessRemovePlayerFromRegionRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			// if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				Region region = Network.GetRegionByID(reader.ReadInt32());
 				if (region == null) return;
@@ -892,7 +896,8 @@ namespace HEROsMod.HEROsModNetwork
 
 		private static void ProcessAddGroupToRegionRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			// if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				Region region = Network.GetRegionByID(reader.ReadInt32());
 				if (region == null) return;
@@ -915,7 +920,8 @@ namespace HEROsMod.HEROsModNetwork
 
 		private static void ProcessRemoveGroupFromRegionRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			// if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				Region region = Network.GetRegionByID(reader.ReadInt32());
 				if (region == null) return;
@@ -938,7 +944,8 @@ namespace HEROsMod.HEROsModNetwork
 
 		private static void ProcessChangeRegionColorRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			// if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				Region region = Network.GetRegionByID(reader.ReadInt32());
 				if (region == null) return;
@@ -960,7 +967,8 @@ namespace HEROsMod.HEROsModNetwork
 
 		public static void ProcessChangeRegionChestProtectionRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			// if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				Region region = Network.GetRegionByID(reader.ReadInt32());
 				if (region == null) return;
