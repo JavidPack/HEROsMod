@@ -27,12 +27,6 @@ namespace HEROsMod
 
 		public override void Load()
 		{
-			// Since we are using hooks not in older versions, and since ItemID.Count changed, we need to do this.
-			if (BuildInfo.tMLVersion < new Version(0, 10, 1, 5))
-			{
-				throw new Exception(HEROsMod.HeroText("UpdateTModLoaderToUse"));
-			}
-
 			try
 			{
 				instance = this;

@@ -40,7 +40,7 @@ namespace HEROsMod.HEROsModNetwork
 						Tile tile = Main.tile[x, y];
 						Tile backupTile = changes[x, y].TilePreviousToChange;
 
-						if (backupTile != null && !backupTile.isTheSameAs(tile))
+						if (backupTile != null && !backupTile.IsTheSameAs(tile))
 						{
 							tile.CopyFrom(backupTile);
 							//NetMessage.SendData(20, -1, -1, "", 1, x, y, 0f, 0);
