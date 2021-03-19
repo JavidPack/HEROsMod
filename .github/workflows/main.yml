@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
        
       # Mod Browser integration
-      - uses: JavidPack/tModLoaderPublishIntegration@v0.11.8
+      - uses: JavidPack/tModLoaderPublishIntegration@v0.11.8.1
         with:
           STEAMID64: ${{secrets.STEAMID64}}
           MODBROWSERPASSPHRASE: ${{secrets.MODBROWSERPASSPHRASE}}

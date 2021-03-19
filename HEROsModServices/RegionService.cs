@@ -102,7 +102,7 @@ namespace HEROsMod.HEROsModServices
 		public override void MyGroupUpdated()
 		{
 			canView = HEROsModNetwork.LoginService.MyGroup.HasPermission("ViewRegions");
-			canEdit = HEROsModNetwork.LoginService.MyGroup.HasPermission("EditRegions");
+			canEdit = HEROsModNetwork.LoginService.MyGroup.HasPermission("EditRegions"); // "EditRegions" grants "ViewRegions" abilities regardless.
 			this.HasPermissionToUse = canView || canEdit;
 			// this._canAccessSettings = HEROsModNetwork.LoginService.MyGroup.IsAdmin;
 
@@ -110,12 +110,15 @@ namespace HEROsMod.HEROsModServices
 			{
 				this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenRegionsWindow");
 			}
-			else if (canView)
+			else
 			{
 				_confirmationWindow.Close();
 				_regionWindow.Close();
 				SelectionTool.Reset();
-				HotbarIcon.Tooltip = HEROsMod.HeroText("ToggleRegionsVisible");
+				if (canView)
+					HotbarIcon.Tooltip = HEROsMod.HeroText("ToggleRegionsVisible");
+				else
+					RegionService.RegionsVisible = false;
 			}
 
 			//base.MyGroupUpdated();
