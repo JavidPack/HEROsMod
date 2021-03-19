@@ -60,7 +60,7 @@ namespace HEROsMod.HEROsModServices
 
 		public void PostDrawFullScreenMap()
 		{
-			if (HasPermissionToUse)
+			if (HasPermissionToUse && !Main.gameMenu)
 			{
 				Main.spriteBatch.DrawString(Main.fontMouseText, HEROsMod.HeroText("RightClickToTeleport"), new Vector2(15, Main.screenHeight - 80), Color.White);
 
