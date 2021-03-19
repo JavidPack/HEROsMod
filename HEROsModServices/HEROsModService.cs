@@ -60,6 +60,10 @@ namespace HEROsMod.HEROsModServices
 		{
 		}
 
+		public virtual void UpdateGameScale()
+		{
+		}
+
 		/// <summary>
 		/// This method must be called before the Service is desposed.
 		/// </summary>

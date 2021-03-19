@@ -587,7 +587,8 @@ namespace HEROsMod
 		{
 			get
 			{
-				return GetTileCoordsFromWorldCoords(GetCursorWorldCoords());
+				return Main.MouseWorld.ToTileCoordinates().ToVector2();
+				//return GetTileCoordsFromWorldCoords(GetCursorWorldCoords());
 			}
 		}
 

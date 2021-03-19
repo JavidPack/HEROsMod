@@ -9,7 +9,8 @@ namespace HEROsMod.HEROsModServices
 {
 	internal class CheckTileModificationTool : HEROsModService
 	{
-		private static bool ListeningForInput = false;
+		internal static bool ListeningForInput = false;
+		internal static Vector2 CheckCoordinates;
 
 		public CheckTileModificationTool()
 		{
@@ -25,13 +26,14 @@ namespace HEROsMod.HEROsModServices
 			ListeningForInput = !ListeningForInput;
 		}
 
-		public override void Update()
+		public override void UpdateGameScale()
 		{
 			if (ListeningForInput && !Main.gameMenu)
 			{
+				CheckCoordinates = ModUtils.CursorTileCoords;
 				if (ModUtils.MouseState.LeftButton == ButtonState.Pressed && ModUtils.PreviousMouseState.LeftButton == ButtonState.Released && !UIKit.UIView.GameMouseOverwritten)
 				{
-					HEROsModNetwork.GeneralMessages.RequestTileModificationCheck(ModUtils.CursorTileCoords);
+					HEROsModNetwork.GeneralMessages.RequestTileModificationCheck(CheckCoordinates);
 				}
 				if (ModUtils.MouseState.RightButton == ButtonState.Pressed && ModUtils.PreviousMouseState.RightButton == ButtonState.Released && !UIKit.UIView.GameMouseOverwritten)
 				{
@@ -46,10 +48,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			if (ListeningForInput)
 			{
-				Vector2 pos = ModUtils.CursorWorldCoords;
-				pos.X = (int)pos.X / 16 * 16;
-				pos.Y = (int)pos.Y / 16 * 16;
-				ModUtils.DrawBorderedRect(spriteBatch, Color.Blue, ModUtils.CursorTileCoords, new Vector2(1, 1), 2);
+				ModUtils.DrawBorderedRect(spriteBatch, Color.Blue, CheckCoordinates, new Vector2(1, 1), 2);
 			}
 		}
 

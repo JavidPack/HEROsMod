@@ -166,11 +166,35 @@ namespace HEROsMod
 						}
 						catch (Exception e)
 						{
-							ModUtils.DebugText("PostDrawInInventory Error: " + e.Message + e.StackTrace);
+							ModUtils.DebugText("HerosMod: UI Error: " + e.Message + e.StackTrace);
 						}
 						return true;
 					},
 					InterfaceScaleType.UI)
+				);
+
+				// Technically before the above GameInterfaceLayer 
+				layers.Insert(inventoryLayerIndex, new LegacyGameInterfaceLayer(
+					"HerosMod: UI (Game Scale)",
+					delegate {
+						try
+						{
+							if (ModUtils.NetworkMode != NetworkMode.Server)
+							{
+								foreach (var service in ServiceController.Services)
+								{
+									service.UpdateGameScale();
+								}
+							}
+							SelectionTool.Update();
+						}
+						catch (Exception e)
+						{
+							ModUtils.DebugText("HerosMod: UI (Game Scale) Error: " + e.Message + e.StackTrace);
+						}
+						return true;
+					},
+					InterfaceScaleType.Game)
 				);
 			}
 		}
@@ -501,7 +525,6 @@ namespace HEROsMod
 					service.Update();
 				}
 				MasterView.UpdateMaster();
-				SelectionTool.Update();
 				//if (Main.ingameOptionsWindow && (IngameOptions.category == 2 || IngameOptions.category == 3))
 				//{
 				//	HEROsModMod.UIKit.MasterView.gameScreen.AddChild(new HEROsModMod.UIKit.UIComponents.KeybindWindow());
@@ -648,11 +671,7 @@ namespace HEROsMod
 			if (!Main.gameMenu)
 			{
 				HEROsModVideo.Services.MobHUD.MobInfo.Draw(spriteBatch);
-				SelectionTool.Draw(spriteBatch);
-				if (RegionService.RegionsVisible)
-					RegionService.DrawRegions(spriteBatch);
 				//HEROsModNetwork.CTF.CaptureTheFlag.Draw(spriteBatch);
-				CheckTileModificationTool.DrawBoxOnCursor(spriteBatch);
 			}
 		}
 	}

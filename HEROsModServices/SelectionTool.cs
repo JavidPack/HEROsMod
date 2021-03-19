@@ -65,8 +65,10 @@ namespace HEROsMod.HEROsModServices
 				if (ModUtils.MouseState.LeftButton == ButtonState.Pressed && ModUtils.PreviousMouseState.LeftButton == ButtonState.Released && !UIKit.UIView.GameMouseOverwritten)
 				{
 					_dragging = true;
-					Position = ModUtils.CursorTileCoords;
+					Position = Main.MouseWorld.ToTileCoordinates().ToVector2();
 					_anchor = Position;
+					Width = 1;
+					Height = 1;
 				}
 				else if (_dragging && ModUtils.MouseState.LeftButton == ButtonState.Pressed)
 				{

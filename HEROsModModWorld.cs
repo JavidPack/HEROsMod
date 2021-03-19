@@ -36,5 +36,21 @@ namespace HEROsMod
 			}
 			return null;
 		}
+
+		public override void PostDrawTiles()
+		{
+			if (RegionService.RegionsVisible || SelectionTool.Visible || CheckTileModificationTool.ListeningForInput)
+			{
+				Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, 
+DepthStencilState.None, Main.instance.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
+				if (SelectionTool.Visible)
+					SelectionTool.Draw(Main.spriteBatch);
+				if (RegionService.RegionsVisible)
+					RegionService.DrawRegions(Main.spriteBatch);
+				if(CheckTileModificationTool.ListeningForInput)
+					CheckTileModificationTool.DrawBoxOnCursor(Main.spriteBatch);
+				Main.spriteBatch.End();
+			}
+		}
 	}
 }
