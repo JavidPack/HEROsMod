@@ -63,6 +63,7 @@ namespace HEROsMod.HEROsModServices
 			if (HasPermissionToUse && !Main.gameMenu)
 			{
 				Main.spriteBatch.DrawString(Main.fontMouseText, HEROsMod.HeroText("RightClickToTeleport"), new Vector2(15, Main.screenHeight - 80), Color.White);
+				Terraria.GameInput.PlayerInput.SetZoom_Unscaled();
 
 				if (Main.mouseRight && Main.keyState.IsKeyUp(Microsoft.Xna.Framework.Input.Keys.LeftControl))
 				{
@@ -102,6 +103,7 @@ namespace HEROsMod.HEROsModServices
 						//NetMessage.SendData(65, -1, -1, "", 0, player.whoAmI, cursorWorldPosition.X, cursorWorldPosition.Y, 1, 0, 0);
 					}
 				}
+				Terraria.GameInput.PlayerInput.SetZoom_UI();
 			}
 		}
 	}
