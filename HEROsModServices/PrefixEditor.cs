@@ -200,7 +200,7 @@ namespace HEROsMod.HEROsModServices
 				}
 			}
 
-			validPrefixes = validPrefixes.OrderBy(x => -x.rare).ToList();
+			validPrefixes = validPrefixes.OrderBy(x => -x.value).ToList();
 		}
 
 		private void PopulatePrefixDropDown()
