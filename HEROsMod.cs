@@ -22,6 +22,7 @@ namespace HEROsMod
 	{
 		public static HEROsMod instance;
 		internal static Dictionary<string, ModTranslation> translations; // reference to private field.
+		internal List<UIKit.UIComponents.ModCategory> modCategories;
 		internal Dictionary<string, Action<bool>> crossModGroupUpdated = new Dictionary<string, Action<bool>>();
 
 		public override void Load()
@@ -39,6 +40,8 @@ namespace HEROsMod
 				FieldInfo translationsField = typeof(Mod).GetField("translations", BindingFlags.Instance | BindingFlags.NonPublic);
 				translations = (Dictionary<string, ModTranslation>)translationsField.GetValue(this);
 				//LoadTranslations();
+
+				modCategories = new List<UIKit.UIComponents.ModCategory>();
 
 				//	AddGlobalItem("HEROsModGlobalItem", new HEROsModGlobalItem());
 				// AddPlayer("HEROsModModPlayer", new HEROsModModPlayer());
@@ -122,6 +125,7 @@ namespace HEROsMod
 			ServiceController = null;
 			TimeWeatherControlHotbar.Unload();
 			ModUtils.previousInventoryItems = null;
+			modCategories = null;
 			translations = null;
 			instance = null;
 		}
@@ -367,6 +371,16 @@ namespace HEROsMod
 						args[3] as Action<bool>
 					);
 					ModUtils.DebugText("...Permission Added");
+				}
+				else if (message == "AddItemCategory")
+				{
+					ModUtils.DebugText("Item Category Adding...");
+					string sortName = args[1] as string;
+					string parentName = args[2] as string;
+					Predicate<Item> belongs = args[3] as Predicate<Item>;
+					if (!Main.dedServ)
+						modCategories.Add(new UIKit.UIComponents.ModCategory(sortName, parentName, belongs));
+					ModUtils.DebugText("...Item Category Added");
 				}
 				else if (message == "HasPermission")
 				{
