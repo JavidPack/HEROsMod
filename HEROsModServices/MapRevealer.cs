@@ -1,8 +1,11 @@
 ﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -19,7 +22,7 @@ namespace HEROsMod.HEROsModServices
 			IsInHotbar = true;
 			HotbarParent = hotbar;
 			this._name = "Map Revealer";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/map").Value/*ModUtils.RevealMapTexture*/);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/map", AssetRequestMode.ImmediateLoad).Value/*ModUtils.RevealMapTexture*/);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("RevealMap");
 			instance = this;

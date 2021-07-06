@@ -1,6 +1,8 @@
 ﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.ModLoader;
@@ -21,7 +23,7 @@ namespace HEROsMod.HEROsModServices
 			IsInHotbar = true;
 			HotbarParent = hotbar;
 			this._name = "Light Hack";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/lighthack").Value);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/lighthack", AssetRequestMode.ImmediateLoad).Value);
 			this._hotbarIcon.onLeftClick += (s, e) =>
 			{
 				buttonLogic(true);

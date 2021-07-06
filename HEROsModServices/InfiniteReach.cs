@@ -1,4 +1,6 @@
 ﻿using HEROsMod.UIKit;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.Localization;
@@ -29,7 +31,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			Enabled = false;
 			this._name = "Infinite Reach";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/infiniteReach").Value/*Main.itemTexture[407]*/);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/infiniteReach", AssetRequestMode.ImmediateLoad).Value/*Main.itemTexture[407]*/);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("EnableInfiniteReach");
 			Disable();

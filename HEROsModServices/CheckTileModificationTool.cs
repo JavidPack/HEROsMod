@@ -2,8 +2,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using ReLogic.Content;
 using System;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -14,7 +16,7 @@ namespace HEROsMod.HEROsModServices
 		public CheckTileModificationTool()
 		{
 			MultiplayerOnly = true;
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/tileModification").Value/*Main.itemTexture[1999]*/);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/tileModification", AssetRequestMode.ImmediateLoad).Value/*Main.itemTexture[1999]*/);
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("CheckTileForLastModification");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 			this.HasPermissionToUse = true;

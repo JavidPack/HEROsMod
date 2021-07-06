@@ -1,5 +1,7 @@
 ﻿using HEROsMod.UIKit;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +24,7 @@ namespace HEROsMod.HEROsModServices
 
 		public MobSpawner()
 		{
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/npcs").Value/*Main.itemTexture[666]*/);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/npcs", AssetRequestMode.ImmediateLoad).Value/*Main.itemTexture[666]*/);
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenMobSpawnWindow");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 

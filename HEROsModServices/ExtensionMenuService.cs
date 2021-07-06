@@ -1,9 +1,12 @@
 ﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -19,7 +22,7 @@ namespace HEROsMod.HEROsModServices
 
 			IsHotbar = true;
 
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/extensions").Value);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/extensions", AssetRequestMode.ImmediateLoad).Value);
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ExtensionTools");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 

@@ -1,6 +1,8 @@
 ﻿using HEROsMod.HEROsModNetwork;
 using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Linq;
 using Terraria;
@@ -30,7 +32,7 @@ namespace HEROsMod.HEROsModServices
 			//MultiplayerOnly = true;
 			this._name = "Gravestones Toggler";
 			ModUtils.LoadProjectile(43);
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/gravestone").Value/*Main.projectileTexture[43]*/);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/gravestone", AssetRequestMode.ImmediateLoad).Value/*Main.projectileTexture[43]*/);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("DisableGravestones");
 			this._hotbarIcon.Opacity = 1f;

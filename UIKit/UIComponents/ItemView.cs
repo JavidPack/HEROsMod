@@ -1,9 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using ReLogic.Graphics;
 using System;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ModLoader;
 
 namespace HEROsMod.UIKit.UIComponents
 {
@@ -17,7 +19,7 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				if (_demonAltarTexture == null)
 				{
-					_demonAltarTexture = HEROsMod.instance.GetTexture("Images/Demon_Altar").Value;
+					_demonAltarTexture = ModContent.Request<Texture2D>("HEROsMod/Images/Demon_Altar", AssetRequestMode.ImmediateLoad).Value;
 				}
 				return _demonAltarTexture;
 			}

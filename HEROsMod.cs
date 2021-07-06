@@ -4,9 +4,11 @@ using HEROsMod.UIKit;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Terraria;
 using Terraria.GameContent;
@@ -31,8 +33,8 @@ namespace HEROsMod
 			{
 				instance = this;
 
-				FieldInfo translationsField = typeof(Mod).GetField("translations", BindingFlags.Instance | BindingFlags.NonPublic);
-				translations = (Dictionary<string, ModTranslation>)translationsField.GetValue(this);
+				FieldInfo translationsField = typeof(LocalizationLoader).GetField("translations", BindingFlags.Static | BindingFlags.NonPublic);
+				translations = (Dictionary<string, ModTranslation>)translationsField.GetValue(null);
 				//LoadTranslations();
 
 				//	AddGlobalItem("HEROsModGlobalItem", new HEROsModGlobalItem());
@@ -41,16 +43,17 @@ namespace HEROsMod
 
 				if (!Main.dedServ)
 				{
-					UIKit.UIButton.buttonBackground = HEROsMod.instance.GetTexture("Images/UIKit/buttonEdge").Value;
-					UIKit.UIView.closeTexture = HEROsMod.instance.GetTexture("Images/closeButton").Value;
-					UIKit.UITextbox.textboxBackground = HEROsMod.instance.GetTexture("Images/UIKit/textboxEdge").Value;
-					UIKit.UISlider.barTexture = HEROsMod.instance.GetTexture("Images/UIKit/barEdge").Value;
-					UIKit.UIScrollView.ScrollbgTexture = GetTexture("Images/UIKit/scrollbgEdge").Value;
-					UIKit.UIScrollBar.ScrollbarTexture = HEROsMod.instance.GetTexture("Images/UIKit/scrollbarEdge").Value;
-					UIKit.UIDropdown.capUp = HEROsMod.instance.GetTexture("Images/UIKit/dropdownCapUp").Value;
-					UIKit.UIDropdown.capDown = HEROsMod.instance.GetTexture("Images/UIKit/dropdownCapDown").Value;
-					UIKit.UICheckbox.checkboxTexture = HEROsMod.instance.GetTexture("Images/UIKit/checkBox").Value;
-					UIKit.UICheckbox.checkmarkTexture = HEROsMod.instance.GetTexture("Images/UIKit/checkMark").Value;
+					// TODO: this should be async, but I'm too lazy to rewrite it to support assets
+					UIKit.UIButton.buttonBackground = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/buttonEdge", AssetRequestMode.ImmediateLoad).Value;
+					UIKit.UIView.closeTexture = ModContent.Request<Texture2D>("HEROsMod/Images/closeButton", AssetRequestMode.ImmediateLoad).Value;
+					UIKit.UITextbox.textboxBackground = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/textboxEdge", AssetRequestMode.ImmediateLoad).Value;
+					UIKit.UISlider.barTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/barEdge", AssetRequestMode.ImmediateLoad).Value;
+					UIKit.UIScrollView.ScrollbgTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/scrollbgEdge", AssetRequestMode.ImmediateLoad).Value;
+					UIKit.UIScrollBar.ScrollbarTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/scrollbarEdge", AssetRequestMode.ImmediateLoad).Value;
+					UIKit.UIDropdown.capUp = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/dropdownCapUp", AssetRequestMode.ImmediateLoad).Value;
+					UIKit.UIDropdown.capDown = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/dropdownCapDown", AssetRequestMode.ImmediateLoad).Value;
+					UIKit.UICheckbox.checkboxTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/checkBox", AssetRequestMode.ImmediateLoad).Value;
+					UIKit.UICheckbox.checkmarkTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/checkMark", AssetRequestMode.ImmediateLoad).Value;
 				}
 
 				Init();
@@ -63,7 +66,9 @@ namespace HEROsMod
 
 		internal static string HeroText(string key)
 		{
+			//instance.Logger.Debug(string.Join("\n", translations.Select(x => $"{x.Key} - {x.Value}")));
 			return translations[$"Mods.HEROsMod.{key}"].GetTranslation(Language.ActiveCulture);
+			//return LocalizationLoader.CreateTranslation($"Mods.HEROsMod.{key}").GetTranslation(Language.ActiveCulture);
 			// This isn't good until after load....
 			// return Language.GetTextValue($"Mods.HEROsMod.{category}.{key}");
 		}

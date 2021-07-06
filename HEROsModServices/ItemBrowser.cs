@@ -1,7 +1,10 @@
 ﻿using HEROsMod.UIKit;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -12,7 +15,7 @@ namespace HEROsMod.HEROsModServices
 		public ItemBrowser()
 		{
 			this._name = "Item Browser";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/items").Value/*Main.itemTexture[10]*/);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/items", AssetRequestMode.ImmediateLoad).Value/*Main.itemTexture[10]*/);
 			this.HotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ItemBrowser");
 

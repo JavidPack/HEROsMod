@@ -1,0 +1,223 @@
+Mods: {
+  HEROsMod: {
+      UpdateTModLoaderToUse:
+        '''
+
+        This mod uses functionality only present in the latest tModLoader. Please update tModLoader to use this mod
+
+
+        '''
+      EnableInfiniteReach: Enable Infinite Reach
+      DisableInfiniteReach: Disable Infinite Reach
+      SmartCursorAutomaticallyDisabledInfinteReachMod: Smart Cursor automatically disabled in infinite reach mode.
+      ViewWaypoints: View Waypoints
+      AddWaypoint: Add Waypoint
+      Waypoints: Waypoints
+      WaypointName: Waypoint Name
+      WaypointAlreadyExistsNote: A waypoint with this name already exists, please enter another name.
+      DisableGravestones: Disable Gravestones
+      EnableGravestones: Enable Gravestones
+      YouHaveEnabledGravestones: You have enabled gravestones
+      YouHaveDisabledGravestones: You have disabled gravestones
+      SetSpawnPoint: Set Spawn Point
+      SpawnPointSetToXY: Spawn Point set to X:{0} Y:{1}
+      ChangeTimeRain: Change Time/Rain
+      StartRain: Start Rain
+      StopRain: Stop Rain
+      StartSandstorm: Start Sandstorm
+      StopSandstorm: Stop Sandstorm
+      Night: Night
+      Noon: Noon
+      ResumeTime: Resume Time
+      PauseTime: Pause Time
+      ForceEnchantedSundial: Force Enchanted Sundial
+      RainHasBeenTurnedOff: Rain has been turned off
+      RainHasBeenTurnedOn: Rain has been turned on
+      SandstormHasBeenTurnedOff: Sandstorm has been turned off
+      SandstormHasBeenTurnedOn: Sandstorm has been turned on
+      TimeHasBeenPaused: Time has been paused
+      TimeHasResumed: Time has resumed
+      RegionsVisible: Regions Visible
+      RegionsInvisible: Regions Invisible
+      OpenRegionsWindow: Open regions window
+      ToggleRegionsVisible: Toggle Regions Visible
+      PleaseMakeASelection: Please make a selection.
+      LastChangedBy: Last changed by {0}
+      SelectPlayer: Select Player
+      SelectGroup: Select Group
+      CreateRegion: Create Region
+      Regions: Regions
+      DeleteRegion: Delete Region
+      AddGroup: Add Group
+      AddPlayer: Add Player
+      SaveColor: Save Color
+      SelectedRegion: Selected Region {0} {1}
+      Remove: Remove
+      Group: Group
+      User: User
+      RegionName: Region Name
+      ProtectChests: Protect Chests
+      ThisChestIsProtected: This chest is protected.
+      ChestProtectionNowEnabledForRegion: Chest protection now enabled for region: {0}
+      ChestProtectionNowDisabledForRegion: Chest protection now disabled for region: {0}
+      Ok: Ok
+      Confirm: Confirm
+      Create: Create
+      Cancel: Cancel
+      RegionNameTooShort: Region name must be at least 3 characters long
+      RightClickToTeleport: Right Click to teleport
+      PrefixEditor: Prefix Editor
+      OpenMobSpawnWindow: Open Mob Spawn Window
+      NPCSpawner: NPC Spawner
+      All: All
+      TownNPCs: Town NPCs
+      Friendly: Friendly
+      Boss: Boss
+      Mod: Mod
+      UnderworldToSpawnWoF: Please move to the underworld to spawn WoF
+      MiscOptions: Misc. Options
+      RevealMap: Reveal Map
+      ClearItemsOnGround: Clear Items on Ground
+      ItemsOnTheGroundWereCleared: Items on the ground were cleared
+      ItemBrowser: Item Browser
+      ItemBrowser: {
+        FilterName: {
+          ModFilter: Mod Filter
+        }
+        SortName: {
+          ItemID: ItemID
+          Value: Value
+          Alphabetical: Alphabetical
+          UseAmmoType: Use Ammo Type
+          Damage: Damage
+          PickPower: Pick Power
+          AxePower: Axe Power
+          HammerPower: Hammer Power
+          Defense: Defense
+          AmmoType: Ammo Type
+          ProgressionOrder: Progression Order
+          PolePower: Pole Power
+          BaitPower: Bait Power
+        }
+        CategoryName: {
+          Mod: Mod
+          Weapons: Weapons
+          Melee: Melee
+          Magic: Magic
+          Ranged: Ranged
+          Throwing: Throwing
+          Summon: Summon
+          Sentry: Sentry
+          Tools: Tools
+          Pickaxes: Pickaxes
+          Axes: Axes
+          Hammers: Hammers
+          Armor: Armor
+          Head: Head
+          Body: Body
+          Legs: Legs
+          Placeables: Placeables
+          Tiles: Tiles
+          Walls: Walls
+          Accessories: Accessories
+          Ammo: Ammo
+          Potions: Potions
+          Expert: Expert
+          Pets: Pets
+          LightPets: Light Pets
+          Mounts: Mounts
+          Dyes: Dyes
+          BossSummons: Boss Summons
+          Consumables: Consumables
+          Fishing: Fishing
+          Poles: Poles
+          Bait: Bait
+          QuestFish: Quest Fish
+          Other: Other
+        }
+      }
+      OpenEventStarter: Open Event Starter
+      AllEventsHaveBeenStopped: All events have been stopped
+      Events: Events
+      StopEvents: Stop Events
+      ViewConnectedPlayers: View Connected Players
+      ConnectedPlayers: Connected Players
+      OfflineUsers: Offline Users
+      OpenGroupManagement: Open Group Management
+      GroupManagement: Group Management
+      Apply: Apply
+      DeleteGroup: Delete Group
+      NewGroup: New Group
+      Groups: Groups
+      GroupName: Group Name
+      AreYouSureDeleteGroup: Are you sure you want to delete the {0} group?
+      ToggleGodMode: Toggle God Mode
+      GodModeEnabled: God Mode Enabled
+      GodModeDisabled: God Mode Disabled
+      FlyCamEnableTooltip: Enable Fly Camera (RMB: Lock Camera)
+      FlyCamDisableTooltip: Disable Fly Camera (RMB: Lock Camera)
+      FlyCamInstructions: Arrow Keys to pan, Shift for faster, Alt for slower
+      DisableEnemySpawns: Disable Enemy Spawns
+      EnableEnemySpawns: Enable Enemy Spawns
+      EnemySpawnsEnabled: Enemy spawns enabled
+      EnemySpawnsDisabled: Enemy spawns disabled
+      ExtensionTools: Extension Tools
+      NoExtensionsLoadedNote: No mods loaded that add Extensions. See forum post for compatible mods.
+      OpenBuffWindow: Open Buff Window
+      Buffs: Buffs
+      Seconds: Seconds
+      Login: Login
+      Logout: Logout
+      Register: Register
+      Password: Password
+      Username: Username
+      PleaseFillInUsernamePassword: Please fill in the Username and Password fields.
+      BanDestructiveExplosives: Ban Destructive Explosives
+      UnbanDestructiveExplosives: Unban Destructive Explosives
+      ProjectileIsBannerdOnTheServer: "{0} is banned on the server"
+      MakesYouAdminInHEROsMod: Makes you Admin in HERO's Mod
+      AuthCodeIsIncorrect: Auth code is incorrect
+      PleaseLoginFirst: Please login first
+      YouAreNowAdmin: You are now Admin
+      AdminInstructionsCommandDescription: Informs you how to become Admin in HERO's Mod
+      DedicatedServerAutoMessage: HERO's Mod: Create an account, login, and type /auth {0} to become Admin.
+      YouDoNotHavePermissionToBuildHere: You do not have permission to build here
+      LightHackDisabled: Light Hack: Disabled
+      LightHack25%: Light Hack: 25%
+      LightHack50%: Light Hack: 50%
+      LightHack100%: Light Hack: 100%
+      CheckTileForLastModification: Check Tile for last modification
+      AccountAlreadyLoggedIn: This account is already logged on in this server.
+      LoggedInSuccessfully: You have successfully logged in.  You are in the {0} Group.
+      InvalidUsernameOrPassword: Invalid Username or Password
+      UsernameAlreadyTaken: This username has already been taken.
+      SuccessfullyRegistered: You have successfully registered.  Please login.
+      GroupAlreadyExists: A group with this name already exist
+      CantDeleteDefaultGroup: You can not delete the default group.
+      LoginInstructions: Click the 'Login' button on the HEROsMod hotbar to Login or Create an Account
+      TimeChangedNoonBy: The time has been changed to noon by {0}
+      TimeChangedMidnightBy: The time has been changed to midnight by {0}
+      TimeChangedNightBy: The time has been changed to night by {0}
+      TimePausedBy: Time has been paused by {0}
+      TimeResumedBy: Time has been resumed by {0}
+      ItemsClearedBy: Items on the ground were cleared by {0}
+      EnemySpawnsEnabledBy: Enemy spawns were enabled by {0}
+      EnemySpawnsDisabledBy: Enemy spawns were disabled by {0}
+      RainTurnedOnBy: Rain has been turned on by {0}
+      RainTurnedOffBy: Rain has been turned off by {0}
+      SandstormTurnedOnBy: Sandstorm has been turned on by {0}
+      SandstormTurnedOffBy: Sandstorm has been turned off by {0}
+      ForcedEnchangedSundialBy: Forced Enchanted Sundial initiated by {0}
+      WaypointAlreadyExists: A waypoint with this name already exists, please enter another name.
+      RegionCreatedBy: "'{0}' region created by {1};"
+      SpawnPointSetToBy: Spawn Point set to X:{0} Y:{1} by {2}
+      GravestonesEnabledBy: Gravestones were enabled by {0}
+      GravestonesDisabledBy: Gravestones were disabled by {0}
+      TileLastModifiedBy: Tile last modified by {0}
+      TileNotModified: This tile has not been modified since last server boot up.
+      YouDontHavePermissionToDoThat: You don't have permission to do that.
+      EventsStoppedBy: All events have been stopped by {0}
+      DestructiveExplosivesBannedBy: Destructive Explosives banned by {0}
+      DestructiveExplosivesUnbannedBy: Destructive Explosives unbanned by {0}
+  }
+}

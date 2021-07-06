@@ -1,10 +1,13 @@
 ﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -18,7 +21,7 @@ namespace HEROsMod.HEROsModServices
 			HotbarParent = hotbar;
 			MultiplayerOnly = true;
 			this._name = "Group Inspector";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/manageGroups").Value);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/manageGroups", AssetRequestMode.ImmediateLoad).Value);
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenGroupManagement");
 			HEROsModNetwork.LoginService.GroupChanged += LoginService_GroupChanged;

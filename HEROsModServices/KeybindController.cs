@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 using Terraria;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -11,7 +13,7 @@ namespace HEROsMod.HEROsModServices
 
 		public static List<KeyBinding> bindings = new List<KeyBinding>();
 
-		public static KeyBinding AddKeyBinding(string bindName, string key)
+		public static KeyBinding AddKeyBinding(string bindName, Keys key)
 		{
 			for (int i = 0; i < bindings.Count; i++)
 			{
@@ -21,7 +23,8 @@ namespace HEROsMod.HEROsModServices
 				}
 			}
 			ModUtils.DebugText("Binding " + bindName);
-			HEROsMod.instance.RegisterHotKey(bindName, key);
+			KeybindLoader.RegisterKeybind(HEROsMod.instance, bindName, key);
+
 			KeyBinding bind = new KeyBinding("HEROsMod: " + bindName);
 			bindings.Add(bind);
 			return bind;

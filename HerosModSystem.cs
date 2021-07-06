@@ -52,12 +52,12 @@ namespace HEROsMod
 			HEROsMod.instance.prefixEditor.PreSaveAndQuit();
 		}
 
-		public override void UpdateMusic(ref int music, ref MusicPriority priority)
-		{
-			HEROsMod.CheckIfGameEnteredOrLeft();
-			//Console.WriteLine("?");
-			//KeybindController.DoPreviousKeyState();
-		}
+		//public override void UpdateMusic(ref int music, ref AVF priority)
+		//{
+		//	HEROsMod.CheckIfGameEnteredOrLeft();
+		//	//Console.WriteLine("?");
+		//	//KeybindController.DoPreviousKeyState();
+		//}
 
 		public override bool HijackGetData(ref byte messageType, ref BinaryReader reader, int playerNumber)
 		{

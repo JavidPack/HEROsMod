@@ -1,7 +1,10 @@
 ﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -12,7 +15,7 @@ namespace HEROsMod.HEROsModServices
 			IsInHotbar = true;
 			HotbarParent = hotbar;
 			this._name = "Spawn Point Setter";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/spawn").Value/*Main.itemTexture[69]*/);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/spawn", AssetRequestMode.ImmediateLoad).Value/*Main.itemTexture[69]*/);
 			this._hotbarIcon.Tooltip = HEROsMod.HeroText("SetSpawnPoint");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 		}

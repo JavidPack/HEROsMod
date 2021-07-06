@@ -1,7 +1,10 @@
 ﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -13,7 +16,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			IsHotbar = true;
 
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/settings").Value/*Main.buffTexture[BuffID.Confused]*/);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/settings", AssetRequestMode.ImmediateLoad).Value/*Main.buffTexture[BuffID.Confused]*/);
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("MiscOptions");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
