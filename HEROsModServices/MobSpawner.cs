@@ -24,7 +24,7 @@ namespace HEROsMod.HEROsModServices
 
 		public MobSpawner()
 		{
-			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/npcs", AssetRequestMode.ImmediateLoad).Value/*Main.itemTexture[666]*/);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/npcs")/*Main.itemTexture[666]*/);
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenMobSpawnWindow");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
@@ -601,8 +601,8 @@ namespace HEROsMod.HEROsModServices
 			//if (npc.NetID < 0) return;
 			CurrentNPC = npc;
 			ModUtils.LoadNPC(npc.Type);
-			mobImage.Texture = TextureAssets.Npc[npc.Type].Value;
-			mobImage.SourceRectangle = new Rectangle(0, 0, (int)mobImage.Texture.Width, (int)mobImage.Texture.Height / Main.npcFrameCount[npc.Type]);
+			mobImage.Texture = TextureAssets.Npc[npc.Type];
+			mobImage.SourceRectangle = new Rectangle(0, 0, (int)mobImage.Texture.Value.Width, (int)mobImage.Texture.Value.Height / Main.npcFrameCount[npc.Type]);
 			//mobImage.ForegroundColor = CurrentNPC.AlphaColor;
 			AddChild(mobImage);
 

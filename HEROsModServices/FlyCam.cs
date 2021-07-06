@@ -34,7 +34,7 @@ namespace HEROsMod.HEROsModServices
 			LockCamera = false;
 			this._name = "Fly Camera";
 			Main.instance.LoadItem(493);
-			this._hotbarIcon = new UIKit.UIImage(TextureAssets.Item[493].Value);
+			this._hotbarIcon = new UIKit.UIImage(TextureAssets.Item[493]);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this._hotbarIcon.onRightClick += _hotbarIcon_onRightClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("FlyCamEnableTooltip");

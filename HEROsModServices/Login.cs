@@ -22,8 +22,8 @@ namespace HEROsMod.HEROsModServices
 			}
 		}
 
-		internal static Texture2D _loginTexture;
-		internal static Texture2D _logoutTexture;
+		internal static Asset<Texture2D> _loginTexture;
+		internal static Asset<Texture2D> _logoutTexture;
 
 		private static event EventHandler LoginStatusChanged;
 
@@ -32,11 +32,11 @@ namespace HEROsMod.HEROsModServices
 			MultiplayerOnly = true;
 			if (_loginTexture == null)
 			{
-				_loginTexture = ModContent.Request<Texture2D>("HEROsMod/Images/login", AssetRequestMode.ImmediateLoad).Value;
+				_loginTexture = ModContent.Request<Texture2D>("HEROsMod/Images/login");
 			}
 			if (_logoutTexture == null)
 			{
-				_logoutTexture = ModContent.Request<Texture2D>("HEROsMod/Images/logout", AssetRequestMode.ImmediateLoad).Value;
+				_logoutTexture = ModContent.Request<Texture2D>("HEROsMod/Images/logout");
 			}
 			this._name = "Login";
 			this._hotbarIcon = new UIImage(_loginTexture);

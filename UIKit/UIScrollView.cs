@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using ReLogic.Content;
 using Terraria;
 using Terraria.GameInput;
 
@@ -9,7 +9,7 @@ namespace HEROsMod.UIKit
 	internal class UIScrollView : UIView
 	{
 		private RasterizerState _rasterizerState = new RasterizerState() { ScissorTestEnable = true };
-		internal static Texture2D ScrollbgTexture;
+		internal static Asset<Texture2D> ScrollbgTexture;
 		private static Texture2D scrollbgFill;
 
 		private static Texture2D ScrollbgFill
@@ -18,12 +18,12 @@ namespace HEROsMod.UIKit
 			{
 				if (scrollbgFill == null)
 				{
-					Color[] edgeColors = new Color[ScrollbgTexture.Width * ScrollbgTexture.Height];
-					ScrollbgTexture.GetData(edgeColors);
-					Color[] fillColors = new Color[ScrollbgTexture.Width];
+					Color[] edgeColors = new Color[ScrollbgTexture.Value.Width * ScrollbgTexture.Value.Height];
+					ScrollbgTexture.Value.GetData(edgeColors);
+					Color[] fillColors = new Color[ScrollbgTexture.Value.Width];
 					for (int x = 0; x < fillColors.Length; x++)
 					{
-						fillColors[x] = edgeColors[x + (ScrollbgTexture.Height - 1) * ScrollbgTexture.Width];
+						fillColors[x] = edgeColors[x + (ScrollbgTexture.Value.Height - 1) * ScrollbgTexture.Value.Width];
 					}
 					scrollbgFill = new Texture2D(UIView.graphics, fillColors.Length, 1);
 					scrollbgFill.SetData(fillColors);
@@ -191,13 +191,13 @@ namespace HEROsMod.UIKit
 		private void DrawScrollbg(SpriteBatch spriteBatch)
 		{
 			Vector2 pos = DrawPosition;
-			float fillHeight = Height - ScrollbgTexture.Height * 2;
-			pos.X += Width - ScrollbgTexture.Width;
-			spriteBatch.Draw(ScrollbgTexture, pos, null, Color.White * Opacity, 0f, Origin, 1f, SpriteEffects.None, 0f);
-			pos.Y += ScrollbgTexture.Height;
+			float fillHeight = Height - ScrollbgTexture.Value.Height * 2;
+			pos.X += Width - ScrollbgTexture.Value.Width;
+			spriteBatch.Draw(ScrollbgTexture.Value, pos, null, Color.White * Opacity, 0f, Origin, 1f, SpriteEffects.None, 0f);
+			pos.Y += ScrollbgTexture.Value.Height;
 			spriteBatch.Draw(ScrollbgFill, pos - Origin, null, Color.White * Opacity, 0f, Vector2.Zero, new Vector2(1f, fillHeight), SpriteEffects.None, 0f);
 			pos.Y += fillHeight;
-			spriteBatch.Draw(ScrollbgTexture, pos, null, Color.White * Opacity, 0f, Origin, 1f, SpriteEffects.FlipVertically, 0f);
+			spriteBatch.Draw(ScrollbgTexture.Value, pos, null, Color.White * Opacity, 0f, Origin, 1f, SpriteEffects.FlipVertically, 0f);
 		}
 
 		/*

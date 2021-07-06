@@ -1,22 +1,23 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 
 namespace HEROsMod.UIKit
 {
 	internal class UIImage : UIView
 	{
-		private Texture2D texture;
+		private Asset<Texture2D> texture;
 
-		public Texture2D Texture
+		public Asset<Texture2D> Texture
 		{
 			get { return texture; }
 			set { this.texture = value; }
 		}
 
 		private float width
-		{ get { return texture.Width; } }
+		{ get { return texture.Value.Width; } }
 		private float height
-		{ get { return texture.Height; } }
+		{ get { return texture.Value.Height; } }
 		private SpriteEffects _spriteEfftct = SpriteEffects.None;
 
 		public SpriteEffects SpriteEffect
@@ -61,7 +62,7 @@ namespace HEROsMod.UIKit
 			set { SourceRectangle = new Rectangle(SourceRectangle.X, SourceRectangle.Y, SourceRectangle.Width, value); }
 		}
 
-		public UIImage(Texture2D texture)
+		public UIImage(Asset<Texture2D> texture)
 		{
 			this.Texture = texture;
 		}
@@ -85,7 +86,7 @@ namespace HEROsMod.UIKit
 		public override void Draw(SpriteBatch spriteBatch)
 		{
 			if (Visible)
-				spriteBatch.Draw(texture, DrawPosition, sourceRectangle, ForegroundColor * Opacity, 0f, Origin / Scale, Scale, SpriteEffect, 0f);
+				spriteBatch.Draw(texture.Value, DrawPosition, sourceRectangle, ForegroundColor * Opacity, 0f, Origin / Scale, Scale, SpriteEffect, 0f);
 
 			base.Draw(spriteBatch);
 		}

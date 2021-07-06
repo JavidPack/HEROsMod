@@ -44,16 +44,16 @@ namespace HEROsMod
 				if (!Main.dedServ)
 				{
 					// TODO: this should be async, but I'm too lazy to rewrite it to support assets
-					UIKit.UIButton.buttonBackground = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/buttonEdge", AssetRequestMode.ImmediateLoad).Value;
-					UIKit.UIView.closeTexture = ModContent.Request<Texture2D>("HEROsMod/Images/closeButton", AssetRequestMode.ImmediateLoad).Value;
-					UIKit.UITextbox.textboxBackground = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/textboxEdge", AssetRequestMode.ImmediateLoad).Value;
-					UIKit.UISlider.barTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/barEdge", AssetRequestMode.ImmediateLoad).Value;
-					UIKit.UIScrollView.ScrollbgTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/scrollbgEdge", AssetRequestMode.ImmediateLoad).Value;
-					UIKit.UIScrollBar.ScrollbarTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/scrollbarEdge", AssetRequestMode.ImmediateLoad).Value;
-					UIKit.UIDropdown.capUp = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/dropdownCapUp", AssetRequestMode.ImmediateLoad).Value;
-					UIKit.UIDropdown.capDown = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/dropdownCapDown", AssetRequestMode.ImmediateLoad).Value;
-					UIKit.UICheckbox.checkboxTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/checkBox", AssetRequestMode.ImmediateLoad).Value;
-					UIKit.UICheckbox.checkmarkTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/checkMark", AssetRequestMode.ImmediateLoad).Value;
+					UIKit.UIButton.buttonBackground = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/buttonEdge");
+					UIKit.UIView.closeTexture = ModContent.Request<Texture2D>("HEROsMod/Images/closeButton");
+					UIKit.UITextbox.textboxBackground = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/textboxEdge");
+					UIKit.UISlider.barTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/barEdge");
+					UIKit.UIScrollView.ScrollbgTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/scrollbgEdge");
+					UIKit.UIScrollBar.ScrollbarTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/scrollbarEdge");
+					UIKit.UIDropdown.capUp = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/dropdownCapUp");
+					UIKit.UIDropdown.capDown = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/dropdownCapDown");
+					UIKit.UICheckbox.checkboxTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/checkBox");
+					UIKit.UICheckbox.checkmarkTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/checkMark");
 				}
 
 				Init();
@@ -316,7 +316,7 @@ namespace HEROsMod
 					ModUtils.DebugText("Button Adding...");
 					RegisterButton(
 						args[1] as string,
-						args[2] as Texture2D,
+						args[2] as Asset<Texture2D>,
 						args[3] as Action,
 						args[4] as Action<bool>,
 						args[5] as Func<string>
@@ -363,7 +363,7 @@ namespace HEROsMod
 			return null;
 		}
 
-		public void RegisterButton(string permissionName, Texture2D texture, Action buttonClickedAction, Action<bool> groupUpdated, Func<string> tooltip)
+		public void RegisterButton(string permissionName, Asset<Texture2D> texture, Action buttonClickedAction, Action<bool> groupUpdated, Func<string> tooltip)
 		{
 			if (!Main.dedServ)
 			{

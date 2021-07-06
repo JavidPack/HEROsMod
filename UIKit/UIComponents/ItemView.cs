@@ -11,15 +11,15 @@ namespace HEROsMod.UIKit.UIComponents
 {
 	internal class ItemView : UIView
 	{
-		private Texture2D _demonAltarTexture = null;
+		private Asset<Texture2D> _demonAltarTexture = null;
 
-		private Texture2D DemonAltarTexture
+		private Asset<Texture2D> DemonAltarTexture
 		{
 			get
 			{
 				if (_demonAltarTexture == null)
 				{
-					_demonAltarTexture = ModContent.Request<Texture2D>("HEROsMod/Images/Demon_Altar", AssetRequestMode.ImmediateLoad).Value;
+					_demonAltarTexture = ModContent.Request<Texture2D>("HEROsMod/Images/Demon_Altar");
 				}
 				return _demonAltarTexture;
 			}
@@ -47,7 +47,7 @@ namespace HEROsMod.UIKit.UIComponents
 			Texture2D texture = null;
 			if (item.netID == -1000)
 			{
-				texture = DemonAltarTexture;
+				texture = DemonAltarTexture.Value;
 			}
 			else
 			{

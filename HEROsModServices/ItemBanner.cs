@@ -33,7 +33,7 @@ namespace HEROsMod.HEROsModServices
 			HotbarParent = hotbar;
 			MultiplayerOnly = true;
 			this._name = "Item Banner";
-			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/explosives", AssetRequestMode.ImmediateLoad).Value);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/explosives"));
 			this._hotbarIcon.Tooltip = HEROsMod.HeroText("BanDestructiveExplosives");
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			HEROsModNetwork.GeneralMessages.ItemBannerToggleByServer += GeneralMessages_BannedItemsToggleByServer;

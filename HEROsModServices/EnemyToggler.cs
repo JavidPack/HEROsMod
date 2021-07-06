@@ -17,7 +17,7 @@ namespace HEROsMod.HEROsModServices
 		public EnemyToggler()
 		{
 			this._name = "Enemy Toggler";
-			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/npcIcon", AssetRequestMode.ImmediateLoad).Value);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/npcIcon"));
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("DisableEnemySpawns");
 			this._hotbarIcon.Opacity = 1f;

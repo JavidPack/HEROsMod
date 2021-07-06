@@ -22,7 +22,7 @@ namespace HEROsMod.HEROsModServices
 
 			IsHotbar = true;
 
-			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/extensions", AssetRequestMode.ImmediateLoad).Value);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/extensions"));
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ExtensionTools");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 

@@ -1,13 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 
 namespace HEROsMod.UIKit
 {
 	internal class UICheckbox : UIView
 	{
-		internal static Texture2D checkboxTexture;
-		internal static Texture2D checkmarkTexture;
+		internal static Asset<Texture2D> checkboxTexture;
+		internal static Asset<Texture2D> checkmarkTexture;
 
 		private bool selected = false;
 
@@ -41,7 +42,7 @@ namespace HEROsMod.UIKit
 		{
 			label = new UILabel(text);
 			label.Scale = .5f;
-			label.Position = new Vector2(checkboxTexture.Width + spacing, 0);
+			label.Position = new Vector2(checkboxTexture.Value.Width + spacing, 0);
 			this.AddChild(label);
 			this.onLeftClick += new EventHandler(UICheckbox_onLeftClick);
 		}
@@ -58,15 +59,15 @@ namespace HEROsMod.UIKit
 
 		protected override float GetWidth()
 		{
-			return checkboxTexture.Width + spacing + label.Width;
+			return checkboxTexture.Value.Width + spacing + label.Width;
 		}
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			Vector2 pos = DrawPosition + new Vector2(0, (float)label.Height / 2 - (float)checkboxTexture.Height / 1.2f);
-			spriteBatch.Draw(checkboxTexture, pos, null, Color.White, 0f, Origin, 1f, SpriteEffects.None, 0f);
+			Vector2 pos = DrawPosition + new Vector2(0, (float)label.Height / 2 - (float)checkboxTexture.Value.Height / 1.2f);
+			spriteBatch.Draw(checkboxTexture.Value, pos, null, Color.White, 0f, Origin, 1f, SpriteEffects.None, 0f);
 			if (Selected)
-				spriteBatch.Draw(checkmarkTexture, pos, null, Color.White, 0f, Origin, 1f, SpriteEffects.None, 0f);
+				spriteBatch.Draw(checkmarkTexture.Value, pos, null, Color.White, 0f, Origin, 1f, SpriteEffects.None, 0f);
 
 			base.Draw(spriteBatch);
 		}

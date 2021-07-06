@@ -79,7 +79,7 @@ Mods: {
       RevealMap: Reveal Map
       ClearItemsOnGround: Clear Items on Ground
       ItemsOnTheGroundWereCleared: Items on the ground were cleared
-      ItemBrowser: Item Browser
+      ItemBrowserTrue: Item Browser
       ItemBrowser: {
         FilterName: {
           ModFilter: Mod Filter

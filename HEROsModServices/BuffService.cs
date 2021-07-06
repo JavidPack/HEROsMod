@@ -28,7 +28,7 @@ namespace HEROsMod.HEROsModServices
 
 		public BuffService()
 		{
-			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/buffs", AssetRequestMode.ImmediateLoad).Value/*Main.buffTexture[2]*/);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/buffs")/*Main.buffTexture[2]*/);
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenBuffWindow");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
@@ -127,7 +127,7 @@ namespace HEROsMod.HEROsModServices
 				bg.Tooltip = (buffDescription == null ? "" : buffDescription);
 				bg.onLeftClick += bg_onLeftClick;
 
-				UIImage buffImage = new UIImage(TextureAssets.Buff[buffType].Value);
+				UIImage buffImage = new UIImage(TextureAssets.Buff[buffType]);
 				buffImage.X = Spacing;
 				buffImage.Y = SmallSpacing / 2;
 				buffImage.OverridesMouse = false;

@@ -21,7 +21,7 @@ namespace HEROsMod.HEROsModServices
 			HotbarParent = hotbar;
 			MultiplayerOnly = true;
 			this._name = "Group Inspector";
-			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/manageGroups", AssetRequestMode.ImmediateLoad).Value);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/manageGroups"));
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenGroupManagement");
 			HEROsModNetwork.LoginService.GroupChanged += LoginService_GroupChanged;

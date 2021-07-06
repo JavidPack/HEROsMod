@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 
@@ -7,8 +8,8 @@ namespace HEROsMod.UIKit
 {
 	internal class UIDropdown : UIView
 	{
-		internal static Texture2D capUp;
-		internal static Texture2D capDown;
+		internal static Asset<Texture2D> capUp;
+		internal static Asset<Texture2D> capDown;
 		private bool itemsShown = false;
 		private UIWindow itemsWindow = new UIWindow();
 		private int selectedItem = 0;
@@ -161,7 +162,7 @@ namespace HEROsMod.UIKit
 		{
 			if (itemsWindow.Visible)
 				return itemsWindow.Height;
-			else return UIButton.buttonBackground.Height;
+			else return UIButton.buttonBackground.Value.Height;
 		}
 
 		public override void Update()
@@ -176,16 +177,16 @@ namespace HEROsMod.UIKit
 		public override void Draw(SpriteBatch spriteBatch)
 		{
 			itemsWindow.Draw(spriteBatch);
-			spriteBatch.Draw(UIButton.buttonBackground, DrawPosition, null, BackgroundColor, 0f, Origin, 1f, SpriteEffects.None, 0f);
-			int fillWidth = (int)Width - 2 * UIButton.buttonBackground.Width;
+			spriteBatch.Draw(UIButton.buttonBackground.Value, DrawPosition, null, BackgroundColor, 0f, Origin, 1f, SpriteEffects.None, 0f);
+			int fillWidth = (int)Width - 2 * UIButton.buttonBackground.Value.Width;
 			Vector2 pos = DrawPosition;
-			pos.X += UIButton.buttonBackground.Width;
+			pos.X += UIButton.buttonBackground.Value.Width;
 			spriteBatch.Draw(UIButton.ButtonFill, pos - Origin, null, BackgroundColor, 0f, Vector2.Zero, new Vector2(fillWidth, 1f), SpriteEffects.None, 0f);
 			pos.X += fillWidth;
-			spriteBatch.Draw(UIButton.buttonBackground, pos, null, BackgroundColor, 0f, Origin, 1f, SpriteEffects.FlipHorizontally, 0f);
+			spriteBatch.Draw(UIButton.buttonBackground.Value, pos, null, BackgroundColor, 0f, Origin, 1f, SpriteEffects.FlipHorizontally, 0f);
 			if (itemsWindow.Visible)
-				spriteBatch.Draw(capUp, new Vector2(DrawPosition.X + Width - capUp.Width, DrawPosition.Y), Color.White);
-			else spriteBatch.Draw(capDown, new Vector2(DrawPosition.X + Width - capUp.Width, DrawPosition.Y), Color.White);
+				spriteBatch.Draw(capUp.Value, new Vector2(DrawPosition.X + Width - capUp.Value.Width, DrawPosition.Y), Color.White);
+			else spriteBatch.Draw(capDown.Value, new Vector2(DrawPosition.X + Width - capUp.Value.Width, DrawPosition.Y), Color.White);
 			selectedLabel.Draw(spriteBatch);
 		}
 	}

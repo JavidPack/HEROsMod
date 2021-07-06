@@ -19,7 +19,7 @@ namespace HEROsMod.HEROsModServices
 
 		public PrefixEditor()
 		{
-			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/reforge", AssetRequestMode.ImmediateLoad).Value/*Main.itemTexture[24]*/);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/reforge")/*Main.itemTexture[24]*/);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("PrefixEditor");
 

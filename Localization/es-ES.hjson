@@ -79,7 +79,7 @@ Mods: {
     RevealMap: Revelar mapa
     ClearItemsOnGround: Eliminar objetos del suelo
     ItemsOnTheGroundWereCleared: Los objetos del suelo han sido eliminados
-    ItemBrowser: Navegador de Objetos
+    ItemBrowserTrue: Navegador de Objetos
     ItemBrowser: {
       FilterName: {
         ModFilter: Filtro de mods

@@ -75,7 +75,7 @@ Mods: {
     RevealMap: Разведать всю Карту
     ClearItemsOnGround: Удалить предметы, лежащие на земле
     ItemsOnTheGroundWereCleared: Предметы, лежащие на земле удалены
-    ItemBrowser: Предметы
+    ItemBrowserTrue: Предметы
     ItemBrowser: {
       $parentVal: Предметы
       FilterName: {

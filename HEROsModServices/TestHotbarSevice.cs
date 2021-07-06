@@ -14,7 +14,7 @@ namespace HEROsMod.HEROsModServices
 
 		public TestHotbarService()
 		{
-			this._hotbarIcon = new UIImage(TextureAssets.Buff[3].Value);
+			this._hotbarIcon = new UIImage(TextureAssets.Buff[3]);
 			this.HotbarIcon.Tooltip = "Test Hotbar";
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
@@ -66,11 +66,11 @@ namespace HEROsMod.HEROsModServices
 			Main.instance.LoadItem(ItemID.EmptyDropper);
 			Main.instance.LoadItem(ItemID.PadThai);
 			Main.instance.LoadItem(ItemID.Safe);
-			bStampTiles = new UIImage(TextureAssets.Item[ItemID.Paintbrush].Value);
-			bEyeDropper = new UIImage(TextureAssets.Item[ItemID.EmptyDropper].Value);
-			bFlipHorizontal = new UIImage(TextureAssets.Item[ItemID.PadThai].Value);
-			bFlipVertical = new UIImage(TextureAssets.Item[ItemID.Safe].Value);
-			bToggleTransparentSelection = new UIImage(TextureAssets.Buff[BuffID.Invisibility].Value);
+			bStampTiles = new UIImage(TextureAssets.Item[ItemID.Paintbrush]);
+			bEyeDropper = new UIImage(TextureAssets.Item[ItemID.EmptyDropper]);
+			bFlipHorizontal = new UIImage(TextureAssets.Item[ItemID.PadThai]);
+			bFlipVertical = new UIImage(TextureAssets.Item[ItemID.Safe]);
+			bToggleTransparentSelection = new UIImage(TextureAssets.Buff[BuffID.Invisibility]);
 			bStampTiles.Tooltip = "    Paint Tiles";
 			bEyeDropper.Tooltip = "    Eye Dropper";
 			bFlipHorizontal.Tooltip = "    Flip Horizontal";

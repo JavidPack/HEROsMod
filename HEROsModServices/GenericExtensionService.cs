@@ -1,13 +1,14 @@
 ﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 
 namespace HEROsMod.HEROsModServices
 {
 	internal class GenericExtensionService : HEROsModService
 	{
-		private Texture2D texture;
+		private Asset<Texture2D> texture;
 		private Action buttonClickedAction; // TODO: need left and right click. Use vanilla UIElement MouseEvent maybe?
 		private Action<bool> groupUpdated;
 		private Func<string> tooltip;
@@ -24,7 +25,7 @@ namespace HEROsMod.HEROsModServices
 		//	HotbarIcon.onHover += new EventHandler(button_onHover);
 		//}
 
-		public GenericExtensionService(ExtensionMenuService extensionMenuService, Texture2D texture, string permissionName, Action buttonClickedAction, Action<bool> groupUpdated, Func<string> tooltip)
+		public GenericExtensionService(ExtensionMenuService extensionMenuService, Asset<Texture2D> texture, string permissionName, Action buttonClickedAction, Action<bool> groupUpdated, Func<string> tooltip)
 		{
 			UIHotbar hotbar = extensionMenuService.Hotbar;
 

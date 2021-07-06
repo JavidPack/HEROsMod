@@ -19,7 +19,7 @@ namespace HEROsMod.HEROsModServices
 
 		public InvasionService()
 		{
-			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/event", AssetRequestMode.ImmediateLoad).Value/*Main.itemTexture[14]*/);
+			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/event")/*Main.itemTexture[14]*/);
 			this._hotbarIcon.Tooltip = HEROsMod.HeroText("OpenEventStarter");
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 
