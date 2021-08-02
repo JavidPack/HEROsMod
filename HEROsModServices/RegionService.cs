@@ -49,7 +49,7 @@ namespace HEROsMod.HEROsModServices
 			canEdit = false;
 			canView = false;
 			this._name = "Region Service";
-			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/region")/*Main.itemTexture[1337]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/region")/*Main.itemTexture[1337]*/);
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenRegionsWindow");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 			this.HasPermissionToUse = true;

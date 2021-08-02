@@ -15,7 +15,7 @@ namespace HEROsMod.HEROsModServices
 		public ItemClearer()
 		{
 			this._name = "Item Clearer";
-			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/canIcon"));
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/canIcon"));
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ClearItemsOnGround");
 		}

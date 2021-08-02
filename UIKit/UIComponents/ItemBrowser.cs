@@ -83,9 +83,9 @@ namespace HEROsMod.UIKit.UIComponents
 			this.CanMove = true;
 			//Height = 420;
 
-			_expandTexture = ModContent.Request<Texture2D>("HEROsMod/Images/ExpandIcon");
-			_collapseTexture = ModContent.Request<Texture2D>("HEROsMod/Images/CollapseIcon");
-			_spacerTexture = ModContent.Request<Texture2D>("HEROsMod/Images/spacer");
+			_expandTexture = HEROsMod.instance.Assets.Request<Texture2D>("Images/ExpandIcon");
+			_collapseTexture = HEROsMod.instance.Assets.Request<Texture2D>("Images/CollapseIcon");
+			_spacerTexture = HEROsMod.instance.Assets.Request<Texture2D>("Images/spacer");
 
 			//UILabel lTitle = new UILabel("Item Browser");
 			//lTitle.Scale = .6f;
@@ -109,7 +109,7 @@ namespace HEROsMod.UIKit.UIComponents
 
 			Width = _categoryView.X + _categoryView.Width + LargeSpacing;
 
-			_bClose = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/closeButton"));
+			_bClose = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/closeButton"));
 			_bClose.Anchor = AnchorPosition.TopRight;
 			_bClose.Position = new Vector2(Width - LargeSpacing, LargeSpacing);
 			_bClose.onLeftClick += bClose_onLeftClick;
@@ -250,9 +250,9 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				DefaultSorts = new Sort[]
 				{
-					new Sort( new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/sortItemID")){Tooltip = HeroText("SortName.ItemID")} , (x,y)=>x.type.CompareTo(y.type)),
-					new Sort( new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/sortValue")){Tooltip = HeroText("SortName.Value")} , (x,y)=>x.value.CompareTo(y.value)),
-					new Sort( new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/sortAZ")){Tooltip = HeroText("SortName.Alphabetical")} , (x,y)=>x.Name.CompareTo(y.Name)),
+					new Sort( new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortItemID")){Tooltip = HeroText("SortName.ItemID")} , (x,y)=>x.type.CompareTo(y.type)),
+					new Sort( new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortValue")){Tooltip = HeroText("SortName.Value")} , (x,y)=>x.value.CompareTo(y.value)),
+					new Sort( new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortAZ")){Tooltip = HeroText("SortName.Alphabetical")} , (x,y)=>x.Name.CompareTo(y.Name)),
 				};
 			}
 			List<Sort> sorts = DefaultSorts.ToList();
@@ -297,7 +297,7 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				Filters = new Filter[]
 				{
-					new Filter( new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/filterMod")) {Tooltip = HeroText("FilterName.ModFilter")}, x=>x.ModItem != null),
+					new Filter( new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/filterMod")) {Tooltip = HeroText("FilterName.ModFilter")}, x=>x.ModItem != null),
 				};
 			}
 			//Category[] categories = Categories;
@@ -562,19 +562,19 @@ namespace HEROsMod.UIKit.UIComponents
 						new Category("Magic", x=>x.DamageType == DamageClass.Magic),
 						new Category("Ranged", x=>x.DamageType == DamageClass.Ranged && x.ammo == 0) // TODO and ammo no
 						{
-							Sorts = new Sort[] { new Sort(new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/sortAmmo")) {Tooltip = HeroText("SortName.UseAmmoType")}, (x,y)=>x.useAmmo.CompareTo(y.useAmmo)), }
+							Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortAmmo")) {Tooltip = HeroText("SortName.UseAmmoType")}, (x,y)=>x.useAmmo.CompareTo(y.useAmmo)), }
 						},
 						//new Category("Throwing", x=>x.thrown),
 						new Category("Summon", x=>x.DamageType == DamageClass.Summon && !x.sentry),
 						new Category("Sentry", x=>x.DamageType == DamageClass.Summon && x.sentry),
 					},
-					Sorts = new Sort[] { new Sort(new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/sortDamage")) {Tooltip = HeroText("SortName.Damage")}, (x,y)=>x.damage.CompareTo(y.damage)), }
+					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortDamage")) {Tooltip = HeroText("SortName.Damage")}, (x,y)=>x.damage.CompareTo(y.damage)), }
 				},
 				new Category("Tools"/*,x=>x.pick>0||x.axe>0||x.hammer>0*/) {
 					SubCategories = new List<Category>() {
-						new Category("Pickaxes", x=>x.pick>0) { Sorts = new Sort[] { new Sort(new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/sortPick")) {Tooltip = HeroText("SortName.PickPower")}, (x,y)=>x.pick.CompareTo(y.pick)), } },
-						new Category("Axes", x=>x.axe>0){ Sorts = new Sort[] { new Sort(new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/sortAxe")) {Tooltip = HeroText("SortName.AxePower")}, (x,y)=>x.axe.CompareTo(y.axe)), } },
-						new Category("Hammers", x=>x.hammer>0){ Sorts = new Sort[] { new Sort(new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/sortHammer")) {Tooltip = HeroText("SortName.HammerPower")}, (x,y)=>x.hammer.CompareTo(y.hammer)), } },
+						new Category("Pickaxes", x=>x.pick>0) { Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortPick")) {Tooltip = HeroText("SortName.PickPower")}, (x,y)=>x.pick.CompareTo(y.pick)), } },
+						new Category("Axes", x=>x.axe>0){ Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortAxe")) {Tooltip = HeroText("SortName.AxePower")}, (x,y)=>x.axe.CompareTo(y.axe)), } },
+						new Category("Hammers", x=>x.hammer>0){ Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortHammer")) {Tooltip = HeroText("SortName.HammerPower")}, (x,y)=>x.hammer.CompareTo(y.hammer)), } },
 					},
 				},
 				new Category("Armor"/*,  x=>x.headSlot!=-1||x.bodySlot!=-1||x.legSlot!=-1*/) {
@@ -583,7 +583,7 @@ namespace HEROsMod.UIKit.UIComponents
 						new Category("Body", x=>x.bodySlot!=-1),
 						new Category("Legs", x=>x.legSlot!=-1),
 					},
-					Sorts = new Sort[] { new Sort(new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/sortDefense")) {Tooltip = HeroText("SortName.Defense")}, (x,y)=>x.defense.CompareTo(y.defense)), }
+					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortDefense")) {Tooltip = HeroText("SortName.Defense")}, (x,y)=>x.defense.CompareTo(y.defense)), }
 				},
 				new Category("Placeables"/*,  x=>x.createTile!=-1||x.createWall!=-1*/) {
 					SubCategories = new List<Category>() {
@@ -594,7 +594,7 @@ namespace HEROsMod.UIKit.UIComponents
 				new Category("Accessories", x=>x.accessory),
 				new Category("Ammo", x=>x.ammo!=0)
 				{
-					Sorts = new Sort[] { new Sort(new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/sortAmmo")) {Tooltip = HeroText("SortName.AmmoType")}, (x,y)=>x.ammo.CompareTo(y.ammo)), }
+					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortAmmo")) {Tooltip = HeroText("SortName.AmmoType")}, (x,y)=>x.ammo.CompareTo(y.ammo)), }
 				},
 				new Category("Potions", x=>(x.UseSound != null/* && x.UseSound.Style == 3*/)),
 				new Category("Expert", x=>x.expert),
@@ -607,13 +607,13 @@ namespace HEROsMod.UIKit.UIComponents
 				new Category("Mounts", x=>x.mountType != -1),
 				new Category("Dyes", x=>x.dye != 0),
 				new Category("BossSummons", x=>ItemID.Sets.SortingPriorityBossSpawns[x.type] != -1 && x.type != ItemID.LifeCrystal && x.type != ItemID.ManaCrystal && x.type != ItemID.CellPhone && x.type != ItemID.IceMirror && x.type != ItemID.MagicMirror && x.type != ItemID.LifeFruit && x.netID != ItemID.TreasureMap || x.netID == ItemID.PirateMap) { // vanilla bug.
-					Sorts = new Sort[] { new Sort(new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/sortDamage")) {Tooltip = HeroText("SortName.ProgressionOrder")}, (x,y)=>ItemID.Sets.SortingPriorityBossSpawns[x.type].CompareTo(ItemID.Sets.SortingPriorityBossSpawns[y.type])), }
+					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortDamage")) {Tooltip = HeroText("SortName.ProgressionOrder")}, (x,y)=>ItemID.Sets.SortingPriorityBossSpawns[x.type].CompareTo(ItemID.Sets.SortingPriorityBossSpawns[y.type])), }
 				},
 				new Category("Consumables", x=>x.consumable),
 				new Category("Fishing"/*, x=> x.fishingPole > 0 || x.bait>0|| x.questItem*/){
 					SubCategories = new List<Category>() {
-						new Category("Poles", x=>x.fishingPole > 0) {Sorts = new Sort[] { new Sort(new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/sortFish")) {Tooltip = HeroText("SortName.PolePower")}, (x,y)=>x.fishingPole.CompareTo(y.fishingPole)), } },
-						new Category("Bait", x=>x.bait>0) {Sorts = new Sort[] { new Sort(new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/sortBait")) {Tooltip = HeroText("SortName.BaitPower")}, (x,y)=>x.bait.CompareTo(y.bait)), } },
+						new Category("Poles", x=>x.fishingPole > 0) {Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortFish")) {Tooltip = HeroText("SortName.PolePower")}, (x,y)=>x.fishingPole.CompareTo(y.fishingPole)), } },
+						new Category("Bait", x=>x.bait>0) {Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortBait")) {Tooltip = HeroText("SortName.BaitPower")}, (x,y)=>x.bait.CompareTo(y.bait)), } },
 						new Category("QuestFish", x=>x.questItem),
 					}
 				},

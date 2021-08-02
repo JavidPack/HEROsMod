@@ -44,16 +44,16 @@ namespace HEROsMod
 				if (!Main.dedServ)
 				{
 					// TODO: this should be async, but I'm too lazy to rewrite it to support assets
-					UIKit.UIButton.buttonBackground = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/buttonEdge");
-					UIKit.UIView.closeTexture = ModContent.Request<Texture2D>("HEROsMod/Images/closeButton");
-					UIKit.UITextbox.textboxBackground = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/textboxEdge");
-					UIKit.UISlider.barTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/barEdge");
-					UIKit.UIScrollView.ScrollbgTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/scrollbgEdge");
-					UIKit.UIScrollBar.ScrollbarTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/scrollbarEdge");
-					UIKit.UIDropdown.capUp = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/dropdownCapUp");
-					UIKit.UIDropdown.capDown = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/dropdownCapDown");
-					UIKit.UICheckbox.checkboxTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/checkBox");
-					UIKit.UICheckbox.checkmarkTexture = ModContent.Request<Texture2D>("HEROsMod/Images/UIKit/checkMark");
+					UIKit.UIButton.buttonBackground = Assets.Request<Texture2D>("Images/UIKit/buttonEdge");
+					UIKit.UIView.closeTexture = Assets.Request<Texture2D>("Images/closeButton");
+					UIKit.UITextbox.textboxBackground = Assets.Request<Texture2D>("Images/UIKit/textboxEdge");
+					UIKit.UISlider.barTexture = Assets.Request<Texture2D>("Images/UIKit/barEdge");
+					UIKit.UIScrollView.ScrollbgTexture = Assets.Request<Texture2D>("Images/UIKit/scrollbgEdge");
+					UIKit.UIScrollBar.ScrollbarTexture = Assets.Request<Texture2D>("Images/UIKit/scrollbarEdge");
+					UIKit.UIDropdown.capUp = Assets.Request<Texture2D>("Images/UIKit/dropdownCapUp");
+					UIKit.UIDropdown.capDown = Assets.Request<Texture2D>("Images/UIKit/dropdownCapDown");
+					UIKit.UICheckbox.checkboxTexture = Assets.Request<Texture2D>("Images/UIKit/checkBox");
+					UIKit.UICheckbox.checkmarkTexture = Assets.Request<Texture2D>("Images/UIKit/checkMark");
 				}
 
 				Init();

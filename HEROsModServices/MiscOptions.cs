@@ -16,7 +16,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			IsHotbar = true;
 
-			this._hotbarIcon = new UIImage(ModContent.Request<Texture2D>("HEROsMod/Images/settings")/*Main.buffTexture[BuffID.Confused]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/settings")/*Main.buffTexture[BuffID.Confused]*/);
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("MiscOptions");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
