@@ -15,9 +15,9 @@ namespace HEROsMod.HEROsModServices
 		public ItemBrowser()
 		{
 			this._name = "Item Browser";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/items")/*Main.itemTexture[10]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/items", AssetRequestMode.ImmediateLoad));
 			this.HotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
-			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ItemBrowserTrue");
+			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ItemBrowser");
 
 			_itemBrowserWindow = new UIKit.UIComponents.ItemBrowser();
 			_itemBrowserWindow.CenterToParent();

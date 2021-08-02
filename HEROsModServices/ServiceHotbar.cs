@@ -123,9 +123,9 @@ namespace HEROsMod.HEROsModServices
 			_iconView.Height = this.Height;
 			this.AddChild(_iconView);
 
-			collapseButton = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/CollapseBar/CollapseButtonHorizontal"));
+			collapseButton = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/CollapseBar/CollapseButtonHorizontal", AssetRequestMode.ImmediateLoad));
 			collapseButton.UpdateWhenOutOfBounds = true;
-			collapseArrow = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/CollapseBar/CollapseArrowHorizontal"));
+			collapseArrow = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/CollapseBar/CollapseArrowHorizontal", AssetRequestMode.ImmediateLoad));
 			collapseArrow.UpdateWhenOutOfBounds = true;
 			collapseButton.Anchor = AnchorPosition.Top;
 			collapseArrow.Anchor = AnchorPosition.Top;

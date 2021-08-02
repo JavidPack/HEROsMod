@@ -23,7 +23,7 @@ namespace HEROsMod.HEROsModServices
 			IsInHotbar = true;
 			HotbarParent = hotbar;
 			this._name = "Light Hack";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/lighthack"));
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/lighthack", AssetRequestMode.ImmediateLoad));
 			this._hotbarIcon.onLeftClick += (s, e) =>
 			{
 				buttonLogic(true);

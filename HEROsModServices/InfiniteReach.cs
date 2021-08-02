@@ -31,7 +31,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			Enabled = false;
 			this._name = "Infinite Reach";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/infiniteReach")/*Main.itemTexture[407]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/infiniteReach", AssetRequestMode.ImmediateLoad)/*Main.itemTexture[407]*/);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("EnableInfiniteReach");
 			Disable();

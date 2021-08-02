@@ -59,7 +59,7 @@ namespace HEROsMod.HEROsModServices
 		public Waypoints()
 		{
 			this._name = "Waypoints";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/waypointIcon"));
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/waypointIcon", AssetRequestMode.ImmediateLoad));
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ViewWaypoints");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 

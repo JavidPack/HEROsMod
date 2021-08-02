@@ -19,7 +19,7 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				if (_demonAltarTexture == null)
 				{
-					_demonAltarTexture = HEROsMod.instance.Assets.Request<Texture2D>("Images/Demon_Altar");
+					_demonAltarTexture = HEROsMod.instance.Assets.Request<Texture2D>("Images/Demon_Altar", AssetRequestMode.ImmediateLoad);
 				}
 				return _demonAltarTexture;
 			}

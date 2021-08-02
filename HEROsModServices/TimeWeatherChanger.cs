@@ -24,7 +24,7 @@ namespace HEROsMod.HEROsModServices
 
 			TimePaused = false;
 			this._name = "Time Weather Control";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/timeRain"));
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/timeRain", AssetRequestMode.ImmediateLoad));
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ChangeTimeRain");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
@@ -129,7 +129,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			get
 			{
-				if (_playTexture == null) _playTexture = HEROsMod.instance.Assets.Request<Texture2D>("Images/speed1");
+				if (_playTexture == null) _playTexture = HEROsMod.instance.Assets.Request<Texture2D>("Images/speed1", AssetRequestMode.ImmediateLoad);
 				return _playTexture;
 			}
 		}
@@ -138,7 +138,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			get
 			{
-				if (_pauseTexture == null) _pauseTexture = HEROsMod.instance.Assets.Request<Texture2D>("Images/speed0");
+				if (_pauseTexture == null) _pauseTexture = HEROsMod.instance.Assets.Request<Texture2D>("Images/speed0", AssetRequestMode.ImmediateLoad);
 				return _pauseTexture;
 			}
 		}
@@ -159,8 +159,8 @@ namespace HEROsMod.HEROsModServices
 			Height = 54;
 			UpdateWhenOutOfBounds = true;
 
-			UIImage bStopRain = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/rainStop"));
-			UIImage bStartRain = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/rainIcon"));
+			UIImage bStopRain = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/rainStop", AssetRequestMode.ImmediateLoad));
+			UIImage bStartRain = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/rainIcon", AssetRequestMode.ImmediateLoad));
 			bStartRain.Tooltip = HEROsMod.HeroText("StartRain");
 			bStopRain.Tooltip = HEROsMod.HeroText("StopRain");
 			bStartRain.onLeftClick += bStartRain_onLeftClick;
@@ -168,8 +168,8 @@ namespace HEROsMod.HEROsModServices
 			buttonView.AddChild(bStopRain);
 			buttonView.AddChild(bStartRain);
 
-			UIImage bStopSandstorm = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/rainStop"));
-			UIImage bStartSandstorm = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/rainIcon"));
+			UIImage bStopSandstorm = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/rainStop", AssetRequestMode.ImmediateLoad));
+			UIImage bStartSandstorm = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/rainIcon", AssetRequestMode.ImmediateLoad));
 			bStartSandstorm.Tooltip = HEROsMod.HeroText("StartSandstorm");
 			bStopSandstorm.Tooltip = HEROsMod.HeroText("StopSandstorm");
 			bStartSandstorm.onLeftClick += bStartSandstorm_onLeftClick;
@@ -177,10 +177,10 @@ namespace HEROsMod.HEROsModServices
 			buttonView.AddChild(bStopSandstorm);
 			buttonView.AddChild(bStartSandstorm);
 
-			UIImage nightButton = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/moonIcon"));
+			UIImage nightButton = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/moonIcon", AssetRequestMode.ImmediateLoad));
 			nightButton.Tooltip = HEROsMod.HeroText("Night");
 			nightButton.onLeftClick += nightButton_onLeftClick;
-			UIImage noonButton = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sunIcon"));
+			UIImage noonButton = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sunIcon", AssetRequestMode.ImmediateLoad));
 			noonButton.Tooltip = HEROsMod.HeroText("Noon");
 			noonButton.onLeftClick += noonButton_onLeftClick;
 			bPause = new UIImage(TimeWeatherChanger.TimePaused ? playTexture : pauseTexture);
@@ -191,7 +191,7 @@ namespace HEROsMod.HEROsModServices
 			buttonView.AddChild(noonButton);
 			buttonView.AddChild(bPause);
 
-			UIImage sundialButton = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/timeRain"));
+			UIImage sundialButton = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/timeRain", AssetRequestMode.ImmediateLoad));
 			sundialButton.Tooltip = HEROsMod.HeroText("ForceEnchantedSundial");
 			sundialButton.onLeftClick += sundialButton_onLeftClick;
 			buttonView.AddChild(sundialButton);
