@@ -66,9 +66,7 @@ namespace HEROsMod
 
 		internal static string HeroText(string key)
 		{
-			//instance.Logger.Debug(string.Join("\n", translations.Select(x => $"{x.Key} - {x.Value}")));
 			return translations[$"Mods.HEROsMod.{key}"].GetTranslation(Language.ActiveCulture);
-			//return LocalizationLoader.CreateTranslation($"Mods.HEROsMod.{key}").GetTranslation(Language.ActiveCulture);
 			// This isn't good until after load....
 			// return Language.GetTextValue($"Mods.HEROsMod.{category}.{key}");
 		}
@@ -136,57 +134,6 @@ namespace HEROsMod
 				}
 			}
 		}
-
-		//public override void PostDrawFullscreenMap(ref string mouseText)
-		//{
-		//	Teleporter.instance.PostDrawFullScreenMap();
-		//	MapRevealer.instance.PostDrawFullScreenMap();
-		//}
-
-		//public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
-		//{
-		//	int inventoryLayerIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
-		//	if (inventoryLayerIndex != -1)
-		//	{
-		//		layers.Insert(inventoryLayerIndex, new LegacyGameInterfaceLayer(
-		//			"HerosMod: UI",
-		//			delegate
-		//			{
-		//				try
-		//				{
-		//					HEROsMod.Update();
-
-		//					HEROsMod.ServiceHotbar.Update();
-
-		//					HEROsMod.DrawBehindUI(Main.spriteBatch);
-
-		//					HEROsMod.Draw(Main.spriteBatch);
-
-		//					KeybindController.DoPreviousKeyState();
-		//				}
-		//				catch (Exception e)
-		//				{
-		//					ModUtils.DebugText("PostDrawInInventory Error: " + e.Message + e.StackTrace);
-		//				}
-		//				return true;
-		//			},
-		//			InterfaceScaleType.UI)
-		//		);
-		//	}
-		//}
-
-		//public override void HotKeyPressed(string name)
-		//{
-		//	//	ErrorLogger.Log("HKP " + name);
-		//	KeybindController.HotKeyPressed(name);
-		//}
-
-		//public override void UpdateMusic(ref int music, ref MusicPriority priority)
-		//{
-		//	CheckIfGameEnteredOrLeft();
-		//	//Console.WriteLine("?");
-		//	//KeybindController.DoPreviousKeyState();
-		//}
 
 		public override void HandlePacket(BinaryReader reader, int whoAmI)
 		{
