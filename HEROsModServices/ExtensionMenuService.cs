@@ -89,6 +89,7 @@ namespace HEROsMod.HEROsModServices
 			Visible = false;
 
 			Height = 55f;
+			UpdateWhenOutOfBounds = true;
 			buttonView.Height = Height;
 			Anchor = AnchorPosition.Top;
 			AddChild(buttonView);
