@@ -74,6 +74,31 @@ namespace HEROsMod
 		// Clear EVERYthing, mod is unloaded.
 		public override void Unload()
 		{
+			Type[] types = Code.GetTypes();
+			foreach (Type type in types)
+			{
+				foreach (FieldInfo field in type.GetFields(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic))
+				{
+					// Ignore literal fields like enums
+					if (field.IsLiteral || field.IsInitOnly)
+						continue;
+					field.SetValue(null, null);
+					Logger.Debug($"Cleared {type.FullName}+{field.Name}");
+				}
+
+				// Ignore properties in ModUtils
+				if (type.Name == "ModUtils")
+					continue;
+
+				foreach (PropertyInfo property in type.GetProperties(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic))
+				{
+					if (property.SetMethod != null)
+						property.SetValue(null, null);
+					Logger.Debug($"Cleared {type.FullName}+{property.Name}");
+				}
+			}
+			
+			/*
 			UIKit.UIComponents.ItemBrowser.Filters = null;
 			UIKit.UIComponents.ItemBrowser.DefaultSorts = null;
 			UIKit.UIComponents.ItemBrowser.Categories = null;
@@ -122,6 +147,7 @@ namespace HEROsMod
 			ModUtils.previousInventoryItems = null;
 			translations = null;
 			instance = null;
+			*/
 		}
 
 		public override void PostSetupContent()
