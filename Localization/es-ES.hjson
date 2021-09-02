@@ -80,9 +80,8 @@ Mods: {
 		ClearItemsOnGround: Eliminar objetos del suelo
 		ItemsOnTheGroundWereCleared: Los objetos del suelo han sido eliminados
 
+        ItemBrowserVal: Navegador de Objetos
 		ItemBrowser: {
-			$parentVal: Navegador de Objetos
-
 			FilterName: {
 				ModFilter: Filtro de mods
 			}

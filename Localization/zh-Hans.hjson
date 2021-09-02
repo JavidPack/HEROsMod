@@ -80,9 +80,8 @@ Mods: {
 		ClearItemsOnGround: 清除地面物品
 		ItemsOnTheGroundWereCleared: 地面物品已被清除
 
+        ItemBrowserVal: 物品浏览器
 		ItemBrowser: {
-			$parentVal: 物品浏览器
-
 			FilterName: {
 				ModFilter: 模组
 			}

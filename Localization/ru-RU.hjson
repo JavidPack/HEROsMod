@@ -76,9 +76,8 @@ Mods: {
 		ClearItemsOnGround: Удалить предметы, лежащие на земле
 		ItemsOnTheGroundWereCleared: Предметы, лежащие на земле удалены
 
+        ItemBrowserVal: Предметы
 		ItemBrowser: {
-			$parentVal: Предметы
-
 			FilterName: {
 				ModFilter: Предметы из Модификаций
 			}

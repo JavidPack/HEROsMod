@@ -80,9 +80,8 @@ Mods: {
 		ClearItemsOnGround: Clear Items on Ground
 		ItemsOnTheGroundWereCleared: Items on the ground were cleared
 
+        ItemBrowserVal: Item Browser
 		ItemBrowser: {
-			$parentVal: Item Browser
-
 			FilterName: {
 				ModFilter: Mod Filter
 			}
