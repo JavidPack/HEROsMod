@@ -66,7 +66,11 @@ namespace HEROsMod
 
 		internal static string HeroText(string key)
 		{
-			return translations[$"Mods.HEROsMod.{key}"].GetTranslation(Language.ActiveCulture);
+			string localizationKey = $"Mods.HEROsMod.{key}";
+			if (translations.TryGetValue(localizationKey, out ModTranslation translation))
+				return translation.GetTranslation(Language.ActiveCulture);
+
+			return localizationKey;
 			// This isn't good until after load....
 			// return Language.GetTextValue($"Mods.HEROsMod.{category}.{key}");
 		}
