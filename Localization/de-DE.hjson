@@ -75,7 +75,7 @@ Mods: {
 		RevealMap: Weltkarte aufdeken
 		ClearItemsOnGround: Lösche nicht aufgehobene Gegenstände vom boden
 		ItemsOnTheGroundWereCleared: Gegenstände auf dem boden wurden gelöscht.
-		ItemBrowserVal: Gegenstände
+		ItemBrowser: Gegenstände
 		OpenEventStarter: Öffne Event starter
 		AllEventsHaveBeenStopped: Alle Events wurden gestoppt.
 		Events: Events
