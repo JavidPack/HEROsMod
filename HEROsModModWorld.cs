@@ -28,13 +28,12 @@ namespace HEROsMod
 			HEROsModNetwork.Network.InitializeWorld();
 		}
 
-		public override TagCompound SaveWorldData()
+		public override void SaveWorldData(TagCompound tag)
 		{
 			//if (Main.dedServ) // What about clients? do they save?
 			{
 				HEROsModNetwork.DatabaseController.SaveSetting();
 			}
-			return null;
 		}
 	}
 }
