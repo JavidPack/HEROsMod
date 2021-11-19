@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -21,7 +22,7 @@ namespace HEROsMod.UIKit
 
 	internal class UIView
 	{
-		internal static Texture2D closeTexture;
+		internal static Asset<Texture2D> closeTexture;
 
 		//statics
 		public static UIView exclusiveControl = null;

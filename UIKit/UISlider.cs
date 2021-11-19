@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent;
 
@@ -10,7 +10,7 @@ namespace HEROsMod.UIKit
 	{
 		protected static int padding = 8;
 		protected static Texture2D sliderTexture = TextureAssets.ColorSlider.Value;
-		internal static Texture2D barTexture;
+		internal static Asset<Texture2D> barTexture;
 		private static Texture2D barFill;
 
 		private static Texture2D BarFill
@@ -19,12 +19,12 @@ namespace HEROsMod.UIKit
 			{
 				if (barFill == null)
 				{
-					Color[] edgeColors = new Color[barTexture.Width * barTexture.Height];
-					barTexture.GetData(edgeColors);
-					Color[] fillColors = new Color[barTexture.Height];
+					Color[] edgeColors = new Color[barTexture.Value.Width * barTexture.Value.Height];
+					barTexture.Value.GetData(edgeColors);
+					Color[] fillColors = new Color[barTexture.Value.Height];
 					for (int y = 0; y < fillColors.Length; y++)
 					{
-						fillColors[y] = edgeColors[barTexture.Width - 1 + y * barTexture.Width];
+						fillColors[y] = edgeColors[barTexture.Value.Width - 1 + y * barTexture.Value.Width];
 					}
 					barFill = new Texture2D(UIView.graphics, 1, fillColors.Length);
 					barFill.SetData(fillColors);
@@ -112,13 +112,13 @@ namespace HEROsMod.UIKit
 		public virtual void DrawBackground(SpriteBatch spriteBatch)
 		{
 			Vector2 pos = DrawPosition;
-			pos.Y += (sliderTexture.Height - barTexture.Height) / 2;
-			spriteBatch.Draw(barTexture, pos, null, BackgroundColor, 0f, Origin, 1f, SpriteEffects.None, 0f);
-			int fillWidth = (int)Width - 2 * barTexture.Width;
-			pos.X += barTexture.Width;
+			pos.Y += (sliderTexture.Height - barTexture.Value.Height) / 2;
+			spriteBatch.Draw(barTexture.Value, pos, null, BackgroundColor, 0f, Origin, 1f, SpriteEffects.None, 0f);
+			int fillWidth = (int)Width - 2 * barTexture.Value.Width;
+			pos.X += barTexture.Value.Width;
 			spriteBatch.Draw(BarFill, pos - Origin, null, BackgroundColor, 0f, Vector2.Zero, new Vector2(fillWidth, 1f), SpriteEffects.None, 0f);
 			pos.X += fillWidth;
-			spriteBatch.Draw(barTexture, pos, null, BackgroundColor, 0f, Origin, 1f, SpriteEffects.FlipHorizontally, 0f);
+			spriteBatch.Draw(barTexture.Value, pos, null, BackgroundColor, 0f, Origin, 1f, SpriteEffects.FlipHorizontally, 0f);
 			Vector2 sliderPos = DrawPosition;
 			sliderPos.X += padding - sliderTexture.Width / 2;
 			sliderPos.X += (width - padding * 2) * ((value - MinValue) / (MaxValue - MinValue));

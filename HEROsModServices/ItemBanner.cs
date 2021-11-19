@@ -1,6 +1,8 @@
 ﻿using HEROsMod.UIKit;
 using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Linq;
 using Terraria;
@@ -31,7 +33,7 @@ namespace HEROsMod.HEROsModServices
 			HotbarParent = hotbar;
 			MultiplayerOnly = true;
 			this._name = "Item Banner";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/explosives").Value/*Main.itemTexture[888]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/explosives", AssetRequestMode.ImmediateLoad));
 			this._hotbarIcon.Tooltip = HEROsMod.HeroText("BanDestructiveExplosives");
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			HEROsModNetwork.GeneralMessages.ItemBannerToggleByServer += GeneralMessages_BannedItemsToggleByServer;

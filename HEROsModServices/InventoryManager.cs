@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -47,9 +48,9 @@ namespace HEROsMod.HEROsModServices
 			// KeybindController.SetCatetory("InventoryManager");
 
 			//		kQuickMoveItem = KeybindController.AddKeyBinding("Quick Move Item", "LeftControl");
-			kQuickStack = KeybindController.AddKeyBinding("Quick Stack", "Q");
-			kSortInventory = KeybindController.AddKeyBinding("Sort Inventory", "C");
-			kSwapHotbar = KeybindController.AddKeyBinding("Swap Hotbar", "V");
+			kQuickStack = KeybindController.AddKeyBinding("Quick Stack", Keys.Q);
+			kSortInventory = KeybindController.AddKeyBinding("Sort Inventory", Keys.C);
+			kSwapHotbar = KeybindController.AddKeyBinding("Swap Hotbar", Keys.V);
 		}
 
 		public override void Update()

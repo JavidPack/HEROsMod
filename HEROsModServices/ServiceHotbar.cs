@@ -2,6 +2,7 @@
 using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -122,9 +123,9 @@ namespace HEROsMod.HEROsModServices
 			_iconView.Height = this.Height;
 			this.AddChild(_iconView);
 
-			collapseButton = new UIImage(HEROsMod.instance.GetTexture("Images/CollapseBar/CollapseButtonHorizontal").Value);
+			collapseButton = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/CollapseBar/CollapseButtonHorizontal", AssetRequestMode.ImmediateLoad));
 			collapseButton.UpdateWhenOutOfBounds = true;
-			collapseArrow = new UIImage(HEROsMod.instance.GetTexture("Images/CollapseBar/CollapseArrowHorizontal").Value);
+			collapseArrow = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/CollapseBar/CollapseArrowHorizontal", AssetRequestMode.ImmediateLoad));
 			collapseArrow.UpdateWhenOutOfBounds = true;
 			collapseButton.Anchor = AnchorPosition.Top;
 			collapseArrow.Anchor = AnchorPosition.Top;
@@ -159,8 +160,7 @@ namespace HEROsMod.HEROsModServices
 				//HotBarChild?.Show();
 				collapseArrow.SpriteEffect = SpriteEffects.FlipVertically;
 
-				Mod cheatSheet = ModLoader.GetMod("CheatSheet");
-				if (cheatSheet != null)
+				if (ModLoader.TryGetMod("CheatSheet", out Mod cheatSheet))
 				{
 					cheatSheet.Call("HideHotbar");
 				}

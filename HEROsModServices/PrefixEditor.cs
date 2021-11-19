@@ -2,6 +2,7 @@
 using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace HEROsMod.HEROsModServices
 
 		public PrefixEditor()
 		{
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/reforge").Value/*Main.itemTexture[24]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/reforge")/*Main.itemTexture[24]*/);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("PrefixEditor");
 
@@ -201,7 +202,7 @@ namespace HEROsMod.HEROsModServices
 				}
 			}
 
-			validPrefixes = validPrefixes.OrderBy(x => -x.rare).ToList();
+			validPrefixes = validPrefixes.OrderBy(x => -x.value-x.rare).ToList();
 		}
 
 		private void PopulatePrefixDropDown()

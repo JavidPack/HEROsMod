@@ -5,6 +5,9 @@ using System.IO;
 using System.Linq;
 using Terraria;
 using HEROsMod.HEROsModNetwork;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -16,7 +19,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			MultiplayerOnly = true;
 			this._name = "Player List";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/connectedPlayers").Value);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/connectedPlayers", AssetRequestMode.ImmediateLoad));
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ViewConnectedPlayers");
 		}

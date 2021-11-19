@@ -1,0 +1,163 @@
+Mods: {
+	HEROsMod: {
+		UpdateTModLoaderToUse:
+			'''
+
+			Dieses mod funktioniert nur mit der aktuellsten version von tModLoader. Bitte update tModLoader um dieses mod zu benutzen
+
+
+			'''
+		EnableInfiniteReach: Aktiviere unendliche reichweite
+		DisableInfiniteReach: Deaktiviere unendliche reichweite
+		SmartCursorAutomaticallyDisabledInfinteReachMod: Smarter Cursor wurde automatisch deaktiviert im unendliche reichweite modus.
+		ViewWaypoints: Zeige Wegpunkte
+		AddWaypoint: Wegpunkt hinzufügen
+		Waypoints: Wegpunkte
+		WaypointName: Wegpunkt Name
+		WaypointAlreadyExistsNote: Ein Wegpunkt mit diesem namen existiert bereits, bitte wähle einen anderen.
+		DisableGravestones: Deaktiviere Grabsteine
+		EnableGravestones: Aktiviere Grabsteine
+		YouHaveEnabledGravestones: Du hast Grabsteine aktiviert.
+		YouHaveDisabledGravestones: Du hast Grabsteine deaktiviert.
+		SetSpawnPoint: Setzte Spawnpunkt
+		SpawnPointSetToXY: Spawnpunkt gesetzt auf X:{0} Y:{1}
+		ChangeTimeRain: Zeit und Wetter
+		StartRain: Starte Regen
+		StopRain: Stoppe Regen
+		StartSandstorm: Starte Sandsturm
+		StopSandstorm: Stoppe Sandsturm
+		Night: Nacht
+		Noon: Mittag
+		ResumeTime: Zeit fortsetzen
+		PauseTime: Zeit pausieren
+		ForceEnchantedSundial: Force Enchanted Sundial
+		RainHasBeenTurnedOff: Regen wurde deaktiviert
+		RainHasBeenTurnedOn: Regen wurde aktiviert
+		SandstormHasBeenTurnedOff: Sandsturm wurde aktiviert
+		SandstormHasBeenTurnedOn: Sandsturm wurde deaktiviert
+		TimeHasBeenPaused: Zeit wurde pausiert
+		TimeHasResumed: Zeit wird fortgesetzt
+		RegionsVisible: Regionen sichtbar
+		RegionsInvisible: Regionen unsichtbar
+		OpenRegionsWindow: Öffnet regions fenster
+		ToggleRegionsVisible: Wechsel zwischen regions sichtbarkeit
+		PleaseMakeASelection: Bitte mache eine auswahl.
+		LastChangedBy: Zuletzt geändert von {0}
+		SelectPlayer: Selektiere Spieler
+		SelectGroup: Selektiere Gruppe
+		CreateRegion: Erstelle Region
+		Regions: Regionen
+		DeleteRegion: Lösche Region
+		AddGroup: Gruppe hinzufügen
+		AddPlayer: Spieler hinzufügen
+		SaveColor: Speicher Farbe
+		SelectedRegion: Ausgewählte Region {0} {1}
+		Remove: Entfernen
+		Group: Gruppe
+		User: Benutzer
+		RegionName: Regions Name
+		Ok: Ok
+		Confirm: Bestätigen
+		Create: Erstellen
+		Cancel: Abbrechen
+		RegionNameTooShort: Regions name muss mindestens 3 zeichen lang sein.
+		RightClickToTeleport: Rechtsklick zum teleportieren
+		PrefixEditor: Präfix Editor
+		OpenMobSpawnWindow: Öffne Monster spawn Fenster
+		NPCSpawner: NPC Spawner
+		All: Alle
+		TownNPCs: Stadt NPCs
+		Friendly: Freundlich
+		Boss: Boss
+		Mod: Mod
+		UnderworldToSpawnWoF: Bitte begebe dich in die Hölle um die Fleischwand zu beschwören.
+		MiscOptions: Weitere Optionen
+		RevealMap: Weltkarte aufdeken
+		ClearItemsOnGround: Lösche nicht aufgehobene Gegenstände vom boden
+		ItemsOnTheGroundWereCleared: Gegenstände auf dem boden wurden gelöscht.
+		ItemBrowser: Gegenstände
+		OpenEventStarter: Öffne Event starter
+		AllEventsHaveBeenStopped: Alle Events wurden gestoppt.
+		Events: Events
+		StopEvents: Stoppe Events
+		ViewConnectedPlayers: Zeige verbundene Spieler
+		ConnectedPlayers: Verbundene Spieler
+		OfflineUsers: Offline Benutzer
+		OpenGroupManagement: Öffne Gruppen Management
+		GroupManagement: Gruppen Management
+		Apply: Anwenden
+		DeleteGroup: Lösche Gruppe
+		NewGroup: Neue Gruppe
+		Groups: Gruppen
+		GroupName: Gruppen Name
+		AreYouSureDeleteGroup: Bist du sicher du willst die {0} Gruppe löschen?
+		ToggleGodMode: De/aktiviere Gott modus
+		GodModeEnabled: Gott modus aktiviert
+		GodModeDisabled: Gott modus deaktiviert
+		FlyCamEnableTooltip: "Aktiviere freie kamera (RMB: Sperre Kamera) "
+		FlyCamDisableTooltip: Deaktiviere freie kamera (RMB: Sperre Kamera)
+		FlyCamInstructions: Pfeiltasten zum schwenken, Shift taste für mehr geschwindichkeit, Alt taste für weniger geschwindichkeit.
+		DisableEnemySpawns: Deaktiviere Gegner Spawns
+		EnableEnemySpawns: Aktiviere Gegner Spawns
+		EnemySpawnsEnabled: Gegner spawns aktiviert
+		EnemySpawnsDisabled: Gegner spawns deaktiviert
+		ExtensionTools: Erweiterungs Werkzeuge
+		NoExtensionsLoadedNote: Keine Mods geladen die Erweiterungen hinzufügen. Schaue in den forum post für kompatible mods.
+		OpenBuffWindow: Öffne Buff Fenster
+		Buffs: Buffs
+		Seconds: Sekunden
+		Login: Login
+		Logout: Logout
+		Register: Registrieren
+		Password: Passwort
+		Username: Benutzername
+		PleaseFillInUsernamePassword: Bitte fülle das Benutzername und Passwort Feld aus.
+		BanDestructiveExplosives: Banne destruktive Explosions Gegenstände.
+		UnbanDestructiveExplosives: Entbanne destruktive Explosions Gegenstände.
+		ProjectileIsBannerdOnTheServer: "{0} wurde vom Server verbannt."
+		MakesYouAdminInHEROsMod: Macht dich Admin in HERO's Mod.
+		AuthCodeIsIncorrect: Authentifizierungscode ist inkorrekt
+		PleaseLoginFirst: Bitte logge dich erst ein.
+		YouAreNowAdmin: Du bist nun Admin
+		AdminInstructionsCommandDescription: Informiert dich wie man Admin wird in HERO's Mod
+		DedicatedServerAutoMessage: HERO's Mod: Erstelle einen Account, logge dich ein, schreibe /auth {0} um Admin zu werden.
+		YouDoNotHavePermissionToBuildHere: Du hast keine erlaubnis hier zu bauen.
+		LightHackDisabled: Licht Hack: Deaktiviert
+		LightHack25%: Licht Hack: 25%
+		LightHack50%: Licht Hack: 50%
+		LightHack100%: Licht Hack: 100%
+		CheckTileForLastModification: Überprüfe die letzte modifikation an diesem Feld
+		AccountAlreadyLoggedIn: Dieser Account ist bereits eingeloggt auf dem Server.
+		LoggedInSuccessfully: Du hast dich erfolgreich eingeloggt. Du bist nun in der {0} Gruppe.
+		InvalidUsernameOrPassword: Inkorrekter Benutzername oder Passwort.
+		UsernameAlreadyTaken: Dieser Benutzername ist bereits vergeben.
+		SuccessfullyRegistered: Du bist erfolgreich registriert worden.  Please login.
+		GroupAlreadyExists: Eine Gruppe mit diesem namen existiert bereits.
+		CantDeleteDefaultGroup: Du kannst nicht die standart Gruppe löschen.
+		LoginInstructions: Klicke den 'Login' Knopf auf der HEROsMod schnellleiste um dich einzuloggen oder einen Account zu erstellen.
+		TimeChangedNoonBy: Die Zeit wurde auf Mittag gesetzt von {0}
+		TimeChangedMidnightBy: Die Zeit wurde auf Mitternacht gesetzt von {0}
+		TimeChangedNightBy: Die Zeit wurde auf Nacht gesetzt von {0}
+		TimePausedBy: Die Zeit wurde von {0} pausiert
+		TimeResumedBy: Die zeit wurde von {0} fortgesetzt
+		ItemsClearedBy: Die gegenstände auf dem boden wurden entfernt von {0}
+		EnemySpawnsEnabledBy: Gegner Spawns wurden aktiviert von {0}
+		EnemySpawnsDisabledBy: Gegner Spawns wurden deaktiviert von {0}
+		RainTurnedOnBy: Regen wurde aktiviert von {0}
+		RainTurnedOffBy: Regen wurde deaktiviert von {0}
+		SandstormTurnedOnBy: Sandstürme wurden aktiviert von {0}
+		SandstormTurnedOffBy: Sandstürme wurden deaktiviert von {0}
+		ForcedEnchangedSundialBy: Erzwungener effect der verzauberten Sonnenuhr initialisiert von {0}
+		WaypointAlreadyExists: Ein Wegpunkt mit diesem namen existiert bereits, bitte wähle einen anderen.
+		RegionCreatedBy: "'{0}' region wurde erstellt von {1};"
+		SpawnPointSetToBy: Spawnpunkt wurde gesetzt auf X:{0} Y:{1} von {2}
+		GravestonesEnabledBy: Grabsteine wurden aktiviert von {0}
+		GravestonesDisabledBy: Grabsteine wurden aktiviert von {0}
+		TileLastModifiedBy: Feld zuletzt modifiziert von {0}
+		TileNotModified: Dieses feld wurde nicht modifiziert seit dem letzten Server start.
+		YouDontHavePermissionToDoThat: Du hast keine befugnisse oder erlaubnis dafür.
+		EventsStoppedBy: Alle Events wurden gestoppt von {0}
+		DestructiveExplosivesBannedBy: Destruktive Explosions Gegenstände wurden gesperrt von {0}
+		DestructiveExplosivesUnbannedBy: Destruktive Explosions Gegenstände wurden entgesperrt von {0}# ItemBrowser.FilterName.ModFilter=Mod Filter
+	}
+}

@@ -1,6 +1,9 @@
 ﻿using HEROsMod.UIKit;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -12,7 +15,7 @@ namespace HEROsMod.HEROsModServices
 		public ItemClearer()
 		{
 			this._name = "Item Clearer";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/canIcon").Value);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/canIcon", AssetRequestMode.ImmediateLoad));
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ClearItemsOnGround");
 		}

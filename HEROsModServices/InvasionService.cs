@@ -1,6 +1,9 @@
 ﻿using HEROsMod.UIKit;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -16,7 +19,7 @@ namespace HEROsMod.HEROsModServices
 
 		public InvasionService()
 		{
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/event").Value/*Main.itemTexture[14]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/event", AssetRequestMode.ImmediateLoad)/*Main.itemTexture[14]*/);
 			this._hotbarIcon.Tooltip = HEROsMod.HeroText("OpenEventStarter");
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 

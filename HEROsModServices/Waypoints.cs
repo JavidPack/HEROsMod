@@ -1,9 +1,12 @@
 ﻿using HEROsMod.UIKit;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -56,7 +59,7 @@ namespace HEROsMod.HEROsModServices
 		public Waypoints()
 		{
 			this._name = "Waypoints";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/waypointIcon").Value);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/waypointIcon", AssetRequestMode.ImmediateLoad));
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ViewWaypoints");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 

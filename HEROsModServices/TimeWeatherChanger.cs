@@ -2,8 +2,10 @@
 using HEROsMod.UIKit.UIComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -22,7 +24,7 @@ namespace HEROsMod.HEROsModServices
 
 			TimePaused = false;
 			this._name = "Time Weather Control";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/timeRain").Value);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/timeRain", AssetRequestMode.ImmediateLoad));
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ChangeTimeRain");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
@@ -111,8 +113,8 @@ namespace HEROsMod.HEROsModServices
 		//	static float spacing = 8f;
 
 		public UIImage bPause;
-		private static Texture2D _playTexture;
-		private static Texture2D _pauseTexture;
+		private static Asset<Texture2D> _playTexture;
+		private static Asset<Texture2D> _pauseTexture;
 
 		//static Texture2D _rainTexture;
 		//public static Texture2D rainTexture
@@ -123,20 +125,20 @@ namespace HEROsMod.HEROsModServices
 		//		return _rainTexture;
 		//	}
 		//}
-		public static Texture2D playTexture
+		public static Asset<Texture2D> playTexture
 		{
 			get
 			{
-				if (_playTexture == null) _playTexture = HEROsMod.instance.GetTexture("Images/speed1").Value;
+				if (_playTexture == null) _playTexture = HEROsMod.instance.Assets.Request<Texture2D>("Images/speed1", AssetRequestMode.ImmediateLoad);
 				return _playTexture;
 			}
 		}
 
-		public static Texture2D pauseTexture
+		public static Asset<Texture2D> pauseTexture
 		{
 			get
 			{
-				if (_pauseTexture == null) _pauseTexture = HEROsMod.instance.GetTexture("Images/speed0").Value;
+				if (_pauseTexture == null) _pauseTexture = HEROsMod.instance.Assets.Request<Texture2D>("Images/speed0", AssetRequestMode.ImmediateLoad);
 				return _pauseTexture;
 			}
 		}
@@ -157,8 +159,8 @@ namespace HEROsMod.HEROsModServices
 			Height = 54;
 			UpdateWhenOutOfBounds = true;
 
-			UIImage bStopRain = new UIImage(HEROsMod.instance.GetTexture("Images/rainStop").Value);
-			UIImage bStartRain = new UIImage(HEROsMod.instance.GetTexture("Images/rainIcon").Value);
+			UIImage bStopRain = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/rainStop", AssetRequestMode.ImmediateLoad));
+			UIImage bStartRain = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/rainIcon", AssetRequestMode.ImmediateLoad));
 			bStartRain.Tooltip = HEROsMod.HeroText("StartRain");
 			bStopRain.Tooltip = HEROsMod.HeroText("StopRain");
 			bStartRain.onLeftClick += bStartRain_onLeftClick;
@@ -166,8 +168,8 @@ namespace HEROsMod.HEROsModServices
 			buttonView.AddChild(bStopRain);
 			buttonView.AddChild(bStartRain);
 
-			UIImage bStopSandstorm = new UIImage(HEROsMod.instance.GetTexture("Images/rainStop").Value);
-			UIImage bStartSandstorm = new UIImage(HEROsMod.instance.GetTexture("Images/rainIcon").Value);
+			UIImage bStopSandstorm = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/rainStop", AssetRequestMode.ImmediateLoad));
+			UIImage bStartSandstorm = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/rainIcon", AssetRequestMode.ImmediateLoad));
 			bStartSandstorm.Tooltip = HEROsMod.HeroText("StartSandstorm");
 			bStopSandstorm.Tooltip = HEROsMod.HeroText("StopSandstorm");
 			bStartSandstorm.onLeftClick += bStartSandstorm_onLeftClick;
@@ -175,10 +177,10 @@ namespace HEROsMod.HEROsModServices
 			buttonView.AddChild(bStopSandstorm);
 			buttonView.AddChild(bStartSandstorm);
 
-			UIImage nightButton = new UIImage(HEROsMod.instance.GetTexture("Images/moonIcon").Value);
+			UIImage nightButton = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/moonIcon", AssetRequestMode.ImmediateLoad));
 			nightButton.Tooltip = HEROsMod.HeroText("Night");
 			nightButton.onLeftClick += nightButton_onLeftClick;
-			UIImage noonButton = new UIImage(HEROsMod.instance.GetTexture("Images/sunIcon").Value);
+			UIImage noonButton = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sunIcon", AssetRequestMode.ImmediateLoad));
 			noonButton.Tooltip = HEROsMod.HeroText("Noon");
 			noonButton.onLeftClick += noonButton_onLeftClick;
 			bPause = new UIImage(TimeWeatherChanger.TimePaused ? playTexture : pauseTexture);
@@ -189,7 +191,7 @@ namespace HEROsMod.HEROsModServices
 			buttonView.AddChild(noonButton);
 			buttonView.AddChild(bPause);
 
-			UIImage sundialButton = new UIImage(HEROsMod.instance.GetTexture("Images/timeRain").Value);
+			UIImage sundialButton = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/timeRain", AssetRequestMode.ImmediateLoad));
 			sundialButton.Tooltip = HEROsMod.HeroText("ForceEnchantedSundial");
 			sundialButton.onLeftClick += sundialButton_onLeftClick;
 			buttonView.AddChild(sundialButton);

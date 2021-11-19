@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
@@ -26,21 +27,21 @@ namespace HEROsMod
 		{
 			if (FlyCam.Enabled && !FlyCam.LockCamera)
 			{
-				player.controlDown = false;
-				player.controlUp = false;
-				player.controlLeft = false;
-				player.controlRight = false;
+				Player.controlDown = false;
+				Player.controlUp = false;
+				Player.controlLeft = false;
+				Player.controlRight = false;
 
-				player.controlMount = false;
-				player.controlHook = false;
-				player.controlThrow = false;
+				Player.controlMount = false;
+				Player.controlHook = false;
+				Player.controlThrow = false;
 				//	player.controlJump = false;
-				player.controlSmart = false;
-				player.controlTorch = false;
+				Player.controlSmart = false;
+				Player.controlTorch = false;
 			}
 			if(Main.netMode == NetmodeID.MultiplayerClient && !HEROsModServices.Login.LoggedIn && ModContent.GetInstance<HEROsModServerConfig>().FreezeNonLoggedIn)
 			{
-				player.frozen = true;
+				Player.frozen = true;
 				FreezeNonLoggedInMessageTimer -= ModUtils.DeltaTime;
 				if (FreezeNonLoggedInMessageTimer <= 0)
 				{
@@ -63,9 +64,9 @@ namespace HEROsMod
 		{
 			if (GodModeService.Enabled)
 			{
-				player.statLife = player.statLifeMax2;
-				player.statMana = player.statManaMax2;
-				player.wingTime = player.wingTimeMax;
+				Player.statLife = Player.statLifeMax2;
+				Player.statMana = Player.statManaMax2;
+				Player.wingTime = Player.wingTimeMax;
 			}
 		}
 
@@ -82,11 +83,16 @@ namespace HEROsMod
 					HEROsModNetwork.Network.Update();
 				}
 			}
-			if (Main.myPlayer == player.whoAmI && Main.netMode == NetmodeID.MultiplayerClient && !HEROsModServices.Login.LoggedIn && ModContent.GetInstance<HEROsModServerConfig>().FreezeNonLoggedIn)
+			if (Main.myPlayer == Player.whoAmI && Main.netMode == NetmodeID.MultiplayerClient && !HEROsModServices.Login.LoggedIn && ModContent.GetInstance<HEROsModServerConfig>().FreezeNonLoggedIn)
 			{
 				// For visuals. Other players won't see this, but less error prone than Frozen debuff.
-				player.frozen = true;
+				Player.frozen = true;
 			}
+		}
+
+		public override void ProcessTriggers(TriggersSet triggersSet)
+		{
+			KeybindController.HotKeyPressed(triggersSet.KeyStatus);
 		}
 	}
 

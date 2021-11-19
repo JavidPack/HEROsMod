@@ -1,0 +1,224 @@
+Mods: {
+	HEROsMod: {
+		UpdateTModLoaderToUse:
+			'''
+
+			Данный мод использует функционал, который имеется лишь в последней версии tModLoader. Обновите tModLoader, что бы использовать данный мод
+
+
+			'''
+		EnableInfiniteReach: Включить Бесконечную Досягаемость
+		DisableInfiniteReach: Отключить Бесконечную Досягаемость
+		SmartCursorAutomaticallyDisabledInfinteReachMod: Умный Курсор отключен в режиме Бесконечной Досягаемости.
+		ViewWaypoints: Просмотреть Точки Телепортации
+		AddWaypoint: Добавить Точку Телепортации
+		Waypoints: Точки Телепортации
+		WaypointName: Название Точки Телепортации
+		WaypointAlreadyExistsNote: Точка Телепортации с таким названием уже существует.
+		DisableGravestones: Отключить Надгробия
+		EnableGravestones: Включить Надгробия
+		YouHaveEnabledGravestones: Надгробия включены
+		YouHaveDisabledGravestones: Надгробия отключены
+		SetSpawnPoint: Установить Точку Возрождения
+		SpawnPointSetToXY: Точка Возрождения установлена в координатах X:{0} Y:{1}
+		ChangeTimeRain: Сменить Время/Погоду
+		StartRain: Включить Дождь
+		StopRain: Выключить Дождь
+		StartSandstorm: Включить Песчаную Бурю
+		StopSandstorm: Выключить Песчаную Бурю
+		Night: Ночь
+		Noon: Полдень
+		ResumeTime: Включить Течение Времени
+		PauseTime: Отключить Течение Времени
+		ForceEnchantedSundial: Принудительно Активировать Зачарованные Солнечные Часы
+		RainHasBeenTurnedOff: Дождь отключен
+		RainHasBeenTurnedOn: Дождь включен
+		SandstormHasBeenTurnedOff: Песчаная Буря отключена
+		SandstormHasBeenTurnedOn: Песчаная Буря включена
+		TimeHasBeenPaused: Течение Времени включено
+		TimeHasResumed: Течение Времени отключено
+		RegionsVisible: Видимость Регионов включена
+		RegionsInvisible: Видимость Регионов отключена
+		OpenRegionsWindow: Открыть Меню Регионов
+		ToggleRegionsVisible: Видимость Регионов
+		PleaseMakeASelection: Пожалуйста, сделайте выбор.
+		LastChangedBy: Последнее изменение совершено игроком {0}
+		SelectPlayer: Выбрать Игрока
+		SelectGroup: Выбрать Группу
+		CreateRegion: Создать Регион
+		Regions: Регионы
+		DeleteRegion: Удалить Регион
+		AddGroup: Добавить Группу
+		AddPlayer: Добавить Игрока
+		SaveColor: Сохранить Цвет
+		SelectedRegion: Выбранный Регион {0} {1}
+		Remove: Удалить
+		Group: Группа
+		User: Пользователь
+		RegionName: Название Региона
+		Ok: Ок
+		Confirm: Подтвердить
+		Create: Создать
+		Cancel: Отмена
+		RegionNameTooShort: Название региона не может быть меньше 3х символов
+		RightClickToTeleport: Нажмите Пкм для телепортации в местоположение курсора
+		PrefixEditor: Редактор Префиксов
+		OpenMobSpawnWindow: Открыть Меню Призыва Существ
+		NPCSpawner: Призыватель Существ
+		All: Все
+		TownNPCs: Городские НИП'ы
+		Friendly: Дружелюбные
+		Boss: Боссы
+		Mod: Существа Модификаций
+		UnderworldToSpawnWoF: Вы должны находиться в Аду, что бы призвать Стену Плоти.
+		MiscOptions: Прочее
+		RevealMap: Разведать всю Карту
+		ClearItemsOnGround: Удалить предметы, лежащие на земле
+		ItemsOnTheGroundWereCleared: Предметы, лежащие на земле удалены
+
+		ItemBrowser: {
+			$parentVal: Предметы
+
+			FilterName: {
+				ModFilter: Предметы из Модификаций
+			}
+
+			SortName: {
+				ItemID: Ид Предмета
+				Value: Ценность
+				Alphabetical: В Алфавитном Порядке
+				UseAmmoType: Использует Амуницию
+				Damage: Урон
+				PickPower: Мощность Кирки
+				AxePower: Мощность Топора
+				HammerPower: Мощность Молота
+				Defense: Защита
+				AmmoType: Тип Амуниции
+				ProgressionOrder: В порядке Прогресса
+				PolePower: Мощность Удочки
+				BaitPower: Мощность Наживки
+			}
+
+			CategoryName: {
+				Mod: Модификации
+				Weapons: Оружие
+				Melee: Ближний Бой
+				Magic: Магическое
+				Ranged: Дистанционное
+				Throwing: Метательное
+				Summon: Призывающее
+				Sentry: Турели
+				Tools: Инструменты
+				Pickaxes: Кирки
+				Axes: Топоры
+				Hammers: Молоты
+				Armor: Броня
+				Head: Голова
+				Body: Тело
+				Legs: Ноги
+				Placeables: Размещаемые
+				Tiles: Блоки
+				Walls: Стены
+				Accessories: Аксессуары
+				Ammo: Амуниция
+				Potions: Зелья
+				Expert: Режим Эксперта
+				Pets: Питомцы
+				LightPets: Светящиеся Питомцы
+				Mounts: Маунты
+				Dyes: Красители
+				BossSummons: Призыватели Боссов
+				Consumables: Расходуемые
+				Fishing: Рыбалка
+				Poles: Удочки
+				Bait: Наживка
+				QuestFish: Квестовая Рыба
+				Other: Прочее
+			}
+		}
+
+		OpenEventStarter: Открыть Меню Событий
+		AllEventsHaveBeenStopped: Все события отключены
+		Events: События
+		StopEvents: Отключить события
+		ViewConnectedPlayers: Посмотреть Игроков Онлайн
+		ConnectedPlayers: Игроки Онлайн
+		OfflineUsers: Игроки Оффлайн
+		OpenGroupManagement: Открыть Меню Групп
+		GroupManagement: Управление Группами
+		Apply: Применить
+		DeleteGroup: Удалить Группу
+		NewGroup: Новая Группа
+		Groups: Группы
+		GroupName: Название Группы
+		AreYouSureDeleteGroup: Вы уверены, что хотите удалить группу {0}?
+		ToggleGodMode: Режим Бога
+		GodModeEnabled: Режим Бога включен
+		GodModeDisabled: Режим Бога отключен
+		FlyCamEnableTooltip: Включить Свободную Камеру (Пкм: Зафиксировать Камеру)
+		FlyCamDisableTooltip: Disable Fly Camera (Пкм: Зафиксировать Камеру)
+		FlyCamInstructions: Используйте Стрелки для перемещения, Shift что бы передвигать камеру быстрее, Alt что бы передвигать камеру медленее.
+		DisableEnemySpawns: Отключить Агрессивных Существ
+		EnableEnemySpawns: Включить Агрессивных Существ
+		EnemySpawnsEnabled: Агрессивные Существа включены
+		EnemySpawnsDisabled: Агрессивные Существа отключены
+		ExtensionTools: Расширения
+		NoExtensionsLoadedNote: Не обнаружено модов добавляющих расширения. Смотрите пост на форуме что бы узнать совместимые моды, добавляющие расширения.
+		OpenBuffWindow: Открыть Меню Баффов
+		Buffs: Баффы
+		Seconds: Секунд(ы)
+		Login: Войти
+		Logout: Выйти
+		Register: Регистрация
+		Password: Пароль
+		Username: Имя Пользователя
+		PleaseFillInUsernamePassword: Пожалуйста, введите Имя Пользователя и Пароль.
+		BanDestructiveExplosives: Заблокировать Разрушительные Взрывы
+		UnbanDestructiveExplosives: Разблокировать Разрушительные Взрывы
+		ProjectileIsBannerdOnTheServer: "{0} заблокирован на сервере"
+		MakesYouAdminInHEROsMod: Позволяет вам стать Администратором HERO's Модификации
+		AuthCodeIsIncorrect: Некорректный Код Аутентификации
+		PleaseLoginFirst: Пожалуйста, сначала войдите в ваш аккаунт.
+		YouAreNowAdmin: Теперь вы Администратор
+		AdminInstructionsCommandDescription: Информирует вас о том, как стать Администратором HERO's Модификации
+		DedicatedServerAutoMessage: HERO's Модификация: Создайте аккаунт, войдите в него и введите /auth {0} что бы стать Администратором.
+		YouDoNotHavePermissionToBuildHere: У вас нет прав, что бы строить здесь.
+		LightHackDisabled: Хак освещения: Отключен
+		LightHack25%: Хак освещения: 25%
+		LightHack50%: Хак освещения: 50%
+		LightHack100%: Хак освещения: 100%
+		CheckTileForLastModification: Просмотреть информацию об последнем изменении данного блока
+		AccountAlreadyLoggedIn: Данный аккаунт уже находится на этом сервере.
+		LoggedInSuccessfully: Вы успешно вошли.  Вы находитесь в группе {0}.
+		InvalidUsernameOrPassword: Неверное Имя пользователя или Пароль
+		UsernameAlreadyTaken: Данное Имя Пользователя уже занято.
+		SuccessfullyRegistered: Вы успешно зарегестрировались.  Пожалуйста войдите в ваш аккаунт.
+		GroupAlreadyExists: Группа с таким названием уже существует
+		CantDeleteDefaultGroup: Вы не можете удалить установленную по умолчанию группу.
+		LoginInstructions: Кликните на кнопку 'Вход' на панели HEROs Модификации, что бы войти в свой аккаунт или зарегестрировать новый.
+		TimeChangedNoonBy: Время изменено на Полдень игроком {0}
+		TimeChangedMidnightBy: Время изменено на Полночь игроком {0}
+		TimeChangedNightBy: Время изменено на Ночь игроком {0}
+		TimePausedBy: Течение Времени отключено игроком {0}
+		TimeResumedBy: Течение Времени включено игроком {0}
+		ItemsClearedBy: Предметы, лежащие на земле удалены игроком {0}
+		EnemySpawnsEnabledBy: Агрессивные Существа включены игроком {0}
+		EnemySpawnsDisabledBy: Агрессивные Существа отключены игроком {0}
+		RainTurnedOnBy: Дождь включен игроком {0}
+		RainTurnedOffBy: Дождь отключен игроком {0}
+		SandstormTurnedOnBy: Песчаная Буря включена игроком {0}
+		SandstormTurnedOffBy: Песчаная Буря включена игроком {0}
+		ForcedEnchangedSundialBy: Зачарованные Солнечные Часы принудительно активированны игроком {0}
+		WaypointAlreadyExists: Точка Телепортации с таким названием уже существует.
+		RegionCreatedBy: Регион '{0}' создан игроком {1};
+		SpawnPointSetToBy: Точка Возрождения установленна в координатах X:{0} Y:{1} игроком {2}
+		GravestonesEnabledBy: Надгробия включены игроком {0}
+		GravestonesDisabledBy: Надгробия отключены игроком {0}
+		TileLastModifiedBy: Блок последний раз был изменен игроком {0}
+		TileNotModified: Этот блок не был изменен с момента последней загрузки сервера.
+		YouDontHavePermissionToDoThat: У вас нет прав, что бы сделать это.
+		EventsStoppedBy: Все события отключены игроком {0}
+		DestructiveExplosivesBannedBy: Разрушающие Взрывы заблокированы игроком {0}
+		DestructiveExplosivesUnbannedBy: Разрушающие Взрывы разблокированы игроком {0}
+	}
+}

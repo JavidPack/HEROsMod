@@ -2,6 +2,7 @@
 using ReLogic.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -64,6 +65,7 @@ namespace HEROsMod.HEROsModServices
 			if (HasPermissionToUse)
 			{
 				Main.spriteBatch.DrawString(FontAssets.MouseText.Value, HEROsMod.HeroText("RightClickToTeleport"), new Vector2(15, Main.screenHeight - 80), Color.White);
+				Terraria.GameInput.PlayerInput.SetZoom_Unscaled();
 
 				if (Main.mouseRight && Main.keyState.IsKeyUp(Microsoft.Xna.Framework.Input.Keys.LeftControl))
 				{
@@ -71,8 +73,8 @@ namespace HEROsMod.HEROsModServices
 					int mapHeight = Main.maxTilesY * 16;
 					Vector2 cursorPosition = new Vector2(Main.mouseX, Main.mouseY);
 
-					cursorPosition.X -= Main.screenWidth / 2;
-					cursorPosition.Y -= Main.screenHeight / 2;
+					cursorPosition.X -= Main.screenWidth / 2f;
+					cursorPosition.Y -= Main.screenHeight / 2f;
 
 					Vector2 mapPosition = Main.mapFullscreenPos;
 					Vector2 cursorWorldPosition = mapPosition;
@@ -89,7 +91,7 @@ namespace HEROsMod.HEROsModServices
 					if (cursorWorldPosition.Y < 0) cursorWorldPosition.Y = 0;
 					else if (cursorWorldPosition.Y + player.height > mapHeight) cursorWorldPosition.Y = mapHeight - player.height;
 
-					if (Main.netMode == 0) // single
+					if (Main.netMode == NetmodeID.SinglePlayer) // single
 					{
 						player.Teleport(cursorWorldPosition, 1, 0);
 						player.position = cursorWorldPosition;
@@ -103,6 +105,7 @@ namespace HEROsMod.HEROsModServices
 						//NetMessage.SendData(65, -1, -1, "", 0, player.whoAmI, cursorWorldPosition.X, cursorWorldPosition.Y, 1, 0, 0);
 					}
 				}
+				Terraria.GameInput.PlayerInput.SetZoom_UI();
 			}
 		}
 	}

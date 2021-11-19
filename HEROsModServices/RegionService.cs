@@ -2,9 +2,11 @@
 using HEROsMod.UIKit;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -47,7 +49,7 @@ namespace HEROsMod.HEROsModServices
 			canEdit = false;
 			canView = false;
 			this._name = "Region Service";
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/region").Value/*Main.itemTexture[1337]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/region", AssetRequestMode.ImmediateLoad)/*Main.itemTexture[1337]*/);
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenRegionsWindow");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 			this.HasPermissionToUse = true;

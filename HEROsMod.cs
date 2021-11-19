@@ -4,9 +4,11 @@ using HEROsMod.UIKit;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Terraria;
 using Terraria.GameContent;
@@ -27,18 +29,12 @@ namespace HEROsMod
 
 		public override void Load()
 		{
-			// Since we are using hooks not in older versions, and since ItemID.Count changed, we need to do this.
-			if (ModLoader.version < new Version(0, 10, 1, 5))
-			{
-				throw new Exception(HEROsMod.HeroText("UpdateTModLoaderToUse"));
-			}
-
 			try
 			{
 				instance = this;
 
-				FieldInfo translationsField = typeof(Mod).GetField("translations", BindingFlags.Instance | BindingFlags.NonPublic);
-				translations = (Dictionary<string, ModTranslation>)translationsField.GetValue(this);
+				FieldInfo translationsField = typeof(LocalizationLoader).GetField("translations", BindingFlags.Static | BindingFlags.NonPublic);
+				translations = (Dictionary<string, ModTranslation>)translationsField.GetValue(null);
 				//LoadTranslations();
 
 				//	AddGlobalItem("HEROsModGlobalItem", new HEROsModGlobalItem());
@@ -47,16 +43,17 @@ namespace HEROsMod
 
 				if (!Main.dedServ)
 				{
-					UIKit.UIButton.buttonBackground = HEROsMod.instance.GetTexture("Images/UIKit/buttonEdge").Value;
-					UIKit.UIView.closeTexture = HEROsMod.instance.GetTexture("Images/closeButton").Value;
-					UIKit.UITextbox.textboxBackground = HEROsMod.instance.GetTexture("Images/UIKit/textboxEdge").Value;
-					UIKit.UISlider.barTexture = HEROsMod.instance.GetTexture("Images/UIKit/barEdge").Value;
-					UIKit.UIScrollView.ScrollbgTexture = GetTexture("Images/UIKit/scrollbgEdge").Value;
-					UIKit.UIScrollBar.ScrollbarTexture = HEROsMod.instance.GetTexture("Images/UIKit/scrollbarEdge").Value;
-					UIKit.UIDropdown.capUp = HEROsMod.instance.GetTexture("Images/UIKit/dropdownCapUp").Value;
-					UIKit.UIDropdown.capDown = HEROsMod.instance.GetTexture("Images/UIKit/dropdownCapDown").Value;
-					UIKit.UICheckbox.checkboxTexture = HEROsMod.instance.GetTexture("Images/UIKit/checkBox").Value;
-					UIKit.UICheckbox.checkmarkTexture = HEROsMod.instance.GetTexture("Images/UIKit/checkMark").Value;
+					// TODO: this should be async, but I'm too lazy to rewrite it to support assets
+					UIKit.UIButton.buttonBackground = Assets.Request<Texture2D>("Images/UIKit/buttonEdge", AssetRequestMode.ImmediateLoad);
+					UIKit.UIView.closeTexture = Assets.Request<Texture2D>("Images/closeButton", AssetRequestMode.ImmediateLoad);
+					UIKit.UITextbox.textboxBackground = Assets.Request<Texture2D>("Images/UIKit/textboxEdge", AssetRequestMode.ImmediateLoad);
+					UIKit.UISlider.barTexture = Assets.Request<Texture2D>("Images/UIKit/barEdge", AssetRequestMode.ImmediateLoad);
+					UIKit.UIScrollView.ScrollbgTexture = Assets.Request<Texture2D>("Images/UIKit/scrollbgEdge", AssetRequestMode.ImmediateLoad);
+					UIKit.UIScrollBar.ScrollbarTexture = Assets.Request<Texture2D>("Images/UIKit/scrollbarEdge", AssetRequestMode.ImmediateLoad);
+					UIKit.UIDropdown.capUp = Assets.Request<Texture2D>("Images/UIKit/dropdownCapUp", AssetRequestMode.ImmediateLoad);
+					UIKit.UIDropdown.capDown = Assets.Request<Texture2D>("Images/UIKit/dropdownCapDown", AssetRequestMode.ImmediateLoad);
+					UIKit.UICheckbox.checkboxTexture = Assets.Request<Texture2D>("Images/UIKit/checkBox", AssetRequestMode.ImmediateLoad);
+					UIKit.UICheckbox.checkmarkTexture = Assets.Request<Texture2D>("Images/UIKit/checkMark", AssetRequestMode.ImmediateLoad);
 				}
 
 				Init();
@@ -138,71 +135,10 @@ namespace HEROsMod
 			}
 		}
 
-		public override void PostDrawFullscreenMap(ref string mouseText)
-		{
-			Teleporter.instance.PostDrawFullScreenMap();
-			MapRevealer.instance.PostDrawFullScreenMap();
-		}
-
-		public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
-		{
-			int inventoryLayerIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
-			if (inventoryLayerIndex != -1)
-			{
-				layers.Insert(inventoryLayerIndex, new LegacyGameInterfaceLayer(
-					"HerosMod: UI",
-					delegate
-					{
-						try
-						{
-							HEROsMod.Update();
-
-							HEROsMod.ServiceHotbar.Update();
-
-							HEROsMod.DrawBehindUI(Main.spriteBatch);
-
-							HEROsMod.Draw(Main.spriteBatch);
-
-							KeybindController.DoPreviousKeyState();
-						}
-						catch (Exception e)
-						{
-							ModUtils.DebugText("PostDrawInInventory Error: " + e.Message + e.StackTrace);
-						}
-						return true;
-					},
-					InterfaceScaleType.UI)
-				);
-			}
-		}
-
-		public override void HotKeyPressed(string name)
-		{
-			//	ErrorLogger.Log("HKP " + name);
-			KeybindController.HotKeyPressed(name);
-		}
-
-		public override void UpdateMusic(ref int music, ref MusicPriority priority)
-		{
-			CheckIfGameEnteredOrLeft();
-			//Console.WriteLine("?");
-			//KeybindController.DoPreviousKeyState();
-		}
-
 		public override void HandlePacket(BinaryReader reader, int whoAmI)
 		{
 			//ErrorLogger.Log("HandlePacket");
 			HEROsModNetwork.Network.HEROsModMessaged(reader, whoAmI);
-		}
-
-		public override bool HijackGetData(ref byte messageType, ref BinaryReader reader, int playerNumber)
-		{
-			if (HEROsModNetwork.Network.CheckIncomingDataForHEROsModMessage(ref messageType, ref reader, playerNumber))
-			{
-				//ErrorLogger.Log("Hijacking: " + messageType);
-				return true;
-			}
-			return false;
 		}
 
 		/*
@@ -327,7 +263,7 @@ namespace HEROsMod
 					ModUtils.DebugText("Button Adding...");
 					RegisterButton(
 						args[1] as string,
-						args[2] as Texture2D,
+						args[2] as Asset<Texture2D>,
 						args[3] as Action,
 						args[4] as Action<bool>,
 						args[5] as Func<string>
@@ -374,7 +310,7 @@ namespace HEROsMod
 			return null;
 		}
 
-		public void RegisterButton(string permissionName, Texture2D texture, Action buttonClickedAction, Action<bool> groupUpdated, Func<string> tooltip)
+		public void RegisterButton(string permissionName, Asset<Texture2D> texture, Action buttonClickedAction, Action<bool> groupUpdated, Func<string> tooltip)
 		{
 			if (!Main.dedServ)
 			{
@@ -558,7 +494,7 @@ namespace HEROsMod
 		}
 
 		//Not working since update not called in title screen.
-		private static void CheckIfGameEnteredOrLeft()
+		internal static void CheckIfGameEnteredOrLeft()
 		{
 			if (Main.gameMenu && !_prevGameMenu)
 			{
@@ -601,10 +537,10 @@ namespace HEROsMod
 			ServiceController.MyGroupChanged();
 		}
 
-		public override void PreSaveAndQuit()
-		{
-			instance.prefixEditor.PreSaveAndQuit();
-		}
+		//public override void PreSaveAndQuit()
+		//{
+		//	instance.prefixEditor.PreSaveAndQuit();
+		//}
 
 		//public static void SaveSettings()
 		//{

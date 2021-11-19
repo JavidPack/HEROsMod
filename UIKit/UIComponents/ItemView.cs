@@ -1,23 +1,25 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using ReLogic.Graphics;
 using System;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ModLoader;
 
 namespace HEROsMod.UIKit.UIComponents
 {
 	internal class ItemView : UIView
 	{
-		private Texture2D _demonAltarTexture = null;
+		private Asset<Texture2D> _demonAltarTexture = null;
 
-		private Texture2D DemonAltarTexture
+		private Asset<Texture2D> DemonAltarTexture
 		{
 			get
 			{
 				if (_demonAltarTexture == null)
 				{
-					_demonAltarTexture = HEROsMod.instance.GetTexture("Images/Demon_Altar").Value;
+					_demonAltarTexture = HEROsMod.instance.Assets.Request<Texture2D>("Images/Demon_Altar", AssetRequestMode.ImmediateLoad);
 				}
 				return _demonAltarTexture;
 			}
@@ -45,7 +47,7 @@ namespace HEROsMod.UIKit.UIComponents
 			Texture2D texture = null;
 			if (item.netID == -1000)
 			{
-				texture = DemonAltarTexture;
+				texture = DemonAltarTexture.Value;
 			}
 			else
 			{

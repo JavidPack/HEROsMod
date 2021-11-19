@@ -62,7 +62,7 @@ namespace HEROsMod.UIKit.UIComponents
 
 			Main.hoverItemName = item.Name;
 			Main.HoverItem = item.Clone();
-			Main.HoverItem.SetNameOverride(Main.HoverItem.Name + (Main.HoverItem.modItem != null ? " [" + Main.HoverItem.modItem.Mod.Name + "]" : ""));
+			Main.HoverItem.SetNameOverride(Main.HoverItem.Name + (Main.HoverItem.ModItem != null ? " [" + Main.HoverItem.ModItem.Mod.Name + "]" : ""));
 		}
 
 		private void Slot2_onLeftClick(object sender, EventArgs e)

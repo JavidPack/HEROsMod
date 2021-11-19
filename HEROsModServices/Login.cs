@@ -1,8 +1,10 @@
 ﻿using HEROsMod.UIKit;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -20,8 +22,8 @@ namespace HEROsMod.HEROsModServices
 			}
 		}
 
-		internal static Texture2D _loginTexture;
-		internal static Texture2D _logoutTexture;
+		internal static Asset<Texture2D> _loginTexture;
+		internal static Asset<Texture2D> _logoutTexture;
 
 		private static event EventHandler LoginStatusChanged;
 
@@ -30,11 +32,11 @@ namespace HEROsMod.HEROsModServices
 			MultiplayerOnly = true;
 			if (_loginTexture == null)
 			{
-				_loginTexture = HEROsMod.instance.GetTexture("Images/login").Value;
+				_loginTexture = HEROsMod.instance.Assets.Request<Texture2D>("Images/login", AssetRequestMode.ImmediateLoad);
 			}
 			if (_logoutTexture == null)
 			{
-				_logoutTexture = HEROsMod.instance.GetTexture("Images/logout").Value;
+				_logoutTexture = HEROsMod.instance.Assets.Request<Texture2D>("Images/logout", AssetRequestMode.ImmediateLoad);
 			}
 			this._name = "Login";
 			this._hotbarIcon = new UIImage(_loginTexture);

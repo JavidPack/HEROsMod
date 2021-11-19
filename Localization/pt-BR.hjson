@@ -1,0 +1,227 @@
+Mods: {
+	HEROsMod: {
+		UpdateTModLoaderToUse:
+			'''
+
+			Esse mod usa funcionalidades presentes apenas no tModLoader mais recente. Por favor, atualize o tModLoader para usar esse mod
+
+
+			'''
+		EnableInfiniteReach: Ativar Alcance Infinito
+		DisableInfiniteReach: Desativar Alcance Infinito
+		SmartCursorAutomaticallyDisabledInfinteReachMod: Cursor Inteligente desativado automaticamente no modo de alcance infinito.
+		ViewWaypoints: Ver Localizações
+		AddWaypoint: Adicionar Localização
+		Waypoints: Localizações
+		WaypointName: Nome da Localização
+		WaypointAlreadyExistsNote: Uma localização com esse nome já existe, por favor insira outro nome.
+		DisableGravestones: Ativar Lápides
+		EnableGravestones: Desativar Lápides
+		YouHaveEnabledGravestones: Você ativou as lápides
+		YouHaveDisabledGravestones: Você desativou as lápides
+		SetSpawnPoint: Definir Ponto de Entrada
+		SpawnPointSetToXY: Ponto de Entrada definido para X:{0} Y:{1}
+		ChangeTimeRain: Alterar Tempo/Chuva
+		StartRain: Iniciar a Chuva
+		StopRain: Parar a Chuva
+		StartSandstorm: Iniciar a Tempestade de Areia
+		StopSandstorm: Parar a Tempestade de Areia
+		Night: Noite
+		Noon: Meio-dia
+		ResumeTime: Retomar o Tempo
+		PauseTime: Pausar o Tempo
+		ForceEnchantedSundial: Forçar Relógio Solar Encantado
+		RainHasBeenTurnedOff: A chuva foi desativada
+		RainHasBeenTurnedOn: A chuva foi ativada
+		SandstormHasBeenTurnedOff: A tempestade de areia foi desativada
+		SandstormHasBeenTurnedOn: A tempestade de areia foi ativada
+		TimeHasBeenPaused: O tempo foi pausado
+		TimeHasResumed: O tempo foi retomado
+		RegionsVisible: Regiões Visíveis
+		RegionsInvisible: Regiões Invisível
+		OpenRegionsWindow: Abrir a janela de regiões
+		ToggleRegionsVisible: Alternar Regiões Visíveis
+		PleaseMakeASelection: Por favor, faça uma seleção.
+		LastChangedBy: Alterado pela última vez por {0}
+		SelectPlayer: Selecionar Jogador
+		SelectGroup: Selecionar Grupo
+		CreateRegion: Criar Região
+		Regions: Regiões
+		DeleteRegion: Excluir Região
+		AddGroup: Adicionar Grupo
+		AddPlayer: Adicionar Jogador
+		SaveColor: Salvar Cor
+		SelectedRegion: Região Selecionada {0} {1}
+		Remove: Remover
+		Group: Grupo
+		User: Usuário
+		RegionName: Nome da Região
+		ProtectChests: Proteger Baús
+		ThisChestIsProtected: Esse baú é protegido.
+		ChestProtectionNowEnabledForRegion: Proteção de baús ativada para a região: {0}
+		ChestProtectionNowDisabledForRegion: Proteção de baús desativada para a região: {0}
+		Ok: Ok
+		Confirm: Confirmar
+		Create: Criar
+		Cancel: Cancelar
+		RegionNameTooShort: O nome da região deve ter pelo menos 3 caracteres
+		RightClickToTeleport: Clique com o botão direito para teleportar
+		PrefixEditor: Editor de Modificadores
+		OpenMobSpawnWindow: Abrir a Janela de Invocação de Monstros
+		NPCSpawner: Invocador de NPCs
+		All: Todos
+		TownNPCs: NPCs de Cidade
+		Friendly: Amigável
+		Boss: Chefe
+		Mod: Mod
+		UnderworldToSpawnWoF: Por favor, vá para o submundo para invocar a PdC
+		MiscOptions: Opções Diversas
+		RevealMap: Revelar Mapa
+		ClearItemsOnGround: Limpar Itens no Chão
+		ItemsOnTheGroundWereCleared: Itens no chão foram limpos
+
+        ItemBrowserVal: Navegador de Itens
+		ItemBrowser: {
+			FilterName: {
+				ModFilter: Filtro de Mod
+			}
+
+			SortName: {
+				ItemID: ItemID
+				Value: Valor
+				Alphabetical: Alfabético
+				UseAmmoType: Usa Tipo de Munição
+				Damage: Dano
+				PickPower: Poder da Picareta
+				AxePower: Poder do Machado
+				HammerPower: Poder do Martelo
+				Defense: Defesa
+				AmmoType: Tipo de Munição
+				ProgressionOrder: Ordem de Progressão
+				PolePower: Poder da Vara
+				BaitPower: Poder da Isca
+			}
+
+			CategoryName: {
+				Mod: Mod
+				Weapons: Armas
+				Melee: Físico
+				Magic: Mágico
+				Ranged: À distância
+				Throwing: Arremesso
+				Summon: Invocação
+				Sentry: Sentinela
+				Tools: Ferramentas
+				Pickaxes: Picaretas
+				Axes: Machados
+				Hammers: Martelos
+				Armor: Armadura
+				Head: Cabeça
+				Body: Corpo
+				Legs: Pernas
+				Placeables: Colocáveis
+				Tiles: Peças
+				Walls: Paredes
+				Accessories: Acessórios
+				Ammo: Munição
+				Potions: Poções
+				Expert: Perito
+				Pets: Animais de Estimação
+				LightPets: Animais Leves
+				Mounts: Montarias
+				Dyes: Tinturas
+				BossSummons: Invocadores de Chefe
+				Consumables: Consumíveis
+				Fishing: Pescaria
+				Poles: Varas
+				Bait: Isca
+				QuestFish: Peixes de Missão
+				Other: Outros
+			}
+		}
+
+		OpenEventStarter: Abrir o Iniciador de Eventos
+		AllEventsHaveBeenStopped: Todos os eventos foram interrompidos
+		Events: Eventos
+		StopEvents: Interromper eventos
+		ViewConnectedPlayers: Ver Jogadores Conectados
+		ConnectedPlayers: Jogadores Conectados
+		OfflineUsers: Usuários Offline
+		OpenGroupManagement: Abrir Gerenciador de Grupos
+		GroupManagement: Gerenciador de Grupos
+		Apply: Aplicar
+		DeleteGroup: Excluir Grupo
+		NewGroup: Novo Grupo
+		Groups: Grupos
+		GroupName: Nome do Grupo
+		AreYouSureDeleteGroup: Tem certeza que deseja excluir o grupo {0}?
+		ToggleGodMode: Alternar Modo Deus
+		GodModeEnabled: Modo Deus Ativado
+		GodModeDisabled: Modo Deus Desativado
+		FlyCamEnableTooltip: Ativar Câmera Voadora (Botão direito do mouse: Travar Câmera)
+		FlyCamDisableTooltip: Desativar Câmera Voadora (Botão direito do mouse: Travar Câmera)
+		FlyCamInstructions: Setas para deslocar, Shift para ir mais rápido, Alt para ir mais lento
+		DisableEnemySpawns: Desativar Surgimento de Inimigos
+		EnableEnemySpawns: Ativar Surgimento de Inimigos
+		EnemySpawnsEnabled: Surgimento de inimigos ativado
+		EnemySpawnsDisabled: Surgimento de inimigos desativado
+		ExtensionTools: Ferramentas de Extensão
+		NoExtensionsLoadedNote: Nenhum mod carregado que adiciona extensões. Veja o post no fórum para mods compatíveis.
+		OpenBuffWindow: Abrir Janela de Efeitos
+		Buffs: Efeitos
+		Seconds: Segundos
+		Login: Conectar
+		Logout: Sair
+		Register: Registrar
+		Password: Senha
+		Username: Nome de usuário
+		PleaseFillInUsernamePassword: Por favor, preencha os campos Nome de usuário e Senha.
+		BanDestructiveExplosives: Proibir Explosivos Destrutivos
+		UnbanDestructiveExplosives: Permitir Explosivos Destrutivos
+		ProjectileIsBannerdOnTheServer: "{0} está banido do servidor"
+		MakesYouAdminInHEROsMod: Torna você um administrador no HERO's Mod
+		AuthCodeIsIncorrect: Código de autenticação incorreto
+		PleaseLoginFirst: Por favor, conecte-se primeiro
+		YouAreNowAdmin: Você agora é um Administrador
+		AdminInstructionsCommandDescription: Informa como se tornar um Administrador no HERO's Mod
+		DedicatedServerAutoMessage: HERO's Mod: Crie uma conta, conecte-se e digite /auth {0} para se tornar um Administrador.
+		YouDoNotHavePermissionToBuildHere: Você não tem permissão para construir aqui
+		LightHackDisabled: Hack de Iluminação: Desativado
+		LightHack25%: Hack de Iluminação: 25%
+		LightHack50%: Hack de Iluminação: 50%
+		LightHack100%: Hack de Iluminação: 100%
+		CheckTileForLastModification: Verifique a Peça para a última modificação
+		AccountAlreadyLoggedIn: Esta conta já está conectada nesse servidor.
+		LoggedInSuccessfully: Você conectou-se com sucesso. Você está no Grupo {0}.
+		InvalidUsernameOrPassword: Nome de usuário ou Senha inválidos
+		UsernameAlreadyTaken: Este nome de usuário já foi escolhido.
+		SuccessfullyRegistered: Você se registrou com sucesso.  Por favor, conecte-se.
+		GroupAlreadyExists: Já existe um grupo com este nome
+		CantDeleteDefaultGroup: Você não pode excluir o grupo padrão.
+		LoginInstructions: Clique no botão 'Conectar' na barra de atalho do HEROsMod para Conectar-se ou Criar uma Conta
+		TimeChangedNoonBy: O tempo foi alterado para meio-dia por {0}
+		TimeChangedMidnightBy: O tempo foi alterado para meia-noite por {0}
+		TimeChangedNightBy: =O tempo foi alterado para noite por {0}
+		TimePausedBy: O tempo foi pausado por {0}
+		TimeResumedBy: O tempo foi resumido por {0}
+		ItemsClearedBy: Itens no chão foram limpos por {0}
+		EnemySpawnsEnabledBy: Surgimento de inimigos foi ativado por {0}
+		EnemySpawnsDisabledBy: Surgimento de inimigos foi desativado por {0}
+		RainTurnedOnBy: A chuva foi ativada por {0}
+		RainTurnedOffBy: A chuva foi desativada por {0}
+		SandstormTurnedOnBy: A tempestade de areia foi ativada por {0}
+		SandstormTurnedOffBy: A tempestade de areia foi desativada por {0}
+		ForcedEnchangedSundialBy: Relógio Solar Encantado Forçado iniciado por {0}
+		WaypointAlreadyExists: Uma localização com esse nome já existe, por favor insira outro nome.
+		RegionCreatedBy: "'{0}' região criada por {1};"
+		SpawnPointSetToBy: Ponto de Entrada definido para X:{0} Y:{1} por {2}
+		GravestonesEnabledBy: As lápides foram ativadas por {0}
+		GravestonesDisabledBy: As lápides foram desativadas por {0}
+		TileLastModifiedBy: Peça alterada pela última vez por {0}
+		TileNotModified: Essa peça não foi modificada desde a última inicialização do servidor.
+		YouDontHavePermissionToDoThat: Você não tem permissão para fazer isso.
+		EventsStoppedBy: Todos os eventos foram interrompidos por {0}
+		DestructiveExplosivesBannedBy: Explosivos Destrutivos proibídos por {0}
+		DestructiveExplosivesUnbannedBy: Explosivos Destrutivos permitidos por {0}
+	}
+}

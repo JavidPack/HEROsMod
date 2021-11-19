@@ -1,5 +1,7 @@
 ﻿using HEROsMod.UIKit;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +24,7 @@ namespace HEROsMod.HEROsModServices
 
 		public MobSpawner()
 		{
-			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/npcs").Value/*Main.itemTexture[666]*/);
+			this._hotbarIcon = new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/npcs", AssetRequestMode.ImmediateLoad)/*Main.itemTexture[666]*/);
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("OpenMobSpawnWindow");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
 
@@ -599,8 +601,8 @@ namespace HEROsMod.HEROsModServices
 			//if (npc.NetID < 0) return;
 			CurrentNPC = npc;
 			ModUtils.LoadNPC(npc.Type);
-			mobImage.Texture = TextureAssets.Npc[npc.Type].Value;
-			mobImage.SourceRectangle = new Rectangle(0, 0, (int)mobImage.Texture.Width, (int)mobImage.Texture.Height / Main.npcFrameCount[npc.Type]);
+			mobImage.Texture = TextureAssets.Npc[npc.Type];
+			mobImage.SourceRectangle = new Rectangle(0, 0, (int)mobImage.Texture.Value.Width, (int)mobImage.Texture.Value.Height / Main.npcFrameCount[npc.Type]);
 			//mobImage.ForegroundColor = CurrentNPC.AlphaColor;
 			AddChild(mobImage);
 
@@ -774,7 +776,7 @@ namespace HEROsMod.HEROsModServices
 			this.Color = npc.color;
 			this.AlphaColor = npc.GetAlpha(Color.White);
 			this.Type = npc.type;
-			this.Mod = npc.modNPC?.Mod;
+			this.Mod = npc.ModNPC?.Mod;
 		}
 
 		public override string ToString()
@@ -859,9 +861,9 @@ namespace HEROsMod.HEROsModServices
 			int num6 = 0;
 			try
 			{
-				while (WorldGen.SolidTile(num4, num5 - num6) || Main.tile[num4, num5 - num6].liquid >= 100)
+				while (WorldGen.SolidTile(num4, num5 - num6) || Main.tile[num4, num5 - num6].LiquidAmount >= 100)
 				{
-					if (!WorldGen.SolidTile(num4, num5 + num6) && Main.tile[num4, num5 + num6].liquid < 100)
+					if (!WorldGen.SolidTile(num4, num5 + num6) && Main.tile[num4, num5 + num6].LiquidAmount < 100)
 					{
 						num5 += num6;
 						goto IL_162;
