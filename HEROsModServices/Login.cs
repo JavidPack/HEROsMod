@@ -86,6 +86,15 @@ namespace HEROsMod.HEROsModServices
 		private UITextbox tbPassword = null;
 		private UITextbox tbUsername = null;
 		private UILabel lUsername = null;
+		private UILabel lSaveLogin = null;
+		private UIButton bSaveNone = null;
+		private UIButton bSaveDefault = null;
+		private UIButton bSavePlayer = null;
+		private UICheckbox cbRememberPassword = null;
+		private Color originalBGColor;
+		private Color selectedBGColor;
+		private LoginStorage loginStorage;
+		private LoginSaveType saveType = LoginSaveType.None;
 		private static float spacing = 16f;
 
 		public LoginWindow()
@@ -100,32 +109,81 @@ namespace HEROsMod.HEROsModServices
 			lPassword = new UILabel(HEROsMod.HeroText("Password"));
 			tbPassword = new UITextbox();
 			tbPassword.PasswordBox = true;
+			lSaveLogin = new UILabel(HEROsMod.HeroText("SaveLogin"));
+			bSaveNone = new UIButton(HEROsMod.HeroText("SaveLoginNone"));
+			bSaveDefault = new UIButton(HEROsMod.HeroText("SaveLoginDefault"));
+			bSavePlayer = new UIButton(HEROsMod.HeroText("SaveLoginPlayer"));
+			cbRememberPassword = new UICheckbox(HEROsMod.HeroText("RememberPassword"));
 			UIButton bLogin = new UIButton(HEROsMod.HeroText("Login"));
 			UIButton bCancel = new UIButton(HEROsMod.HeroText("Cancel"));
 			UIButton bRegister = new UIButton(HEROsMod.HeroText("Register"));
 			bRegister.AutoSize = false;
 			bRegister.Width = 100;
 
+			originalBGColor = bSaveNone.BackgroundColor;
+			selectedBGColor = new Color(68, 72, 179);
+
+			// Begin loading "Remember Me" data
+			loginStorage = new LoginStorage();
+			if (loginStorage.LoadJSON())
+			{
+				var userInfo = loginStorage.GetLogin(Netplay.ServerIP.ToString() + ":" + Netplay.ListenPort.ToString(), Main.player[Main.myPlayer].name);
+				SetToggle(userInfo.GetSaveType());
+
+				if (userInfo.Username != "")
+				{
+					tbUsername.Text = userInfo.Username;
+				}
+
+				if (userInfo.Password != "")
+				{
+					tbPassword.Text = userInfo.Password;
+					cbRememberPassword.Selected = true;
+				}
+			}
+			else
+			{
+				SetToggle(LoginSaveType.None);
+			}
+
 			lUsername.Scale = .5f;
 			lPassword.Scale = .5f;
+			lSaveLogin.Scale = .5f;
 
 			bLogin.Anchor = AnchorPosition.TopRight;
 			bCancel.Anchor = AnchorPosition.TopRight;
 
+			tbUsername.Width = 300;
+			tbPassword.Width = tbUsername.Width;
 			lUsername.X = spacing;
 			lUsername.Y = spacing;
-			tbUsername.X = lUsername.X + lUsername.Width + spacing;
+			tbUsername.X = lUsername.X + lSaveLogin.Width + spacing;
 			tbUsername.Y = lUsername.Y;
 			lPassword.X = lUsername.X;
 			lPassword.Y = lUsername.Y + lUsername.Height + spacing;
 			tbPassword.X = tbUsername.X;
 			tbPassword.Y = lPassword.Y;
+			lSaveLogin.X = lUsername.X;
+			lSaveLogin.Y = lPassword.Y + lPassword.Height + spacing;
+			bSaveNone.X = lSaveLogin.X + lSaveLogin.Width + spacing;
+			bSaveNone.Y = lSaveLogin.Y;
+			bSaveDefault.X = bSaveNone.X + bSaveNone.Width;
+			bSaveDefault.Y = bSaveNone.Y;
+			bSavePlayer.X = bSaveDefault.X + bSaveDefault.Width;
+			bSavePlayer.Y = bSaveDefault.Y;
+			cbRememberPassword.X = bSaveNone.X;
+			cbRememberPassword.Y = lSaveLogin.Y + lSaveLogin.Height + spacing;
 
-			bCancel.Position = new Vector2(this.Width - spacing, tbPassword.Y + tbPassword.Height + spacing);
-			bLogin.Position = new Vector2(bCancel.Position.X - bCancel.Width - spacing, bCancel.Position.Y);
+			bCancel.Position = new Vector2(this.Width - spacing, cbRememberPassword.Y + cbRememberPassword.Height + spacing);
+			bLogin.Position = new Vector2(bCancel.Position.X - bCancel.Width - spacing - lSaveLogin.Width / 2, bCancel.Position.Y);
 			bRegister.X = spacing;
 			bRegister.Y = bCancel.Y;
 			this.Height = bCancel.Y + bCancel.Height + spacing;
+
+			bSaveNone.Tooltip = HEROsMod.HeroText("SaveLoginNoneTooltip");
+			bSaveDefault.Tooltip = HEROsMod.HeroText("SaveLoginDefaultTooltip");
+			bSavePlayer.Tooltip = HEROsMod.HeroText("SaveLoginPlayerTooltip");
+			bRegister.Tooltip = HEROsMod.HeroText("RegisterTooltip");
 
 			bCancel.onLeftClick += bCancel_onLeftClick;
 			bLogin.onLeftClick += bLogin_onLeftClick;
@@ -134,16 +192,76 @@ namespace HEROsMod.HEROsModServices
 			tbPassword.OnEnterPress += bLogin_onLeftClick;
 			tbUsername.OnTabPress += tbUsername_OnTabPress;
 			tbPassword.OnTabPress += tbPassword_OnTabPress;
+			bSaveNone.onLeftClick += BSaveNone_onLeftClick;
+			bSaveDefault.onLeftClick += BSaveDefault_onLeftClick;
+			bSavePlayer.onLeftClick += BSavePlayer_onLeftClick;
+			cbRememberPassword.onLeftClick += BRememberPassword_onLeftClick;
 
 			AddChild(lUsername);
 			AddChild(tbUsername);
 			AddChild(lPassword);
 			AddChild(tbPassword);
+			AddChild(lSaveLogin);
+			AddChild(bSaveNone);
+			AddChild(bSaveDefault);
+			AddChild(bSavePlayer);
+			AddChild(cbRememberPassword);
 			AddChild(bLogin);
 			AddChild(bCancel);
 			AddChild(bRegister);
 
-			tbUsername.Focus();
+			if (tbUsername.Text != "")
+			{
+				tbPassword.Focus();
+			}
+			else
+			{
+				tbUsername.Focus();
+			}
+		}
+
+		private void SetToggle(LoginSaveType _saveType)
+		{
+			saveType = _saveType;
+
+			UIButton[] buttons = { bSaveNone, bSaveDefault, bSavePlayer };
+
+			foreach (var button in buttons)
+			{
+				button.SetBackgroundColor(originalBGColor);
+			}
+
+			if (_saveType == LoginSaveType.None)
+			{
+				bSaveNone.SetBackgroundColor(selectedBGColor);
+				cbRememberPassword.Selected = false;
+			}
+			else if (_saveType == LoginSaveType.Default)
+			{
+				bSaveDefault.SetBackgroundColor(selectedBGColor);
+			}
+			else if (_saveType == LoginSaveType.Player)
+			{
+				bSavePlayer.SetBackgroundColor(selectedBGColor);
+			}
+		}
+
+		private void BSaveNone_onLeftClick(object sender, EventArgs e)
+			=> SaveTypeToggle_onLeftClick(sender, e, LoginSaveType.None);
+
+		private void BSaveDefault_onLeftClick(object sender, EventArgs e)
+			=> SaveTypeToggle_onLeftClick(sender, e, LoginSaveType.Default);
+
+		private void BSavePlayer_onLeftClick(object sender, EventArgs e)
+			=> SaveTypeToggle_onLeftClick(sender, e, LoginSaveType.Player);
+
+		private void SaveTypeToggle_onLeftClick(object sender, EventArgs e, LoginSaveType saveType)
+			=> SetToggle(saveType);
+
+		private void BRememberPassword_onLeftClick(object sender, EventArgs e)
+		{
+			if (saveType == LoginSaveType.None)
+				SetToggle(LoginSaveType.Default);
 		}
 
 		private void bRegister_onLeftClick(object sender, EventArgs e)
@@ -152,6 +270,7 @@ namespace HEROsMod.HEROsModServices
 			{
 				tbUsername.Unfocus();
 				tbPassword.Unfocus();
+				SaveLogin();
 				HEROsModNetwork.LoginService.RequestRegistration(tbUsername.Text, tbPassword.Text);
 				Close();
 			}
@@ -179,6 +298,7 @@ namespace HEROsMod.HEROsModServices
 			{
 				tbUsername.Unfocus();
 				tbPassword.Unfocus();
+				SaveLogin();
 				HEROsModNetwork.LoginService.RequestLogin(tbUsername.Text, tbPassword.Text);
 				Close();
 			}
@@ -186,6 +306,32 @@ namespace HEROsMod.HEROsModServices
 			{
 				Main.NewText(HEROsMod.HeroText("PleaseFillInUsernamePassword"));
 			}
+		}
+
+		private void SaveLogin()
+		{
+			var username = "";
+			var password = "";
+
+			username = tbUsername.Text;
+
+			if (cbRememberPassword.Selected)
+				password = tbPassword.Text;
+
+			if (saveType == LoginSaveType.Default)
+			{
+				loginStorage.AddLogin(Netplay.ServerIP.ToString() + ":" + Netplay.ListenPort.ToString(), username, password);
+			}
+			else if (saveType == LoginSaveType.Player)
+			{
+				loginStorage.AddLogin(Netplay.ServerIP.ToString() + ":" + Netplay.ListenPort.ToString(), Main.player[Main.myPlayer].name, username, password);
+			}
+			else if (saveType == LoginSaveType.None)
+			{
+				loginStorage.RemoveLogin(Netplay.ServerIP.ToString() + ":" + Netplay.ListenPort.ToString(), Main.player[Main.myPlayer].name);
+			}
+
+			loginStorage.SaveJSON();
 		}
 
 		private void bCancel_onLeftClick(object sender, EventArgs e)
