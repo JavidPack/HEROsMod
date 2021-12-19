@@ -72,6 +72,11 @@ namespace HEROsMod.UIKit
 			this.onMouseEnter += new EventHandler(UIButton_onMouseEnter);
 			this.onMouseLeave += new EventHandler(UIButton_onMouseLeave);
 		}
+		public void SetBackgroundColor(Color color)
+		{
+			BackgroundColor = color;
+			drawColor = BackgroundColor;
+		}
 
 		public void SetTextColor(Color color)
 		{
