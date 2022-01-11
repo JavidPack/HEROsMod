@@ -129,7 +129,11 @@ namespace HEROsMod.HEROsModServices
 			loginStorage = new LoginStorage();
 			if (loginStorage.LoadJSON())
 			{
-				var userInfo = loginStorage.GetLogin(Netplay.ServerIP.ToString() + ":" + Netplay.ListenPort.ToString(), Main.player[Main.myPlayer].name);
+				LoginInfo userInfo;
+				string destinationServer = RetrieveDestinationServer();
+
+				userInfo = loginStorage.GetLogin(destinationServer, Main.player[Main.myPlayer].name);
+
 				SetToggle(userInfo.GetSaveType());
 
 				if (userInfo.Username != "")
@@ -310,6 +314,27 @@ namespace HEROsMod.HEROsModServices
 				Main.NewText(HEROsMod.HeroText("PleaseFillInUsernamePassword"));
 			}
 		}
+
+		private string RetrieveDestinationServer()
+		{
+			if (Netplay.ServerIP != null && Netplay.ListenPort != 0)
+			{
+				return Netplay.ServerIP.ToString() + ":" + Netplay.ListenPort.ToString();
+			}
+			else if (Main.LobbyId > 0)
+			{
+				return Main.LobbyId.ToString();
+			}
+			else if (Main.worldName != null && Main.worldName != "")
+			{
+				return Main.worldName;
+			}
+			else
+			{
+				return "";
+			}
+		}
+
 		private void SaveLogin()
 		{
 			var username = "";
@@ -320,17 +345,19 @@ namespace HEROsMod.HEROsModServices
 			if (cbRememberPassword.Selected)
 				password = tbPassword.Text;
 
+			string destinationServer = RetrieveDestinationServer();
+
 			if (saveType == LoginSaveType.Default)
 			{
-				loginStorage.AddLogin(Netplay.ServerIP.ToString() + ":" + Netplay.ListenPort.ToString(), username, password);
+				loginStorage.AddLogin(destinationServer, username, password);
 			}
 			else if (saveType == LoginSaveType.Player)
 			{
-				loginStorage.AddLogin(Netplay.ServerIP.ToString() + ":" + Netplay.ListenPort.ToString(), Main.player[Main.myPlayer].name, username, password);
+				loginStorage.AddLogin(destinationServer, Main.player[Main.myPlayer].name, username, password);
 			}
 			else if (saveType == LoginSaveType.None)
 			{
-				loginStorage.RemoveLogin(Netplay.ServerIP.ToString() + ":" + Netplay.ListenPort.ToString(), Main.player[Main.myPlayer].name);
+				loginStorage.RemoveLogin(destinationServer, Main.player[Main.myPlayer].name);
 			}
 
 			loginStorage.SaveJSON();
