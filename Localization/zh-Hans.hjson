@@ -176,6 +176,15 @@ Mods: {
 		Register: 注册
 		Password: 密码
 		Username: 账号
+		RememberPassword: 记住密码
+		SaveLogin: 保存登录
+		SaveLoginNone: 无
+		SaveLoginDefault: 默认
+		SaveLoginPlayer: 玩家
+		SaveLoginNoneTooltip: 不保存登录数据.\n若发现登录数据则删除玩家数据.\n否则将删除此服务器的所有登录数据.
+		SaveLoginDefaultTooltip: 保存所有人物的登录数据.
+		SaveLoginPlayerTooltip: 仅保存该玩家的登录数据.\n忽略默认登录.\n默认登录数据不会被删除.
+		RegisterTooltip: 警告!\n登录信息并未安全保存.\n请使用一次性信息.
 		PleaseFillInUsernamePassword: 请输入账号与密码.
 		BanDestructiveExplosives: 已禁止破坏性爆炸物
 		UnbanDestructiveExplosives: 已允许破坏性爆炸物
