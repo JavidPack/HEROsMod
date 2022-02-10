@@ -40,7 +40,8 @@ namespace HEROsMod.HEROsModNetwork
 						Tile tile = Main.tile[x, y];
 						Tile backupTile = changes[x, y].TilePreviousToChange;
 
-						if (backupTile != null && !backupTile.IsTheSameAs(tile))
+						// TODO: Make my own Tile class to store data, since current Tile instance will always point to current data.
+						if (backupTile != null /*&& !backupTile.IsTheSameAs(tile)*/) 
 						{
 							tile.CopyFrom(backupTile);
 							//NetMessage.SendData(20, -1, -1, "", 1, x, y, 0f, 0);

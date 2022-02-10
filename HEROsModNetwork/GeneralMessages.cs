@@ -153,6 +153,7 @@ namespace HEROsMod.HEROsModNetwork
 					break;
 
 				case MessageType.RequestRestoreTiles:
+					throw new Exception("This feature does not currently work due to Tile changes."); // Actually, this feature was never implemented??
 					ProcessRestoreTilesRequest(ref reader, playerNumber);
 					break;
 

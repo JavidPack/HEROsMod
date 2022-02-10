@@ -14,7 +14,7 @@ namespace HEROsMod
 {
 	internal static class ModUtils
 	{
-		private static MethodInfo _drawPlayerHeadMethod;
+		//private static MethodInfo _drawPlayerHeadMethod;
 		private static MethodInfo _loadPlayersMethod;
 		//private static MethodInfo _startRainMethod;
 		//private static MethodInfo _stopRainMethod;
@@ -175,7 +175,7 @@ namespace HEROsMod
 			try
 			{
 				//	Main.DrawPlayerHead
-				_drawPlayerHeadMethod = Main.instance.GetType().GetMethod("DrawPlayerHead", BindingFlags.NonPublic | BindingFlags.Instance);
+				//_drawPlayerHeadMethod = Main.instance.GetType().GetMethod("DrawPlayerHead", BindingFlags.NonPublic | BindingFlags.Instance);
 				_loadPlayersMethod = typeof(Main).GetMethod("LoadPlayers", BindingFlags.NonPublic | BindingFlags.Static);
 				//_startRainMethod = typeof(Main).GetMethod("StartRain", BindingFlags.NonPublic | BindingFlags.Static);
 				//_stopRainMethod = typeof(Main).GetMethod("StopRain", BindingFlags.NonPublic | BindingFlags.Static);
@@ -248,10 +248,10 @@ namespace HEROsMod
 		/// <param name="y">Y Draw Pos</param>
 		/// <param name="alpha">Draw Alpha</param>
 		/// <param name="scale">Draw Scale</param>
-		public static void DrawPlayerHead(Player player, float x, float y, float alpha = 1f, float scale = 1f)
-		{
-			_drawPlayerHeadMethod.Invoke(Main.instance, new object[] { player, x, y, alpha, scale });
-		}
+		//public static void DrawPlayerHead(Player player, float x, float y, float alpha = 1f, float scale = 1f)
+		//{
+		//	_drawPlayerHeadMethod.Invoke(Main.instance, new object[] { player, x, y, alpha, scale });
+		//}
 
 		public static void LoadPlayers()
 		{

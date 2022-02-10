@@ -364,6 +364,8 @@ namespace HEROsMod.HEROsModServices
 
 		private void bRestore_onLeftClick(object sender, EventArgs e)
 		{
+			Main.NewText("Notice: this feature does not work with recent Tile changes");
+			return;
 			if (player != null)
 			{
 				HEROsModNetwork.GeneralMessages.RequestRestoreTiles(playerIndex, true);

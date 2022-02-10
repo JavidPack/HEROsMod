@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 using Terraria;
 
@@ -26,7 +27,7 @@ namespace HEROsMod.UIKit
 		{
 			int pd = DrawPlayer.direction;
 			DrawPlayer.direction = lookRight ? 1 : -1;
-			ModUtils.DrawPlayerHead(DrawPlayer, DrawPosition.X + Width / 2, DrawPosition.Y + Height / 2);
+			Main.MapPlayerRenderer.DrawPlayerHead(Main.Camera, DrawPlayer, new Vector2(DrawPosition.X + Width / 2, DrawPosition.Y + Height / 2), 1f, 0.8f, Color.White);
 			DrawPlayer.direction = pd;
 			base.Draw(spriteBatch);
 		}
