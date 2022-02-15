@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -153,7 +153,6 @@ namespace HEROsMod.HEROsModNetwork
 					break;
 
 				case MessageType.RequestRestoreTiles:
-					throw new Exception("This feature does not currently work due to Tile changes."); // Actually, this feature was never implemented??
 					ProcessRestoreTilesRequest(ref reader, playerNumber);
 					break;
 
@@ -181,6 +180,10 @@ namespace HEROsMod.HEROsModNetwork
 				case MessageType.RequestGodMode:
 					ProcessGodModeRequest(playerNumber);
 					break;
+                                        
+                                case MessageType.RequestBuddhaMode:
+                                        ProcessBuddhaModeRequest(playerNumber);
+                                        break;
 
 				case MessageType.AllowGodMode:
 					ProcessGodMode();
@@ -755,7 +758,7 @@ namespace HEROsMod.HEROsModNetwork
 
 		private static void ProcessCreateRegionRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				Region region = Region.GetRegionFromBinaryReader(ref reader);
 				DatabaseController.AddRegion(ref region);
@@ -774,7 +777,7 @@ namespace HEROsMod.HEROsModNetwork
 
 		private static void ProcessRemoveRegionRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				int regionID = reader.ReadInt32();
 				Region region = Network.GetRegionByID(regionID);
@@ -847,7 +850,7 @@ namespace HEROsMod.HEROsModNetwork
 
 		private static void ProcessAddPlayerToRegionRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				Region region = Network.GetRegionByID(reader.ReadInt32());
 				if (region == null) return;
@@ -870,7 +873,7 @@ namespace HEROsMod.HEROsModNetwork
 
 		private static void ProcessRemovePlayerFromRegionRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				Region region = Network.GetRegionByID(reader.ReadInt32());
 				if (region == null) return;
@@ -893,7 +896,7 @@ namespace HEROsMod.HEROsModNetwork
 
 		private static void ProcessAddGroupToRegionRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				Region region = Network.GetRegionByID(reader.ReadInt32());
 				if (region == null) return;
@@ -916,7 +919,7 @@ namespace HEROsMod.HEROsModNetwork
 
 		private static void ProcessRemoveGroupFromRegionRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				Region region = Network.GetRegionByID(reader.ReadInt32());
 				if (region == null) return;
@@ -939,7 +942,7 @@ namespace HEROsMod.HEROsModNetwork
 
 		private static void ProcessChangeRegionColorRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				Region region = Network.GetRegionByID(reader.ReadInt32());
 				if (region == null) return;
@@ -961,7 +964,7 @@ namespace HEROsMod.HEROsModNetwork
 
 		public static void ProcessChangeRegionChestProtectionRequest(ref BinaryReader reader, int playerNumber)
 		{
-			if (Network.Players[playerNumber].Group.IsAdmin)
+			if (Network.Players[playerNumber].Group.HasPermission("EditRegions"))
 			{
 				Region region = Network.GetRegionByID(reader.ReadInt32());
 				if (region == null) return;
@@ -1105,6 +1108,35 @@ namespace HEROsMod.HEROsModNetwork
 			if (!HEROsModServices.GodModeService.Enabled)
 			{
 				HEROsModServices.GodModeService.Enabled = true;
+			}
+		}
+                
+                public static void RequestBuddhaMode()
+		{
+			WriteHeader(MessageType.RequestBuddhaMode);
+			Network.SendDataToServer();
+		}
+
+		private static void ProcessBuddhaModeRequest(int playerNumber)
+		{
+			if (Network.Players[playerNumber].Group.HasPermission("BuddhaMode"))
+			{
+				AllowBuddhaMode(playerNumber);
+			}
+		}
+
+		private static void AllowBuddhaMode(int playerNumber)
+		{
+			WriteHeader(MessageType.AllowBuddhaMode);
+			Network.SendDataToPlayer(playerNumber);
+		}
+
+		private static void ProcessBuddhaMode()
+		{
+			if (Network.NetworkMode == NetworkMode.Server) return;
+			if (!HEROsModServices.GodModeService.Enabled)
+			{
+				HEROsModServices.BuddhaModeService.Enabled = true;
 			}
 		}
 
@@ -1300,6 +1332,8 @@ namespace HEROsMod.HEROsModNetwork
 			RequestToggleHardmodeEnemies,
 			RequestGodMode,
 			AllowGodMode,
+                        RequestBuddhaMode,
+                        AllowBuddhaMode,
 			RequestTileModificationCheck,
 			RequestSpawnNPC,
 			RequestStartEvent,
