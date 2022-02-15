@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
@@ -19,7 +18,7 @@ namespace HEROsMod
 {
 	public class HEROsModModPlayer : ModPlayer
 	{
-	//	public override bool Autoload(ref string name) => true;
+		public override bool Autoload(ref string name) => true;
 
 		private float FreezeNonLoggedInMessageTimer = 7f;
 
@@ -27,21 +26,21 @@ namespace HEROsMod
 		{
 			if (FlyCam.Enabled && !FlyCam.LockCamera)
 			{
-				Player.controlDown = false;
-				Player.controlUp = false;
-				Player.controlLeft = false;
-				Player.controlRight = false;
+				player.controlDown = false;
+				player.controlUp = false;
+				player.controlLeft = false;
+				player.controlRight = false;
 
-				Player.controlMount = false;
-				Player.controlHook = false;
-				Player.controlThrow = false;
+				player.controlMount = false;
+				player.controlHook = false;
+				player.controlThrow = false;
 				//	player.controlJump = false;
-				Player.controlSmart = false;
-				Player.controlTorch = false;
+				player.controlSmart = false;
+				player.controlTorch = false;
 			}
 			if(Main.netMode == NetmodeID.MultiplayerClient && !HEROsModServices.Login.LoggedIn && ModContent.GetInstance<HEROsModServerConfig>().FreezeNonLoggedIn)
 			{
-				Player.frozen = true;
+				player.frozen = true;
 				FreezeNonLoggedInMessageTimer -= ModUtils.DeltaTime;
 				if (FreezeNonLoggedInMessageTimer <= 0)
 				{
@@ -59,15 +58,56 @@ namespace HEROsMod
 			}
 			return true;
 		}
+                
+                public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+                {
+                        if (BuddhaModeService.Enabled)
+                        {
+                                player.statLife = player.statLifeMax2;
+                                player.lifeRegen = 999;
+                                return false;
+                        }
+                        return true;
+                }
+                
+                /*public override bool CanBeHitByNPC(NPC npc, ref int cooldownSlot)
+                {
+                        if (0>=player.statLife-PreHurt.damage)
+                        {
+                                return false;
+                        }
+                        return true;
+                }
 
+                public override bool CanBeHitByProjectile(Projectile proj)
+                {
+                        if (0>=player.statLife-PreHurt.damage)
+                        {
+                                return false;
+                        }
+                        return true;
+                }*/
+                        
 		public override void PreUpdate()
 		{
 			if (GodModeService.Enabled)
 			{
-				Player.statLife = Player.statLifeMax2;
-				Player.statMana = Player.statManaMax2;
-				Player.wingTime = Player.wingTimeMax;
+				player.statLife = player.statLifeMax2;
+				player.statMana = player.statManaMax2;
+				player.wingTime = player.wingTimeMax;
 			}
+                        if (BuddhaModeService.Enabled)
+                        {
+                                if (player.statLife<120)
+                                {
+                                player.statLife = 4 * player.statLifeMax2;
+                                }
+                                if (player.statMana<100)
+                                {
+                                player.statMana = player.statManaMax2;
+                                }
+
+                        }
 		}
 
 		// TODO - make tmodloader hook, this only gets called while there are players in the world.
@@ -83,16 +123,11 @@ namespace HEROsMod
 					HEROsModNetwork.Network.Update();
 				}
 			}
-			if (Main.myPlayer == Player.whoAmI && Main.netMode == NetmodeID.MultiplayerClient && !HEROsModServices.Login.LoggedIn && ModContent.GetInstance<HEROsModServerConfig>().FreezeNonLoggedIn)
+			if (Main.myPlayer == player.whoAmI && Main.netMode == NetmodeID.MultiplayerClient && !HEROsModServices.Login.LoggedIn && ModContent.GetInstance<HEROsModServerConfig>().FreezeNonLoggedIn)
 			{
 				// For visuals. Other players won't see this, but less error prone than Frozen debuff.
-				Player.frozen = true;
+				player.frozen = true;
 			}
-		}
-
-		public override void ProcessTriggers(TriggersSet triggersSet)
-		{
-			KeybindController.HotKeyPressed(triggersSet.KeyStatus);
 		}
 	}
 
