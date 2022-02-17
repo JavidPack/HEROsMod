@@ -58,7 +58,36 @@ namespace HEROsMod
 			}
 			return true;
 		}
+                
+                public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+                {
+                        if (BuddhaModeService.Enabled)
+                        {
+                                player.statLife = player.statLifeMax2;
+                                player.lifeRegen = 999;
+                                return false;
+                        }
+                        return true;
+                }
+                
+                /*public override bool CanBeHitByNPC(NPC npc, ref int cooldownSlot)
+                {
+                        if (0>=player.statLife-PreHurt.damage)
+                        {
+                                return false;
+                        }
+                        return true;
+                }
 
+                public override bool CanBeHitByProjectile(Projectile proj)
+                {
+                        if (0>=player.statLife-PreHurt.damage)
+                        {
+                                return false;
+                        }
+                        return true;
+                }*/
+                        
 		public override void PreUpdate()
 		{
 			if (GodModeService.Enabled)
@@ -67,6 +96,18 @@ namespace HEROsMod
 				player.statMana = player.statManaMax2;
 				player.wingTime = player.wingTimeMax;
 			}
+                        if (BuddhaModeService.Enabled)
+                        {
+                                if (player.statLife<120)
+                                {
+                                player.statLife = 4 * player.statLifeMax2;
+                                }
+                                if (player.statMana<100)
+                                {
+                                player.statMana = player.statManaMax2;
+                                }
+
+                        }
 		}
 
 		// TODO - make tmodloader hook, this only gets called while there are players in the world.
