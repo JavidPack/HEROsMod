@@ -111,7 +111,7 @@ namespace HEROsMod.UIKit.UIComponents
 				Item oldMouseItem = Main.mouseItem.Clone();
 				Main.mouseItem = item.Clone();
 				item = oldMouseItem.Clone();
-				if (Main.mouseItem.IsNotTheSameAs(item) && ItemChanged != null)
+				if (Main.mouseItem.IsNotSameTypePrefixAndStack(item) && ItemChanged != null)
 				{
 					ItemChanged(this, EventArgs.Empty);
 				}
@@ -192,7 +192,7 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				Main.playerInventory = true;
 
-				if (Main.stackSplit <= 1 && item.type > 0 && (Main.mouseItem.IsTheSameAs(item) || Main.mouseItem.type == 0))
+				if (Main.stackSplit <= 1 && item.type > 0 && (Main.mouseItem.type == item.type || Main.mouseItem.type == 0))
 				{
 					int num2 = Main.superFastStack + 1;
 					for (int j = 0; j < num2; j++)

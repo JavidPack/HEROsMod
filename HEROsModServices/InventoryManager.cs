@@ -398,7 +398,7 @@ namespace HEROsMod.HEROsModServices
 						Main.player[Main.myPlayer].mouseInterface = true;
 						if (Main.focusRecipe == num75 && Main.guideItem.type == 0)
 						{
-							if (Main.mouseItem.type == 0 || (Main.mouseItem.IsTheSameAs(Main.recipe[Main.availableRecipe[num75]].createItem) && Main.mouseItem.stack + Main.recipe[Main.availableRecipe[num75]].createItem.stack <= Main.mouseItem.maxStack))
+							if (Main.mouseItem.type == 0 || (Main.mouseItem.type == Main.recipe[Main.availableRecipe[num75]].createItem.type && Main.mouseItem.stack + Main.recipe[Main.availableRecipe[num75]].createItem.stack <= Main.mouseItem.maxStack))
 							{
 								if (Main.mouseLeft && Main.mouseLeftRelease)
 								{
@@ -414,7 +414,7 @@ namespace HEROsMod.HEROsModServices
 										playsound = true;
 										tempItem.stack += r.createItem.stack;
 										r.Create();
-										if (Main.numAvailableRecipes <= 0 || !r.createItem.IsTheSameAs(Main.recipe[Main.availableRecipe[Main.focusRecipe]].createItem) || r.createItem.stack != Main.recipe[Main.availableRecipe[Main.focusRecipe]].createItem.stack)
+										if (Main.numAvailableRecipes <= 0 || r.createItem.type != Main.recipe[Main.availableRecipe[Main.focusRecipe]].createItem.type || r.createItem.stack != Main.recipe[Main.availableRecipe[Main.focusRecipe]].createItem.stack)
 										{
 											matsLeft = false;
 										}
@@ -456,7 +456,7 @@ namespace HEROsMod.HEROsModServices
 											playsound = true;
 											tempItem.stack += r.createItem.stack;
 											r.Create();
-											if (Main.numAvailableRecipes <= 0 || !r.createItem.IsTheSameAs(Main.recipe[Main.availableRecipe[Main.focusRecipe]].createItem))
+											if (Main.numAvailableRecipes <= 0 || r.createItem.type != Main.recipe[Main.availableRecipe[Main.focusRecipe]].createItem.type)
 											{
 												matsLeft = false;
 											}

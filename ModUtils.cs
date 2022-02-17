@@ -223,7 +223,7 @@ namespace HEROsMod
 			Player player = Main.player[Main.myPlayer];
 			for (int i = 0; i < player.inventory.Length - 1; i++)
 			{
-				if (player.inventory[i].IsNotTheSameAs(previousInventoryItems[i]))
+				if (player.inventory[i].IsNotSameTypePrefixAndStack(previousInventoryItems[i]))
 				{
 					return true;
 				}
