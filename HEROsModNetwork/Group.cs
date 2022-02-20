@@ -35,7 +35,6 @@ namespace HEROsMod.HEROsModNetwork
 			new PermissionInfo("CanUseBuffs", "Open Buff Window"),
 			//new PermissionInfo("ToggleHardmodeEnemies", "Toggle Hardmode Enemies"),
 			new PermissionInfo("GodMode", "God Mode"),
-                        new PermissionInfo("BuddhaMode", "Buddha Mode"),
 			new PermissionInfo("PrefixEditor", "Prefix Editor"),
 			//new PermissionInfo("StartEvents", "Start Events"),
 			new PermissionInfo("ToggleBannedItems", "Toggle Banned Items"),

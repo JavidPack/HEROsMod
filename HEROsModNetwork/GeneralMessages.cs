@@ -180,10 +180,6 @@ namespace HEROsMod.HEROsModNetwork
 				case MessageType.RequestGodMode:
 					ProcessGodModeRequest(playerNumber);
 					break;
-                                        
-                                case MessageType.RequestBuddhaMode:
-                                        ProcessBuddhaModeRequest(playerNumber);
-                                        break;
 
 				case MessageType.AllowGodMode:
 					ProcessGodMode();
@@ -1108,35 +1104,6 @@ namespace HEROsMod.HEROsModNetwork
 			if (!HEROsModServices.GodModeService.Enabled)
 			{
 				HEROsModServices.GodModeService.Enabled = true;
-			}
-		}
-                
-                public static void RequestBuddhaMode()
-		{
-			WriteHeader(MessageType.RequestBuddhaMode);
-			Network.SendDataToServer();
-		}
-
-		private static void ProcessBuddhaModeRequest(int playerNumber)
-		{
-			if (Network.Players[playerNumber].Group.HasPermission("BuddhaMode"))
-			{
-				AllowBuddhaMode(playerNumber);
-			}
-		}
-
-		private static void AllowBuddhaMode(int playerNumber)
-		{
-			WriteHeader(MessageType.AllowBuddhaMode);
-			Network.SendDataToPlayer(playerNumber);
-		}
-
-		private static void ProcessBuddhaMode()
-		{
-			if (Network.NetworkMode == NetworkMode.Server) return;
-			if (!HEROsModServices.GodModeService.Enabled)
-			{
-				HEROsModServices.BuddhaModeService.Enabled = true;
 			}
 		}
 

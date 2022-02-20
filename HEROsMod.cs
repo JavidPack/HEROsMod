@@ -475,7 +475,6 @@ namespace HEROsMod
 			ServiceController.AddService(new MobSpawner());
 			ServiceController.AddService(new BuffService());
 			ServiceController.AddService(new GodModeService());
-                        ServiceController.AddService(new BuddhaModeService());
 			instance.prefixEditor = new PrefixEditor();
 			ServiceController.AddService(instance.prefixEditor);
 			//		ServiceController.AddService(new InvasionService());

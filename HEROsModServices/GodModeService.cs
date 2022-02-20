@@ -12,6 +12,8 @@ namespace HEROsMod.HEROsModServices
 
 		private static bool _enabled = false;
 
+		internal static bool BuddhaMode = false; // changes the behavior of god mode, not a separate permission.
+
 		public static bool Enabled
 		{
 			get { return _enabled; }
@@ -30,8 +32,18 @@ namespace HEROsMod.HEROsModServices
 			this._hotbarIcon = new UIImage(HEROsMod.instance.GetTexture("Images/godMode")/*Main.itemTexture[1990]*/);
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("ToggleGodMode");
 			this.HotbarIcon.onLeftClick += HotbarIcon_onLeftClick;
+			this.HotbarIcon.onRightClick += HotbarIcon_onRightClick;
 			GodModeToggled += GodModeService_GodModeToggled;
 			Enabled = false;
+		}
+
+		private void HotbarIcon_onRightClick(object sender, EventArgs e)
+		{
+			BuddhaMode = !BuddhaMode;
+			if(BuddhaMode)
+				Main.NewText(HEROsMod.HeroText("BuddhaModeEnabled"));
+			else
+				Main.NewText(HEROsMod.HeroText("BuddhaModeDisabled"));
 		}
 
 		private void GodModeService_GodModeToggled(bool enabled, bool prevEnabled)
