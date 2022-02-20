@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using Terraria;
@@ -38,6 +39,9 @@ namespace HEROsMod.HEROsModNetwork
 	{
 		public int ID;
 		public string name;
+		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
+		[DefaultValue(typeof(Color), "255, 255, 255, 255")]
+		public Color color;
 
 		//public byte[] permissions;
 		public string[] permissions;
@@ -455,7 +459,7 @@ namespace HEROsMod.HEROsModNetwork
 		public static void AddGroup(ref Group group)
 		{
 			int newid = GetAvailableGroupID();
-			DatabaseGroup newGroup = new DatabaseGroup() { name = group.Name, ID = newid };
+			DatabaseGroup newGroup = new DatabaseGroup() { name = group.Name, ID = newid, color = group.Color };
 			database.groups.Add(newGroup);
 
 			group.ID = newid;
@@ -486,6 +490,7 @@ namespace HEROsMod.HEROsModNetwork
 			if (g != null)
 			{
 				g.permissions = group.Permissions.Where(x => x.Value).Select(x => x.Key).ToArray();//group.ExportPermissions();
+				g.color = group.Color;
 			}
 			SaveSetting(jsonDatabaseFilename);
 		}
@@ -497,6 +502,7 @@ namespace HEROsMod.HEROsModNetwork
 			{
 				Group group = new Group(dbGroup.name);
 				group.ID = dbGroup.ID;
+				group.Color = dbGroup.color;
 				group.ImportPermissions(dbGroup.permissions);
 				result.Add(group);
 			}

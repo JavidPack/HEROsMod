@@ -1,4 +1,5 @@
-﻿using HEROsMod.HEROsModNetwork;
+﻿using On.Terraria.GameContent.NetModules;
+using HEROsMod.HEROsModNetwork;
 using HEROsMod.HEROsModServices;
 using HEROsMod.UIKit;
 using Microsoft.Xna.Framework;
@@ -9,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Terraria;
+using Terraria.Chat;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
@@ -67,6 +69,8 @@ namespace HEROsMod
 			{
 				ModUtils.DebugText("Load:\n" + e.Message + "\n" + e.StackTrace + "\n");
 			}
+			// Intercept DeserializeAsServer method
+			NetTextModule.DeserializeAsServer += NetTextModule_DeserializeAsServer;
 		}
 
 		internal static string HeroText(string key)
@@ -128,6 +132,20 @@ namespace HEROsMod
 			modCategories = null;
 			translations = null;
 			instance = null;
+			NetTextModule.DeserializeAsServer -= NetTextModule_DeserializeAsServer;
+		}
+		
+		private bool NetTextModule_DeserializeAsServer(NetTextModule.orig_DeserializeAsServer orig, Terraria.GameContent.NetModules.NetTextModule self, BinaryReader reader, int senderPlayerId)
+		{
+			long savedPosition = reader.BaseStream.Position;
+			ChatMessage message = ChatMessage.Deserialize(reader);
+			reader.BaseStream.Position = savedPosition;
+
+			Color chatColor = Network.Players[senderPlayerId].Group?.Color ?? new Color(255, 255, 255);
+			Terraria.Net.NetPacket packet = Terraria.GameContent.NetModules.NetTextModule.SerializeServerMessage(NetworkText.FromLiteral(message.Text), chatColor, (byte)senderPlayerId);
+			Terraria.Net.NetManager.Instance.Broadcast(packet);
+
+			return true;
 		}
 
 		public override void PostSetupContent()
