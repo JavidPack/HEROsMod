@@ -142,8 +142,6 @@ namespace HEROsMod
 			reader.BaseStream.Position = savedPosition;
 
 			Color chatColor = Network.Players[senderPlayerId].Group?.Color ?? new Color(255, 255, 255);
-			// Try to solve backfilling issue (all existing groups will be (0,0,0,0)). Black chat color is hard to read anyway.
-			if (chatColor.Equals(new Color(0, 0, 0, 0))) chatColor = new Color(255, 255, 255);
 			Terraria.Net.NetPacket packet = Terraria.GameContent.NetModules.NetTextModule.SerializeServerMessage(NetworkText.FromLiteral(message.Text), chatColor, (byte)senderPlayerId);
 			Terraria.Net.NetManager.Instance.Broadcast(packet);
 

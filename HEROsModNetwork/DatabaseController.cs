@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using Terraria;
@@ -38,6 +39,8 @@ namespace HEROsMod.HEROsModNetwork
 	{
 		public int ID;
 		public string name;
+		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
+		[DefaultValue(typeof(Color), "255, 255, 255, 255")]
 		public Color color;
 
 		//public byte[] permissions;
