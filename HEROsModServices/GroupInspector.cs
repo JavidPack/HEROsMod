@@ -78,6 +78,7 @@ namespace HEROsMod.HEROsModServices
 
 		//Group group;
 		private UIDropdown dropdown = new UIDropdown();
+		private UIColorPicker colorPicker = new UIKit.UIColorPicker();
 
 		private UIScrollView checkboxContainer = new UIScrollView();
 
@@ -108,8 +109,10 @@ namespace HEROsMod.HEROsModServices
 			dropdown.X = label.X + label.Width + 4;
 			dropdown.Y = label.Y;
 			dropdown.Width = 200;
+			colorPicker.X = dropdown.X + dropdown.Width + spacing;
+			colorPicker.Y = dropdown.Y;
 			checkboxContainer.X = spacing;
-			checkboxContainer.Y = dropdown.Y + dropdown.Height + spacing;
+			checkboxContainer.Y = colorPicker.Y + colorPicker.Height + spacing;
 			checkboxContainer.Width = this.Width - spacing * 2;
 			checkboxContainer.Height = 150;
 			AddChild(checkboxContainer);
@@ -140,6 +143,7 @@ namespace HEROsMod.HEROsModServices
 			AddChild(bNew);
 			AddChild(bDelete);
 			AddChild(dropdown);
+			AddChild(colorPicker);
 
 			this.Height = bApply.Position.Y + bApply.Height + spacing;
 			this.CenterToParent();
@@ -171,6 +175,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			HEROsModNetwork.Group group = new HEROsModNetwork.Group(dropdown.GetItem(dropdown.SelectedItem));
 			group.ID = HEROsModNetwork.Network.Groups[dropdown.SelectedItem].ID;
+			group.Color = colorPicker.Color;
 			group.ImportPermissions(ExportPermissions());
 			HEROsModNetwork.LoginService.RequestSetGroupPermissions(group);
 		}
@@ -205,6 +210,7 @@ namespace HEROsMod.HEROsModServices
 			}
 			if (checkboxContainer.ChildCount > 0)
 				checkboxContainer.ContentHeight = checkboxContainer.GetLastChild().Y + checkboxContainer.GetLastChild().Height + spacing;
+			colorPicker.Color = HEROsModNetwork.Network.Groups[dropdown.SelectedItem].Color;
 		}
 
 		private byte[] ExportPermissions()

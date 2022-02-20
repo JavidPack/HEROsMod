@@ -345,6 +345,7 @@ namespace HEROsMod.HEROsModNetwork
 				{
 					Writer.Write(Network.Groups[i].Name);
 					Writer.Write(Network.Groups[i].ID);
+					Writer.WriteRGB(Network.Groups[i].Color);
 					byte[] permissions = Network.Groups[i].ExportPermissions();
 					Writer.Write(permissions.Length);
 					Writer.Write(permissions);
@@ -364,6 +365,7 @@ namespace HEROsMod.HEROsModNetwork
 					string groupName = reader.ReadString();
 					Group group = new Group(groupName);
 					group.ID = reader.ReadInt32();
+					group.Color = reader.ReadRGB();
 					int permissionsLength = reader.ReadInt32();
 					group.ImportPermissions(reader.ReadBytes(permissionsLength));
 					Network.Groups.Add(group);
@@ -395,6 +397,7 @@ namespace HEROsMod.HEROsModNetwork
 				Writer.Write(group.Name);
 				Writer.Write(group.ID);
 				Writer.Write(group.IsAdmin);
+				Writer.WriteRGB(group.Color);
 				byte[] permissions = group.ExportPermissions();
 				//if(CTF.CaptureTheFlag.GameInProgress)
 				//{
@@ -420,6 +423,7 @@ namespace HEROsMod.HEROsModNetwork
 				group.IsAdmin = true;
 				//group.MakeAdmin();
 			}
+			group.Color = reader.ReadRGB();
 			int permissionsLength = reader.ReadInt32();
 			group.ImportPermissions(reader.ReadBytes(permissionsLength));
 
@@ -435,6 +439,7 @@ namespace HEROsMod.HEROsModNetwork
 			byte[] permissions = group.ExportPermissions();
 			Writer.Write(permissions.Length);
 			Writer.Write(permissions);
+			Writer.WriteRGB(group.Color);
 			Network.SendDataToServer();
 		}
 
@@ -447,6 +452,7 @@ namespace HEROsMod.HEROsModNetwork
 				Group group = Network.GetGroupByID(id);
 				int permissionsLength = reader.ReadInt32();
 				group.ImportPermissions(reader.ReadBytes(permissionsLength));
+				group.Color = reader.ReadRGB();
 				DatabaseController.SetGroupPermissions(group);
 
 				for (int i = 0; i < Network.Players.Length; i++)

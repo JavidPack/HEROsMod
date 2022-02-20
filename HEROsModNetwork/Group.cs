@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -63,6 +64,8 @@ namespace HEROsMod.HEROsModNetwork
 			set { _isAdmin = value; }
 		}
 
+		public Color Color { get; set; }
+
 		public Group(string name)
 		{
 			ID = -1;
@@ -78,6 +81,7 @@ namespace HEROsMod.HEROsModNetwork
 			{
 				Network.DefaultGroup = this;
 			}
+			this.Color = new Color(255, 255, 255);
 		}
 
 		public bool HasPermission(string permissionName)
