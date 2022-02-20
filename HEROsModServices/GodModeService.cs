@@ -50,8 +50,6 @@ namespace HEROsMod.HEROsModServices
 				Main.NewText(HEROsMod.HeroText("BuddhaModeDisabled"));
 				this._hotbarIcon.Texture = HEROsMod.instance.GetTexture("Images/godMode");
 			}
-
-
 		}
 
 		private void GodModeService_GodModeToggled(bool enabled, bool prevEnabled)
