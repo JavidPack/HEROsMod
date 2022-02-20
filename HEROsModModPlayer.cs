@@ -53,8 +53,19 @@ namespace HEROsMod
 
 		public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
-			if (GodModeService.Enabled)
+			if (GodModeService.Enabled && !GodModeService.BuddhaMode)
 			{
+				return false;
+			}
+			return true;
+		}
+
+		public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+		{
+			if (GodModeService.Enabled && GodModeService.BuddhaMode)
+			{
+				Player.statLife = Player.statLifeMax2;
+				Player.lifeRegen = 999;
 				return false;
 			}
 			return true;
@@ -64,7 +75,8 @@ namespace HEROsMod
 		{
 			if (GodModeService.Enabled)
 			{
-				Player.statLife = Player.statLifeMax2;
+				if (!GodModeService.BuddhaMode)
+					Player.statLife = Player.statLifeMax2;
 				Player.statMana = Player.statManaMax2;
 				Player.wingTime = Player.wingTimeMax;
 			}
