@@ -1299,8 +1299,6 @@ namespace HEROsMod.HEROsModNetwork
 			RequestToggleHardmodeEnemies,
 			RequestGodMode,
 			AllowGodMode,
-                        RequestBuddhaMode,
-                        AllowBuddhaMode,
 			RequestTileModificationCheck,
 			RequestSpawnNPC,
 			RequestStartEvent,

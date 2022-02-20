@@ -40,10 +40,18 @@ namespace HEROsMod.HEROsModServices
 		private void HotbarIcon_onRightClick(object sender, EventArgs e)
 		{
 			BuddhaMode = !BuddhaMode;
-			if(BuddhaMode)
+			if (BuddhaMode)
+			{
 				Main.NewText(HEROsMod.HeroText("BuddhaModeEnabled"));
+				this._hotbarIcon.Texture = HEROsMod.instance.GetTexture("Images/buddhaMode");
+			}
 			else
+			{
 				Main.NewText(HEROsMod.HeroText("BuddhaModeDisabled"));
+				this._hotbarIcon.Texture = HEROsMod.instance.GetTexture("Images/godMode");
+			}
+
+
 		}
 
 		private void GodModeService_GodModeToggled(bool enabled, bool prevEnabled)
