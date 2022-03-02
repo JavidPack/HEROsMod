@@ -5,6 +5,7 @@ using ReLogic.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent;
 
 namespace HEROsMod.UIKit.UIComponents
@@ -120,7 +121,7 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				if (Main.keyState.IsKeyDown(Keys.LeftShift))
 				{
-					Main.player[Main.myPlayer].QuickSpawnItem(this.item.type, this.item.maxStack);
+					Main.player[Main.myPlayer].QuickSpawnItem(new EntitySource_DebugCommand(), this.item.type, this.item.maxStack);
 					return;
 				}
 				Main.mouseItem = item.Clone();

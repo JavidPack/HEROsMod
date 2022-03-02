@@ -128,9 +128,9 @@ namespace HEROsMod.HEROsModServices
 					Player.tileRangeX = int.MaxValue / 32 - 20;
 					Player.tileRangeY = int.MaxValue / 32 - 20;
 
-					if (Main.SmartCursorEnabled)
+					if (Main.SmartCursorWanted) // Check out SmartCursorIsUsed as well.
 					{
-						Main.SmartCursorEnabled = false;
+						Main.SmartCursorWanted = false;
 						Main.NewText(HEROsMod.HeroText("SmartCursorAutomaticallyDisabledInfinteReachMod"));
 					}
 				}

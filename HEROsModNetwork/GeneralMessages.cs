@@ -1186,7 +1186,8 @@ namespace HEROsMod.HEROsModNetwork
 						}
 					}
 				}
-				NPC.NewNPC((int)player.GameInstance.position.X, (int)player.GameInstance.position.Y, npcType);
+				// Natural, Debug, or Custom IEntitySource?
+				NPC.NewNPC(NPC.GetSpawnSourceForNaturalSpawn(), (int)player.GameInstance.position.X, (int)player.GameInstance.position.Y, npcType);
 			}
 		}
 

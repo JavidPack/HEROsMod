@@ -1028,7 +1028,7 @@ namespace HEROsMod.HEROsModNetwork
 					break;
 				}
 			}
-			if (!npcFound) NPC.NewNPC((int)position.X, (int)position.Y, type);
+			if (!npcFound) NPC.NewNPC(NPC.GetSpawnSourceForNaturalSpawn(), (int)position.X, (int)position.Y, type);
 		}
 
 		public static void ResetAllPlayers()
