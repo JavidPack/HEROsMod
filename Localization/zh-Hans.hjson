@@ -156,9 +156,11 @@ Mods: {
 		Groups: 组
 		GroupName: 组名称
 		AreYouSureDeleteGroup: 你确定要删除 {0} 组吗?
-		ToggleGodMode: 上帝模式
+		ToggleGodMode: 上帝模式 (右键点击: 可受到伤害)
 		GodModeEnabled: 上帝模式已开启
 		GodModeDisabled: 上帝模式已关闭
+		BuddhaModeEnabled: 在上帝模式下会受到伤害
+		BuddhaModeDisabled: 在上帝模式下不会受到伤害
 		FlyCamEnableTooltip: 开启自由镜头 (右键: 锁定镜头)
 		FlyCamDisableTooltip: 关闭自由镜头 (右键: 锁定镜头)
 		FlyCamInstructions: 方向键移动, Shift 加速, Alt 减速
