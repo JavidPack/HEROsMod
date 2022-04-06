@@ -10,6 +10,8 @@ namespace HEROsMod.HEROsModServices
 
 		private static event GodModeToggledEvent GodModeToggled;
 
+		internal static event Action<bool> GodModeCallback;
+
 		private static bool _enabled = false;
 
 		internal static bool BuddhaMode = false; // changes the behavior of god mode, not a separate permission.
@@ -25,6 +27,16 @@ namespace HEROsMod.HEROsModServices
 				}
 				_enabled = value;
 			}
+		}
+
+		internal static void ClearGodModeCallback()
+		{
+			GodModeCallback = null;
+		}
+
+		internal static void InvokeGodModeCallback()
+		{
+			GodModeCallback?.Invoke(Enabled);
 		}
 
 		public GodModeService()

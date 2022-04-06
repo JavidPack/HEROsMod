@@ -130,6 +130,7 @@ namespace HEROsMod
 			TimeWeatherControlHotbar.Unload();
 			ModUtils.previousInventoryItems = null;
 			modCategories = null;
+			GodModeService.ClearGodModeCallback();
 			translations = null;
 			instance = null;
 			NetTextModule.DeserializeAsServer -= NetTextModule_DeserializeAsServer;
@@ -157,6 +158,15 @@ namespace HEROsMod
 					service.PostSetupContent();
 				}
 			}
+		}
+
+		public override void PreUpdateEntities()
+		{
+			//Handle callbacks here as this is called on all sides
+			//May need to filter allside vs clientside callbacks
+
+			//Only godmode for now
+			GodModeService.InvokeGodModeCallback();
 		}
 
 		public override void PostDrawFullscreenMap(ref string mouseText)
@@ -416,6 +426,13 @@ namespace HEROsMod
 						if(!ServiceHotbar.Collapsed) // sub hotbars
 							ServiceHotbar.collapseArrow_onLeftClick(null, null);
 					}
+				}
+				else if (message == "RegisterGodModeCallback")
+				{
+					ModUtils.DebugText("God Mode Callback Adding...");
+					Action<bool> callback = args[1] as Action<bool>;
+					GodModeService.GodModeCallback += callback;
+					ModUtils.DebugText("...God Mode Callback Added");
 				}
 				else
 				{
