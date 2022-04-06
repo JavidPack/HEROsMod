@@ -11,6 +11,8 @@ namespace HEROsMod.HEROsModServices
 	{
 		private delegate void GodModeToggledEvent(bool enabled, bool prevEnabled);
 
+		internal static event Action<bool> GodModeCallback;
+
 		private static event GodModeToggledEvent GodModeToggled;
 
 		private static bool _enabled = false;
@@ -28,6 +30,15 @@ namespace HEROsMod.HEROsModServices
 				}
 				_enabled = value;
 			}
+		}
+		internal static void ClearGodModeCallback()
+		{
+			GodModeCallback = null;
+		}
+
+		internal static void InvokeGodModeCallback()
+		{
+			GodModeCallback?.Invoke(Enabled);
 		}
 
 		public GodModeService()

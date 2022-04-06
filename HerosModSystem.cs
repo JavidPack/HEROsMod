@@ -68,5 +68,14 @@ namespace HEROsMod
 			}
 			return false;
 		}
+
+		public override void PreUpdateEntities()
+		{
+			//Handle callbacks here as this is called on all sides
+			//May need to filter allside vs clientside callbacks
+
+			//Only godmode for now
+			GodModeService.InvokeGodModeCallback();
+		}		
 	}
 }

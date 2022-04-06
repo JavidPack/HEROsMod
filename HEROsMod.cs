@@ -317,6 +317,13 @@ namespace HEROsMod
 							ServiceHotbar.collapseArrow_onLeftClick(null, null);
 					}
 				}
+				else if (message == "RegisterGodModeCallback")
+				{
+					ModUtils.DebugText("God Mode Callback Adding...");
+					Action<bool> callback = args[1] as Action<bool>;
+					GodModeService.GodModeCallback += callback;
+					ModUtils.DebugText("...God Mode Callback Added");
+				}
 				else
 				{
 					Logger.Error("Call Error: Unknown Message: " + message);
@@ -509,6 +516,7 @@ namespace HEROsMod
 				//   ModUtils.TextureExtruder.WorldView = worldMatrix;
 			}
 			HEROsModNetwork.Network.Update();
+			//CheckIfGameEnteredOrLeft(); // Only does GameEntered, since can't detect left. weird state. Probably should use ModPlayer.OnEnter/Exit anyway
 			//	HEROsModNetwork.CTF.CaptureTheFlag.Update();
 		}
 
