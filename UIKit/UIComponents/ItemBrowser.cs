@@ -621,6 +621,26 @@ namespace HEROsMod.UIKit.UIComponents
 				new Category("Other", x=>false),
 			};
 
+			List<Category> categoryList = new List<Category>(Categories);
+			foreach (var modCallCategory in HEROsMod.instance.modCategories)
+			{
+				if (string.IsNullOrEmpty(modCallCategory.Parent))
+				{
+					categoryList.Insert(categoryList.Count - 2, new Category(modCallCategory.Name, modCallCategory.belongs, true));
+				}
+				else
+				{
+					foreach (var item in categoryList)
+					{
+						if (item.Name == modCallCategory.Parent)
+						{
+							item.SubCategories.Add(new Category(modCallCategory.Name, modCallCategory.belongs, true));
+						}
+					}
+				}
+			}
+			Categories = categoryList.ToArray();
+
 			foreach (var parent in Categories)
 			{
 				foreach (var sub in parent.SubCategories)
@@ -759,6 +779,21 @@ namespace HEROsMod.UIKit.UIComponents
 	//	internal UIImage button;
 	//}
 
+	// Represents a requested Category
+	internal class ModCategory
+	{
+		internal Predicate<Item> belongs;
+
+		internal string Name { get; private set; }
+		internal string Parent { get; private set; }
+		public ModCategory(string name, string parent, Predicate<Item> belongs)
+		{
+			Name = name;
+			Parent = parent;
+			this.belongs = belongs;
+		}
+	}
+	
 	public class Category
 	{
 		//private Category _parentCategory = null;

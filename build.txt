@@ -1,5 +1,5 @@
 author = HERO, jopojelly, Matt Thompson, Panini
-version = 0.4.4
+version = 0.4.5
 versionScheme = ?.?.Fix.Quickfix
 displayName = HERO's Mod
 homepage = http://forums.terraria.org/index.php?threads/heros-mod-creative-mode-server-management-and-over-25-tools-1-3-1-1-compatible.44650/
