@@ -70,7 +70,8 @@ namespace HEROsMod
 				ModUtils.DebugText("Load:\n" + e.Message + "\n" + e.StackTrace + "\n");
 			}
 			// Intercept DeserializeAsServer method
-			NetTextModule.DeserializeAsServer += NetTextModule_DeserializeAsServer;
+			//NetTextModule.DeserializeAsServer += NetTextModule_DeserializeAsServer;
+			On.Terraria.Player.ChatColor += Player_ChatColor;
 		}
 
 		internal static string HeroText(string key)
@@ -133,9 +134,15 @@ namespace HEROsMod
 			GodModeService.ClearGodModeCallback();
 			translations = null;
 			instance = null;
-			NetTextModule.DeserializeAsServer -= NetTextModule_DeserializeAsServer;
+			//NetTextModule.DeserializeAsServer -= NetTextModule_DeserializeAsServer;
 		}
-		
+
+		private Color Player_ChatColor(On.Terraria.Player.orig_ChatColor orig, Player self)
+		{
+			Color chatColor = Network.Players[self.whoAmI].Group?.Color ?? orig(self);
+			return chatColor;
+		}
+
 		private bool NetTextModule_DeserializeAsServer(NetTextModule.orig_DeserializeAsServer orig, Terraria.GameContent.NetModules.NetTextModule self, BinaryReader reader, int senderPlayerId)
 		{
 			long savedPosition = reader.BaseStream.Position;
