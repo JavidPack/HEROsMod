@@ -158,7 +158,7 @@ namespace HEROsMod.HEROsModServices
 				Item item2 = player.GetItem(player.whoAmI, item, GetItemSettings.GetItemInDropItemCheck);
 				if (item2.stack > 0)
 				{
-					int num = Item.NewItem(player.GetItemSource_Misc(ItemSourceID.PlayerDropItemCheck), (int)player.position.X, (int)player.position.Y, player.width, player.height, item2.type, item2.stack, false, (int)item.prefix, true, false);
+					int num = Item.NewItem(player.GetSource_Misc("PlayerDropItemCheck"), (int)player.position.X, (int)player.position.Y, player.width, player.height, item2.type, item2.stack, false, (int)item.prefix, true, false);
 					Main.item[num].newAndShiny = false;
 					if (Main.netMode == 1)
 					{

@@ -121,7 +121,7 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				if (Main.keyState.IsKeyDown(Keys.LeftShift))
 				{
-					Main.player[Main.myPlayer].QuickSpawnItem(new EntitySource_DebugCommand(), this.item.type, this.item.maxStack);
+					Main.player[Main.myPlayer].QuickSpawnItem(new EntitySource_DebugCommand($"{HEROsMod.instance.Name}_ItemSlot"), this.item.type, this.item.maxStack);
 					return;
 				}
 				Main.mouseItem = item.Clone();

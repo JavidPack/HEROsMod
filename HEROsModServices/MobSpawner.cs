@@ -802,7 +802,7 @@ namespace HEROsMod.HEROsModServices
 				}
 			}
 
-			int index = NPC.NewNPC(NPC.GetSpawnSourceForNaturalSpawn(), (int)player.position.X, (int)player.position.Y, Type);
+			int index = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)player.position.X, (int)player.position.Y, Type);
 			if (NetID < 0)
 			{
 				Main.npc[index].SetDefaults(NetID);
@@ -877,7 +877,7 @@ namespace HEROsMod.HEROsModServices
 			}
 		IL_162:
 			num3 = num5 * 16;
-			int num7 = NPC.NewNPC(NPC.GetSpawnSourceForNaturalSpawn(), num2, num3, 113, 0);
+			int num7 = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), num2, num3, 113, 0);
 			if (Main.netMode == 0)
 			{
 				Main.NewText(Language.GetTextValue("Announcement.HasAwoken", Main.npc[num7].TypeName), 175, 75, 255);
