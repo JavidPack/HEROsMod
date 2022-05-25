@@ -5,6 +5,7 @@ using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.UI;
 
 namespace HEROsMod.HEROsModServices
@@ -117,7 +118,7 @@ namespace HEROsMod.HEROsModServices
 			{
 				player.inventory[40 + i] = (Item)tempItems[i].Clone();
 			}
-			SoundEngine.PlaySound(7, -1, -1, 1);
+			SoundEngine.PlaySound(SoundID.Grab);
 		}
 
 		private static Item MoveItemToContainer(Item _item, byte destination, int invNum)
@@ -155,7 +156,7 @@ namespace HEROsMod.HEROsModServices
 						if (item.stack <= 0) //if the stack is empty
 						{
 							item.SetDefaults(0, false);
-							SoundEngine.PlaySound(7, -1, -1, 1);
+							SoundEngine.PlaySound(SoundID.Grab);
 							break;
 						}
 					}
@@ -179,7 +180,7 @@ namespace HEROsMod.HEROsModServices
 									else if (destination == 0) NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
 								}
 							}
-							SoundEngine.PlaySound(7, -1, -1, 1);
+							SoundEngine.PlaySound(SoundID.Grab);
 							break;
 						}
 					}
@@ -206,7 +207,7 @@ namespace HEROsMod.HEROsModServices
 									else if (destination == 0) NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
 								}
 							}
-							SoundEngine.PlaySound(7, -1, -1, 1);
+							SoundEngine.PlaySound(SoundID.Grab);
 							break;
 						}
 					}
@@ -422,7 +423,7 @@ namespace HEROsMod.HEROsModServices
 									if (playsound)
 									{
 										Main.mouseLeftRelease = false;
-										SoundEngine.PlaySound(7, -1, -1, 1);
+										SoundEngine.PlaySound(SoundID.Grab);
 									}
 									Main.mouseItem = (Item)tempItem.Clone();
 									Recipe.FindRecipes();
@@ -465,7 +466,7 @@ namespace HEROsMod.HEROsModServices
 										if (playsound)
 										{
 											Main.mouseRightRelease = false;
-											SoundEngine.PlaySound(7, -1, -1, 1);
+											SoundEngine.PlaySound(SoundID.Grab);
 										}
 										if (tempItem.stack > 0)
 										{
@@ -535,7 +536,7 @@ namespace HEROsMod.HEROsModServices
 												playsound = true;
 												tempItem.stack++;
 											}
-											if (playsound) SoundEngine.PlaySound(18, -1, -1, 1);
+											if (playsound) SoundEngine.PlaySound(SoundID.Coins);
 											if (tempItem.stack > 0)
 												Main.mouseItem = (Item)tempItem.Clone();
 											Recipe.FindRecipes();
@@ -563,7 +564,7 @@ namespace HEROsMod.HEROsModServices
 													playsound = true;
 												}
 
-												if (playsound) SoundEngine.PlaySound(18, -1, -1, 1);
+												if (playsound) SoundEngine.PlaySound(SoundID.Coins);
 												if (tempItem.stack > 0)
 												{
 													for (int i = 0; i < p.inventory.Length - 9; i++)

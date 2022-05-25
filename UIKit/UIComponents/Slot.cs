@@ -7,6 +7,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
+using Terraria.ID;
 
 namespace HEROsMod.UIKit.UIComponents
 {
@@ -202,7 +203,7 @@ namespace HEROsMod.UIKit.UIComponents
 						{
 							if (j == 0)
 							{
-								SoundEngine.PlaySound(18, -1, -1, 1);
+								SoundEngine.PlaySound(SoundID.Coins);
 							}
 							if (Main.mouseItem.type == 0)
 							{
