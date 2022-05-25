@@ -445,8 +445,8 @@ namespace HEROsMod
 
 			if (ModContent.GetInstance<HEROsModServerConfig>().Telemetry)
 			{
-				ServiceController.AddService(new PSAService());
-				ServiceController.AddService(new StatsService());
+				//ServiceController.AddService(new PSAService());
+				//ServiceController.AddService(new StatsService());
 			}
 
 			//ServiceController.AddService(new HardmodeEnemyToggler(multiplayerOption.Hotbar));
