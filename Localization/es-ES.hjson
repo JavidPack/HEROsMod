@@ -81,7 +81,7 @@ Mods: {
 		ItemsOnTheGroundWereCleared: Los objetos del suelo han sido eliminados
 
 		ItemBrowser: {
-			$parentVal: Navegador de Objetos
+			$parentVal: Navegador de objetos
 
 			FilterName: {
 				ModFilter: Filtro de mods
@@ -94,7 +94,7 @@ Mods: {
 				UseAmmoType: Tipo de munición
 				Damage: Daño
 				PickPower: Poder de pico
-				AxePower: Poder de Hacha
+				AxePower: Poder de hacha
 				HammerPower: Poder de martillo
 				Defense: Defensa
 				AmmoType: Tipo de munición
@@ -159,6 +159,8 @@ Mods: {
 		ToggleGodMode: Modo dios
 		GodModeEnabled: Modo dios activado
 		GodModeDisabled: Modo dios desactivado
+		BuddhaModeEnabled: Se recibirá daño mientras se esté en modo dios
+		BuddhaModeDisabled: No se recibirá daño mientras se esté en modo dios
 		FlyCamEnableTooltip: Activar modo vuelo (clic derecho: bloquear cámara)
 		FlyCamDisableTooltip: Desactivar modo vuelo (clic derecho: bloquear cámara)
 		FlyCamInstructions: Usa las de dirección para desplazarte, Shift para ir más rápido y Alt para ir más lento
@@ -176,6 +178,15 @@ Mods: {
 		Register: Registrar
 		Password: Contraseña
 		Username: Usuario
+		RememberPassword: Recordar contraseña
+		SaveLogin: Guardar sesión
+		SaveLoginNone: Ninguna
+		SaveLoginDefault: Por defecto
+		SaveLoginPlayer: Jugador
+		SaveLoginNoneTooltip: Los datos de inicio de sesión no se almacenan.\nLos datos del jugador se borran si se encuentran.\nDe lo contrario, se borran todos los datos de inicio de sesión del servidor.
+		SaveLoginDefaultTooltip: Los datos de inicio de sesión se guardan para todos los personajes.
+		SaveLoginPlayerTooltip: Los datos de inicio de sesión solo se guardan para este jugador.\nIgnora el inicio de sesión por defecto.\nLos datos de inicio de sesión por defecto NO se borran.
+		RegisterTooltip: ADVERTENCIA\nLa información de inicio de sesión no se almacena de forma segura.\nPor favor, no introduzcas claves importantes.
 		PleaseFillInUsernamePassword: Por favor, rellena los campos con el nombre de usuario y la contraseña.
 		BanDestructiveExplosives: Prohibir explosivos destructivos
 		UnbanDestructiveExplosives: Permitir explosivos destructivos
