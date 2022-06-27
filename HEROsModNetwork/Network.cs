@@ -1033,10 +1033,11 @@ namespace HEROsMod.HEROsModNetwork
 
 		public static void ResetAllPlayers()
 		{
-			for (int i = 0; i < Players.Length; i++)
-			{
-				Players[i].Reset();
-			}
+			Players = null;
+			//for (int i = 0; i < Players.Length; i++)
+			//{
+			//	Players[i].Reset();
+			//}
 		}
 
 		public static void ResendPlayerTileData(HEROsModPlayer player)

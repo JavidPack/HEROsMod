@@ -183,10 +183,10 @@ Mods: {
 		SaveLoginNone: None
 		SaveLoginDefault: Default
 		SaveLoginPlayer: Player
-		SaveLoginNoneTooltip: Login data is not saved.\nPlayer data is deleted if found.\nOtherwise deletes all login data for this server.
-		SaveLoginDefaultTooltip: Login data is saved for all characters.
-		SaveLoginPlayerTooltip: Login data is only saved for this player.\nIgnores default login.\nDefault login data is NOT deleted.
-		RegisterTooltip: WARNING!\nLogin info is NOT securely stored.\nPlease use throwaway information.
+		SaveLoginNoneTooltip: "Login data is not saved.\nPlayer data is deleted if found.\nOtherwise deletes all login data for this server."
+		SaveLoginDefaultTooltip: "Login data is saved for all characters."
+		SaveLoginPlayerTooltip: "Login data is only saved for this player.\nIgnores default login.\nDefault login data is NOT deleted."
+		RegisterTooltip: "WARNING!\nLogin info is NOT securely stored.\nPlease use throwaway information."
 		PleaseFillInUsernamePassword: Please fill in the Username and Password fields.
 		BanDestructiveExplosives: Ban Destructive Explosives
 		UnbanDestructiveExplosives: Unban Destructive Explosives

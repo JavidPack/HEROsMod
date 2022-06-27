@@ -18,8 +18,6 @@ namespace HEROsMod
 		private static MethodInfo _loadPlayersMethod;
 		//private static MethodInfo _startRainMethod;
 		//private static MethodInfo _stopRainMethod;
-		private static MethodInfo _startSandstormMethod;
-		private static MethodInfo _stopSandstormMethod;
 
 		//private static MethodInfo _loadNPCMethod;
 		//private static MethodInfo _loadProjectileMethod;
@@ -179,8 +177,6 @@ namespace HEROsMod
 				_loadPlayersMethod = typeof(Main).GetMethod("LoadPlayers", BindingFlags.NonPublic | BindingFlags.Static);
 				//_startRainMethod = typeof(Main).GetMethod("StartRain", BindingFlags.NonPublic | BindingFlags.Static);
 				//_stopRainMethod = typeof(Main).GetMethod("StopRain", BindingFlags.NonPublic | BindingFlags.Static);
-				_startSandstormMethod = typeof(Sandstorm).GetMethod("StartSandstorm", BindingFlags.NonPublic | BindingFlags.Static);
-				_stopSandstormMethod = typeof(Sandstorm).GetMethod("StopSandstorm", BindingFlags.NonPublic | BindingFlags.Static);
 				//   _loadNPCMethod = typeof(Main).GetMethod("LoadNPC", BindingFlags.NonPublic | BindingFlags.Instance);
 				//  _loadProjectileMethod = typeof(Main).GetMethod("LoadProjectile", BindingFlags.NonPublic | BindingFlags.Instance);
 				// _loadTilesMethod = typeof(Main).GetMethod("LoadTiles", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -272,12 +268,12 @@ namespace HEROsMod
 
 		public static void StartSandstorm()
 		{
-			_startSandstormMethod.Invoke(null, null);
+			Sandstorm.StartSandstorm();
 		}
 
 		public static void StopSandstorm()
 		{
-			_stopSandstormMethod.Invoke(null, null);
+			Sandstorm.StopSandstorm();
 		}
 
 		public static void LoadNPC(int i)

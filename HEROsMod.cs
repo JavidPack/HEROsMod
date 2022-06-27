@@ -615,6 +615,11 @@ namespace HEROsMod
 				}
 			}
 
+			if (!string.IsNullOrEmpty(UIView.HoverText))
+			{
+				Main.hoverItemName = UIView.HoverText;
+			}
+			/*
 			float x = FontAssets.MouseText.Value.MeasureString(UIView.HoverText).X;
 			Vector2 vector = new Vector2((float)Main.mouseX, (float)Main.mouseY) + new Vector2(16f);
 			if (vector.Y > (float)(Main.screenHeight - 30))
@@ -626,6 +631,7 @@ namespace HEROsMod
 				vector.X = (float)(Main.screenWidth - x - 30);
 			}
 			Utils.DrawBorderStringFourWay(spriteBatch, FontAssets.MouseText.Value, UIView.HoverText, vector.X, vector.Y, new Color((int)Main.mouseTextColor, (int)Main.mouseTextColor, (int)Main.mouseTextColor, (int)Main.mouseTextColor), Color.Black, Vector2.Zero, 1f);
+			*/
 		}
 
 		public static void DrawBehindUI(SpriteBatch spriteBatch)
