@@ -30,7 +30,7 @@ Mods: {
 		Noon: 中午
 		ResumeTime: 恢复时间
 		PauseTime: 暂停时间
-		ForceEnchantedSundial: =强制魔法日晷
+		ForceEnchantedSundial: 强制魔法日晷
 		RainHasBeenTurnedOff: 雨已被停止
 		RainHasBeenTurnedOn: 雨已被开启
 		SandstormHasBeenTurnedOff: 沙尘暴已被停止
@@ -141,12 +141,12 @@ Mods: {
 			}
 		}
 
-		OpenEventStarter: =打开事件召唤器
+		OpenEventStarter: 打开事件召唤器
 		AllEventsHaveBeenStopped: 已停止所有事件
 		Events: 事件
 		StopEvents: 停止事件
 		ViewConnectedPlayers: 查看已连接玩家
-		ConnectedPlayers: =玩家列表
+		ConnectedPlayers: 玩家列表
 		OfflineUsers: 离线玩家
 		OpenGroupManagement: 打开组管理器
 		GroupManagement: 组管理器
@@ -183,10 +183,10 @@ Mods: {
 		SaveLoginNone: 无
 		SaveLoginDefault: 默认
 		SaveLoginPlayer: 玩家
-		SaveLoginNoneTooltip: 不保存登录数据.\n若发现登录数据则删除玩家数据.\n否则将删除此服务器的所有登录数据.
-		SaveLoginDefaultTooltip: 保存所有人物的登录数据.
-		SaveLoginPlayerTooltip: 仅保存该玩家的登录数据.\n忽略默认登录.\n默认登录数据不会被删除.
-		RegisterTooltip: 警告!\n登录信息并未安全保存.\n请使用一次性信息.
+		SaveLoginNoneTooltip: "不保存登录数据.\n若发现登录数据则删除玩家数据.\n否则将删除此服务器的所有登录数据."
+		SaveLoginDefaultTooltip: "保存所有人物的登录数据."
+		SaveLoginPlayerTooltip: "仅保存该玩家的登录数据.\n忽略默认登录.\n默认登录数据不会被删除."
+		RegisterTooltip: "警告!\n登录信息并未安全保存.\n请使用一次性信息."
 		PleaseFillInUsernamePassword: 请输入账号与密码.
 		BanDestructiveExplosives: 已禁止破坏性爆炸物
 		UnbanDestructiveExplosives: 已允许破坏性爆炸物
