@@ -9,7 +9,7 @@ namespace HEROsMod.UIKit
 	internal class UISlider : UIView
 	{
 		protected static int padding = 8;
-		protected static Texture2D sliderTexture = TextureAssets.ColorSlider.Value;
+		protected static Asset<Texture2D> sliderTexture = TextureAssets.ColorSlider;
 		internal static Asset<Texture2D> barTexture;
 		private static Texture2D barFill;
 
@@ -84,7 +84,7 @@ namespace HEROsMod.UIKit
 
 		protected override float GetHeight()
 		{
-			return sliderTexture.Height;
+			return sliderTexture.Value.Height;
 		}
 
 		public override void Update()
@@ -112,7 +112,7 @@ namespace HEROsMod.UIKit
 		public virtual void DrawBackground(SpriteBatch spriteBatch)
 		{
 			Vector2 pos = DrawPosition;
-			pos.Y += (sliderTexture.Height - barTexture.Value.Height) / 2;
+			pos.Y += (sliderTexture.Value.Height - barTexture.Value.Height) / 2;
 			spriteBatch.Draw(barTexture.Value, pos, null, BackgroundColor, 0f, Origin, 1f, SpriteEffects.None, 0f);
 			int fillWidth = (int)Width - 2 * barTexture.Value.Width;
 			pos.X += barTexture.Value.Width;
@@ -120,7 +120,7 @@ namespace HEROsMod.UIKit
 			pos.X += fillWidth;
 			spriteBatch.Draw(barTexture.Value, pos, null, BackgroundColor, 0f, Origin, 1f, SpriteEffects.FlipHorizontally, 0f);
 			Vector2 sliderPos = DrawPosition;
-			sliderPos.X += padding - sliderTexture.Width / 2;
+			sliderPos.X += padding - sliderTexture.Value.Width / 2;
 			sliderPos.X += (width - padding * 2) * ((value - MinValue) / (MaxValue - MinValue));
 		}
 
@@ -128,9 +128,9 @@ namespace HEROsMod.UIKit
 		{
 			DrawBackground(spriteBatch);
 			Vector2 sliderPos = DrawPosition;
-			sliderPos.X += padding - sliderTexture.Width / 2;
+			sliderPos.X += padding - sliderTexture.Value.Width / 2;
 			sliderPos.X += (width - padding * 2) * ((value - MinValue) / (MaxValue - MinValue));
-			spriteBatch.Draw(sliderTexture, sliderPos, null, BackgroundColor, 0f, Origin, 1f, SpriteEffects.None, 0f);
+			spriteBatch.Draw(sliderTexture.Value, sliderPos, null, BackgroundColor, 0f, Origin, 1f, SpriteEffects.None, 0f);
 
 			base.Draw(spriteBatch);
 		}

@@ -16,7 +16,7 @@ namespace HEROsMod.UIKit
 		public override void DrawBackground(SpriteBatch spriteBatch)
 		{
 			Vector2 pos = DrawPosition;
-			pos.Y += (sliderTexture.Height - ModUtils.HueTexture.Height) / 2;
+			pos.Y += (sliderTexture.Value.Height - ModUtils.HueTexture.Height) / 2;
 			Main.spriteBatch.Draw(ModUtils.HueTexture, pos, Color.White);
 		}
 	}
@@ -34,7 +34,7 @@ namespace HEROsMod.UIKit
 		public override void DrawBackground(SpriteBatch spriteBatch)
 		{
 			Vector2 pos = DrawPosition;
-			pos.Y += (sliderTexture.Height - ModUtils.HueTexture.Height) / 2;
+			pos.Y += (sliderTexture.Value.Height - ModUtils.HueTexture.Height) / 2;
 			Main.spriteBatch.Draw(TextureAssets.ColorBar.Value, pos, Color.White);
 			int fillWidth = 167;
 			for (int k = 0; k <= fillWidth; k++)
@@ -59,7 +59,7 @@ namespace HEROsMod.UIKit
 		public override void DrawBackground(SpriteBatch spriteBatch)
 		{
 			Vector2 pos = DrawPosition;
-			pos.Y += (sliderTexture.Height - ModUtils.HueTexture.Height) / 2;
+			pos.Y += (sliderTexture.Value.Height - ModUtils.HueTexture.Height) / 2;
 			Main.spriteBatch.Draw(TextureAssets.ColorBar.Value, pos, Color.White);
 
 			int fillWidth = 167;

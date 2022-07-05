@@ -116,7 +116,8 @@ namespace HEROsMod
 				HEROsModNetwork.Network.ResetAllPlayers();
 				HEROsModNetwork.Network.ServerUsingHEROsMod = false;
 				HEROsModNetwork.Network.Regions.Clear();
-				MasterView.ClearMasterView();
+				if (!Main.dedServ)
+					MasterView.ClearMasterView();
 			}
 			catch (Exception e)
 			{
