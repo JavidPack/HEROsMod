@@ -235,5 +235,49 @@ Mods: {
 		EventsStoppedBy: "{0} 已停止所有事件"
 		DestructiveExplosivesBannedBy: "{0} 已禁止破坏性爆炸物"
 		DestructiveExplosivesUnbannedBy: "{0} 已允许破坏性爆炸物"
+
+		Configuration:
+		{
+			ModConfig: "服务器配置"
+			AcceptClientChangesMessage: "您必须是Heros Mod中的管理员才能更改服务器配置。"
+			Label: 
+			{
+				FreezeNonLoggedIn: "冻结未登录的玩家"
+				Telemetry: "通知"
+			}
+			Tooltip:
+			{
+				FreezeNonLoggedIn: "若开启此项用户必须登录才能四处移动。\n若此项为关闭用户登录就可选。"
+				Telemetry: "关闭此选项可禁用更新通知和其他通知。"
+			}
+		}
+		PermissionInfo:
+		{
+            ModifyTerrain: "修改地形"
+            InfiniteReach: "无限延伸"
+            ItemBrowser: "物品浏览器"
+            ChangeTimeWeather: "改变时间/天气"
+            ToggleEnemies: "怪物生成"
+            Flycam: "自由镜头"
+            ClearItems: "清除地面物品"
+            RevealMap: "点亮全图"
+            LightHack: "透视照明"
+            SpawnNPCs: "生成NPC"
+            Kick: "玩家踢出"
+            Ban: "玩家封禁"
+            TeleportToPlayers: "玩家传送"
+            Snoop: "查看玩家背包"
+            EditWaypoints: "编辑路径点"
+            AccessWaypoints: "到达路径点"
+            ToggleGravestones: "墓碑生成"
+            CanUseBuffs: "打开Buff窗口"
+            GodMode: "上帝模式"
+            PrefixEditor: "前缀编辑器"
+            ToggleBannedItems: "封禁物品"
+            Teleport: "传送"
+            CheckTiles: "查看物块"
+            ViewRegions: "查看领地"
+            EditRegions: "编辑领地"
+		}
 	}
 }

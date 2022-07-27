@@ -235,5 +235,50 @@ Mods: {
 		EventsStoppedBy: All events have been stopped by {0}
 		DestructiveExplosivesBannedBy: Destructive Explosives banned by {0}
 		DestructiveExplosivesUnbannedBy: Destructive Explosives unbanned by {0}
+
+		Configuration:
+		{
+			ModConfig: Server Config
+			AcceptClientChangesMessage: You must be Admin in Heros Mod to change the server config.
+			Label: 
+			{
+				FreezeNonLoggedIn: Freeze Non Logged In Players
+				Telemetry: Telemetry
+
+			}
+			Tooltip:
+			{
+				FreezeNonLoggedIn: If true, users must log in to move around.\nLeave this false to make logging in optional.
+				Telemetry: Disable this to disable update notifications and other telemetry.
+			}
+		}
+		PermissionInfo:
+		{
+                ModifyTerrain: Modify Terrain
+                InfiniteReach: Infinite Block Reach
+                ItemBrowser: Item Browser
+                ChangeTimeWeather: Change Time/Weather
+                ToggleEnemies: Toggle Enemies
+                Flycam: Fly Camera
+                ClearItems: Clear Items on Ground
+                RevealMap: Reveal Map
+                LightHack: Light Hack
+                SpawnNPCs: Spawn NPCs
+                Kick: Kick Players
+                Ban: Ban Players
+                TeleportToPlayers: Teleport To Players
+                Snoop: Snoop Player Inventories
+                EditWaypoints: Edit Waypoints
+                AccessWaypoints: Access Wayppoints
+                ToggleGravestones: Toggle Gravestones
+                CanUseBuffs: Open Buff Window
+                GodMode: God Mode
+                PrefixEditor: Prefix Editor
+                ToggleBannedItems: Toggle Banned Items
+                Teleport: Teleport
+                CheckTiles: Check Tiles
+                ViewRegions: View Regions
+                EditRegions: Edit Regions
+		}
 	}
 }
