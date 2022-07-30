@@ -9,6 +9,7 @@ using Terraria.ModLoader.Config;
 
 namespace HEROsMod
 {
+	[Label("$Mods.HEROsMod.Configuration.ModConfig")]
 	class HEROsModServerConfig : ModConfig
 	{
 		public override ConfigScope Mode => ConfigScope.ServerSide;
@@ -20,13 +21,13 @@ namespace HEROsMod
 		public bool DisableAchievements { get; set; }
 		*/
 
-		[Label("Freeze Non Logged In Players")]
-		[Tooltip("If true, users must log in to move around.\nLeave this false to make logging in optional.")]
+		[Label("$Mods.HEROsMod.Configuration.Label.FreezeNonLoggedIn")]
+		[Tooltip("$Mods.HEROsMod.Configuration.Tooltip.FreezeNonLoggedIn")]
 		[DefaultValue(false)]
 		public bool FreezeNonLoggedIn { get; set; }
 
-		[Label("Telemetry")]
-		[Tooltip("Disable this to disable update notifications and other telemetry.")]
+		[Label("$Mods.HEROsMod.Configuration.Label.Telemetry")]
+		[Tooltip("$Mods.HEROsMod.Configuration.Tooltip.Telemetry")]
 		[DefaultValue(true)]
 		[ReloadRequired]
 		public bool Telemetry { get; set; }
@@ -36,7 +37,7 @@ namespace HEROsMod
 			if (Network.Players[whoAmI].Group.IsAdmin)
 				return true;
 
-			message = $"You must be Admin in Heros Mod to change the server config.";
+			message = "$Mods.HEROsMod.Configuration.AcceptClientChangesMessage";
 			return false;
 		}
 	}
