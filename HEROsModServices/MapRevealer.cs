@@ -43,7 +43,17 @@ namespace HEROsMod.HEROsModServices
 			else
 			{
 				Point center = Main.player[Main.myPlayer].Center.ToTileCoordinates();
-				RevealAroundPoint(center.X, center.Y);
+
+				Main.NewText("In multiplayer, this tool will only reveal loaded chunks of the world");
+				for (int i = 0; i < Main.maxTilesX; i++)
+				{
+					for (int j = 0; j < Main.maxTilesY; j++)
+					{
+						if (WorldGen.InWorld(i, j) && Main.sectionManager.TileLoaded(i, j))
+							Main.Map.Update(i, j, 255);
+					}
+				}
+				Main.refreshMap = true;
 			}
 		}
 
@@ -55,7 +65,7 @@ namespace HEROsMod.HEROsModServices
 			{
 				for (int j = y - MapRevealSize / 2; j < y + MapRevealSize / 2; j++)
 				{
-					if (WorldGen.InWorld(i, j))
+					if (WorldGen.InWorld(i, j) && Main.sectionManager.TileLoaded(i, j))
 						Main.Map.Update(i, j, 255);
 				}
 			}
