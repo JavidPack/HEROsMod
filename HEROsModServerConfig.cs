@@ -37,7 +37,7 @@ namespace HEROsMod
 			if (Network.Players[whoAmI].Group.IsAdmin)
 				return true;
 
-			message = "$Mods.HEROsMod.Configuration.AcceptClientChangesMessage";
+			message = HEROsMod.HeroText("Configuration.AcceptClientChangesMessage");
 			return false;
 		}
 	}
