@@ -310,39 +310,143 @@ namespace HEROsMod.HEROsModNetwork
 
 			switch (msgType)
 			{
+				// Sometimes clients manually send tiles to user, such as placing TileEntity
+				case MessageID.TileSquare:
+					{
+						int x = binaryReader.ReadInt16();
+						int y = binaryReader.ReadInt16();
+						ushort w = binaryReader.ReadByte();
+						ushort h = binaryReader.ReadByte();
+
+						if (NetworkMode == NetworkMode.Server)
+						{
+							bool canBuild = false;
+							HEROsModPlayer player = Players[playerNumber];
+							if (!canBuild)
+								canBuild = PlayerHasPermissionToBuildAtBlock(player, x, y);
+							// TODO: Check all coordinates
+
+							if (canBuild)
+								return false;
+							else
+								SendTextToPlayer(HEROsMod.HeroText("YouDoNotHavePermissionToBuildHere"), playerNumber, Color.Red);
+
+							NetMessage.SendTileSquare(-1, x, y, w, h, TileChangeType.None);
+
+							return true;
+						}
+						break;
+					}
+				case MessageID.TileEntityPlacement:
+					{
+						// Liquid Sensor
+						if (NetworkMode == NetworkMode.Server)
+						{
+							int x = binaryReader.ReadInt16();
+							int y = binaryReader.ReadInt16();
+							int type = binaryReader.ReadByte();
+
+							//if (WorldGen.InWorld(x, y) && !TileEntity.ByPosition.ContainsKey(new Point16(x, y)))
+							//	TileEntity.PlaceEntityNet(x, y, type4);
+
+							bool canBuild = false;
+							HEROsModPlayer player = Players[playerNumber];
+							if (!canBuild)
+								canBuild = PlayerHasPermissionToBuildAtBlock(player, x, y);
+
+							if (canBuild)
+								return false;
+							else
+								SendTextToPlayer(HEROsMod.HeroText("YouDoNotHavePermissionToBuildHere"), playerNumber, Color.Red);
+
+							return true;
+						}
+						break;
+					}
+				case MessageID.PlaceObject:
+					{
+						// table, iron bar, banner
+						if (NetworkMode == NetworkMode.Server)
+						{
+							bool canBuild = false;
+							HEROsModPlayer player = Players[playerNumber];
+
+							//type, style, alternative, random, direction
+							int x = binaryReader.ReadInt16();
+							int y = binaryReader.ReadInt16();
+							short type = binaryReader.ReadInt16();
+							int style = binaryReader.ReadInt16();
+							int alternative = binaryReader.ReadByte();
+							int random = binaryReader.ReadSByte();
+							int direction = binaryReader.ReadBoolean() ? 1 : (-1);
+
+							// Keep vanilla logic that would abort the logic anyway.
+							if (!WorldGen.InWorld(x, y, 10) || !Netplay.Clients[playerNumber].TileSections[Netplay.GetSectionX(x), Netplay.GetSectionY(y)])
+								break;
+
+							// need to send empty space back to user? 
+							Terraria.ObjectData.TileObjectData tileData = Terraria.ObjectData.TileObjectData.GetTileData(type, style, alternative);
+							if (tileData == null)
+								return false;
+
+							// origin?
+							int w = tileData.Width;
+							int h = tileData.Height;
+
+							//WorldGen.PlaceObject(x, y, type, mute: false, style, alternative, random, direction);
+							//if (Main.netMode == 2)
+							//	NetMessage.SendObjectPlacment(playerNumber, x, y, type, style, alternative, random, direction);
+
+							if (!canBuild)
+							{
+								canBuild = PlayerHasPermissionToBuildAtBlock(player, x, y);
+							}
+
+							if (canBuild)
+							{
+								/*
+								// TODO: RecordChanges all tiles in square
+								TileLastChangedBy[x, y] = player.ID;
+								if (tileModifyType == TileModifyType.KillTile)
+								{
+									LastTileKilledBy = player;
+									WorldGen.KillTile(x, y, fail, false, false);
+									NetMessage.SendData(17, -1, playerNumber, null, (int)tileModifyType, (float)x, (float)y, (float)placeType, style);
+									LastTileKilledBy = null;
+									return true;
+								}
+								else
+								{
+									TileChangeController.RecordChanges(player, x, y);
+								}
+								*/
+								return false;
+							}
+							else
+							{
+								SendTextToPlayer(HEROsMod.HeroText("YouDoNotHavePermissionToBuildHere"), playerNumber, Color.Red);
+							}
+
+							// TODO: Restore Return item? Would require placing tile, killing, and remembering previous tiles (long grass, hammered)
+							//WorldGen.PlaceObject(x, y, type, mute: false, style, alternative, random, direction);
+							//WorldGen.KillTile(x, y);
+
+							NetMessage.SendTileSquare(-1, x - tileData.Origin.X, y - tileData.Origin.Y, w, h, TileChangeType.None);
+
+							return true;
+						}
+						break;
+					}
 				case 12:
 					if (NetworkMode == NetworkMode.Server)
 					{
-						//if (CTF.CaptureTheFlag.GameInProgress && Netplay.Clients[playerNumber].State == 10)
-						//{
-						//	if (Players[playerNumber].CTFTeam != CTF.TeamColor.None)
-						//	{
-						//		CTF.CTFMessages.SendPlayerToSpawnPlatform(Players[playerNumber]);
-						//		return true;
-						//	}
-
-						//}
 						if (Netplay.Clients[playerNumber].State == 3)
 						{
 							PlayerJoined(playerNumber);
 						}
 					}
 					break;
-				//case 14:
-				//	if (NetworkMode != global::HEROsModMod.NetworkMode.Server)
-				//	{
-				//		if (CTF.CaptureTheFlag.GameInProgress)
-				//		{
-				//			int index = (int)binaryReader.ReadByte();
-				//			byte active = binaryReader.ReadByte();
-				//			if (Players[index].CTFTeam == CTF.TeamColor.None && active == 1 && Players[index].GameInstance.ghost)
-				//			{
-				//				return true;
-				//			}
-				//		}
-				//	}
-				//	break;
-				case 17: //Terrain Modified
+				case MessageID.TileManipulation: //Terrain Modified
 					if (NetworkMode == NetworkMode.Server)
 					{
 						bool canBuild = false;
@@ -365,24 +469,8 @@ namespace HEROsMod.HEROsModNetwork
 							return false;
 						}
 
-						//if (CTF.CaptureTheFlag.GameInProgress && player.CTFTeam != CTF.TeamColor.None && CTF.CaptureTheFlag.AllowTerrainModification)
-						//{
-						//	canBuild = true;
-						//	if (CTF.CaptureTheFlag.ListeningForTileChanges)
-						//	{
-						//		Tile backupTile = CTF.CaptureTheFlag.ModifiedTiles[x, y];
-						//		if (backupTile == null)
-						//		{
-						//			CTF.CaptureTheFlag.ModifiedTiles[x, y] = new Tile();
-						//			CTF.CaptureTheFlag.ModifiedTiles[x, y].CopyFrom(tile);
-						//			Console.WriteLine("tile added");
-						//		}
-						//	}
-						//}
 						if (!canBuild)
-						{
 							canBuild = PlayerHasPermissionToBuildAtBlock(player, x, y);
-						}
 
 						if (tileModifyType == TileModifyType.PlaceTile && placeType == TileID.LandMine)
 						{
@@ -408,8 +496,12 @@ namespace HEROsMod.HEROsModNetwork
 						}
 						else
 						{
+							// TODO: Spam detection, send this only occasionally (test with dynamite)
 							SendTextToPlayer(HEROsMod.HeroText("YouDoNotHavePermissionToBuildHere"), playerNumber, Color.Red);
 						}
+
+						NetMessage.SendTileSquare(-1, x, y, TileChangeType.None);
+						return true;
 
 						switch (tileModifyType)
 						{
@@ -418,7 +510,7 @@ namespace HEROsMod.HEROsModNetwork
 								break;
 
 							case TileModifyType.PlaceTile:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillTile, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillTile, (float)x, (float)y, (float)0, style);
 								break;
 
 							case TileModifyType.KillWall:
@@ -689,17 +781,6 @@ namespace HEROsMod.HEROsModNetwork
 				//		}
 				//	}
 				//	break;
-				//case 30:
-				//	if (NetworkMode == global::HEROsModMod.NetworkMode.Server)
-				//	{
-				//		if (CTF.CaptureTheFlag.GameInProgress)
-				//		{
-				//			SendTextToPlayer("You cannot change your hostility while Capture the Flag is in progress.", playerNumber);
-				//			CTF.CaptureTheFlag.SetPlayerHostility(Players[playerNumber]);
-				//			return true;
-				//		}
-				//	}
-				//	break;
 				case 31:
 					if (NetworkMode == NetworkMode.Server)
 					{
@@ -715,18 +796,7 @@ namespace HEROsMod.HEROsModNetwork
 						return false;
 					}
 					break;
-				//case 45:
-				//	if (NetworkMode == global::HEROsModMod.NetworkMode.Server)
-				//	{
-				//		if (CTF.CaptureTheFlag.GameInProgress)
-				//		{
-				//			SendTextToPlayer("You cannot change parties while Capture the Flag is in progress.", playerNumber);
-				//			CTF.CaptureTheFlag.SetPlayerHostility(Players[playerNumber]);
-				//			return true;
-				//		}
-				//	}
-				//	break;
-				case 63: //block painted
+				case MessageID.PaintTile: //block painted
 					if (NetworkMode == global::HEROsMod.NetworkMode.Server)
 					{
 						int x = (int)binaryReader.ReadInt16();
@@ -742,14 +812,14 @@ namespace HEROsMod.HEROsModNetwork
 						}
 						else
 						{
-							NetMessage.SendData(63, playerNumber, -1, null, x, (float)y, (float)Main.tile[x, y].TileColor);
+							NetMessage.SendData(MessageID.PaintTile, playerNumber, -1, null, x, (float)y, (float)Main.tile[x, y].TileColor);
 							SendTextToPlayer(HEROsMod.HeroText("YouDoNotHavePermissionToBuildHere"), playerNumber, Color.Red);
 							return true;
 						}
 					}
 					break;
 
-				case 64: //wall painted
+				case MessageID.PaintWall: //wall painted
 					if (NetworkMode == global::HEROsMod.NetworkMode.Server)
 					{
 						int x = (int)binaryReader.ReadInt16();
@@ -765,7 +835,7 @@ namespace HEROsMod.HEROsModNetwork
 						}
 						else
 						{
-							NetMessage.SendData(64, playerNumber, -1, null, x, (float)y, (float)Main.tile[x, y].WallColor);
+							NetMessage.SendData(MessageID.PaintWall, playerNumber, -1, null, x, (float)y, (float)Main.tile[x, y].WallColor);
 							SendTextToPlayer(HEROsMod.HeroText("YouDoNotHavePermissionToBuildHere"), playerNumber, Color.Red);
 							return true;
 						}
@@ -1099,6 +1169,7 @@ namespace HEROsMod.HEROsModNetwork
 			KillWire3,
 			SlopeTile,
 			FrameTrack
+			// 1.3: Now goes up to 23?
 		}
 	}
 }

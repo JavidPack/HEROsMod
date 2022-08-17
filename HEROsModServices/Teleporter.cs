@@ -62,6 +62,8 @@ namespace HEROsMod.HEROsModServices
 
 		public void PostDrawFullScreenMap()
 		{
+			// TODO: Some way to toggle this feature? Checkbox drawn on this screen? Detect MapLayer clicks?
+			// Issue: Right click on pylon, map shows and player instantly teleported elsewhere since right mouse is down
 			if (HasPermissionToUse)
 			{
 				Main.spriteBatch.DrawString(FontAssets.MouseText.Value, HEROsMod.HeroText("RightClickToTeleport"), new Vector2(15, Main.screenHeight - 80), Color.White);
