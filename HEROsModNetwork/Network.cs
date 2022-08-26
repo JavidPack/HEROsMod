@@ -1,11 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using Terraria;
 using Terraria.Chat;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModNetwork
 {
@@ -841,6 +844,29 @@ namespace HEROsMod.HEROsModNetwork
 						}
 					}
 					break;
+				case MessageID.InGameChangeConfig:
+					{
+						if (NetworkMode == NetworkMode.Server)
+						{
+							string modname = binaryReader.ReadString();
+							string configname = binaryReader.ReadString();
+							if(modname == nameof(HEROsMod) && configname == nameof(HEROsModServerConfig))
+								return false;
+
+							HEROsModPlayer player = Players[playerNumber];
+							if (!player.Group.HasPermission("EditServerConfigs"))
+							{
+								var modPacketCtor = typeof(ModPacket).GetConstructor(BindingFlags.Instance | BindingFlags.NonPublic, new Type[] { typeof(byte), typeof(int) });
+								ModPacket p = (ModPacket)modPacketCtor.Invoke(new object[] { MessageID.InGameChangeConfig, 256 });
+								//var p = new ModPacket(MessageID.InGameChangeConfig);
+								p.Write(false);
+								p.Write(HEROsMod.HeroText("RejectAnyServerConfigEdits"));
+								p.Send(playerNumber);
+								return true; // prevent vanilla code from running
+							}
+						}
+						break;
+					}
 			}
 
 			//if (msgType == HEROsModNetworkMessageType)

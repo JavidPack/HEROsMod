@@ -43,6 +43,7 @@ namespace HEROsMod.HEROsModNetwork
 			new PermissionInfo("CheckTiles", HEROsMod.HeroText("PermissionInfo.CheckTiles")),
 			new PermissionInfo("ViewRegions", HEROsMod.HeroText("PermissionInfo.ViewRegions")),
 			new PermissionInfo("EditRegions", HEROsMod.HeroText("PermissionInfo.EditRegions")),
+			new PermissionInfo("EditServerConfigs", HEROsMod.HeroText("PermissionInfo.EditServerConfigs")), // of other mods.
 		};
 
 		private bool _isAdmin = false;
