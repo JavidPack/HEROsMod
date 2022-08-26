@@ -235,11 +235,12 @@ Mods: {
 		EventsStoppedBy: "{0} 已停止所有事件"
 		DestructiveExplosivesBannedBy: "{0} 已禁止破坏性爆炸物"
 		DestructiveExplosivesUnbannedBy: "{0} 已允许破坏性爆炸物"
+		RejectAnyServerConfigEdits: 你没有HERO's Mod的许可来编辑服务器配置.
 
 		Configuration:
 		{
 			ModConfig: "服务器配置"
-			AcceptClientChangesMessage: "您必须是Heros Mod中的管理员才能更改服务器配置。"
+			AcceptClientChangesMessage: "你必须是Heros Mod中的管理员才能更改服务器配置."
 			Label: 
 			{
 				FreezeNonLoggedIn: "冻结未登录的玩家"
@@ -247,8 +248,8 @@ Mods: {
 			}
 			Tooltip:
 			{
-				FreezeNonLoggedIn: "若开启此项用户必须登录才能四处移动。\n若此项为关闭用户登录就可选。"
-				Telemetry: "关闭此选项可禁用更新通知和其他通知。"
+				FreezeNonLoggedIn: "若开启此项用户必须登录才能四处移动.\n若此项为关闭用户登录就可选."
+				Telemetry: "关闭此选项可禁用更新通知和其他通知."
 			}
 		}
 		PermissionInfo:
@@ -278,6 +279,7 @@ Mods: {
             CheckTiles: "查看物块"
             ViewRegions: "查看领地"
             EditRegions: "编辑领地"
+	    EditServerConfigs: 编辑服务器配置
 		}
 	}
 }
