@@ -104,7 +104,6 @@ namespace HEROsMod
 
 		public override void ProcessTriggers(TriggersSet triggersSet)
 		{
-			KeybindController.HotKeyPressed(triggersSet.KeyStatus);
 		}
 	}
 

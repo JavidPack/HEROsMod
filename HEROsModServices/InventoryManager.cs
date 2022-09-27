@@ -6,6 +6,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.ModLoader;
 using Terraria.UI;
 
 namespace HEROsMod.HEROsModServices
@@ -24,10 +25,9 @@ namespace HEROsMod.HEROsModServices
 		public static string categoryName = "Inventory Manager";
 
 		// public static KeyBinding kQuickMoveItem;
-		private static KeyBinding kQuickStack;
-
-		private static KeyBinding kSortInventory;
-		private static KeyBinding kSwapHotbar;
+		private static ModKeybind kQuickStack;
+		private static ModKeybind kSortInventory;
+		private static ModKeybind kSwapHotbar;
 
 		private static int[] _itemSortArray;
 		private static bool Loaded;
@@ -71,10 +71,9 @@ namespace HEROsMod.HEROsModServices
 
 				if (Main.playerInventory)
 				{
-					if (kSortInventory.KeyPressed)
+					if (kSortInventory.JustPressed)
 					{
-						//Terraria.UI.ItemSorting.Sort();
-						ModUtils.Sort();
+						ItemSorting.SortInventory();
 						Recipe.FindRecipes();
 						//Console.WriteLine("clean inv");
 						//CleanInventory();
@@ -83,7 +82,7 @@ namespace HEROsMod.HEROsModServices
 
 				//if (Main.playerInventory && player.chest != -1)
 				{
-					if (kQuickStack.KeyPressed)
+					if (kQuickStack.JustPressed)
 					{
 						Player player = Main.player[Main.myPlayer];
 						if (player.chest != -1)
@@ -98,7 +97,7 @@ namespace HEROsMod.HEROsModServices
 					}
 				}
 
-				if (kSwapHotbar.KeyPressed)
+				if (kSwapHotbar.JustPressed)
 				{
 					SwapHotbar();
 				}

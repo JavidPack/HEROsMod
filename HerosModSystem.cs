@@ -33,8 +33,6 @@ namespace HEROsMod
 							HEROsMod.DrawBehindUI(Main.spriteBatch);
 
 							HEROsMod.Draw(Main.spriteBatch);
-
-							KeybindController.DoPreviousKeyState();
 						}
 						catch (Exception e)
 						{

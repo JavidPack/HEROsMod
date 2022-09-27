@@ -25,7 +25,6 @@ namespace HEROsMod
 		private static MethodInfo _mouseTextMethod;
 
 		private static MethodInfo _invasionWarningMethod;
-		private static MethodInfo _itemSortingSortMethod;
 		private static FieldInfo _npcDefaultSpawnRate;
 		private static FieldInfo _npcDefaultMaxSpawns;
 
@@ -189,9 +188,6 @@ namespace HEROsMod
 
 				//	_mapIconTextures = Main.instance.GetType().GetField("mapIconTexture", BindingFlags.NonPublic | BindingFlags.Instance); // pub
 				_hueTexture = Main.instance.GetType().GetField("hueTexture", BindingFlags.NonPublic | BindingFlags.Instance); // private
-																															  //   _hoverItem = typeof(Main).GetField("toolTip", BindingFlags.NonPublic | BindingFlags.Static); //Main.toolTip
-				Assembly terraria = Assembly.GetAssembly(typeof(Main));
-				_itemSortingSortMethod = terraria.GetType("Terraria.UI.ItemSorting").GetMethod("Sort", BindingFlags.Public | BindingFlags.Static);
 			}
 			catch (Exception e)
 			{
@@ -299,11 +295,6 @@ namespace HEROsMod
 		public static void InvasionWarning()
 		{
 			_invasionWarningMethod.Invoke(null, null);
-		}
-
-		public static void Sort()
-		{
-			_itemSortingSortMethod.Invoke(null, null);
 		}
 
 		public static void MoveToPosition(Vector2 newPos)

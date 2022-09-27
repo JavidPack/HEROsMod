@@ -11,46 +11,15 @@ namespace HEROsMod.HEROsModServices
 		//public static List<BindCategory> bindCategories = new List<BindCategory>();
 		//static BindCategory currentCategory = null;
 
-		public static List<KeyBinding> bindings = new List<KeyBinding>();
+		public static List<ModKeybind> bindings = new List<ModKeybind>();
 
-		public static KeyBinding AddKeyBinding(string bindName, Keys key)
+		public static ModKeybind AddKeyBinding(string bindName, Keys key)
 		{
-			for (int i = 0; i < bindings.Count; i++)
-			{
-				if (bindings[i].name == bindName)
-				{
-					return bindings[i];
-				}
-			}
 			ModUtils.DebugText("Binding " + bindName);
-			KeybindLoader.RegisterKeybind(HEROsMod.instance, bindName, key);
-
-			KeyBinding bind = new KeyBinding("HEROsMod: " + bindName);
+			ModKeybind bind = KeybindLoader.RegisterKeybind(HEROsMod.instance, bindName, key);
 			bindings.Add(bind);
 			return bind;
 			//return currentCategory.AddKeyBinding(bindName, key);
-		}
-
-		internal static void HotKeyPressed(/*string name*/Dictionary<string, bool> keyStatus)
-		{
-			foreach (var hotkey in bindings)
-			{
-				// TODO: ???
-				if (keyStatus[hotkey.name])
-				{
-					hotkey.Down = true;
-					break;
-				}
-			}
-		}
-
-		internal static void DoPreviousKeyState()
-		{
-			foreach (var hotkey in bindings)
-			{
-				hotkey.PreviousDown = hotkey.Down;
-				hotkey.Down = false;
-			}
 		}
 
 		//public static void SetCatetory(string categoryName)
