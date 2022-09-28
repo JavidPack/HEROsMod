@@ -1,8 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
+using Terraria.UI.Chat;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -10,6 +13,8 @@ namespace HEROsMod.HEROsModServices
 	{
 		// TODO, is this how I want to do this?
 		public static Teleporter instance;
+		private bool rightClickEnabled = true; // TODO: Remember this setting maybe?
+		private bool rightMouseHadBeenReleased;
 
 		public Teleporter()
 		{
@@ -18,6 +23,9 @@ namespace HEROsMod.HEROsModServices
 
 		public override void Update()
 		{
+			// This method coincidentally only called when fullscreen is closed.
+			rightMouseHadBeenReleased = false;
+
 			//if (Main.mapFullscreen)
 			//{
 			//	if (this.HasPermissionToUse)
@@ -60,16 +68,38 @@ namespace HEROsMod.HEROsModServices
 			//base.MyGroupUpdated();
 		}
 
-		public void PostDrawFullScreenMap()
+		public void PostDrawFullScreenMap(ref string mouseText)
 		{
-			// TODO: Some way to toggle this feature? Checkbox drawn on this screen? Detect MapLayer clicks?
-			// Issue: Right click on pylon, map shows and player instantly teleported elsewhere since right mouse is down
+			// TODO: Detect MapLayer clicks?
 			if (HasPermissionToUse)
 			{
-				Main.spriteBatch.DrawString(FontAssets.MouseText.Value, HEROsMod.HeroText("RightClickToTeleport"), new Vector2(15, Main.screenHeight - 80), Color.White);
+				// Toggle Button
+				Texture2D inventoryTickTexture = TextureAssets.InventoryTickOn.Value;
+				if (!rightClickEnabled)
+					inventoryTickTexture = TextureAssets.InventoryTickOff.Value;
+				Rectangle enableButtonRectangle = new Rectangle(17, Main.screenHeight - 72, inventoryTickTexture.Width, inventoryTickTexture.Height);
+
+				if (enableButtonRectangle.Contains(Main.mouseX, Main.mouseY))
+				{
+					Main.LocalPlayer.mouseInterface = true;
+					if (Main.mouseLeft && Main.mouseLeftRelease)
+					{
+						rightClickEnabled = !rightClickEnabled;
+						Main.mouseLeftRelease = false;
+						Terraria.Audio.SoundEngine.PlaySound(SoundID.MenuTick);
+					}
+					mouseText = Language.GetTextValue(rightClickEnabled ? "GameUI.Enabled" : "GameUI.Disabled");
+				}
+				var stringSize = ChatManager.GetStringSize(FontAssets.MouseText.Value, HEROsMod.HeroText("RightClickToTeleport"), Vector2.One);
+
+				Utils.DrawInvBG(Main.spriteBatch, new Rectangle(13, Main.screenHeight - 80, (int)stringSize.X + 30, (int)stringSize.Y)/*, new Color(63, 65, 151, 255)*/);
+				Main.spriteBatch.Draw(inventoryTickTexture, enableButtonRectangle.TopLeft(), Color.White);
+
+				Main.spriteBatch.DrawString(FontAssets.MouseText.Value, HEROsMod.HeroText("RightClickToTeleport"), new Vector2(36, Main.screenHeight - 77), Color.White);
 				Terraria.GameInput.PlayerInput.SetZoom_Unscaled();
 
-				if (Main.mouseRight && Main.keyState.IsKeyUp(Microsoft.Xna.Framework.Input.Keys.LeftControl))
+				rightMouseHadBeenReleased |= !Main.mouseRight;
+				if (rightMouseHadBeenReleased && rightClickEnabled && Main.mouseRight && Main.keyState.IsKeyUp(Microsoft.Xna.Framework.Input.Keys.LeftControl))
 				{
 					int mapWidth = Main.maxTilesX * 16;
 					int mapHeight = Main.maxTilesY * 16;
