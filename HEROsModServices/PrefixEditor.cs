@@ -246,7 +246,8 @@ namespace HEROsMod.HEROsModServices
 			Item item = (Item)label.Tag;
 			Item reforgeItem = new Item();
 			reforgeItem.netDefaults(itemSlot.item.netID);
-			reforgeItem = reforgeItem.CloneWithModdedDataFrom(itemSlot.item);
+			reforgeItem.CloneDefaults(itemSlot.item.netID);
+			// reforgeItem = reforgeItem.CloneWithModdedDataFrom(itemSlot.item);
 			reforgeItem.Prefix(item.prefix);
 			itemSlot.item = reforgeItem.Clone();
 			SoundEngine.PlaySound(SoundID.Item37);

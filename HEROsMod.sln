@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33326.253
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HEROsMod", "HEROsMod.csproj", "{7607A5C9-A439-4157-B0D8-C7F01382FF01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HEROsMod", "HEROsMod.csproj", "{84FABA6E-B598-4771-9C66-CFB2C0C744D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7607A5C9-A439-4157-B0D8-C7F01382FF01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7607A5C9-A439-4157-B0D8-C7F01382FF01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7607A5C9-A439-4157-B0D8-C7F01382FF01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7607A5C9-A439-4157-B0D8-C7F01382FF01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84FABA6E-B598-4771-9C66-CFB2C0C744D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84FABA6E-B598-4771-9C66-CFB2C0C744D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84FABA6E-B598-4771-9C66-CFB2C0C744D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84FABA6E-B598-4771-9C66-CFB2C0C744D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1C2417EE-E4A9-4C75-8F27-97DE58A5F68B}
+		SolutionGuid = {E79FD9DF-927B-4739-B038-A4B9AB677A39}
 	EndGlobalSection
 EndGlobal

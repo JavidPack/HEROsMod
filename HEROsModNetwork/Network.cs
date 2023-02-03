@@ -1162,7 +1162,7 @@ namespace HEROsMod.HEROsModNetwork
 				{
 					if (k >= 0 && k < Main.maxSectionsX && l >= 0 && l < Main.maxSectionsY)
 					{
-						NetMessage.SendSection(player.Index, k, l, false);
+						NetMessage.SendSection(player.Index, k, l/*, false*/);
 						NetMessage.SendData(11, player.Index, -1, null, k, (float)l, (float)k, (float)l, 0);
 					}
 				}

@@ -247,7 +247,8 @@ namespace HEROsMod.HEROsModServices
 			}
 			else // Single
 			{
-				Main.fastForwardTime = true;
+				Main.fastForwardTimeToDawn = true;
+				// Main.fastForwardTime = true;
 				Main.sundialCooldown = 0;
 				//NetMessage.SendData(7, -1, -1, "", 0, 0f, 0f, 0f, 0, 0, 0);
 			}

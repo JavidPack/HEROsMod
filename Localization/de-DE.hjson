@@ -1,3 +1,4 @@
+
 Mods: {
 	HEROsMod: {
 		UpdateTModLoaderToUse:
@@ -56,6 +57,10 @@ Mods: {
 		Group: Gruppe
 		User: Benutzer
 		RegionName: Regions Name
+		// ProtectChests: Protect Chests
+		// ThisChestIsProtected: This chest is protected.
+		// ChestProtectionNowEnabledForRegion: Chest protection now enabled for region: {0}
+		// ChestProtectionNowDisabledForRegion: Chest protection now disabled for region: {0}
 		Ok: Ok
 		Confirm: Bestätigen
 		Create: Erstellen
@@ -75,7 +80,65 @@ Mods: {
 		RevealMap: Weltkarte aufdeken
 		ClearItemsOnGround: Lösche nicht aufgehobene Gegenstände vom boden
 		ItemsOnTheGroundWereCleared: Gegenstände auf dem boden wurden gelöscht.
-		ItemBrowser: Gegenstände
+
+		ItemBrowser: {
+			// $parentVal: Item Browser
+			// FilterName.ModFilter: Mod Filter
+
+			SortName: {
+				// ItemID: ItemID
+				// Value: Value
+				// Alphabetical: Alphabetical
+				// UseAmmoType: Use Ammo Type
+				// Damage: Damage
+				// PickPower: Pick Power
+				// AxePower: Axe Power
+				// HammerPower: Hammer Power
+				// Defense: Defense
+				// AmmoType: Ammo Type
+				// ProgressionOrder: Progression Order
+				// PolePower: Pole Power
+				// BaitPower: Bait Power
+			}
+
+			CategoryName: {
+				// Mod: Mod
+				// Weapons: Weapons
+				// Melee: Melee
+				// Magic: Magic
+				// Ranged: Ranged
+				// Throwing: Throwing
+				// Summon: Summon
+				// Sentry: Sentry
+				// Tools: Tools
+				// Pickaxes: Pickaxes
+				// Axes: Axes
+				// Hammers: Hammers
+				// Armor: Armor
+				// Head: Head
+				// Body: Body
+				// Legs: Legs
+				// Placeables: Placeables
+				// Tiles: Tiles
+				// Walls: Walls
+				// Accessories: Accessories
+				// Ammo: Ammo
+				// Potions: Potions
+				// Expert: Expert
+				// Pets: Pets
+				// LightPets: Light Pets
+				// Mounts: Mounts
+				// Dyes: Dyes
+				// BossSummons: Boss Summons
+				// Consumables: Consumables
+				// Fishing: Fishing
+				// Poles: Poles
+				// Bait: Bait
+				// QuestFish: Quest Fish
+				// Other: Other
+			}
+		}
+
 		OpenEventStarter: Öffne Event starter
 		AllEventsHaveBeenStopped: Alle Events wurden gestoppt.
 		Events: Events
@@ -94,6 +157,8 @@ Mods: {
 		ToggleGodMode: De/aktiviere Gott modus
 		GodModeEnabled: Gott modus aktiviert
 		GodModeDisabled: Gott modus deaktiviert
+		// BuddhaModeEnabled: Damage Will Be Received While In God Mode
+		// BuddhaModeDisabled: Damage Will Not Be Received While In God Mode
 		FlyCamEnableTooltip: "Aktiviere freie kamera (RMB: Sperre Kamera) "
 		FlyCamDisableTooltip: Deaktiviere freie kamera (RMB: Sperre Kamera)
 		FlyCamInstructions: Pfeiltasten zum schwenken, Shift taste für mehr geschwindichkeit, Alt taste für weniger geschwindichkeit.
@@ -111,6 +176,30 @@ Mods: {
 		Register: Registrieren
 		Password: Passwort
 		Username: Benutzername
+		// RememberPassword: Remember Password
+		// SaveLogin: Save Login
+		// SaveLoginNone: None
+		// SaveLoginDefault: Default
+		// SaveLoginPlayer: Player
+		/* SaveLoginNoneTooltip:
+			'''
+			Login data is not saved.
+			Player data is deleted if found.
+			Otherwise deletes all login data for this server.
+			''' */
+		// SaveLoginDefaultTooltip: Login data is saved for all characters.
+		/* SaveLoginPlayerTooltip:
+			'''
+			Login data is only saved for this player.
+			Ignores default login.
+			Default login data is NOT deleted.
+			''' */
+		/* RegisterTooltip:
+			'''
+			WARNING!
+			Login info is NOT securely stored.
+			Please use throwaway information.
+			''' */
 		PleaseFillInUsernamePassword: Bitte fülle das Benutzername und Passwort Feld aus.
 		BanDestructiveExplosives: Banne destruktive Explosions Gegenstände.
 		UnbanDestructiveExplosives: Entbanne destruktive Explosions Gegenstände.
@@ -159,5 +248,56 @@ Mods: {
 		EventsStoppedBy: Alle Events wurden gestoppt von {0}
 		DestructiveExplosivesBannedBy: Destruktive Explosions Gegenstände wurden gesperrt von {0}
 		DestructiveExplosivesUnbannedBy: Destruktive Explosions Gegenstände wurden entgesperrt von {0}# ItemBrowser.FilterName.ModFilter=Mod Filter
+		// RejectAnyServerConfigEdits: You don't have the HERO's Mod permission to edit server configs.
+
+		Configuration: {
+			// ModConfig: Server Config
+			// AcceptClientChangesMessage: You must be Admin in Heros Mod to change the server config.
+
+			Label: {
+				// FreezeNonLoggedIn: Freeze Non Logged In Players
+				// Telemetry: Telemetry
+			}
+
+			Tooltip: {
+				// FreezeNonLoggedIn: If true, users must log in to move around.\nLeave this false to make logging in optional.
+				// Telemetry: Disable this to disable update notifications and Mods.HEROsMod.ItemBrowserother telemetry.
+			}
+		}
+
+		PermissionInfo: {
+			// ModifyTerrain: Modify Terrain
+			// InfiniteReach: Infinite Block Reach
+			// ItemBrowser: Item Browser
+			// ChangeTimeWeather: Change Time/Weather
+			// ToggleEnemies: Toggle Enemies
+			// Flycam: Fly Camera
+			// ClearItems: Clear Items on Ground
+			// RevealMap: Reveal Map
+			// LightHack: Light Hack
+			// SpawnNPCs: Spawn NPCs
+			// Kick: Kick Players
+			// Ban: Ban Players
+			// TeleportToPlayers: Teleport To Players
+			// Snoop: Snoop Player Inventories
+			// EditWaypoints: Edit Waypoints
+			// AccessWaypoints: Access Wayppoints
+			// ToggleGravestones: Toggle Gravestones
+			// CanUseBuffs: Open Buff Window
+			// GodMode: God Mode
+			// PrefixEditor: Prefix Editor
+			// ToggleBannedItems: Toggle Banned Items
+			// Teleport: Teleport
+			// CheckTiles: Check Tiles
+			// ViewRegions: View Regions
+			// EditRegions: Edit Regions
+			// EditServerConfigs: Edit Server Configs
+		}
+
+		Keybinds: {
+			// "Quick Stack.DisplayName": Mods.HEROsMod.Keybinds.Quick Stack.DisplayName
+			// "Sort Inventory.DisplayName": Mods.HEROsMod.Keybinds.Sort Inventory.DisplayName
+			// "Swap Hotbar.DisplayName": Mods.HEROsMod.Keybinds.Swap Hotbar.DisplayName
+		}
 	}
 }
