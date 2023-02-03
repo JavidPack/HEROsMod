@@ -1,3 +1,4 @@
+
 Mods: {
 	HEROsMod: {
 		UpdateTModLoaderToUse:
@@ -56,6 +57,10 @@ Mods: {
 		Group: Группа
 		User: Пользователь
 		RegionName: Название Региона
+		// ProtectChests: Protect Chests
+		// ThisChestIsProtected: This chest is protected.
+		// ChestProtectionNowEnabledForRegion: Chest protection now enabled for region: {0}
+		// ChestProtectionNowDisabledForRegion: Chest protection now disabled for region: {0}
 		Ok: Ок
 		Confirm: Подтвердить
 		Create: Создать
@@ -78,10 +83,7 @@ Mods: {
 
 		ItemBrowser: {
 			$parentVal: Предметы
-
-			FilterName: {
-				ModFilter: Предметы из Модификаций
-			}
+			FilterName.ModFilter: Предметы из Модификаций
 
 			SortName: {
 				ItemID: Ид Предмета
@@ -155,6 +157,8 @@ Mods: {
 		ToggleGodMode: Режим Бога
 		GodModeEnabled: Режим Бога включен
 		GodModeDisabled: Режим Бога отключен
+		// BuddhaModeEnabled: Damage Will Be Received While In God Mode
+		// BuddhaModeDisabled: Damage Will Not Be Received While In God Mode
 		FlyCamEnableTooltip: Включить Свободную Камеру (Пкм: Зафиксировать Камеру)
 		FlyCamDisableTooltip: Disable Fly Camera (Пкм: Зафиксировать Камеру)
 		FlyCamInstructions: Используйте Стрелки для перемещения, Shift что бы передвигать камеру быстрее, Alt что бы передвигать камеру медленее.
@@ -172,6 +176,30 @@ Mods: {
 		Register: Регистрация
 		Password: Пароль
 		Username: Имя Пользователя
+		// RememberPassword: Remember Password
+		// SaveLogin: Save Login
+		// SaveLoginNone: None
+		// SaveLoginDefault: Default
+		// SaveLoginPlayer: Player
+		/* SaveLoginNoneTooltip:
+			'''
+			Login data is not saved.
+			Player data is deleted if found.
+			Otherwise deletes all login data for this server.
+			''' */
+		// SaveLoginDefaultTooltip: Login data is saved for all characters.
+		/* SaveLoginPlayerTooltip:
+			'''
+			Login data is only saved for this player.
+			Ignores default login.
+			Default login data is NOT deleted.
+			''' */
+		/* RegisterTooltip:
+			'''
+			WARNING!
+			Login info is NOT securely stored.
+			Please use throwaway information.
+			''' */
 		PleaseFillInUsernamePassword: Пожалуйста, введите Имя Пользователя и Пароль.
 		BanDestructiveExplosives: Заблокировать Разрушительные Взрывы
 		UnbanDestructiveExplosives: Разблокировать Разрушительные Взрывы
@@ -220,5 +248,56 @@ Mods: {
 		EventsStoppedBy: Все события отключены игроком {0}
 		DestructiveExplosivesBannedBy: Разрушающие Взрывы заблокированы игроком {0}
 		DestructiveExplosivesUnbannedBy: Разрушающие Взрывы разблокированы игроком {0}
+		// RejectAnyServerConfigEdits: You don't have the HERO's Mod permission to edit server configs.
+
+		Configuration: {
+			// ModConfig: Server Config
+			// AcceptClientChangesMessage: You must be Admin in Heros Mod to change the server config.
+
+			Label: {
+				// FreezeNonLoggedIn: Freeze Non Logged In Players
+				// Telemetry: Telemetry
+			}
+
+			Tooltip: {
+				// FreezeNonLoggedIn: If true, users must log in to move around.\nLeave this false to make logging in optional.
+				// Telemetry: Disable this to disable update notifications and Mods.HEROsMod.ItemBrowserother telemetry.
+			}
+		}
+
+		PermissionInfo: {
+			// ModifyTerrain: Modify Terrain
+			// InfiniteReach: Infinite Block Reach
+			// ItemBrowser: Item Browser
+			// ChangeTimeWeather: Change Time/Weather
+			// ToggleEnemies: Toggle Enemies
+			// Flycam: Fly Camera
+			// ClearItems: Clear Items on Ground
+			// RevealMap: Reveal Map
+			// LightHack: Light Hack
+			// SpawnNPCs: Spawn NPCs
+			// Kick: Kick Players
+			// Ban: Ban Players
+			// TeleportToPlayers: Teleport To Players
+			// Snoop: Snoop Player Inventories
+			// EditWaypoints: Edit Waypoints
+			// AccessWaypoints: Access Wayppoints
+			// ToggleGravestones: Toggle Gravestones
+			// CanUseBuffs: Open Buff Window
+			// GodMode: God Mode
+			// PrefixEditor: Prefix Editor
+			// ToggleBannedItems: Toggle Banned Items
+			// Teleport: Teleport
+			// CheckTiles: Check Tiles
+			// ViewRegions: View Regions
+			// EditRegions: Edit Regions
+			// EditServerConfigs: Edit Server Configs
+		}
+
+		Keybinds: {
+			// "Quick Stack.DisplayName": Mods.HEROsMod.Keybinds.Quick Stack.DisplayName
+			// "Sort Inventory.DisplayName": Mods.HEROsMod.Keybinds.Sort Inventory.DisplayName
+			// "Swap Hotbar.DisplayName": Mods.HEROsMod.Keybinds.Swap Hotbar.DisplayName
+		}
 	}
 }

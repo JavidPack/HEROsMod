@@ -1,3 +1,4 @@
+
 Mods: {
 	HEROsMod: {
 		UpdateTModLoaderToUse:
@@ -82,10 +83,7 @@ Mods: {
 
 		ItemBrowser: {
 			$parentVal: 物品浏览器
-
-			FilterName: {
-				ModFilter: 模组
-			}
+			FilterName.ModFilter: 模组
 
 			SortName: {
 				ItemID: 物品ID
@@ -183,10 +181,25 @@ Mods: {
 		SaveLoginNone: 无
 		SaveLoginDefault: 默认
 		SaveLoginPlayer: 玩家
-		SaveLoginNoneTooltip: "不保存登录数据.\n若发现登录数据则删除玩家数据.\n否则将删除此服务器的所有登录数据."
-		SaveLoginDefaultTooltip: "保存所有人物的登录数据."
-		SaveLoginPlayerTooltip: "仅保存该玩家的登录数据.\n忽略默认登录.\n默认登录数据不会被删除."
-		RegisterTooltip: "警告!\n登录信息并未安全保存.\n请使用一次性信息."
+		SaveLoginNoneTooltip:
+			'''
+			不保存登录数据.
+			若发现登录数据则删除玩家数据.
+			否则将删除此服务器的所有登录数据.
+			'''
+		SaveLoginDefaultTooltip: 保存所有人物的登录数据.
+		SaveLoginPlayerTooltip:
+			'''
+			仅保存该玩家的登录数据.
+			忽略默认登录.
+			默认登录数据不会被删除.
+			'''
+		RegisterTooltip:
+			'''
+			警告!
+			登录信息并未安全保存.
+			请使用一次性信息.
+			'''
 		PleaseFillInUsernamePassword: 请输入账号与密码.
 		BanDestructiveExplosives: 已禁止破坏性爆炸物
 		UnbanDestructiveExplosives: 已允许破坏性爆炸物
@@ -237,49 +250,58 @@ Mods: {
 		DestructiveExplosivesUnbannedBy: "{0} 已允许破坏性爆炸物"
 		RejectAnyServerConfigEdits: 你没有HERO's Mod的许可来编辑服务器配置.
 
-		Configuration:
-		{
-			ModConfig: "服务器配置"
-			AcceptClientChangesMessage: "你必须是Heros Mod中的管理员才能更改服务器配置."
-			Label: 
-			{
-				FreezeNonLoggedIn: "冻结未登录的玩家"
-				Telemetry: "通知"
+		Configuration: {
+			ModConfig: 服务器配置
+			AcceptClientChangesMessage: 你必须是Heros Mod中的管理员才能更改服务器配置.
+
+			Label: {
+				FreezeNonLoggedIn: 冻结未登录的玩家
+				Telemetry: 通知
 			}
-			Tooltip:
-			{
-				FreezeNonLoggedIn: "若开启此项用户必须登录才能四处移动.\n若此项为关闭用户登录就可选."
-				Telemetry: "关闭此选项可禁用更新通知和其他通知."
+
+			Tooltip: {
+				FreezeNonLoggedIn:
+					'''
+					若开启此项用户必须登录才能四处移动.
+					若此项为关闭用户登录就可选.
+					'''
+				Telemetry: 关闭此选项可禁用更新通知和其他通知.
 			}
 		}
-		PermissionInfo:
-		{
-            ModifyTerrain: "修改地形"
-            InfiniteReach: "无限延伸"
-            ItemBrowser: "物品浏览器"
-            ChangeTimeWeather: "改变时间/天气"
-            ToggleEnemies: "怪物生成"
-            Flycam: "自由镜头"
-            ClearItems: "清除地面物品"
-            RevealMap: "点亮全图"
-            LightHack: "透视照明"
-            SpawnNPCs: "生成NPC"
-            Kick: "玩家踢出"
-            Ban: "玩家封禁"
-            TeleportToPlayers: "玩家传送"
-            Snoop: "查看玩家背包"
-            EditWaypoints: "编辑路径点"
-            AccessWaypoints: "到达路径点"
-            ToggleGravestones: "墓碑生成"
-            CanUseBuffs: "打开Buff窗口"
-            GodMode: "上帝模式"
-            PrefixEditor: "前缀编辑器"
-            ToggleBannedItems: "封禁物品"
-            Teleport: "传送"
-            CheckTiles: "查看物块"
-            ViewRegions: "查看领地"
-            EditRegions: "编辑领地"
-	    EditServerConfigs: 编辑服务器配置
+
+		PermissionInfo: {
+			ModifyTerrain: 修改地形
+			InfiniteReach: 无限延伸
+			ItemBrowser: 物品浏览器
+			ChangeTimeWeather: 改变时间/天气
+			ToggleEnemies: 怪物生成
+			Flycam: 自由镜头
+			ClearItems: 清除地面物品
+			RevealMap: 点亮全图
+			LightHack: 透视照明
+			SpawnNPCs: 生成NPC
+			Kick: 玩家踢出
+			Ban: 玩家封禁
+			TeleportToPlayers: 玩家传送
+			Snoop: 查看玩家背包
+			EditWaypoints: 编辑路径点
+			AccessWaypoints: 到达路径点
+			ToggleGravestones: 墓碑生成
+			CanUseBuffs: 打开Buff窗口
+			GodMode: 上帝模式
+			PrefixEditor: 前缀编辑器
+			ToggleBannedItems: 封禁物品
+			Teleport: 传送
+			CheckTiles: 查看物块
+			ViewRegions: 查看领地
+			EditRegions: 编辑领地
+			EditServerConfigs: 编辑服务器配置
+		}
+
+		Keybinds: {
+			// "Quick Stack.DisplayName": Mods.HEROsMod.Keybinds.Quick Stack.DisplayName
+			// "Sort Inventory.DisplayName": Mods.HEROsMod.Keybinds.Sort Inventory.DisplayName
+			// "Swap Hotbar.DisplayName": Mods.HEROsMod.Keybinds.Swap Hotbar.DisplayName
 		}
 	}
 }

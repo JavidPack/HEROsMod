@@ -1,3 +1,4 @@
+
 Mods: {
 	HEROsMod: {
 		UpdateTModLoaderToUse:
@@ -82,10 +83,7 @@ Mods: {
 
 		ItemBrowser: {
 			$parentVal: Item Browser
-
-			FilterName: {
-				ModFilter: Mod Filter
-			}
+			FilterName.ModFilter: Mod Filter
 
 			SortName: {
 				ItemID: ItemID
@@ -183,10 +181,25 @@ Mods: {
 		SaveLoginNone: None
 		SaveLoginDefault: Default
 		SaveLoginPlayer: Player
-		SaveLoginNoneTooltip: "Login data is not saved.\nPlayer data is deleted if found.\nOtherwise deletes all login data for this server."
-		SaveLoginDefaultTooltip: "Login data is saved for all characters."
-		SaveLoginPlayerTooltip: "Login data is only saved for this player.\nIgnores default login.\nDefault login data is NOT deleted."
-		RegisterTooltip: "WARNING!\nLogin info is NOT securely stored.\nPlease use throwaway information."
+		SaveLoginNoneTooltip:
+			'''
+			Login data is not saved.
+			Player data is deleted if found.
+			Otherwise deletes all login data for this server.
+			'''
+		SaveLoginDefaultTooltip: Login data is saved for all characters.
+		SaveLoginPlayerTooltip:
+			'''
+			Login data is only saved for this player.
+			Ignores default login.
+			Default login data is NOT deleted.
+			'''
+		RegisterTooltip:
+			'''
+			WARNING!
+			Login info is NOT securely stored.
+			Please use throwaway information.
+			'''
 		PleaseFillInUsernamePassword: Please fill in the Username and Password fields.
 		BanDestructiveExplosives: Ban Destructive Explosives
 		UnbanDestructiveExplosives: Unban Destructive Explosives
@@ -237,50 +250,54 @@ Mods: {
 		DestructiveExplosivesUnbannedBy: Destructive Explosives unbanned by {0}
 		RejectAnyServerConfigEdits: You don't have the HERO's Mod permission to edit server configs.
 
-		Configuration:
-		{
+		Configuration: {
 			ModConfig: Server Config
 			AcceptClientChangesMessage: You must be Admin in Heros Mod to change the server config.
-			Label: 
-			{
+
+			Label: {
 				FreezeNonLoggedIn: Freeze Non Logged In Players
 				Telemetry: Telemetry
-
 			}
-			Tooltip:
-			{
+
+			Tooltip: {
 				FreezeNonLoggedIn: If true, users must log in to move around.\nLeave this false to make logging in optional.
-				Telemetry: Disable this to disable update notifications and other telemetry.
+				Telemetry: Disable this to disable update notifications and Mods.HEROsMod.ItemBrowserother telemetry.
 			}
 		}
-		PermissionInfo:
-		{
-                ModifyTerrain: Modify Terrain
-                InfiniteReach: Infinite Block Reach
-                ItemBrowser: Item Browser
-                ChangeTimeWeather: Change Time/Weather
-                ToggleEnemies: Toggle Enemies
-                Flycam: Fly Camera
-                ClearItems: Clear Items on Ground
-                RevealMap: Reveal Map
-                LightHack: Light Hack
-                SpawnNPCs: Spawn NPCs
-                Kick: Kick Players
-                Ban: Ban Players
-                TeleportToPlayers: Teleport To Players
-                Snoop: Snoop Player Inventories
-                EditWaypoints: Edit Waypoints
-                AccessWaypoints: Access Wayppoints
-                ToggleGravestones: Toggle Gravestones
-                CanUseBuffs: Open Buff Window
-                GodMode: God Mode
-                PrefixEditor: Prefix Editor
-                ToggleBannedItems: Toggle Banned Items
-                Teleport: Teleport
-                CheckTiles: Check Tiles
-                ViewRegions: View Regions
-                EditRegions: Edit Regions
-                EditServerConfigs: Edit Server Configs
+
+		PermissionInfo: {
+			ModifyTerrain: Modify Terrain
+			InfiniteReach: Infinite Block Reach
+			ItemBrowser: Item Browser
+			ChangeTimeWeather: Change Time/Weather
+			ToggleEnemies: Toggle Enemies
+			Flycam: Fly Camera
+			ClearItems: Clear Items on Ground
+			RevealMap: Reveal Map
+			LightHack: Light Hack
+			SpawnNPCs: Spawn NPCs
+			Kick: Kick Players
+			Ban: Ban Players
+			TeleportToPlayers: Teleport To Players
+			Snoop: Snoop Player Inventories
+			EditWaypoints: Edit Waypoints
+			AccessWaypoints: Access Wayppoints
+			ToggleGravestones: Toggle Gravestones
+			CanUseBuffs: Open Buff Window
+			GodMode: God Mode
+			PrefixEditor: Prefix Editor
+			ToggleBannedItems: Toggle Banned Items
+			Teleport: Teleport
+			CheckTiles: Check Tiles
+			ViewRegions: View Regions
+			EditRegions: Edit Regions
+			EditServerConfigs: Edit Server Configs
+		}
+
+		Keybinds: {
+			"Quick Stack.DisplayName": Mods.HEROsMod.Keybinds.Quick Stack.DisplayName
+			"Sort Inventory.DisplayName": Mods.HEROsMod.Keybinds.Sort Inventory.DisplayName
+			"Swap Hotbar.DisplayName": Mods.HEROsMod.Keybinds.Swap Hotbar.DisplayName
 		}
 	}
 }

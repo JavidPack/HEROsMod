@@ -1,3 +1,4 @@
+
 Mods: {
 	HEROsMod: {
 		UpdateTModLoaderToUse:
@@ -82,10 +83,7 @@ Mods: {
 
 		ItemBrowser: {
 			$parentVal: Navegador de objetos
-
-			FilterName: {
-				ModFilter: Filtro de mods
-			}
+			FilterName.ModFilter: Filtro de mods
 
 			SortName: {
 				ItemID: ItemID
@@ -183,10 +181,25 @@ Mods: {
 		SaveLoginNone: Ninguna
 		SaveLoginDefault: Por defecto
 		SaveLoginPlayer: Jugador
-		SaveLoginNoneTooltip: "Los datos de inicio de sesión no se almacenan.\nLos datos del jugador se borran si se encuentran.\nDe lo contrario, se borran todos los datos de inicio de sesión del servidor."
-		SaveLoginDefaultTooltip: "Los datos de inicio de sesión se guardan para todos los personajes."
-		SaveLoginPlayerTooltip: "Los datos de inicio de sesión solo se guardan para este jugador.\nIgnora el inicio de sesión por defecto.\nLos datos de inicio de sesión por defecto NO se borran."
-		RegisterTooltip: "ADVERTENCIA\nLa información de inicio de sesión no se almacena de forma segura.\nPor favor, no introduzcas claves importantes."
+		SaveLoginNoneTooltip:
+			'''
+			Los datos de inicio de sesión no se almacenan.
+			Los datos del jugador se borran si se encuentran.
+			De lo contrario, se borran todos los datos de inicio de sesión del servidor.
+			'''
+		SaveLoginDefaultTooltip: Los datos de inicio de sesión se guardan para todos los personajes.
+		SaveLoginPlayerTooltip:
+			'''
+			Los datos de inicio de sesión solo se guardan para este jugador.
+			Ignora el inicio de sesión por defecto.
+			Los datos de inicio de sesión por defecto NO se borran.
+			'''
+		RegisterTooltip:
+			'''
+			ADVERTENCIA
+			La información de inicio de sesión no se almacena de forma segura.
+			Por favor, no introduzcas claves importantes.
+			'''
 		PleaseFillInUsernamePassword: Por favor, rellena los campos con el nombre de usuario y la contraseña.
 		BanDestructiveExplosives: Prohibir explosivos destructivos
 		UnbanDestructiveExplosives: Permitir explosivos destructivos
@@ -235,5 +248,56 @@ Mods: {
 		EventsStoppedBy: Todos los eventos han sido detenidos por {0}
 		DestructiveExplosivesBannedBy: Explosivos destructivos prohibidos por {0}
 		DestructiveExplosivesUnbannedBy: Explosivos destructivos permitidos por {0}
+		// RejectAnyServerConfigEdits: You don't have the HERO's Mod permission to edit server configs.
+
+		Configuration: {
+			// ModConfig: Server Config
+			// AcceptClientChangesMessage: You must be Admin in Heros Mod to change the server config.
+
+			Label: {
+				// FreezeNonLoggedIn: Freeze Non Logged In Players
+				// Telemetry: Telemetry
+			}
+
+			Tooltip: {
+				// FreezeNonLoggedIn: If true, users must log in to move around.\nLeave this false to make logging in optional.
+				// Telemetry: Disable this to disable update notifications and Mods.HEROsMod.ItemBrowserother telemetry.
+			}
+		}
+
+		PermissionInfo: {
+			// ModifyTerrain: Modify Terrain
+			// InfiniteReach: Infinite Block Reach
+			// ItemBrowser: Item Browser
+			// ChangeTimeWeather: Change Time/Weather
+			// ToggleEnemies: Toggle Enemies
+			// Flycam: Fly Camera
+			// ClearItems: Clear Items on Ground
+			// RevealMap: Reveal Map
+			// LightHack: Light Hack
+			// SpawnNPCs: Spawn NPCs
+			// Kick: Kick Players
+			// Ban: Ban Players
+			// TeleportToPlayers: Teleport To Players
+			// Snoop: Snoop Player Inventories
+			// EditWaypoints: Edit Waypoints
+			// AccessWaypoints: Access Wayppoints
+			// ToggleGravestones: Toggle Gravestones
+			// CanUseBuffs: Open Buff Window
+			// GodMode: God Mode
+			// PrefixEditor: Prefix Editor
+			// ToggleBannedItems: Toggle Banned Items
+			// Teleport: Teleport
+			// CheckTiles: Check Tiles
+			// ViewRegions: View Regions
+			// EditRegions: Edit Regions
+			// EditServerConfigs: Edit Server Configs
+		}
+
+		Keybinds: {
+			// "Quick Stack.DisplayName": Mods.HEROsMod.Keybinds.Quick Stack.DisplayName
+			// "Sort Inventory.DisplayName": Mods.HEROsMod.Keybinds.Sort Inventory.DisplayName
+			// "Swap Hotbar.DisplayName": Mods.HEROsMod.Keybinds.Swap Hotbar.DisplayName
+		}
 	}
 }

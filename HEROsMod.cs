@@ -1,4 +1,4 @@
-﻿using On.Terraria.GameContent.NetModules;
+﻿// using On.Terraria.GameContent.NetModules;
 using HEROsMod.HEROsModNetwork;
 using HEROsMod.HEROsModServices;
 using HEROsMod.UIKit;
@@ -27,7 +27,8 @@ namespace HEROsMod
 	internal class HEROsMod : Mod
 	{
 		public static HEROsMod instance;
-		internal static Dictionary<string, ModTranslation> translations; // reference to private field.
+		private static Dictionary<string, LocalizedText> translations; // reference to private field.
+		internal static string HeroText(string key) => translations[$"Mods.HEROsMod.{key}"].Value;
 		internal List<UIKit.UIComponents.ModCategory> modCategories;
 		internal Dictionary<string, Action<bool>> crossModGroupUpdated = new Dictionary<string, Action<bool>>();
 
@@ -36,11 +37,7 @@ namespace HEROsMod
 			try
 			{
 				instance = this;
-
-				FieldInfo translationsField = typeof(LocalizationLoader).GetField("translations", BindingFlags.Static | BindingFlags.NonPublic);
-				translations = (Dictionary<string, ModTranslation>)translationsField.GetValue(null);
 				//LoadTranslations();
-
 				modCategories = new List<UIKit.UIComponents.ModCategory>();
 
 				//	AddGlobalItem("HEROsModGlobalItem", new HEROsModGlobalItem());
@@ -62,7 +59,6 @@ namespace HEROsMod
 					UIKit.UICheckbox.checkmarkTexture = Assets.Request<Texture2D>("Images/UIKit/checkMark", AssetRequestMode.ImmediateLoad);
 				}
 
-				Init();
 			}
 			catch (Exception e)
 			{
@@ -70,15 +66,15 @@ namespace HEROsMod
 			}
 			// Intercept DeserializeAsServer method
 			//NetTextModule.DeserializeAsServer += NetTextModule_DeserializeAsServer;
-			On.Terraria.Player.ChatColor += Player_ChatColor;
+			On_Player.ChatColor += Player_ChatColor;
 		}
 
-		internal static string HeroText(string key)
-		{
-			return translations[$"Mods.HEROsMod.{key}"].GetTranslation(Language.ActiveCulture);
-			// This isn't good until after load....
-			// return Language.GetTextValue($"Mods.HEROsMod.{category}.{key}");
-		}
+		//internal static string HeroText(string key)
+		//{
+		//	return translations[$"Mods.HEROsMod.{key}"].Value;
+		//	// This isn't good until after load....
+		//	// return Language.GetTextValue($"Mods.HEROsMod.{key}");
+		//}
 
 		// Clear EVERYthing, mod is unloaded.
 		public override void Unload()
@@ -136,27 +132,30 @@ namespace HEROsMod
 			//NetTextModule.DeserializeAsServer -= NetTextModule_DeserializeAsServer;
 		}
 		
-		private Color Player_ChatColor(On.Terraria.Player.orig_ChatColor orig, Player self)
+		private Color Player_ChatColor(On_Player.orig_ChatColor orig, Player self)
 		{
 			Color chatColor = Network.Players[self.whoAmI].Group?.Color ?? orig(self);
 			return chatColor;
 		}
 
-		private bool NetTextModule_DeserializeAsServer(NetTextModule.orig_DeserializeAsServer orig, Terraria.GameContent.NetModules.NetTextModule self, BinaryReader reader, int senderPlayerId)
-		{
-			long savedPosition = reader.BaseStream.Position;
-			ChatMessage message = ChatMessage.Deserialize(reader);
-			reader.BaseStream.Position = savedPosition;
+		//private bool NetTextModule_DeserializeAsServer(NetTextModule.orig_DeserializeAsServer orig, Terraria.GameContent.NetModules.NetTextModule self, BinaryReader reader, int senderPlayerId)
+		//{
+		//	long savedPosition = reader.BaseStream.Position;
+		//	ChatMessage message = ChatMessage.Deserialize(reader);
+		//	reader.BaseStream.Position = savedPosition;
 
-			Color chatColor = Network.Players[senderPlayerId].Group?.Color ?? new Color(255, 255, 255);
-			Terraria.Net.NetPacket packet = Terraria.GameContent.NetModules.NetTextModule.SerializeServerMessage(NetworkText.FromLiteral(message.Text), chatColor, (byte)senderPlayerId);
-			Terraria.Net.NetManager.Instance.Broadcast(packet);
+		//	Color chatColor = Network.Players[senderPlayerId].Group?.Color ?? new Color(255, 255, 255);
+		//	Terraria.Net.NetPacket packet = Terraria.GameContent.NetModules.NetTextModule.SerializeServerMessage(NetworkText.FromLiteral(message.Text), chatColor, (byte)senderPlayerId);
+		//	Terraria.Net.NetManager.Instance.Broadcast(packet);
 
-			return true;
-		}
+		//	return true;
+		//}
 
 		public override void PostSetupContent()
 		{
+			FieldInfo translationsField = typeof(LanguageManager).GetField("_localizedTexts", BindingFlags.Instance | BindingFlags.NonPublic);
+			translations = (Dictionary<string, LocalizedText>)translationsField.GetValue(LanguageManager.Instance);
+			Init();
 			if (!Main.dedServ)
 			{
 				foreach (var service in ServiceController.Services)
