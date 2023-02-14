@@ -130,7 +130,9 @@ namespace HEROsMod.HEROsModServices
 
 					if (Main.SmartCursorWanted) // Check out SmartCursorIsUsed as well.
 					{
-						Main.SmartCursorWanted = false;
+						Main.SmartCursorWanted_Mouse = false;
+						Main.SmartCursorWanted_GamePad = false;
+						//Main.SmartCursorWanted = false;
 						Main.NewText(HEROsMod.HeroText("SmartCursorAutomaticallyDisabledInfinteReachMod"));
 					}
 				}

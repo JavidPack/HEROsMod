@@ -196,6 +196,8 @@ namespace HEROsMod.HEROsModServices
 			sundialButton.onLeftClick += sundialButton_onLeftClick;
 			buttonView.AddChild(sundialButton);
 
+			// TODO: Moon Dial?
+
 			//float xPos = spacing;
 			//for (int i = 0; i < children.Count; i++)
 			//{
@@ -247,7 +249,8 @@ namespace HEROsMod.HEROsModServices
 			}
 			else // Single
 			{
-				Main.fastForwardTime = true;
+				Main.fastForwardTimeToDawn = true;
+				//Main.fastForwardTime/* tModPorter Note: Removed. Suggestion: IsFastForwardingTime(), fastForwardTimeToDawn or fastForwardTimeToDusk */ = true;
 				Main.sundialCooldown = 0;
 				//NetMessage.SendData(7, -1, -1, "", 0, 0f, 0f, 0f, 0, 0, 0);
 			}

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -49,9 +50,9 @@ namespace HEROsMod.HEROsModServices
 			// KeybindController.SetCatetory("InventoryManager");
 
 			//		kQuickMoveItem = KeybindController.AddKeyBinding("Quick Move Item", "LeftControl");
-			kQuickStack = KeybindController.AddKeyBinding("Quick Stack", Keys.Q);
-			kSortInventory = KeybindController.AddKeyBinding("Sort Inventory", Keys.C);
-			kSwapHotbar = KeybindController.AddKeyBinding("Swap Hotbar", Keys.V);
+			kQuickStack = KeybindController.AddKeyBinding("QuickStack", Keys.Q);
+			kSortInventory = KeybindController.AddKeyBinding("SortInventory", Keys.C);
+			kSwapHotbar = KeybindController.AddKeyBinding("SwapHotbar", Keys.V);
 		}
 
 		public override void Update()
@@ -87,7 +88,10 @@ namespace HEROsMod.HEROsModServices
 						Player player = Main.player[Main.myPlayer];
 						if (player.chest != -1)
 						{
-							ChestUI.QuickStack();
+							// TODO: can chest be negative? Where is this code used? Main.chest[player.chest].x/y
+							//ContainerTransferContext context2 = ContainerTransferContext.FromBlockPosition(j, k);
+							ContainerTransferContext context = ContainerTransferContext.FromUnknown(player);
+							ChestUI.QuickStack(context);
 						}
 						else
 						{

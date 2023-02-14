@@ -1,5 +1,4 @@
-﻿using On.Terraria.GameContent.NetModules;
-using HEROsMod.HEROsModNetwork;
+﻿using HEROsMod.HEROsModNetwork;
 using HEROsMod.HEROsModServices;
 using HEROsMod.UIKit;
 using Microsoft.Xna.Framework;
@@ -14,6 +13,7 @@ using System.Reflection;
 using Terraria;
 using Terraria.Chat;
 using Terraria.GameContent;
+using Terraria.GameContent.NetModules;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
@@ -27,7 +27,7 @@ namespace HEROsMod
 	internal class HEROsMod : Mod
 	{
 		public static HEROsMod instance;
-		internal static Dictionary<string, ModTranslation> translations; // reference to private field.
+		//internal static Dictionary<string, LocalizedText> translations; // reference to private field.
 		internal List<UIKit.UIComponents.ModCategory> modCategories;
 		internal Dictionary<string, Action<bool>> crossModGroupUpdated = new Dictionary<string, Action<bool>>();
 
@@ -37,8 +37,8 @@ namespace HEROsMod
 			{
 				instance = this;
 
-				FieldInfo translationsField = typeof(LocalizationLoader).GetField("translations", BindingFlags.Static | BindingFlags.NonPublic);
-				translations = (Dictionary<string, ModTranslation>)translationsField.GetValue(null);
+				//FieldInfo translationsField = typeof(LocalizationLoader).GetField("translations", BindingFlags.Static | BindingFlags.NonPublic);
+				//translations = (Dictionary<string, LocalizedText>)translationsField.GetValue(null);
 				//LoadTranslations();
 
 				modCategories = new List<UIKit.UIComponents.ModCategory>();
@@ -70,12 +70,13 @@ namespace HEROsMod
 			}
 			// Intercept DeserializeAsServer method
 			//NetTextModule.DeserializeAsServer += NetTextModule_DeserializeAsServer;
-			On.Terraria.Player.ChatColor += Player_ChatColor;
+			Terraria.On_Player.ChatColor += Player_ChatColor;
 		}
 
 		internal static string HeroText(string key)
 		{
-			return translations[$"Mods.HEROsMod.{key}"].GetTranslation(Language.ActiveCulture);
+			return Language.GetTextValue($"Mods.HEROsMod.{key}"); // TODO: Solution for this?
+			//return translations[$"Mods.HEROsMod.{key}"].GetTranslation(Language.ActiveCulture);
 			// This isn't good until after load....
 			// return Language.GetTextValue($"Mods.HEROsMod.{category}.{key}");
 		}
@@ -131,18 +132,18 @@ namespace HEROsMod
 			TimeWeatherControlHotbar.Unload();
 			ModUtils.previousInventoryItems = null;
 			modCategories = null;
-			translations = null;
+			//translations = null;
 			instance = null;
 			//NetTextModule.DeserializeAsServer -= NetTextModule_DeserializeAsServer;
 		}
 		
-		private Color Player_ChatColor(On.Terraria.Player.orig_ChatColor orig, Player self)
+		private Color Player_ChatColor(Terraria.On_Player.orig_ChatColor orig, Player self)
 		{
 			Color chatColor = Network.Players[self.whoAmI].Group?.Color ?? orig(self);
 			return chatColor;
 		}
 
-		private bool NetTextModule_DeserializeAsServer(NetTextModule.orig_DeserializeAsServer orig, Terraria.GameContent.NetModules.NetTextModule self, BinaryReader reader, int senderPlayerId)
+		private bool NetTextModule_DeserializeAsServer(On_NetTextModule.orig_DeserializeAsServer orig, Terraria.GameContent.NetModules.NetTextModule self, BinaryReader reader, int senderPlayerId)
 		{
 			long savedPosition = reader.BaseStream.Position;
 			ChatMessage message = ChatMessage.Deserialize(reader);
