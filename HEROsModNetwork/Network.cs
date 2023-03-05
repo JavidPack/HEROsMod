@@ -867,6 +867,30 @@ namespace HEROsMod.HEROsModNetwork
 						}
 						break;
 					}
+				case MessageID.SpawnBoss:
+					{
+						if (NetworkMode == NetworkMode.Server)
+						{
+							int player = binaryReader.ReadInt16();
+							int npcid = binaryReader.ReadInt16();
+							if(npcid <= -11 && npcid >= -18)
+							{
+								// Network.SendTextToPlayer("Pet, not prevented", player, Color.Green);
+								// These are pet things
+								return false;
+							}
+
+							// Fallback to this if detour NPC.SpawnOnPlayer doesn't work? --> events don't call spawnonplayer
+
+							if (!Network.Players[player].Group.HasPermission("SpawnBosses"))
+							{
+								// issue: this stops events too? 
+								Network.SendTextToPlayer(HEROsMod.HeroText("YouDoNotHavePermissionToSpawnBosses"), player, Color.Red);
+								return true; // prevent vanilla code from running
+							}
+						}
+						break;
+					}
 			}
 
 			//if (msgType == HEROsModNetworkMessageType)

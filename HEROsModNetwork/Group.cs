@@ -24,6 +24,8 @@ namespace HEROsMod.HEROsModNetwork
 			new PermissionInfo("RevealMap", HEROsMod.HeroText("PermissionInfo.RevealMap")),
 			new PermissionInfo("LightHack", HEROsMod.HeroText("PermissionInfo.LightHack")),
 			new PermissionInfo("SpawnNPCs", HEROsMod.HeroText("PermissionInfo.SpawnNPCs")),
+			new PermissionInfo("SpawnBosses", HEROsMod.HeroText("PermissionInfo.SpawnBosses")),
+			//new PermissionInfo("SpawnBeatenBosses", HEROsMod.HeroText("PermissionInfo.SpawnBeatenBosses")),
 			new PermissionInfo("Kick", HEROsMod.HeroText("PermissionInfo.Kick")),
 			new PermissionInfo("Ban", HEROsMod.HeroText("PermissionInfo.Ban")),
 			new PermissionInfo("TeleportToPlayers", HEROsMod.HeroText("PermissionInfo.TeleportToPlayers")),
@@ -77,6 +79,9 @@ namespace HEROsMod.HEROsModNetwork
 				Permissions.Add(p.Key, false);
 			}
 			Permissions["ModifyTerrain"] = true;
+			// Remember: add new default permissions to DoMigrations when added
+			Permissions["SpawnBosses"] = true;
+			// Permissions["SpawnBeatenBosses"] = true;
 
 			if (name == "Default")
 			{
