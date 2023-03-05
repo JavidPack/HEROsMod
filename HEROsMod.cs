@@ -18,6 +18,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 using ReLogic.Content.Sources;
+using Terraria.ID;
 
 // TODO, freeze is bypassable.
 // TODO, regions prevent all the chest movement and right click.
@@ -71,6 +72,23 @@ namespace HEROsMod
 			// Intercept DeserializeAsServer method
 			//NetTextModule.DeserializeAsServer += NetTextModule_DeserializeAsServer;
 			Terraria.On_Player.ChatColor += Player_ChatColor;
+			On.Terraria.NPC.SpawnOnPlayer += NPC_SpawnOnPlayer;
+		}
+
+		private void NPC_SpawnOnPlayer(On.Terraria.NPC.orig_SpawnOnPlayer orig, int plr, int Type)
+		{
+			// TODO: How do we know if an npc is an actual boss, or just a random usage of SpawnOnPlayer
+			if (Main.netMode == NetmodeID.Server && Type != NPCID.Ghost)
+			{
+				if (!Network.Players[plr].Group.HasPermission("SpawnBosses"))
+				{
+					// This stops queen bee
+					// issue: this stops events too? That is useful.
+					Network.SendTextToPlayer(HEROsMod.HeroText("YouDoNotHavePermissionToSpawnBosses"), plr, Color.Red);
+					return; 
+				}
+			}
+			orig(plr, Type);
 		}
 
 		internal static string HeroText(string key)

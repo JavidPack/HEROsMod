@@ -25,6 +25,8 @@ namespace HEROsMod.HEROsModNetwork
 
 		//public List<DatabaseRegion> regions;
 		//public bool BanDestructiveExplosives;
+
+		public Version version;
 	}
 
 	public class DatabasePlayer
@@ -163,6 +165,30 @@ namespace HEROsMod.HEROsModNetwork
 			//	database.groups.Clear();
 			//	database.players.Clear();
 			//}
+
+			DoMigrations(database);
+		}
+
+		private static void DoMigrations(HEROsModDatabase database)
+		{
+			bool anyChanges = false;
+			// from oldest to newest. Use version of 1st release with new permission
+			if (database.version < new Version(0, 4, 12))
+			{
+				foreach (var group in database.groups)
+				{
+					var permissions = group.permissions.ToList();
+					permissions.Add("SpawnBosses");
+					// permissions.Add("SpawnBeatenBosses"); TODO: Integrate boss checklist to allow farming downed bosses by using npcid->downedBool mapping
+					group.permissions = permissions.ToArray();
+					anyChanges = true;
+				}
+			}
+
+			if (anyChanges)
+			{
+				SaveSetting();
+			}
 		}
 
 		internal static void SaveSetting()
@@ -208,6 +234,7 @@ namespace HEROsMod.HEROsModNetwork
 			//XmlWriter writer = XmlWriter.Create(path);
 			//serializer.WriteObject(writer, database);
 			//writer.Close();
+			database.version = HEROsMod.instance.Version;
 			string json = JsonConvert.SerializeObject(database, Newtonsoft.Json.Formatting.Indented);
 			File.WriteAllText(path, json);
 		}
