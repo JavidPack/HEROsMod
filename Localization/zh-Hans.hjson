@@ -198,6 +198,7 @@ Mods: {
 		AdminInstructionsCommandDescription: 告知你如何成为HERO's Mod的管理员
 		DedicatedServerAutoMessage: HERO's Mod: 创建一个账户,登录,并在聊天栏输入 /auth {0} 来成为管理员.
 		YouDoNotHavePermissionToBuildHere: 你没有权限在这里进行建筑
+		YouDoNotHavePermissionToSpawnBosses: 你没有权限生成Boss
 		LightHackDisabled: 透视照明: 关闭
 		LightHack25%: 透视照明: 25%
 		LightHack50%: 透视照明: 50%
@@ -264,6 +265,7 @@ Mods: {
             RevealMap: "点亮全图"
             LightHack: "透视照明"
             SpawnNPCs: "生成NPC"
+	    SpawnBosses: "生成Boss"
             Kick: "玩家踢出"
             Ban: "玩家封禁"
             TeleportToPlayers: "玩家传送"
