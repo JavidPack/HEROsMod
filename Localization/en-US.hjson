@@ -300,9 +300,6 @@ Mods: {
 			SwapHotbar.DisplayName: Swap Hotbar
 			SortInventory.DisplayName: Sort Inventory
 			QuickStack.DisplayName: Quick Stack
-
-		PermissionInfo:
-		{
 		}
 	}
 }

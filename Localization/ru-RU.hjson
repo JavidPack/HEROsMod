@@ -211,6 +211,7 @@ Mods: {
 		AdminInstructionsCommandDescription: Информирует вас о том, как стать Администратором HERO's Модификации
 		DedicatedServerAutoMessage: HERO's Модификация: Создайте аккаунт, войдите в него и введите /auth {0} что бы стать Администратором.
 		YouDoNotHavePermissionToBuildHere: У вас нет прав, что бы строить здесь.
+		// YouDoNotHavePermissionToSpawnBosses: You do not have permission to spawn bosses
 		LightHackDisabled: Хак освещения: Отключен
 		LightHack25%: Хак освещения: 25%
 		LightHack50%: Хак освещения: 50%
@@ -276,6 +277,7 @@ Mods: {
 			// RevealMap: Reveal Map
 			// LightHack: Light Hack
 			// SpawnNPCs: Spawn NPCs
+			// SpawnBosses: Spawn Bosses
 			// Kick: Kick Players
 			// Ban: Ban Players
 			// TeleportToPlayers: Teleport To Players

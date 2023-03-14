@@ -211,6 +211,7 @@ Mods: {
 		// AdminInstructionsCommandDescription: Informs you how to become Admin in HERO's Mod
 		// DedicatedServerAutoMessage: HERO's Mod: Create an account, login, and type /auth {0} to become Admin.
 		// YouDoNotHavePermissionToBuildHere: You do not have permission to build here
+		// YouDoNotHavePermissionToSpawnBosses: You do not have permission to spawn bosses
 		// LightHackDisabled: Light Hack: Disabled
 		// LightHack25%: Light Hack: 25%
 		// LightHack50%: Light Hack: 50%
@@ -276,6 +277,7 @@ Mods: {
 			// RevealMap: Reveal Map
 			// LightHack: Light Hack
 			// SpawnNPCs: Spawn NPCs
+			// SpawnBosses: Spawn Bosses
 			// Kick: Kick Players
 			// Ban: Ban Players
 			// TeleportToPlayers: Teleport To Players

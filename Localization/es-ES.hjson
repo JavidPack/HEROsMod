@@ -211,6 +211,7 @@ Mods: {
 		AdminInstructionsCommandDescription: Te indica cómo convertirte en administrador en el mod HERO.
 		DedicatedServerAutoMessage: HERO's Mod: Crea una cuenta, inicia sesión y escribe /auth {0} para convertirte en administrador.
 		YouDoNotHavePermissionToBuildHere: No tienes permiso para construir aquí.
+		// YouDoNotHavePermissionToSpawnBosses: You do not have permission to spawn bosses
 		LightHackDisabled: Hack de luz: Desactivado
 		LightHack25%: Hack de luz: 25%
 		LightHack50%: Hack de luz: 50%
@@ -276,6 +277,7 @@ Mods: {
 			// RevealMap: Reveal Map
 			// LightHack: Light Hack
 			// SpawnNPCs: Spawn NPCs
+			// SpawnBosses: Spawn Bosses
 			// Kick: Kick Players
 			// Ban: Ban Players
 			// TeleportToPlayers: Teleport To Players

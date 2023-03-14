@@ -281,7 +281,7 @@ Mods: {
 			RevealMap: 点亮全图
 			LightHack: 透视照明
 			SpawnNPCs: 生成NPC
-			SpawnBosses: "生成Boss"
+			SpawnBosses: 生成Boss
 			Kick: 玩家踢出
 			Ban: 玩家封禁
 			TeleportToPlayers: 玩家传送

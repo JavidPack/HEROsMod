@@ -867,7 +867,7 @@ namespace HEROsMod.HEROsModNetwork
 						}
 						break;
 					}
-				case MessageID.SpawnBoss:
+				case MessageID.SpawnBossUseLicenseStartEvent:
 					{
 						if (NetworkMode == NetworkMode.Server)
 						{

@@ -72,10 +72,10 @@ namespace HEROsMod
 			// Intercept DeserializeAsServer method
 			//NetTextModule.DeserializeAsServer += NetTextModule_DeserializeAsServer;
 			Terraria.On_Player.ChatColor += Player_ChatColor;
-			On.Terraria.NPC.SpawnOnPlayer += NPC_SpawnOnPlayer;
+			Terraria.On_NPC.SpawnOnPlayer += NPC_SpawnOnPlayer;
 		}
 
-		private void NPC_SpawnOnPlayer(On.Terraria.NPC.orig_SpawnOnPlayer orig, int plr, int Type)
+		private void NPC_SpawnOnPlayer(On_NPC.orig_SpawnOnPlayer orig, int plr, int Type)
 		{
 			// TODO: How do we know if an npc is an actual boss, or just a random usage of SpawnOnPlayer
 			if (Main.netMode == NetmodeID.Server && Type != NPCID.Ghost)
