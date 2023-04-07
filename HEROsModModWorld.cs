@@ -35,5 +35,10 @@ namespace HEROsMod
 				HEROsModNetwork.DatabaseController.SaveSetting();
 			}
 		}
+
+		public override void LoadWorldData(TagCompound tag)
+		{
+			// Just here to not upset ModSystem.ValidateType
+		}
 	}
 }
