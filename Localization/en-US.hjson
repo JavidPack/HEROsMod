@@ -1,4 +1,3 @@
-
 Mods: {
 	HEROsMod: {
 		UpdateTModLoaderToUse:
@@ -251,21 +250,6 @@ Mods: {
 		DestructiveExplosivesUnbannedBy: Destructive Explosives unbanned by {0}
 		RejectAnyServerConfigEdits: You don't have the HERO's Mod permission to edit server configs.
 
-		Configuration: {
-			ModConfig: Server Config
-			AcceptClientChangesMessage: You must be Admin in Heros Mod to change the server config.
-
-			Label: {
-				FreezeNonLoggedIn: Freeze Non Logged In Players
-				Telemetry: Telemetry
-			}
-
-			Tooltip: {
-				FreezeNonLoggedIn: If true, users must log in to move around.\nLeave this false to make logging in optional.
-				Telemetry: Disable this to disable update notifications and other telemetry.
-			}
-		}
-
 		PermissionInfo: {
 			ModifyTerrain: Modify Terrain
 			InfiniteReach: Infinite Block Reach
@@ -300,6 +284,27 @@ Mods: {
 			SwapHotbar.DisplayName: Swap Hotbar
 			SortInventory.DisplayName: Sort Inventory
 			QuickStack.DisplayName: Quick Stack
+		}
+
+		Configs: {
+			HEROsModServerConfig: {
+				DisplayName: Server Config
+				AcceptClientChangesMessage: You must be Admin in Heros Mod to change the server config.
+
+				FreezeNonLoggedIn: {
+					Label: Freeze Non Logged In Players
+					Tooltip:
+						'''
+						If true, users must log in to move around.
+						Leave this false to make logging in optional.
+						'''
+				}
+
+				Telemetry: {
+					Label: Telemetry
+					Tooltip: Disable this to disable update notifications and other telemetry.
+				}
+			}
 		}
 	}
 }

@@ -1,15 +1,10 @@
 using HEROsMod.HEROsModNetwork;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
 
 namespace HEROsMod
 {
-	[Label("$Mods.HEROsMod.Configuration.ModConfig")]
 	class HEROsModServerConfig : ModConfig
 	{
 		public override ConfigScope Mode => ConfigScope.ServerSide;
@@ -21,13 +16,9 @@ namespace HEROsMod
 		public bool DisableAchievements { get; set; }
 		*/
 
-		[Label("$Mods.HEROsMod.Configuration.Label.FreezeNonLoggedIn")]
-		[Tooltip("$Mods.HEROsMod.Configuration.Tooltip.FreezeNonLoggedIn")]
 		[DefaultValue(false)]
 		public bool FreezeNonLoggedIn { get; set; }
 
-		[Label("$Mods.HEROsMod.Configuration.Label.Telemetry")]
-		[Tooltip("$Mods.HEROsMod.Configuration.Tooltip.Telemetry")]
 		[DefaultValue(true)]
 		[ReloadRequired]
 		public bool Telemetry { get; set; }
@@ -37,7 +28,7 @@ namespace HEROsMod
 			if (Network.Players[whoAmI].Group.IsAdmin)
 				return true;
 
-			message = HEROsMod.HeroText("Configuration.AcceptClientChangesMessage");
+			message = this.GetLocalizedValue("AcceptClientChangesMessage");
 			return false;
 		}
 	}

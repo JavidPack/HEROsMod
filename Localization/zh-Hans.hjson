@@ -1,4 +1,3 @@
-
 Mods: {
 	HEROsMod: {
 		UpdateTModLoaderToUse:
@@ -251,25 +250,6 @@ Mods: {
 		DestructiveExplosivesUnbannedBy: "{0} 已允许破坏性爆炸物"
 		RejectAnyServerConfigEdits: 你没有HERO's Mod的许可来编辑服务器配置.
 
-		Configuration: {
-			ModConfig: 服务器配置
-			AcceptClientChangesMessage: 你必须是Heros Mod中的管理员才能更改服务器配置.
-
-			Label: {
-				FreezeNonLoggedIn: 冻结未登录的玩家
-				Telemetry: 通知
-			}
-
-			Tooltip: {
-				FreezeNonLoggedIn:
-					'''
-					若开启此项用户必须登录才能四处移动.
-					若此项为关闭用户登录就可选.
-					'''
-				Telemetry: 关闭此选项可禁用更新通知和其他通知.
-			}
-		}
-
 		PermissionInfo: {
 			ModifyTerrain: 修改地形
 			InfiniteReach: 无限延伸
@@ -304,6 +284,27 @@ Mods: {
 			// SwapHotbar.DisplayName: Swap Hotbar
 			// SortInventory.DisplayName: Sort Inventory
 			// QuickStack.DisplayName: Quick Stack
+		}
+
+		Configs: {
+			HEROsModServerConfig: {
+				DisplayName: 服务器配置
+				AcceptClientChangesMessage: 你必须是Heros Mod中的管理员才能更改服务器配置.
+
+				FreezeNonLoggedIn: {
+					Label: 冻结未登录的玩家
+					Tooltip:
+						'''
+						若开启此项用户必须登录才能四处移动.
+						若此项为关闭用户登录就可选.
+						'''
+				}
+
+				Telemetry: {
+					Label: 通知
+					Tooltip: 关闭此选项可禁用更新通知和其他通知.
+				}
+			}
 		}
 	}
 }
