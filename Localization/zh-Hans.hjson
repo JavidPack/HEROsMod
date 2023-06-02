@@ -281,9 +281,9 @@ Mods: {
 		}
 
 		Keybinds: {
-			// SwapHotbar.DisplayName: Swap Hotbar
-			// SortInventory.DisplayName: Sort Inventory
-			// QuickStack.DisplayName: Quick Stack
+			SwapHotbar.DisplayName: 交换快捷栏中物品
+			SortInventory.DisplayName: 物品栏排序
+			QuickStack.DisplayName: 快速堆叠至附近宝箱上
 		}
 
 		Configs: {
