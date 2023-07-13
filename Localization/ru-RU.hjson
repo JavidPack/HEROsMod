@@ -56,10 +56,10 @@ Mods: {
 		Group: Группа
 		User: Пользователь
 		RegionName: Название Региона
-		ProtectChests: Protect Chests
-		ThisChestIsProtected: This chest is protected.
-		ChestProtectionNowEnabledForRegion: Chest protection now enabled for region: {0}
-		ChestProtectionNowDisabledForRegion: Chest protection now disabled for region: {0}
+		ProtectChests: Защитить сундуки
+		ThisChestIsProtected: Этот сундук защищен.
+		ChestProtectionNowEnabledForRegion: Защита сундуков теперь включена для региона: {0}
+		ChestProtectionNowDisabledForRegion: Защита сундуков теперь отключена для региона: {0}
 		Ok: Ок
 		Confirm: Подтвердить
 		Create: Создать
@@ -248,7 +248,7 @@ Mods: {
 		EventsStoppedBy: Все события отключены игроком {0}
 		DestructiveExplosivesBannedBy: Разрушающие Взрывы заблокированы игроком {0}
 		DestructiveExplosivesUnbannedBy: Разрушающие Взрывы разблокированы игроком {0}
-		RejectAnyServerConfigEdits: You don't have the HERO's Mod permission to edit server configs.
+		RejectAnyServerConfigEdits: У вас нет разрешения HERO's Mod на редактирование конфигурации сервера.
 
 		PermissionInfo: {
 			ModifyTerrain: Изменить местность
