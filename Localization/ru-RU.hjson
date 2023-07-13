@@ -56,10 +56,10 @@ Mods: {
 		Group: Группа
 		User: Пользователь
 		RegionName: Название Региона
-		// ProtectChests: Protect Chests
-		// ThisChestIsProtected: This chest is protected.
-		// ChestProtectionNowEnabledForRegion: Chest protection now enabled for region: {0}
-		// ChestProtectionNowDisabledForRegion: Chest protection now disabled for region: {0}
+		ProtectChests: Protect Chests
+		ThisChestIsProtected: This chest is protected.
+		ChestProtectionNowEnabledForRegion: Chest protection now enabled for region: {0}
+		ChestProtectionNowDisabledForRegion: Chest protection now disabled for region: {0}
 		Ok: Ок
 		Confirm: Подтвердить
 		Create: Создать
@@ -156,10 +156,10 @@ Mods: {
 		ToggleGodMode: Режим Бога
 		GodModeEnabled: Режим Бога включен
 		GodModeDisabled: Режим Бога отключен
-		// BuddhaModeEnabled: Damage Will Be Received While In God Mode
-		// BuddhaModeDisabled: Damage Will Not Be Received While In God Mode
+		BuddhaModeEnabled: Урон будет получен в режиме бога
+		BuddhaModeDisabled: Урон не будет получен в режиме бога
 		FlyCamEnableTooltip: Включить Свободную Камеру (Пкм: Зафиксировать Камеру)
-		FlyCamDisableTooltip: Disable Fly Camera (Пкм: Зафиксировать Камеру)
+		FlyCamDisableTooltip: Отключить Свободную Камеру (Пкм: Зафиксировать Камеру)
 		FlyCamInstructions: Используйте Стрелки для перемещения, Shift что бы передвигать камеру быстрее, Alt что бы передвигать камеру медленее.
 		DisableEnemySpawns: Отключить Агрессивных Существ
 		EnableEnemySpawns: Включить Агрессивных Существ
@@ -175,30 +175,30 @@ Mods: {
 		Register: Регистрация
 		Password: Пароль
 		Username: Имя Пользователя
-		// RememberPassword: Remember Password
-		// SaveLogin: Save Login
-		// SaveLoginNone: None
-		// SaveLoginDefault: Default
-		// SaveLoginPlayer: Player
-		/* SaveLoginNoneTooltip:
+		RememberPassword: Запомнить пароль
+		SaveLogin: Сохранить Логин
+		SaveLoginNone: Ничего
+		SaveLoginDefault: По умолчанию
+		SaveLoginPlayer: Игрок
+		SaveLoginNoneTooltip:
 			'''
-			Login data is not saved.
-			Player data is deleted if found.
-			Otherwise deletes all login data for this server.
-			''' */
-		// SaveLoginDefaultTooltip: Login data is saved for all characters.
-		/* SaveLoginPlayerTooltip:
+			Данные для входа не сохраняются.
+			Данные игрока удаляются, если они найдены.
+			В противном случае удаляются все данные для входа на этот сервер.
 			'''
-			Login data is only saved for this player.
-			Ignores default login.
-			Default login data is NOT deleted.
-			''' */
-		/* RegisterTooltip:
+		SaveLoginDefaultTooltip: Данные для входа сохраняются для всех игроков.
+		SaveLoginPlayerTooltip:
 			'''
-			WARNING!
-			Login info is NOT securely stored.
-			Please use throwaway information.
-			''' */
+			Данные для входа сохраняются только для этого игрока.
+			Игнорирует вход по умолчанию.
+			Данные для входа по умолчанию НЕ удаляются.
+			'''
+		RegisterTooltip:
+			'''
+			ПРЕДУПРЕЖДЕНИЕ!
+			Информация для входа хранится НЕ надежно .
+			Пожалуйста, используйте информацию для однократного использования.
+			'''
 		PleaseFillInUsernamePassword: Пожалуйста, введите Имя Пользователя и Пароль.
 		BanDestructiveExplosives: Заблокировать Разрушительные Взрывы
 		UnbanDestructiveExplosives: Разблокировать Разрушительные Взрывы
@@ -210,7 +210,7 @@ Mods: {
 		AdminInstructionsCommandDescription: Информирует вас о том, как стать Администратором HERO's Модификации
 		DedicatedServerAutoMessage: HERO's Модификация: Создайте аккаунт, войдите в него и введите /auth {0} что бы стать Администратором.
 		YouDoNotHavePermissionToBuildHere: У вас нет прав, что бы строить здесь.
-		// YouDoNotHavePermissionToSpawnBosses: You do not have permission to spawn bosses
+		YouDoNotHavePermissionToSpawnBosses: У вас нет разрешения на спавн боссов
 		LightHackDisabled: Хак освещения: Отключен
 		LightHack25%: Хак освещения: 25%
 		LightHack50%: Хак освещения: 50%
@@ -248,61 +248,61 @@ Mods: {
 		EventsStoppedBy: Все события отключены игроком {0}
 		DestructiveExplosivesBannedBy: Разрушающие Взрывы заблокированы игроком {0}
 		DestructiveExplosivesUnbannedBy: Разрушающие Взрывы разблокированы игроком {0}
-		// RejectAnyServerConfigEdits: You don't have the HERO's Mod permission to edit server configs.
+		RejectAnyServerConfigEdits: You don't have the HERO's Mod permission to edit server configs.
 
 		PermissionInfo: {
-			// ModifyTerrain: Modify Terrain
-			// InfiniteReach: Infinite Block Reach
-			// ItemBrowser: Item Browser
-			// ChangeTimeWeather: Change Time/Weather
-			// ToggleEnemies: Toggle Enemies
-			// Flycam: Fly Camera
-			// ClearItems: Clear Items on Ground
-			// RevealMap: Reveal Map
-			// LightHack: Light Hack
-			// SpawnNPCs: Spawn NPCs
-			// SpawnBosses: Spawn Bosses
-			// Kick: Kick Players
-			// Ban: Ban Players
-			// TeleportToPlayers: Teleport To Players
-			// Snoop: Snoop Player Inventories
-			// EditWaypoints: Edit Waypoints
-			// AccessWaypoints: Access Wayppoints
-			// ToggleGravestones: Toggle Gravestones
-			// CanUseBuffs: Open Buff Window
-			// GodMode: God Mode
-			// PrefixEditor: Prefix Editor
-			// ToggleBannedItems: Toggle Banned Items
-			// Teleport: Teleport
-			// CheckTiles: Check Tiles
-			// ViewRegions: View Regions
-			// EditRegions: Edit Regions
-			// EditServerConfigs: Edit Server Configs
+			ModifyTerrain: Изменить местность
+			InfiniteReach: Бесконечная досягаемость до блока
+			ItemBrowser: Браузер предметов
+			ChangeTimeWeather: Изменить время/погоду
+			ToggleEnemies: Вкл/откл враждебных мобов
+			Flycam: Свободная камера
+			ClearItems: Очистить предметы на земле
+			RevealMap: Открыть карту
+			LightHack: Простой взлом
+			SpawnNPCs: Заспавнить NPC
+			SpawnBosses: Заспавнить боссов
+			Kick: Выгнать игроков
+			Ban: Банить игроков
+			TeleportToPlayers: Телепортироваться к игрокам
+			Snoop: Слежка за инвентарем игрока
+			EditWaypoints: Редактировать путевые точки
+			AccessWaypoints: Доступ к путевым точкам
+			ToggleGravestones: Вкл/откл надгробия
+			CanUseBuffs: Открыть меню баффов
+			GodMode: Режим бога
+			PrefixEditor: Редактор префиксов
+			ToggleBannedItems: Вкл/откл запрещенные предметы
+			Teleport: Телепорт
+			CheckTiles: Проверить идентификаторы плитки
+			ViewRegions: Посмотреть регионы
+			EditRegions: Редактировать регионы
+			EditServerConfigs: Изменить конфигурацию сервера
 		}
 
 		Keybinds: {
-			// SwapHotbar.DisplayName: Swap Hotbar
-			// SortInventory.DisplayName: Sort Inventory
-			// QuickStack.DisplayName: Quick Stack
+			SwapHotbar.DisplayName: Поменять панель быстрого доступа
+			SortInventory.DisplayName: Сортировка инвентаря
+			QuickStack.DisplayName: Быстрая стопка
 		}
 
 		Configs: {
 			HEROsModServerConfig: {
-				// DisplayName: Server Config
-				// AcceptClientChangesMessage: You must be Admin in Heros Mod to change the server config.
+				DisplayName: Конфигурация сервера
+				AcceptClientChangesMessage: Вы должны быть администратором в Heros Mod, чтобы изменить конфигурацию сервера.
 
 				FreezeNonLoggedIn: {
-					// Label: Freeze Non Logged In Players
-					/* Tooltip:
+					Label: Заморозить незарегистрированных игроков
+					Tooltip:
 						'''
-						If true, users must log in to move around.
-						Leave this false to make logging in optional.
-						''' */
+						Если это включено, пользователи должны войти в систему, чтобы перемещаться.
+						Отключите, чтобы сделать вход в систему необязательным.
+						'''
 				}
 
 				Telemetry: {
-					// Label: Telemetry
-					// Tooltip: Disable this to disable update notifications and other telemetry.
+					Label: Телеметрия
+					Tooltip: Отключите это, чтобы отключить уведомления об обновлениях и другие данные телеметрии.
 				}
 			}
 		}
