@@ -1077,7 +1077,7 @@ namespace HEROsMod.HEROsModNetwork
 					{
 						a.Send(i);
 					}
-					catch (ObjectDisposedException e)
+					catch (ObjectDisposedException)
 					{
 						Console.WriteLine($"HERO's Mod: Resetting Player[{i}]");
 						Players[i].Reset();
