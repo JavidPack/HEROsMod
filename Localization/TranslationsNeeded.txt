@@ -1,8 +1,9 @@
-zh-Hans 4
-ru-RU 4
-pt-BR 205
-pl-PL 205
-it-IT 205
-fr-FR 205
-es-ES 205
-de-DE 52
+en-US, 254/254, 100%, missing 0
+de-DE, 152/254, 60%, missing 102
+it-IT, 0/254, 0%, missing 254
+fr-FR, 0/254, 0%, missing 254
+es-ES, 216/254, 85%, missing 38
+ru-RU, 254/254, 100%, missing 0
+zh-Hans, 254/254, 100%, missing 0
+pt-BR, 204/254, 80%, missing 50
+pl-PL, 0/254, 0%, missing 254
