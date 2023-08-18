@@ -62,8 +62,6 @@ namespace HEROsMod
 					UIKit.UICheckbox.checkboxTexture = Assets.Request<Texture2D>("Images/UIKit/checkBox", AssetRequestMode.ImmediateLoad);
 					UIKit.UICheckbox.checkmarkTexture = Assets.Request<Texture2D>("Images/UIKit/checkMark", AssetRequestMode.ImmediateLoad);
 				}
-
-				Init();
 			}
 			catch (Exception e)
 			{
@@ -176,6 +174,8 @@ namespace HEROsMod
 
 		public override void PostSetupContent()
 		{
+			Init();
+
 			if (!Main.dedServ)
 			{
 				foreach (var service in ServiceController.Services)
