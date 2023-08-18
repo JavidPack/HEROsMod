@@ -25,11 +25,19 @@ using Terraria.ID;
 // TODO -- Should I have all services use the same Global hooks?
 namespace HEROsMod
 {
+	internal record CallButtonParameters(string permissionName, Asset<Texture2D> texture, Action buttonClickedAction, Action<bool> groupUpdated, Func<string> tooltip);
+
+	internal record PermissionsParameters(string permissionName, string permissionDisplayName, Action<bool> groupUpdated);
+
 	internal class HEROsMod : Mod
 	{
 		public static HEROsMod instance;
 		//internal static Dictionary<string, LocalizedText> translations; // reference to private field.
 		internal List<UIKit.UIComponents.ModCategory> modCategories;
+
+		internal List<CallButtonParameters> callButtons = new();
+		internal List<PermissionsParameters> permissionsParameters = new();
+
 		internal Dictionary<string, Action<bool>> crossModGroupUpdated = new Dictionary<string, Action<bool>>();
 
 		public override void Load()
@@ -62,6 +70,8 @@ namespace HEROsMod
 					UIKit.UICheckbox.checkboxTexture = Assets.Request<Texture2D>("Images/UIKit/checkBox", AssetRequestMode.ImmediateLoad);
 					UIKit.UICheckbox.checkmarkTexture = Assets.Request<Texture2D>("Images/UIKit/checkMark", AssetRequestMode.ImmediateLoad);
 				}
+
+				Init_Load();
 			}
 			catch (Exception e)
 			{
@@ -174,10 +184,29 @@ namespace HEROsMod
 
 		public override void PostSetupContent()
 		{
-			Init();
+			Init_PostSetupContent();
+
+			foreach (var item in permissionsParameters)
+			{
+				Group.PermissionList.Add(new PermissionInfo(item.permissionName, item.permissionDisplayName));
+				Network.AdminGroup.Permissions.Add(item.permissionName, true);
+				if (item.groupUpdated != null)
+				{
+					crossModGroupUpdated[item.permissionName] = item.groupUpdated;
+				}
+			}
+			permissionsParameters.Clear();
 
 			if (!Main.dedServ)
 			{
+				foreach (var item in callButtons)
+				{
+					GenericExtensionService genericService = new GenericExtensionService(instance.extensionMenuService, item.texture, item.permissionName, item.buttonClickedAction, item.groupUpdated, item.tooltip);
+					ServiceController.AddService(genericService);
+					instance.extensionMenuService.AddGeneric(genericService);
+				}
+				callButtons.Clear();
+
 				foreach (var service in ServiceController.Services)
 				{
 					service.PostSetupContent();
@@ -262,13 +291,16 @@ namespace HEROsMod
 			get { return _hotbar; }
 		}
 
-		public static void Init()
+		public static void Init_Load()
 		{
 			ModUtils.Init();
+		}
+
+		public static void Init_PostSetupContent()
+		{
 			//	IncreaseNetworkMessageSize();
 			HEROsModNetwork.Network.Init();
 			//	HEROsModNetwork.CTF.CaptureTheFlag.Init();
-
 			//if (ModUtils.NetworkMode != NetworkMode.Server)
 			if (!Main.dedServ)
 			{
@@ -300,6 +332,7 @@ namespace HEROsMod
 			//instance.modExtensions = new ModExtensions();
 		}
 
+		// TODO: Is this broken because of the move of Init to PostSetupContent?
 		public override object Call(params object[] args)
 		{
 			int argsLength = args.Length;
@@ -381,29 +414,43 @@ namespace HEROsMod
 		{
 			if (!Main.dedServ)
 			{
-				GenericExtensionService genericService = new GenericExtensionService(instance.extensionMenuService, texture, permissionName, buttonClickedAction, groupUpdated, tooltip);
-				ServiceController.AddService(genericService);
-				instance.extensionMenuService.AddGeneric(genericService);
-				//modExtensions.AddButton(texture, buttonClickedAction, groupUpdated, tooltip);
+				if (ServiceController != null)
+				{
+					GenericExtensionService genericService = new GenericExtensionService(instance.extensionMenuService, texture, permissionName, buttonClickedAction, groupUpdated, tooltip);
+					ServiceController.AddService(genericService);
+					instance.extensionMenuService.AddGeneric(genericService);
+					//modExtensions.AddButton(texture, buttonClickedAction, groupUpdated, tooltip);
+				}
+				else
+				{
+					callButtons.Add(new(permissionName, texture, buttonClickedAction,groupUpdated, tooltip));
+				}
 			}
 		}
 
 		public void RegisterPermission(string permissionName, string permissionDisplayName, Action<bool> groupUpdated)
 		{
 			ModUtils.DebugText($"RegisterPermission: {permissionName} - {permissionDisplayName}");
-			Group.PermissionList.Add(new PermissionInfo(permissionName, permissionDisplayName));
-			//foreach (var item in Network.Groups)
-			//{
-			//}
-			//Network.DefaultGroup.Permissions.Add(permissionName, false);
-			Network.AdminGroup.Permissions.Add(permissionName, true);
-
-			if (groupUpdated != null)
+			if (Network.AdminGroup != null)
 			{
-				crossModGroupUpdated[permissionName] = groupUpdated;
-			}
+				Group.PermissionList.Add(new PermissionInfo(permissionName, permissionDisplayName));
+				//foreach (var item in Network.Groups)
+				//{
+				//}
+				//Network.DefaultGroup.Permissions.Add(permissionName, false);
+				Network.AdminGroup.Permissions.Add(permissionName, true);
 
-			//modExtensions.AddButton(texture, buttonClickedAction, tooltip);
+				if (groupUpdated != null)
+				{
+					crossModGroupUpdated[permissionName] = groupUpdated;
+				}
+
+				//modExtensions.AddButton(texture, buttonClickedAction, tooltip);
+			}
+			else
+			{
+				permissionsParameters.Add(new(permissionName, permissionDisplayName, groupUpdated));
+			}
 		}
 
 		private MiscOptions miscOptions;

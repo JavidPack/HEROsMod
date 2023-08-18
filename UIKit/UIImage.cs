@@ -15,9 +15,9 @@ namespace HEROsMod.UIKit
 		}
 
 		private float width
-		{ get { return texture.Value.Width; } }
+		{ get { return texture.Value?.Width ?? 0; } }
 		private float height
-		{ get { return texture.Value.Height; } }
+		{ get { return texture.Value?.Height ?? 0; } }
 		private SpriteEffects _spriteEfftct = SpriteEffects.None;
 
 		public SpriteEffects SpriteEffect
