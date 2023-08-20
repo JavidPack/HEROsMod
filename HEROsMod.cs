@@ -660,8 +660,8 @@ namespace HEROsMod
 			{
 				HEROsModVideo.Services.MobHUD.MobInfo.Draw(spriteBatch);
 				SelectionTool.Draw(spriteBatch);
-				if (RegionService.RegionsVisible)
-					RegionService.DrawRegions(spriteBatch);
+				//if (RegionService.RegionsVisible)
+					//RegionService.DrawRegions(spriteBatch);
 				//HEROsModNetwork.CTF.CaptureTheFlag.Draw(spriteBatch);
 				CheckTileModificationTool.DrawBoxOnCursor(spriteBatch);
 			}

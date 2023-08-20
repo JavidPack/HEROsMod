@@ -597,16 +597,27 @@ namespace HEROsMod
 			return new Vector2((int)tileCoords.X * 16, (int)tileCoords.Y * 16);
 		}
 
-		public static void DrawBorderedRect(SpriteBatch spriteBatch, Color color, Color borderColor, Vector2 position, Vector2 size, int borderWidth)
-		{
-			size *= 16;
-			Vector2 pos = ModUtils.GetWorldCoordsFromTileCoords(position) - Main.screenPosition;
-			spriteBatch.Draw(ModUtils.DummyTexture, new Rectangle((int)pos.X, (int)pos.Y, (int)size.X, (int)size.Y), color);
 
-			spriteBatch.Draw(ModUtils.DummyTexture, new Rectangle((int)pos.X - borderWidth, (int)pos.Y - borderWidth, (int)size.X + borderWidth * 2, borderWidth), borderColor);
-			spriteBatch.Draw(ModUtils.DummyTexture, new Rectangle((int)pos.X - borderWidth, (int)pos.Y + (int)size.Y, (int)size.X + borderWidth * 2, borderWidth), borderColor);
-			spriteBatch.Draw(ModUtils.DummyTexture, new Rectangle((int)pos.X - borderWidth, (int)pos.Y, (int)borderWidth, (int)size.Y), borderColor);
-			spriteBatch.Draw(ModUtils.DummyTexture, new Rectangle((int)pos.X + (int)size.X, (int)pos.Y, (int)borderWidth, (int)size.Y), borderColor);
+		public static void DrawBorderedRect(SpriteBatch spriteBatch, Color infillColor, Color outlineColor, Vector2 position, Vector2 size, int outlineThickness)
+		{
+			Texture2D pixel = ModUtils.DummyTexture;
+			Rectangle pixelRect = new Rectangle(0, 0, 1, 1);
+			Vector2 positionOnScreen = (position * 16f) - Main.screenPosition;
+			Vector2 sizeOnScreen = size * 16f;
+
+			spriteBatch.Draw(pixel, positionOnScreen, pixelRect, infillColor, 0, Vector2.Zero, sizeOnScreen, SpriteEffects.None, 0);
+
+			Vector2 outlineSize = new Vector2(sizeOnScreen.X, outlineThickness);
+			Vector2 outlinePosition = positionOnScreen;
+			spriteBatch.Draw(pixel, outlinePosition, pixelRect, outlineColor, 0, Vector2.Zero, outlineSize, SpriteEffects.None, 0);
+			outlinePosition.Y += sizeOnScreen.Y - outlineThickness;
+			spriteBatch.Draw(pixel, outlinePosition, pixelRect, outlineColor, 0, Vector2.Zero, outlineSize, SpriteEffects.None, 0);
+
+			outlineSize = new Vector2(outlineThickness, sizeOnScreen.Y);
+			outlinePosition = positionOnScreen;
+			spriteBatch.Draw(pixel, outlinePosition, pixelRect, outlineColor, 0, Vector2.Zero, outlineSize, SpriteEffects.None, 0);
+			outlinePosition.X += sizeOnScreen.X - outlineThickness;
+			spriteBatch.Draw(pixel, outlinePosition, pixelRect, outlineColor, 0, Vector2.Zero, outlineSize, SpriteEffects.None, 0);
 		}
 
 		public static void DrawBorderedRect(SpriteBatch spriteBatch, Color color, Vector2 position, Vector2 size, int borderWidth)

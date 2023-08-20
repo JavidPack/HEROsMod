@@ -1,4 +1,5 @@
 ﻿using HEROsMod.HEROsModServices;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,6 +15,24 @@ namespace HEROsMod
 		{
 			Teleporter.instance.PostDrawFullScreenMap(ref mouseText);
 			MapRevealer.instance.PostDrawFullScreenMap();
+		}
+
+		public override void PostDrawTiles()
+		{
+			if (!Main.gameMenu && RegionService.RegionsVisible)
+			{
+				SpriteBatch spriteBatch = Main.spriteBatch;
+				GraphicsDevice graphicsDevice = spriteBatch.GraphicsDevice;
+
+				graphicsDevice.BlendState = BlendState.AlphaBlend;
+				graphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
+				graphicsDevice.DepthStencilState = DepthStencilState.None;
+				graphicsDevice.RasterizerState = RasterizerState.CullCounterClockwise;
+
+				spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, Main.GameViewMatrix.TransformationMatrix);
+				RegionService.DrawRegions(spriteBatch);
+				spriteBatch.End();
+			}
 		}
 
 		public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
