@@ -113,20 +113,34 @@ Mods: {
 				// Pickaxes: Pickaxes
 				// Axes: Axes
 				// Hammers: Hammers
+				// Drill: Drill
+				// Chainsaw: Chainsaw
 				// Armor: Armor
 				// Head: Head
 				// Body: Body
 				// Legs: Legs
+				// Vanity: Vanity
 				// Placeables: Placeables
 				// Tiles: Tiles
 				// Walls: Walls
 				// Accessories: Accessories
+				// Wings: Wings
+				// Paint: Paint
+				// PaintScraper: Paint Scraper
+				// Kites: Kites
+				// Hooks: Hooks
 				// Ammo: Ammo
+				// Food: Food
 				// Potions: Potions
 				// Expert: Expert
+				// BossBag: Boss Bag
+				// Master: Master
+				// Relic: Relic
 				// Pets: Pets
 				// LightPets: Light Pets
 				// Mounts: Mounts
+				// Pickup: Pickup
+				// Carts: Carts
 				// Dyes: Dyes
 				// BossSummons: Boss Summons
 				// Consumables: Consumables
@@ -134,6 +148,7 @@ Mods: {
 				// Poles: Poles
 				// Bait: Bait
 				// QuestFish: Quest Fish
+				// FishingCrate: Fishing Crate
 				// Other: Other
 			}
 		}

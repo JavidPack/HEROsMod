@@ -113,20 +113,34 @@ Mods: {
 				Pickaxes: Picaretas
 				Axes: Machados
 				Hammers: Martelos
+				// Drill: Drill
+				// Chainsaw: Chainsaw
 				Armor: Armadura
 				Head: Cabeça
 				Body: Corpo
 				Legs: Pernas
+				// Vanity: Vanity
 				Placeables: Colocáveis
 				Tiles: Peças
 				Walls: Paredes
 				Accessories: Acessórios
+				// Wings: Wings
+				// Paint: Paint
+				// PaintScraper: Paint Scraper
+				// Kites: Kites
+				// Hooks: Hooks
 				Ammo: Munição
+				// Food: Food
 				Potions: Poções
 				Expert: Perito
+				// BossBag: Boss Bag
+				// Master: Master
+				// Relic: Relic
 				Pets: Animais de Estimação
 				LightPets: Animais Leves
 				Mounts: Montarias
+				// Pickup: Pickup
+				// Carts: Carts
 				Dyes: Tinturas
 				BossSummons: Invocadores de Chefe
 				Consumables: Consumíveis
@@ -134,6 +148,7 @@ Mods: {
 				Poles: Varas
 				Bait: Isca
 				QuestFish: Peixes de Missão
+				// FishingCrate: Fishing Crate
 				Other: Outros
 			}
 		}
