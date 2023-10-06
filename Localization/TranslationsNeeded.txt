@@ -4,6 +4,6 @@ it-IT, 0/269, 0%, missing 269
 fr-FR, 0/269, 0%, missing 269
 es-ES, 216/269, 80%, missing 53
 ru-RU, 254/269, 94%, missing 15
-zh-Hans, 254/269, 94%, missing 15
+zh-Hans, 269/269, 100%, missing 0
 pt-BR, 204/269, 76%, missing 65
 pl-PL, 0/269, 0%, missing 269
