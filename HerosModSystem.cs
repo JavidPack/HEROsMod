@@ -1,4 +1,5 @@
 ﻿using HEROsMod.HEROsModServices;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -41,6 +42,19 @@ namespace HEROsMod
 						return true;
 					},
 					InterfaceScaleType.UI)
+				);
+			}
+
+			int rulerLayerIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Ruler"));
+			if (rulerLayerIndex != -1)
+			{
+				layers.Insert(rulerLayerIndex, new LegacyGameInterfaceLayer(
+					"HerosMod: Game Scale UI",
+					delegate {
+						HEROsMod.DrawWorldUI(Main.spriteBatch);
+						return true;
+					},
+					InterfaceScaleType.Game)
 				);
 			}
 		}
