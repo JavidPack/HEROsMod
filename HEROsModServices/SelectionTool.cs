@@ -62,15 +62,17 @@ namespace HEROsMod.HEROsModServices
 		{
 			if (ListeningForInput && !Main.gameMenu)
 			{
+				Terraria.GameInput.PlayerInput.SetZoom_World();
+				Vector2 tileCoords = ModUtils.CursorTileCoords;
+				Terraria.GameInput.PlayerInput.SetZoom_UI();
 				if (ModUtils.MouseState.LeftButton == ButtonState.Pressed && ModUtils.PreviousMouseState.LeftButton == ButtonState.Released && !UIKit.UIView.GameMouseOverwritten)
 				{
 					_dragging = true;
-					Position = ModUtils.CursorTileCoords;
+					Position = tileCoords;
 					_anchor = Position;
 				}
 				else if (_dragging && ModUtils.MouseState.LeftButton == ButtonState.Pressed)
 				{
-					Vector2 tileCoords = ModUtils.CursorTileCoords;
 					Size = tileCoords - _anchor;
 					if (Width < 0)
 					{

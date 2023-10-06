@@ -659,10 +659,16 @@ namespace HEROsMod
 			if (!Main.gameMenu)
 			{
 				HEROsModVideo.Services.MobHUD.MobInfo.Draw(spriteBatch);
+			}
+		}
+
+		public static void DrawWorldUI(SpriteBatch spriteBatch)
+		{
+			if (!Main.gameMenu)
+			{
 				SelectionTool.Draw(spriteBatch);
-				//if (RegionService.RegionsVisible)
-					//RegionService.DrawRegions(spriteBatch);
-				//HEROsModNetwork.CTF.CaptureTheFlag.Draw(spriteBatch);
+				if (RegionService.RegionsVisible)
+					RegionService.DrawRegions(spriteBatch);
 				CheckTileModificationTool.DrawBoxOnCursor(spriteBatch);
 			}
 		}

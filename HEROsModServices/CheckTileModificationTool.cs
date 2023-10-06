@@ -33,7 +33,10 @@ namespace HEROsMod.HEROsModServices
 			{
 				if (ModUtils.MouseState.LeftButton == ButtonState.Pressed && ModUtils.PreviousMouseState.LeftButton == ButtonState.Released && !UIKit.UIView.GameMouseOverwritten)
 				{
-					HEROsModNetwork.GeneralMessages.RequestTileModificationCheck(ModUtils.CursorTileCoords);
+					Terraria.GameInput.PlayerInput.SetZoom_World();
+					Vector2 tileCoords = ModUtils.CursorTileCoords;
+					Terraria.GameInput.PlayerInput.SetZoom_UI();
+					HEROsModNetwork.GeneralMessages.RequestTileModificationCheck(tileCoords);
 				}
 				if (ModUtils.MouseState.RightButton == ButtonState.Pressed && ModUtils.PreviousMouseState.RightButton == ButtonState.Released && !UIKit.UIView.GameMouseOverwritten)
 				{
