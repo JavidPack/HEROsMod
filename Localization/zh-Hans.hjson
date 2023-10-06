@@ -113,20 +113,34 @@ Mods: {
 				Pickaxes: 镐子
 				Axes: 斧头
 				Hammers: 锤子
+				// Drill: Drill
+				// Chainsaw: Chainsaw
 				Armor: 盔甲
 				Head: 头部
 				Body: 身体
 				Legs: 腿部
+				// Vanity: Vanity
 				Placeables: 放置物
 				Tiles: 物块
 				Walls: 墙壁
 				Accessories: 饰品
+				// Wings: Wings
+				// Paint: Paint
+				// PaintScraper: Paint Scraper
+				// Kites: Kites
+				// Hooks: Hooks
 				Ammo: 弹药
+				// Food: Food
 				Potions: 药水
 				Expert: 专家
+				// BossBag: Boss Bag
+				// Master: Master
+				// Relic: Relic
 				Pets: 宠物
 				LightPets: 照明宠物
 				Mounts: 坐骑
+				// Pickup: Pickup
+				// Carts: Carts
 				Dyes: 染料
 				BossSummons: Boss召唤物
 				Consumables: 消耗品
@@ -134,6 +148,7 @@ Mods: {
 				Poles: 鱼竿
 				Bait: 鱼饵
 				QuestFish: 任务鱼
+				// FishingCrate: Fishing Crate
 				Other: 其他
 			}
 		}

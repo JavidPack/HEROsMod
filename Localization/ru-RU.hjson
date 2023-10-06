@@ -113,20 +113,34 @@ Mods: {
 				Pickaxes: Кирки
 				Axes: Топоры
 				Hammers: Молоты
+				// Drill: Drill
+				// Chainsaw: Chainsaw
 				Armor: Броня
 				Head: Голова
 				Body: Тело
 				Legs: Ноги
+				// Vanity: Vanity
 				Placeables: Размещаемые
 				Tiles: Блоки
 				Walls: Стены
 				Accessories: Аксессуары
+				// Wings: Wings
+				// Paint: Paint
+				// PaintScraper: Paint Scraper
+				// Kites: Kites
+				// Hooks: Hooks
 				Ammo: Амуниция
+				// Food: Food
 				Potions: Зелья
 				Expert: Режим Эксперта
+				// BossBag: Boss Bag
+				// Master: Master
+				// Relic: Relic
 				Pets: Питомцы
 				LightPets: Светящиеся Питомцы
 				Mounts: Маунты
+				// Pickup: Pickup
+				// Carts: Carts
 				Dyes: Красители
 				BossSummons: Призыватели Боссов
 				Consumables: Расходуемые
@@ -134,6 +148,7 @@ Mods: {
 				Poles: Удочки
 				Bait: Наживка
 				QuestFish: Квестовая Рыба
+				// FishingCrate: Fishing Crate
 				Other: Прочее
 			}
 		}

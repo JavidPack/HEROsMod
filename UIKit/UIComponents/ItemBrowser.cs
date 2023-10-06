@@ -15,7 +15,6 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ModLoader.UI.Elements;
 
 namespace HEROsMod.UIKit.UIComponents
 {
@@ -554,8 +553,6 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				modCategory.SubCategories.Add(new Category(loadedMod.Name, x => x.ModItem != null && x.ModItem.Mod.Name == loadedMod.Name, skipLocalization: true));
 			}
-			bool[] deprecated = ItemID.Sets.Deprecated;
-			ItemID.Sets.Deprecated = ItemID.Sets.Factory.CreateBoolSet();
 			Categories = new Category[] {
 				new Category("Weapons"/*, x=>x.damage>0*/) {
 					SubCategories = new List<Category>() {
@@ -593,14 +590,12 @@ namespace HEROsMod.UIKit.UIComponents
 				new Category("Placeables"/*,  x=>x.createTile!=-1||x.createWall!=-1*/) {
 					SubCategories = new List<Category>() {
 						new Category("Tiles", x=>x.createTile!=-1),
-						
 						new Category("Walls", x=>x.createWall!=-1),
 					}
 				},
 				new Category("Accessories", x=>x.accessory){
 					SubCategories = new List<Category>() {
 						new Category("Wings", x=>x.wingSlot > 0),
-
 					}
 				},
 				new Category("Paint", x=>x.paint>0),
@@ -643,7 +638,7 @@ namespace HEROsMod.UIKit.UIComponents
 				new Category("BossSummons", x=>ItemID.Sets.SortingPriorityBossSpawns[x.type] != -1 && x.type != ItemID.LifeCrystal && x.type != ItemID.ManaCrystal && x.type != ItemID.CellPhone && x.type != ItemID.IceMirror && x.type != ItemID.MagicMirror && x.type != ItemID.LifeFruit && x.netID != ItemID.TreasureMap || x.netID == ItemID.PirateMap) { // vanilla bug.
 					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortDamage", AssetRequestMode.ImmediateLoad)) {Tooltip = HeroText("SortName.ProgressionOrder")}, (x,y)=>ItemID.Sets.SortingPriorityBossSpawns[x.type].CompareTo(ItemID.Sets.SortingPriorityBossSpawns[y.type])), }
 				},
-				new Category("Consumables", x=>x.consumable),
+				new Category("Consumables", x=>x.consumable && x.createTile == -1 && x.createWall == -1),
 				new Category("Fishing"/*, x=> x.fishingPole > 0 || x.bait>0|| x.questItem*/){
 					SubCategories = new List<Category>() {
 						new Category("Poles", x=>x.fishingPole > 0) {Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortFish", AssetRequestMode.ImmediateLoad)) {Tooltip = HeroText("SortName.PolePower")}, (x,y)=>x.fishingPole.CompareTo(y.fishingPole)), } },
@@ -651,7 +646,7 @@ namespace HEROsMod.UIKit.UIComponents
 						new Category("QuestFish", x=>x.questItem),						
 						new Category("FishingCrate", x=>ItemID.Sets.IsFishingCrate[x.type]),
 					}
-				},				
+				},
 				modCategory,
 				new Category("Other", x=>false),
 			};
