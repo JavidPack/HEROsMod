@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using ReLogic.Content;
 using ReLogic.Graphics;
 using System;
 using System.Collections.Generic;
@@ -272,19 +273,29 @@ namespace HEROsMod
 			Sandstorm.StopSandstorm();
 		}
 
-		public static void LoadNPC(int i)
+		public static void LoadNPC(int type, bool immediate = false)
 		{
-			Main.instance.LoadNPC(i);
+			if (immediate)
+			{
+				Main.instance.LoadNPC(type);
+				return;
+			}
+			// Use this instead of Main.instance.LoadNPC because we don't need ImmediateLoad
+			if (TextureAssets.Npc[type].State == AssetState.NotLoaded)
+				Main.Assets.Request<Texture2D>(TextureAssets.Npc[type].Name, AssetRequestMode.AsyncLoad);
 		}
 
-		public static void LoadProjectile(int i)
+		public static void LoadProjectile(int type)
 		{
-			Main.instance.LoadProjectile(i);
+			if (TextureAssets.Projectile[type].State == AssetState.NotLoaded)
+				Main.Assets.Request<Texture2D>(TextureAssets.Projectile[type].Name, AssetRequestMode.AsyncLoad);
 		}
 
-		public static void LoadTiles(int i)
+		public static void LoadItem(int type)
 		{
-			Main.instance.LoadTiles(i);
+			// Use this instead of Main.instance.LoadItem because we don't need ImmediateLoad
+			if (TextureAssets.Item[type].State == AssetState.NotLoaded)
+				Main.Assets.Request<Texture2D>(TextureAssets.Item[type].Name, AssetRequestMode.AsyncLoad);
 		}
 
 		public static void MouseText(string cursorText, int rare = 0, byte diff = 0)

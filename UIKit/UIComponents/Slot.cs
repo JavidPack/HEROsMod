@@ -118,7 +118,7 @@ namespace HEROsMod.UIKit.UIComponents
 					ItemChanged(this, EventArgs.Empty);
 				}
 			}
-			else if (Main.mouseItem.type == 0)
+			else if (Main.mouseItem.type == ItemID.None)
 			{
 				if (Main.keyState.IsKeyDown(Keys.LeftShift))
 				{
@@ -194,18 +194,18 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				Main.playerInventory = true;
 
-				if (Main.stackSplit <= 1 && item.type > 0 && (Main.mouseItem.type == item.type || Main.mouseItem.type == 0))
+				if (Main.stackSplit <= 1 && item.type > ItemID.None && (Main.mouseItem.type == item.type || Main.mouseItem.type == ItemID.None))
 				{
 					int num2 = Main.superFastStack + 1;
 					for (int j = 0; j < num2; j++)
 					{
-						if ((Main.mouseItem.stack < Main.mouseItem.maxStack || Main.mouseItem.type == 0) && item.stack > 0)
+						if ((Main.mouseItem.stack < Main.mouseItem.maxStack || Main.mouseItem.type == ItemID.None) && item.stack > 0)
 						{
 							if (j == 0)
 							{
 								SoundEngine.PlaySound(SoundID.Coins);
 							}
-							if (Main.mouseItem.type == 0)
+							if (Main.mouseItem.type == ItemID.None)
 							{
 								Main.mouseItem.netDefaults(item.netID);
 								if (item.prefix != 0)
@@ -237,9 +237,9 @@ namespace HEROsMod.UIKit.UIComponents
 			{
 				this.item = Main.player[Main.myPlayer].trashItem;
 			}
-			Main.instance.LoadItem(item.type);
+			ModUtils.LoadItem(item.type);
 			Texture2D texture = TextureAssets.Item[item.type].Value;
-			if (this.IsTrashCan && item.type == 0)
+			if (this.IsTrashCan && item.type == ItemID.None)
 			{
 				texture = TextureAssets.Trash.Value;
 			}
@@ -271,7 +271,7 @@ namespace HEROsMod.UIKit.UIComponents
 			pos.X += backgroundTexture.Width * Scale / 2 - (rectangle2.Width * itemScale / 2);
 			pos.Y += backgroundTexture.Height * Scale / 2 - (rectangle2.Height * itemScale / 2);
 
-			if (this.IsTrashCan && item.type == 0)
+			if (this.IsTrashCan && item.type == ItemID.None)
 			{
 				spriteBatch.Draw(texture, pos, null, new Color(100, 100, 100, 100), 0f, Vector2.Zero, itemScale, SpriteEffects.None, 0f);
 			}

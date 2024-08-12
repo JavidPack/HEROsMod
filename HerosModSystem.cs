@@ -31,8 +31,6 @@ namespace HEROsMod
 
 							HEROsMod.ServiceHotbar.Update();
 
-							HEROsMod.DrawBehindUI(Main.spriteBatch);
-
 							HEROsMod.Draw(Main.spriteBatch);
 						}
 						catch (Exception e)

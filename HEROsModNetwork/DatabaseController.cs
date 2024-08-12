@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using Terraria;
+using Terraria.ID;
 
 // TODO, save position of ui windows, save separate client json
 
@@ -198,7 +199,7 @@ namespace HEROsMod.HEROsModNetwork
 
 		public static void SaveSetting(string settingName)
 		{
-			if (!Main.dedServ && Main.netMode == 2)
+			if (!Main.dedServ && Main.netMode == NetmodeID.Server)
 			{
 				ModUtils.DebugText("WARNING: non ded client saving");
 			}
@@ -268,7 +269,7 @@ namespace HEROsMod.HEROsModNetwork
 				TimeWeatherChanger.PausedTime = currentDatabaseWorld.TimePausedTime;
 				//	TimeWeatherChanger.PausedTimeDayTime = currentDatabaseWorld.TimePausedIsDay;
 			}
-			if (Main.netMode == 0)
+			if (Main.netMode == NetmodeID.SinglePlayer)
 			{
 				GeneralMessages.ProcessCurrentTogglesSP(EnemyToggler.EnemiesAllowed, Network.GravestonesAllowed, ItemBanner.ItemsBanned, TimeWeatherChanger.TimePaused);
 			}

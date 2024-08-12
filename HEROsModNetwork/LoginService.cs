@@ -199,7 +199,7 @@ namespace HEROsMod.HEROsModNetwork
 				}
 				if (Network.WillFreezeNonLoggedIn)
 				{
-					Network.SendPlayerToPosition(player, new Vector2(Main.spawnTileX * 16, Main.spawnTileY * 16));
+					// Network.SendPlayerToPosition(player, new Vector2(Main.spawnTileX * 16, Main.spawnTileY * 16));
 				}
 			}
 		}
@@ -399,10 +399,6 @@ namespace HEROsMod.HEROsModNetwork
 				Writer.Write(group.IsAdmin);
 				Writer.WriteRGB(group.Color);
 				byte[] permissions = group.ExportPermissions();
-				//if(CTF.CaptureTheFlag.GameInProgress)
-				//{
-				//    permissions = Network.CTFGroup.ExportPermissions();
-				//}
 				Writer.Write(permissions.Length);
 				Writer.Write(permissions);
 				Network.SendDataToPlayer(playerNumber);

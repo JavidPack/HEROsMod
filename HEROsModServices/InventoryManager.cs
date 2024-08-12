@@ -129,7 +129,7 @@ namespace HEROsMod.HEROsModServices
 			Item item = _item;
 			int chestNum = player.chest;
 
-			if (item.type > 0)
+			if (item.type > ItemID.None)
 			{
 				Item[] container = new Item[0];
 				if (destination == 0) container = player.inventory;
@@ -153,8 +153,8 @@ namespace HEROsMod.HEROsModServices
 						if (player.chest > -1)
 						{
 							if (destination == 1)
-								NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)i, 0f, 0f, 0);
-							else if (destination == 0) NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
+								NetMessage.SendData(MessageID.SyncChestItem, -1, -1, null, Main.player[Main.myPlayer].chest, (float)i, 0f, 0f, 0);
+							else if (destination == 0) NetMessage.SendData(MessageID.SyncChestItem, -1, -1, null, Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
 						}
 						if (item.stack <= 0) //if the stack is empty
 						{
@@ -165,22 +165,22 @@ namespace HEROsMod.HEROsModServices
 					}
 				}
 
-				if (destination == 0 && item.type > 0 && item.ammo > 0)
+				if (destination == 0 && item.type > ItemID.None && item.ammo > 0)
 				{
 					for (int i = 54; i < 58; i++)
 					{
 						Item ammoItem = container[i];
-						if (ammoItem.type == 0)
+						if (ammoItem.type == ItemID.None)
 						{
 							container[i] = (Item)item.Clone();
 							item.SetDefaults(0, false);
-							if (Main.netMode == 1)
+							if (Main.netMode == NetmodeID.MultiplayerClient)
 							{
 								if (player.chest > -1)
 								{
 									if (destination == 1)
-										NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)i, 0f, 0f, 0);
-									else if (destination == 0) NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
+										NetMessage.SendData(MessageID.SyncChestItem, -1, -1, null, Main.player[Main.myPlayer].chest, (float)i, 0f, 0f, 0);
+									else if (destination == 0) NetMessage.SendData(MessageID.SyncChestItem, -1, -1, null, Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
 								}
 							}
 							SoundEngine.PlaySound(SoundID.Grab);
@@ -189,7 +189,7 @@ namespace HEROsMod.HEROsModServices
 					}
 				}
 
-				if (item.type > 0) //if the item did not get turned to consumed by the previous step, we look for an empty slot in the chest
+				if (item.type > ItemID.None) //if the item did not get turned to consumed by the previous step, we look for an empty slot in the chest
 				{
 					int numOfSlots = 50;
 					if (destination > 0) numOfSlots = 40;
@@ -197,17 +197,17 @@ namespace HEROsMod.HEROsModServices
 					{
 						Item containerItem = container[i];
 
-						if (containerItem.type == 0)
+						if (containerItem.type == ItemID.None)
 						{
 							container[i] = (Item)item.Clone();
 							item.SetDefaults(0, false);
-							if (Main.netMode == 1)
+							if (Main.netMode == NetmodeID.MultiplayerClient)
 							{
 								if (player.chest > -1)
 								{
 									if (destination == 1)
-										NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)i, 0f, 0f, 0);
-									else if (destination == 0) NetMessage.SendData(32, -1, -1, null, Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
+										NetMessage.SendData(MessageID.SyncChestItem, -1, -1, null, Main.player[Main.myPlayer].chest, (float)i, 0f, 0f, 0);
+									else if (destination == 0) NetMessage.SendData(MessageID.SyncChestItem, -1, -1, null, Main.player[Main.myPlayer].chest, (float)invNum, 0f, 0f, 0);
 								}
 							}
 							SoundEngine.PlaySound(SoundID.Grab);
@@ -400,9 +400,9 @@ namespace HEROsMod.HEROsModServices
 					if (Main.mouseX >= num76 && (float)Main.mouseX <= (float)num76 + (float)TextureAssets.InventoryBack.Value.Width * inventoryScale && Main.mouseY >= num77 && (float)Main.mouseY <= (float)num77 + (float)TextureAssets.InventoryBack.Value.Height * inventoryScale)
 					{
 						Main.player[Main.myPlayer].mouseInterface = true;
-						if (Main.focusRecipe == num75 && Main.guideItem.type == 0)
+						if (Main.focusRecipe == num75 && Main.guideItem.type == ItemID.None)
 						{
-							if (Main.mouseItem.type == 0 || (Main.mouseItem.type == Main.recipe[Main.availableRecipe[num75]].createItem.type && Main.mouseItem.stack + Main.recipe[Main.availableRecipe[num75]].createItem.stack <= Main.mouseItem.maxStack))
+							if (Main.mouseItem.type == ItemID.None || (Main.mouseItem.type == Main.recipe[Main.availableRecipe[num75]].createItem.type && Main.mouseItem.stack + Main.recipe[Main.availableRecipe[num75]].createItem.stack <= Main.mouseItem.maxStack))
 							{
 								if (Main.mouseLeft && Main.mouseLeftRelease)
 								{
@@ -443,7 +443,7 @@ namespace HEROsMod.HEROsModServices
 									bool hasEmptySlot = false;
 									for (int i = 0; i < p.inventory.Length - 9; i++)
 									{
-										if (p.inventory[i].type == 0)
+										if (p.inventory[i].type == ItemID.None)
 										{
 											hasEmptySlot = true;
 											break;
@@ -479,7 +479,7 @@ namespace HEROsMod.HEROsModServices
 												//not sure what the 9th is though, mouse slot? anyway it's 9
 												int lastInventorySlot = p.inventory.Length - 9 - 1;
 												int index = lastInventorySlot - i;
-												if (p.inventory[index].type == 0)
+												if (p.inventory[index].type == ItemID.None)
 												{
 													p.inventory[index] = (Item)tempItem.Clone();
 													break;
@@ -520,7 +520,7 @@ namespace HEROsMod.HEROsModServices
 						{
 							Main.player[Main.myPlayer].mouseInterface = true;
 
-							if (Main.mouseItem.type == 0 && Main.instance.shop[Main.npcShop].item[num124].type > 0)
+							if (Main.mouseItem.type == ItemID.None && Main.instance.shop[Main.npcShop].item[num124].type > ItemID.None)
 							{
 								if ((Main.player[Main.myPlayer].selectedItem != num124 || Main.player[Main.myPlayer].itemAnimation <= 0) && Main.player[Main.myPlayer].itemTime == 0)
 								{
@@ -552,7 +552,7 @@ namespace HEROsMod.HEROsModServices
 											bool hasEmptySlot = false;
 											for (int i = 0; i < p.inventory.Length - 9; i++)
 											{
-												if (p.inventory[i].type == 0)
+												if (p.inventory[i].type == ItemID.None)
 												{
 													hasEmptySlot = true;
 													break;
@@ -576,7 +576,7 @@ namespace HEROsMod.HEROsModServices
 														//not sure what the 9th is though, mouse slot? anyway it's 9
 														int lastInventorySlot = p.inventory.Length - 9 - 1;
 														int index = lastInventorySlot - i;
-														if (p.inventory[index].type == 0)
+														if (p.inventory[index].type == ItemID.None)
 														{
 															p.inventory[index] = (Item)tempItem.Clone();
 															break;

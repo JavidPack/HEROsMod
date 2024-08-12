@@ -49,15 +49,25 @@ namespace HEROsMod.UIKit.UIComponents
 		{
 			get { return _selectedCategory; }
 			set {
+				bool autoSelectSort = false;
 				if (_selectedCategory != value)
 				{
 					SearchBox.Text = string.Empty;
+					autoSelectSort = true;
 				}
 				_selectedCategory = value;
 				if (CategoriesLoaded)
 				{
 					PopulateFilterView(); // mod/vanilla,
 					PopulateSortView(); // damage, value, alpha, itemid
+					if (autoSelectSort)
+					{
+						// Automatically select category specific sort.
+						if (_selectedCategory != null && _selectedCategory.Sorts.Length > 0)
+							SelectedSort = _selectedCategory.Sorts[0];
+						else if (_selectedCategory != null && _selectedCategory.ParentCategory != null && _selectedCategory.ParentCategory.Sorts.Length > 0)
+							SelectedSort = _selectedCategory.ParentCategory.Sorts[0];
+					}
 					CurrentItems = GetItems(); // takes care of filters and sorts
 					PopulateCategoryView();
 				}
@@ -76,6 +86,8 @@ namespace HEROsMod.UIKit.UIComponents
 		internal Sort SelectedSort;
 		internal Sort[] AvailableSorts = new Sort[0];
 		//internal Sort[] DefaultSorts;
+
+		internal static int[] SortingPriorityBossSpawnsExclusions = [ItemID.LifeCrystal, ItemID.ManaCrystal, ItemID.CellPhone, ItemID.IceMirror, ItemID.MagicMirror, ItemID.LifeFruit, ItemID.TreasureMap, ItemID.Shellphone, ItemID.ShellphoneDummy, ItemID.ShellphoneHell, ItemID.ShellphoneOcean, ItemID.ShellphoneSpawn, ItemID.MagicConch, ItemID.DemonConch];
 
 		public ItemBrowser()
 		{
@@ -635,7 +647,7 @@ namespace HEROsMod.UIKit.UIComponents
 				},				
 				new Category("Pickup", x=>ItemID.Sets.IsAPickup[x.type]),
 				new Category("Dyes", x=>x.dye != 0),
-				new Category("BossSummons", x=>ItemID.Sets.SortingPriorityBossSpawns[x.type] != -1 && x.type != ItemID.LifeCrystal && x.type != ItemID.ManaCrystal && x.type != ItemID.CellPhone && x.type != ItemID.IceMirror && x.type != ItemID.MagicMirror && x.type != ItemID.LifeFruit && x.netID != ItemID.TreasureMap || x.netID == ItemID.PirateMap) { // vanilla bug.
+				new Category("BossSummons", x=>ItemID.Sets.SortingPriorityBossSpawns[x.type] != -1 && !SortingPriorityBossSpawnsExclusions.Contains(x.type) || x.netID == ItemID.PirateMap || x.netID == ItemID.SnowGlobe || x.netID == ItemID.DD2ElderCrystal) { // vanilla bug.
 					Sorts = new Sort[] { new Sort(new UIImage(HEROsMod.instance.Assets.Request<Texture2D>("Images/sortDamage", AssetRequestMode.ImmediateLoad)) {Tooltip = HeroText("SortName.ProgressionOrder")}, (x,y)=>ItemID.Sets.SortingPriorityBossSpawns[x.type].CompareTo(ItemID.Sets.SortingPriorityBossSpawns[y.type])), }
 				},
 				new Category("Consumables", x=>x.consumable && x.createTile == -1 && x.createWall == -1),

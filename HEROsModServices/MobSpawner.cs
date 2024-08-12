@@ -237,7 +237,7 @@ namespace HEROsMod.HEROsModServices
 
 		private void bMod_onLeftClick(object sender, EventArgs e, bool left)
 		{
-			var mods = ModLoader.Mods.Select(x=>x.Name).ToList();
+			var mods = ModLoader.Mods.Select(x => x.Name).ToList();
 			mods = mods.Intersect(npcList.Select(npc => npc.Mod?.Name)).ToList();
 			mods.Sort();
 			if (mods.Count == 0)
@@ -282,6 +282,7 @@ namespace HEROsMod.HEROsModServices
 					category.Add(npc);
 				}
 			}
+			// TODO: sort by BossChecklist order?
 			searchResults = category;
 			BuildList();
 			searchBox.Text = string.Empty;
@@ -600,7 +601,7 @@ namespace HEROsMod.HEROsModServices
 
 			//if (npc.NetID < 0) return;
 			CurrentNPC = npc;
-			ModUtils.LoadNPC(npc.Type);
+			ModUtils.LoadNPC(npc.Type, immediate: true);
 			mobImage.Texture = TextureAssets.Npc[npc.Type];
 			mobImage.SourceRectangle = new Rectangle(0, 0, (int)mobImage.Texture.Value.Width, (int)mobImage.Texture.Value.Height / Main.npcFrameCount[npc.Type]);
 			//mobImage.ForegroundColor = CurrentNPC.AlphaColor;
@@ -827,7 +828,7 @@ namespace HEROsMod.HEROsModServices
 				Main.NewText(HEROsMod.HeroText("UnderworldToSpawnWoF"));
 				return;
 			}
-			if (Main.netMode == 1)
+			if (Main.netMode == NetmodeID.MultiplayerClient)
 			{
 				return;
 			}
@@ -878,12 +879,12 @@ namespace HEROsMod.HEROsModServices
 		IL_162:
 			num3 = num5 * 16;
 			int num7 = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), num2, num3, 113, 0);
-			if (Main.netMode == 0)
+			if (Main.netMode == NetmodeID.SinglePlayer)
 			{
 				Main.NewText(Language.GetTextValue("Announcement.HasAwoken", Main.npc[num7].TypeName), 175, 75, 255);
 				return;
 			}
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
 				ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
 						{

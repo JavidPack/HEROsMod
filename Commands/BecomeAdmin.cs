@@ -2,6 +2,7 @@
 using System;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace HEROsMod.Commands
 {
@@ -17,7 +18,7 @@ namespace HEROsMod.Commands
 
 		public override void Action(CommandCaller caller, string input, string[] args)
 		{
-			if(Main.netMode == 0)
+			if(Main.netMode == NetmodeID.SinglePlayer)
 			{
 				throw new UsageException("Only use this command while on server.");
 			}

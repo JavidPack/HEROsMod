@@ -33,7 +33,6 @@ namespace HEROsMod.HEROsModNetwork
 		public static Group AdminGroup;
 		public static bool stuff = false;
 
-		//public static Group CTFGroup;
 		public static int AuthCode;
 
 		private static Color[] chatColor = new Color[]{
@@ -122,8 +121,6 @@ namespace HEROsMod.HEROsModNetwork
 				//TileChangeController.Init();
 				Groups = DatabaseController.GetGroups();
 				//Regions = DatabaseController.GetRegions();
-				//CTFGroup = new Group("CTFGroup");
-				//CTFGroup.Permissions["StartCTF"] = true;
 
 				foreach (Group group in Groups)
 				{
@@ -177,7 +174,7 @@ namespace HEROsMod.HEROsModNetwork
 						if (sendTimeTimer <= 0)
 						{
 							sendTimeTimer = 10f; // very inefficient, this shouldn't be spammed. 
-							NetMessage.SendData(7, -1, -1, null, 0, 0f, 0f, 0f, 0);
+							NetMessage.SendData(MessageID.WorldData, -1, -1, null, 0, 0f, 0f, 0f, 0);
 						}
 					}
 				}
@@ -204,12 +201,12 @@ namespace HEROsMod.HEROsModNetwork
 		{
 			bool canBuild = false;
 
-			if (player.Group.IsAdmin/* && !CTF.CaptureTheFlag.GameInProgress*/)
+			if (player.Group.IsAdmin)
 			{
 				canBuild = true;
 			}
 
-			if (!canBuild /*&& !CTF.CaptureTheFlag.GameInProgress*/ && player.Group.HasPermission("ModifyTerrain"))
+			if (!canBuild && player.Group.HasPermission("ModifyTerrain"))
 			{
 				canBuild = true;
 				for (int i = 0; i < Regions.Count; i++)
@@ -487,7 +484,7 @@ namespace HEROsMod.HEROsModNetwork
 							{
 								LastTileKilledBy = player;
 								WorldGen.KillTile(x, y, fail, false, false);
-								NetMessage.SendData(17, -1, playerNumber, null, (int)tileModifyType, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(MessageID.TileManipulation, -1, playerNumber, null, (int)tileModifyType, (float)x, (float)y, (float)placeType, style);
 								LastTileKilledBy = null;
 								return true;
 							}
@@ -509,63 +506,63 @@ namespace HEROsMod.HEROsModNetwork
 						switch (tileModifyType)
 						{
 							case TileModifyType.KillTile:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceTile, (float)x, (float)y, (float)tile.TileType, (int)tile.Slope);
+								NetMessage.SendData(MessageID.TileManipulation, playerNumber, -1, null, (int)TileModifyType.PlaceTile, (float)x, (float)y, (float)tile.TileType, (int)tile.Slope);
 								break;
 
 							case TileModifyType.PlaceTile:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillTile, (float)x, (float)y, (float)0, style);
+								NetMessage.SendData(MessageID.TileManipulation, playerNumber, -1, null, (int)TileModifyType.KillTile, (float)x, (float)y, (float)0, style);
 								break;
 
 							case TileModifyType.KillWall:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceWall, (float)x, (float)y, (float)tile.WallType, style);
+								NetMessage.SendData(MessageID.TileManipulation, playerNumber, -1, null, (int)TileModifyType.PlaceWall, (float)x, (float)y, (float)tile.WallType, style);
 								break;
 
 							case TileModifyType.PlaceWall:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillWall, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(MessageID.TileManipulation, playerNumber, -1, null, (int)TileModifyType.KillWall, (float)x, (float)y, (float)placeType, style);
 								break;
 
 							case TileModifyType.KillTileNoItem:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceTile, (float)x, (float)y, (float)tile.TileType, (int)tile.Slope);
+								NetMessage.SendData(MessageID.TileManipulation, playerNumber, -1, null, (int)TileModifyType.PlaceTile, (float)x, (float)y, (float)tile.TileType, (int)tile.Slope);
 								break;
 
 							case TileModifyType.PlaceWire:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillWire, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(MessageID.TileManipulation, playerNumber, -1, null, (int)TileModifyType.KillWire, (float)x, (float)y, (float)placeType, style);
 								break;
 
 							case TileModifyType.PlaceWire2:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillWire2, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(MessageID.TileManipulation, playerNumber, -1, null, (int)TileModifyType.KillWire2, (float)x, (float)y, (float)placeType, style);
 								break;
 
 							case TileModifyType.PlaceWire3:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillWire3, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(MessageID.TileManipulation, playerNumber, -1, null, (int)TileModifyType.KillWire3, (float)x, (float)y, (float)placeType, style);
 								break;
 
 							case TileModifyType.KillWire:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceWire, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(MessageID.TileManipulation, playerNumber, -1, null, (int)TileModifyType.PlaceWire, (float)x, (float)y, (float)placeType, style);
 								break;
 
 							case TileModifyType.KillWire2:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceWire2, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(MessageID.TileManipulation, playerNumber, -1, null, (int)TileModifyType.PlaceWire2, (float)x, (float)y, (float)placeType, style);
 								break;
 
 							case TileModifyType.KillWire3:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceWire3, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(MessageID.TileManipulation, playerNumber, -1, null, (int)TileModifyType.PlaceWire3, (float)x, (float)y, (float)placeType, style);
 								break;
 
 							case TileModifyType.KillActuator:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PlaceActuator, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(MessageID.TileManipulation, playerNumber, -1, null, (int)TileModifyType.PlaceActuator, (float)x, (float)y, (float)placeType, style);
 								break;
 
 							case TileModifyType.PlaceActuator:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.KillActuator, (float)x, (float)y, (float)placeType, style);
+								NetMessage.SendData(MessageID.TileManipulation, playerNumber, -1, null, (int)TileModifyType.KillActuator, (float)x, (float)y, (float)placeType, style);
 								break;
 
 							case TileModifyType.PoundTile:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.PoundTile, (float)x, (float)y, (float)placeType, (int)tile.Slope);
+								NetMessage.SendData(MessageID.TileManipulation, playerNumber, -1, null, (int)TileModifyType.PoundTile, (float)x, (float)y, (float)placeType, (int)tile.Slope);
 								break;
 
 							case TileModifyType.SlopeTile:
-								NetMessage.SendData(17, playerNumber, -1, null, (int)TileModifyType.SlopeTile, (float)x, (float)y, (float)placeType, (int)tile.Slope);
+								NetMessage.SendData(MessageID.TileManipulation, playerNumber, -1, null, (int)TileModifyType.SlopeTile, (float)x, (float)y, (float)placeType, (int)tile.Slope);
 								break;
 						}
 						return true;
@@ -905,9 +902,6 @@ namespace HEROsMod.HEROsModNetwork
 			//        case MessageType.LoginMessage:
 			//            LoginService.ProcessData(ref binaryReader, playerNumber);
 			//            break;
-			//        case MessageType.CTFMessage:
-			//            CTF.CTFMessages.ProcessData(ref binaryReader, playerNumber);
-			//            break;
 			//    }
 			//}
 
@@ -933,9 +927,6 @@ namespace HEROsMod.HEROsModNetwork
 					case MessageType.LoginMessage:
 						LoginService.ProcessData(ref binaryReader, playerNumber);
 						break;
-						//case MessageType.CTFMessage:
-						//	CTF.CTFMessages.ProcessData(ref binaryReader, playerNumber);
-						//	break;
 				}
 			}
 		}
@@ -975,13 +966,6 @@ namespace HEROsMod.HEROsModNetwork
 		public static void PlayerLeft(int playerIndex)
 		{
 			Players[playerIndex].Reset();
-			//if (CTF.CaptureTheFlag.GameInProgress || CTF.CaptureTheFlag.InPregameLobby)
-			//{
-			//	if (playerIndex == CTF.CaptureTheFlag.LobbyStartedBy)
-			//	{
-			//		CTF.CaptureTheFlag.EndGame();
-			//	}
-			//}
 			GeneralMessages.TellClientsPlayerLeft(playerIndex);
 		}
 
@@ -996,7 +980,7 @@ namespace HEROsMod.HEROsModNetwork
 					{
 						//player.GameInstance.AddBuff(47, 7200);
 						//	Console.WriteLine("Freeze " + i);
-						NetMessage.SendData(55, player.Index, -1, null, player.Index, 47, 120, 0f, 0);
+						NetMessage.SendData(MessageID.AddPlayerBuff, player.Index, -1, null, player.Index, 47, 120, 0f, 0);
 					}
 				}
 			}
@@ -1009,7 +993,7 @@ namespace HEROsMod.HEROsModNetwork
 			int prevSpawnY = player.GameInstance.SpawnY;
 			player.GameInstance.SpawnX = (int)position.X;
 			player.GameInstance.SpawnY = (int)position.Y;
-			NetMessage.SendData(12, -1, -1, null, player.Index, 0f, 0f, 0f, 0);
+			NetMessage.SendData(MessageID.PlayerSpawn, -1, -1, null, player.Index, 0f, 0f, 0f, 0);
 			player.GameInstance.SpawnX = prevSpawnX;
 			player.GameInstance.SpawnY = prevSpawnY;
 		}
@@ -1129,7 +1113,7 @@ namespace HEROsMod.HEROsModNetwork
 				if (Main.item[i].active)
 				{
 					Main.item[i].SetDefaults(0);
-					NetMessage.SendData(21, -1, -1, null, i, 0f, 0f, 0f, 0);
+					NetMessage.SendData(MessageID.SyncItem, -1, -1, null, i, 0f, 0f, 0f, 0);
 				}
 			}
 		}
@@ -1144,7 +1128,7 @@ namespace HEROsMod.HEROsModNetwork
 				{
 					n.position = position;
 					npcFound = true;
-					if (Main.netMode == 2) NetMessage.SendData(23, -1, -1, null, i, 0f, 0f, 0f, 0);
+					if (Main.netMode == NetmodeID.Server) NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, i, 0f, 0f, 0f, 0);
 					break;
 				}
 			}
@@ -1177,7 +1161,7 @@ namespace HEROsMod.HEROsModNetwork
 				}
 			}
 			int num2 = num;
-			NetMessage.SendData(9, player.Index, -1, Lang.inter[44].ToNetworkText(), num2, 0f, 0f, 0f, 0);
+			NetMessage.SendData(MessageID.StatusTextSize, player.Index, -1, Lang.inter[44].ToNetworkText(), num2, 0f, 0f, 0f, 0);
 			Netplay.Clients[player.Index].StatusText2 = "is receiving tile data";
 			Netplay.Clients[player.Index].StatusMax += num2;
 			for (int k = sectionX - 1; k < sectionX + 2; k++)
@@ -1188,7 +1172,7 @@ namespace HEROsMod.HEROsModNetwork
 					{
 						// TODO: What was this 4th bool parameter in SendSection? false before.
 						NetMessage.SendSection(player.Index, k, l);
-						NetMessage.SendData(11, player.Index, -1, null, k, (float)l, (float)k, (float)l, 0);
+						NetMessage.SendData(MessageID.TileFrameSection, player.Index, -1, null, k, (float)l, (float)k, (float)l, 0);
 					}
 				}
 			}
@@ -1199,7 +1183,6 @@ namespace HEROsMod.HEROsModNetwork
 			GeneralMessage,
 			LoginMessage,
 			SnoopMessage,
-			CTFMessage
 		}
 
 		public enum TileModifyType : byte

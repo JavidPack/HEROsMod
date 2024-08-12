@@ -51,7 +51,7 @@ namespace HEROsMod.UIKit.UIComponents
 			}
 			else
 			{
-				Main.instance.LoadItem(item.type);
+				ModUtils.LoadItem(item.type);
 				texture = TextureAssets.Item[item.type].Value;
 			}
 

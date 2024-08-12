@@ -52,7 +52,6 @@ namespace HEROsMod.HEROsModNetwork
 		public bool BackupHostility { get; set; }
 		public int BackupTeam { get; set; }
 
-		//     public CTF.TeamColor CTFTeam { get; set; }
 		public HEROsModPlayer(int playerIndex)
 		{
 			Reset();
@@ -64,7 +63,6 @@ namespace HEROsMod.HEROsModNetwork
 			this.Username = String.Empty;
 			this.ID = -1;
 			this.UsingHEROsMod = false;
-			//        this.CTFTeam = CTF.TeamColor.None;
 			Group = Network.DefaultGroup;
 		}
 	}

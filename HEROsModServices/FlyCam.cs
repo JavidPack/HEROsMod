@@ -6,6 +6,7 @@ using System;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameInput;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace HEROsMod.HEROsModServices
@@ -21,6 +22,8 @@ namespace HEROsMod.HEROsModServices
 
 		internal static Vector2 FlyCamPosition = Vector2.Zero;
 
+		internal static bool ForceReset = false;
+
 		internal static bool Enabled { get; set; }
 
 		internal static bool LockCamera { get; set; }
@@ -33,8 +36,8 @@ namespace HEROsMod.HEROsModServices
 			Enabled = false;
 			LockCamera = false;
 			this._name = "Fly Camera";
-			Main.instance.LoadItem(493);
-			this._hotbarIcon = new UIKit.UIImage(TextureAssets.Item[493]);
+			Main.instance.LoadItem(ItemID.AngelWings);
+			this._hotbarIcon = new UIKit.UIImage(TextureAssets.Item[ItemID.AngelWings]);
 			this._hotbarIcon.onLeftClick += _hotbarIcon_onLeftClick;
 			this._hotbarIcon.onRightClick += _hotbarIcon_onRightClick;
 			this.HotbarIcon.Tooltip = HEROsMod.HeroText("FlyCamEnableTooltip");
@@ -178,6 +181,12 @@ namespace HEROsMod.HEROsModServices
 
 		public override void ModifyScreenPosition()
 		{
+			if (FlyCam.ForceReset)
+			{
+				FlyCam.ForceReset = false;
+				FlyCam.FlyCamPosition = Main.screenPosition;
+				// Camera pan from teleport still takes effect so it's not centered always, but it's better than nothing
+			}
 			if (FlyCam.Enabled)
 			{
 				Main.screenPosition = FlyCam.FlyCamPosition;

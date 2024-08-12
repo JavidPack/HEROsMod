@@ -6,6 +6,7 @@ using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -36,7 +37,7 @@ namespace HEROsMod.HEROsModServices
 
 		private void _hotbarIcon_onLeftClick(object sender, EventArgs e)
 		{
-			if (Main.netMode != 1)
+			if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				RevealWholeMap();
 			}

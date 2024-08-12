@@ -300,7 +300,6 @@ namespace HEROsMod
 		{
 			//	IncreaseNetworkMessageSize();
 			HEROsModNetwork.Network.Init();
-			//	HEROsModNetwork.CTF.CaptureTheFlag.Init();
 			//if (ModUtils.NetworkMode != NetworkMode.Server)
 			if (!Main.dedServ)
 			{
@@ -527,7 +526,6 @@ namespace HEROsMod
 			//if (ModUtils.NetworkMode == NetworkMode.Client)
 			{
 				//	ServiceHotbar.Visible = HEROsModNetwork.Network.ServerUsingHEROsMod;
-				//	ServiceController.AddService(new CTFService());
 				//ServiceController.MyGroupChanged();
 			}
 			//HEROsModVideo.Services.NPCSpawnData.NPCSpawnDataBuilder.Start();
@@ -605,7 +603,6 @@ namespace HEROsMod
 			}
 			HEROsModNetwork.Network.Update();
 			//CheckIfGameEnteredOrLeft(); // Only does GameEntered, since can't detect left. weird state. Probably should use ModPlayer.OnEnter/Exit anyway
-			//	HEROsModNetwork.CTF.CaptureTheFlag.Update();
 		}
 
 		//Not working since update not called in title screen.
@@ -699,14 +696,6 @@ namespace HEROsMod
 			}
 			Utils.DrawBorderStringFourWay(spriteBatch, FontAssets.MouseText.Value, UIView.HoverText, vector.X, vector.Y, new Color((int)Main.mouseTextColor, (int)Main.mouseTextColor, (int)Main.mouseTextColor, (int)Main.mouseTextColor), Color.Black, Vector2.Zero, 1f);
 			*/
-		}
-
-		public static void DrawBehindUI(SpriteBatch spriteBatch)
-		{
-			if (!Main.gameMenu)
-			{
-				HEROsModVideo.Services.MobHUD.MobInfo.Draw(spriteBatch);
-			}
 		}
 
 		public static void DrawWorldUI(SpriteBatch spriteBatch)

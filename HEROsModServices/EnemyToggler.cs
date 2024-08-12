@@ -4,6 +4,7 @@ using ReLogic.Content;
 using System;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -54,7 +55,7 @@ namespace HEROsMod.HEROsModServices
 				if (Main.npc[i] != null && !Main.npc[i].townNPC)
 				{
 					Main.npc[i].life = 0;
-					if (Main.netMode == 2) NetMessage.SendData(23, -1, -1, null, i, 0f, 0f, 0f, 0);
+					if (Main.netMode == NetmodeID.Server) NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, i, 0f, 0f, 0f, 0);
 				}
 			}
 		}

@@ -1,5 +1,6 @@
 using HEROsMod.HEROsModNetwork;
 using System.ComponentModel;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
 
@@ -23,12 +24,12 @@ namespace HEROsMod
 		[ReloadRequired]
 		public bool Telemetry { get; set; }
 
-		public override bool AcceptClientChanges(ModConfig pendingConfig, int whoAmI, ref string message)
+		public override bool AcceptClientChanges(ModConfig pendingConfig, int whoAmI, ref NetworkText message)
 		{
 			if (Network.Players[whoAmI].Group.IsAdmin)
 				return true;
 
-			message = this.GetLocalizedValue("AcceptClientChangesMessage");
+			message = this.GetLocalization("AcceptClientChangesMessage").ToNetworkText();
 			return false;
 		}
 	}

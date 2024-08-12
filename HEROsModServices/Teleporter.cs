@@ -136,6 +136,7 @@ namespace HEROsMod.HEROsModServices
 						HEROsModNetwork.GeneralMessages.RequestTeleport(cursorWorldPosition);
 						//NetMessage.SendData(65, -1, -1, "", 0, player.whoAmI, cursorWorldPosition.X, cursorWorldPosition.Y, 1, 0, 0);
 					}
+					FlyCam.ForceReset = true;
 				}
 				Terraria.GameInput.PlayerInput.SetZoom_UI();
 			}

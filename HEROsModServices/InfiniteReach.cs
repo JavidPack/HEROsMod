@@ -5,6 +5,7 @@ using System;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace HEROsMod.HEROsModServices
 {
@@ -103,7 +104,7 @@ namespace HEROsMod.HEROsModServices
 
 				// Works with: Place tiles, walls. Axe, Hammer, Pick.
 				Item selected = player.inventory[player.selectedItem];
-				if (selected.createTile >= 0 || selected.createWall >= 0 || selected.pick > 0 || selected.axe > 0 || selected.hammer > 0)
+				if (selected.createTile >= TileID.Dirt || selected.createWall >= 0 || selected.pick > 0 || selected.axe > 0 || selected.hammer > 0)
 				{
 					// TODO, hammering tile destorys walls too??
 					player.itemTime = 0;
