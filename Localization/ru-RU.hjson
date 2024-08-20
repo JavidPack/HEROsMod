@@ -3,197 +3,197 @@ Mods: {
 		UpdateTModLoaderToUse:
 			'''
 
-			Данный мод использует функционал, который имеется лишь в последней версии tModLoader. Обновите tModLoader, что бы использовать данный мод
+			Данный мод использует функционал, который имеется лишь в последней версии tModLoader. Обновите tModLoader, чтобы использовать данный мод.
 
 
 			'''
-		EnableInfiniteReach: Включить Бесконечную Досягаемость
-		DisableInfiniteReach: Отключить Бесконечную Досягаемость
-		SmartCursorAutomaticallyDisabledInfinteReachMod: Умный Курсор отключен в режиме Бесконечной Досягаемости.
-		ViewWaypoints: Просмотреть Точки Телепортации
-		AddWaypoint: Добавить Точку Телепортации
-		Waypoints: Точки Телепортации
-		WaypointName: Название Точки Телепортации
-		WaypointAlreadyExistsNote: Точка Телепортации с таким названием уже существует.
-		DisableGravestones: Отключить Надгробия
-		EnableGravestones: Включить Надгробия
+		EnableInfiniteReach: Включить бесконечную досягаемость
+		DisableInfiniteReach: Отключить бесконечную досягаемость
+		SmartCursorAutomaticallyDisabledInfinteReachMod: Умный курсор недоступен в режиме бесконечной досягаемости.
+		ViewWaypoints: Просмотреть точки телепортации
+		AddWaypoint: Добавить точку телепортации
+		Waypoints: Точки телепортации
+		WaypointName: Название точки телепортации
+		WaypointAlreadyExistsNote: Точка телепортации с таким названием уже существует, пожалуйста, введите другое название.
+		DisableGravestones: Отключить надгробия
+		EnableGravestones: Включить надгробия
 		YouHaveEnabledGravestones: Надгробия включены
 		YouHaveDisabledGravestones: Надгробия отключены
-		SetSpawnPoint: Установить Точку Возрождения
-		SpawnPointSetToXY: Точка Возрождения установлена в координатах X:{0} Y:{1}
-		ChangeTimeRain: Сменить Время/Погоду
-		StartRain: Включить Дождь
-		StopRain: Выключить Дождь
-		StartSandstorm: Включить Песчаную Бурю
-		StopSandstorm: Выключить Песчаную Бурю
+		SetSpawnPoint: Установить точку возрождения
+		SpawnPointSetToXY: Точка возрождения установлена по координатам X:{0} Y:{1}
+		ChangeTimeRain: Изменить время/погоду
+		StartRain: Включить дождь
+		StopRain: Выключить дождь
+		StartSandstorm: Включить песчаную бурю
+		StopSandstorm: Выключить песчаную бурю
 		Night: Ночь
 		Noon: Полдень
-		ResumeTime: Включить Течение Времени
-		PauseTime: Отключить Течение Времени
-		ForceEnchantedSundial: Принудительно Активировать Зачарованные Солнечные Часы
-		RainHasBeenTurnedOff: Дождь отключен
-		RainHasBeenTurnedOn: Дождь включен
-		SandstormHasBeenTurnedOff: Песчаная Буря отключена
-		SandstormHasBeenTurnedOn: Песчаная Буря включена
-		TimeHasBeenPaused: Течение Времени включено
-		TimeHasResumed: Течение Времени отключено
-		RegionsVisible: Видимость Регионов включена
-		RegionsInvisible: Видимость Регионов отключена
-		OpenRegionsWindow: Открыть Меню Регионов
-		ToggleRegionsVisible: Видимость Регионов
+		ResumeTime: Возобновить течение времени
+		PauseTime: Остановить течение времени
+		ForceEnchantedSundial: Принудительно активировать Зачарованные солнечные часы
+		RainHasBeenTurnedOff: Дождь отключён
+		RainHasBeenTurnedOn: Дождь включён
+		SandstormHasBeenTurnedOff: Песчаная буря отключена
+		SandstormHasBeenTurnedOn: Песчаная буря включена
+		TimeHasBeenPaused: Течение времени остановлено
+		TimeHasResumed: Течение времени возобновлено
+		RegionsVisible: Видимость регионов включена
+		RegionsInvisible: Видимость регионов отключена
+		OpenRegionsWindow: Открыть меню регионов
+		ToggleRegionsVisible: Переключить видимость регионов
 		PleaseMakeASelection: Пожалуйста, сделайте выбор.
 		LastChangedBy: Последнее изменение совершено игроком {0}
-		SelectPlayer: Выбрать Игрока
-		SelectGroup: Выбрать Группу
-		CreateRegion: Создать Регион
+		SelectPlayer: Выбрать игрока
+		SelectGroup: Выбрать группу
+		CreateRegion: Создать регион
 		Regions: Регионы
-		DeleteRegion: Удалить Регион
-		AddGroup: Добавить Группу
-		AddPlayer: Добавить Игрока
-		SaveColor: Сохранить Цвет
-		SelectedRegion: Выбранный Регион {0} {1}
+		DeleteRegion: Удалить регион
+		AddGroup: Добавить группу
+		AddPlayer: Добавить игрока
+		SaveColor: Сохранить цвет
+		SelectedRegion: Выбранный регион {0} {1}
 		Remove: Удалить
 		Group: Группа
 		User: Пользователь
-		RegionName: Название Региона
+		RegionName: Название региона
 		ProtectChests: Защитить сундуки
-		ThisChestIsProtected: Этот сундук защищен.
-		ChestProtectionNowEnabledForRegion: Защита сундуков теперь включена для региона: {0}
-		ChestProtectionNowDisabledForRegion: Защита сундуков теперь отключена для региона: {0}
+		ThisChestIsProtected: Этот сундук защищён.
+		ChestProtectionNowEnabledForRegion: Защита сундуков включена для региона: {0}
+		ChestProtectionNowDisabledForRegion: Защита сундуков отключена для региона: {0}
 		Ok: Ок
 		Confirm: Подтвердить
 		Create: Создать
 		Cancel: Отмена
-		RegionNameTooShort: Название региона не может быть меньше 3х символов
-		RightClickToTeleport: Нажмите Пкм для телепортации в местоположение курсора
-		PrefixEditor: Редактор Префиксов
-		OpenMobSpawnWindow: Открыть Меню Призыва Существ
-		NPCSpawner: Призыватель Существ
+		RegionNameTooShort: Название региона должно состоять минимум из 3-ёх символов
+		RightClickToTeleport: Нажмите ПКМ для телепортации
+		PrefixEditor: Редактор перековок
+		OpenMobSpawnWindow: Меню призыва существ
+		NPCSpawner: Призыв существ
 		All: Все
-		TownNPCs: Городские НИП'ы
-		Friendly: Дружелюбные
+		TownNPCs: Жители
+		Friendly: Живность
 		Boss: Боссы
-		Mod: Существа Модификаций
-		UnderworldToSpawnWoF: Вы должны находиться в Аду, что бы призвать Стену Плоти.
+		Mod: Из модов
+		UnderworldToSpawnWoF: Стену плоти можно призвать только в преисподней
 		MiscOptions: Прочее
-		RevealMap: Разведать всю Карту
+		RevealMap: Исследовать всю карту
 		ClearItemsOnGround: Удалить предметы, лежащие на земле
-		ItemsOnTheGroundWereCleared: Предметы, лежащие на земле удалены
+		ItemsOnTheGroundWereCleared: Предметы, лежащие на земле, удалены
 
 		ItemBrowser: {
-			$parentVal: Предметы
-			FilterName.ModFilter: Предметы из Модификаций
+			$parentVal: Браузер предметов
+			FilterName.ModFilter: Из модов
 
 			SortName: {
-				ItemID: Ид Предмета
-				Value: Ценность
-				Alphabetical: В Алфавитном Порядке
-				UseAmmoType: Использует Амуницию
-				Damage: Урон
-				PickPower: Мощность Кирки
-				AxePower: Мощность Топора
-				HammerPower: Мощность Молота
-				Defense: Защита
-				AmmoType: Тип Амуниции
-				ProgressionOrder: В порядке Прогресса
-				PolePower: Мощность Удочки
-				BaitPower: Мощность Наживки
+				ItemID: По ID
+				Value: По стоимости
+				Alphabetical: По алфавиту
+				UseAmmoType: Исп. боеприпасы
+				Damage: По урону
+				PickPower: По мощности кирки
+				AxePower: По мощности топора
+				HammerPower: По мощности молота
+				Defense: По защите
+				AmmoType: По типу боеприпасов
+				ProgressionOrder: По прогресии
+				PolePower: По мощности удочки
+				BaitPower: По мощности наживки
 			}
 
 			CategoryName: {
-				Mod: Модификации
+				Mod: Моды
 				Weapons: Оружие
 				Melee: Ближний Бой
 				Magic: Магическое
-				Ranged: Дистанционное
+				Ranged: Дальний бой
 				Throwing: Метательное
-				Summon: Призывающее
+				Summon: Призывателя
 				Sentry: Турели
 				Tools: Инструменты
 				Pickaxes: Кирки
 				Axes: Топоры
 				Hammers: Молоты
-				// Drill: Drill
-				// Chainsaw: Chainsaw
+				Drill: Буры
+				Chainsaw: Бензопилы
 				Armor: Броня
 				Head: Голова
-				Body: Тело
+				Body: Туловище
 				Legs: Ноги
-				// Vanity: Vanity
-				Placeables: Размещаемые
+				Vanity: Украшения
+				Placeables: Размещаемое
 				Tiles: Блоки
 				Walls: Стены
 				Accessories: Аксессуары
-				// Wings: Wings
-				// Paint: Paint
-				// PaintScraper: Paint Scraper
-				// Kites: Kites
-				// Hooks: Hooks
-				Ammo: Амуниция
-				// Food: Food
+				Wings: Крылья
+				Paint: Краска
+				PaintScraper: Шпатели
+				Kites: Воздушные змеи
+				Hooks: Крюки
+				Ammo: Боеприпасы
+				Food: Еда
 				Potions: Зелья
-				Expert: Режим Эксперта
-				// BossBag: Boss Bag
-				// Master: Master
-				// Relic: Relic
+				Expert: Эксперт
+				BossBag: Мешки
+				Master: Мастер
+				Relic: Реликвии
 				Pets: Питомцы
-				LightPets: Светящиеся Питомцы
+				LightPets: Светящиеся
 				Mounts: Маунты
-				// Pickup: Pickup
-				// Carts: Carts
+				Pickup: Подбираемое
+				Carts: Вагонетки
 				Dyes: Красители
-				BossSummons: Призыватели Боссов
-				Consumables: Расходуемые
+				BossSummons: Призывалки
+				Consumables: Расходуемое
 				Fishing: Рыбалка
 				Poles: Удочки
 				Bait: Наживка
-				QuestFish: Квестовая Рыба
-				// FishingCrate: Fishing Crate
+				QuestFish: Рыбы заданий
+				FishingCrate: Ящики
 				Other: Прочее
 			}
 		}
 
-		OpenEventStarter: Открыть Меню Событий
+		OpenEventStarter: Открыть меню событий
 		AllEventsHaveBeenStopped: Все события отключены
 		Events: События
 		StopEvents: Отключить события
-		ViewConnectedPlayers: Посмотреть Игроков Онлайн
-		ConnectedPlayers: Игроки Онлайн
-		OfflineUsers: Игроки Оффлайн
-		OpenGroupManagement: Открыть Меню Групп
-		GroupManagement: Управление Группами
+		ViewConnectedPlayers: Посмотреть игроков онлайн
+		ConnectedPlayers: Игроки онлайн
+		OfflineUsers: Игроки оффлайн
+		OpenGroupManagement: Открыть меню групп
+		GroupManagement: Управление группами
 		Apply: Применить
-		DeleteGroup: Удалить Группу
-		NewGroup: Новая Группа
+		DeleteGroup: Удалить группу
+		NewGroup: Новая группа
 		Groups: Группы
-		GroupName: Название Группы
+		GroupName: Название группы
 		AreYouSureDeleteGroup: Вы уверены, что хотите удалить группу {0}?
-		ToggleGodMode: Режим Бога
-		GodModeEnabled: Режим Бога включен
-		GodModeDisabled: Режим Бога отключен
-		BuddhaModeEnabled: Урон будет получен в режиме бога
-		BuddhaModeDisabled: Урон не будет получен в режиме бога
-		FlyCamEnableTooltip: Включить Свободную Камеру (Пкм: Зафиксировать Камеру)
-		FlyCamDisableTooltip: Отключить Свободную Камеру (Пкм: Зафиксировать Камеру)
-		FlyCamInstructions: Используйте Стрелки для перемещения, Shift что бы передвигать камеру быстрее, Alt что бы передвигать камеру медленее.
-		DisableEnemySpawns: Отключить Агрессивных Существ
-		EnableEnemySpawns: Включить Агрессивных Существ
-		EnemySpawnsEnabled: Агрессивные Существа включены
-		EnemySpawnsDisabled: Агрессивные Существа отключены
+		ToggleGodMode: Включить режим бога (ПКМ: переключить получение урона)
+		GodModeEnabled: Режим бога включён
+		GodModeDisabled: Режим бога отключён
+		BuddhaModeEnabled: Вы сможете получать урон в режиме бога
+		BuddhaModeDisabled: Вы не сможете получать урон в режиме бога
+		FlyCamEnableTooltip: Включить свободную камеру (ПКМ: зафиксировать камеру)
+		FlyCamDisableTooltip: Отключить свободную камеру (ПКМ: зафиксировать камеру)
+		FlyCamInstructions: Используйте клавиши-стрелочки для перемещения; Shift для ускорения, Alt для замедления.
+		DisableEnemySpawns: Отключить появление существ
+		EnableEnemySpawns: Включить появление существ
+		EnemySpawnsEnabled: Появление существ включено
+		EnemySpawnsDisabled: Появление существ отключено
 		ExtensionTools: Расширения
-		NoExtensionsLoadedNote: Не обнаружено модов добавляющих расширения. Смотрите пост на форуме что бы узнать совместимые моды, добавляющие расширения.
-		OpenBuffWindow: Открыть Меню Баффов
+		NoExtensionsLoadedNote: Моды, добавляющие расширения, отсутствуют. Смотрите пост на форуме, чтобы узнать о совместимых модах.
+		OpenBuffWindow: Открыть меню баффов
 		Buffs: Баффы
-		Seconds: Секунд(ы)
+		Seconds: Время (сек.)
 		Login: Войти
 		Logout: Выйти
-		Register: Регистрация
+		Register: Регист.
 		Password: Пароль
 		Username: Имя Пользователя
 		RememberPassword: Запомнить пароль
-		SaveLogin: Сохранить Логин
-		SaveLoginNone: Ничего
-		SaveLoginDefault: По умолчанию
+		SaveLogin: Сохранить логин
+		SaveLoginNone: Нет
+		SaveLoginDefault: По умолч.
 		SaveLoginPlayer: Игрок
 		SaveLoginNoneTooltip:
 			'''
@@ -211,113 +211,113 @@ Mods: {
 		RegisterTooltip:
 			'''
 			ПРЕДУПРЕЖДЕНИЕ!
-			Информация для входа хранится НЕ надежно .
+			Информация для входа хранится НЕнадёжно.
 			Пожалуйста, используйте информацию для однократного использования.
 			'''
-		PleaseFillInUsernamePassword: Пожалуйста, введите Имя Пользователя и Пароль.
-		BanDestructiveExplosives: Заблокировать Разрушительные Взрывы
-		UnbanDestructiveExplosives: Разблокировать Разрушительные Взрывы
+		PleaseFillInUsernamePassword: Пожалуйста, введите имя пользователя и пароль.
+		BanDestructiveExplosives: Отключить разрушительные взрывы
+		UnbanDestructiveExplosives: Включить разрушительные взрывы
 		ProjectileIsBannerdOnTheServer: "{0} заблокирован на сервере"
-		MakesYouAdminInHEROsMod: Позволяет вам стать Администратором HERO's Модификации
-		AuthCodeIsIncorrect: Некорректный Код Аутентификации
-		PleaseLoginFirst: Пожалуйста, сначала войдите в ваш аккаунт.
-		YouAreNowAdmin: Теперь вы Администратор
-		AdminInstructionsCommandDescription: Информирует вас о том, как стать Администратором HERO's Модификации
-		DedicatedServerAutoMessage: HERO's Модификация: Создайте аккаунт, войдите в него и введите /auth {0} что бы стать Администратором.
-		YouDoNotHavePermissionToBuildHere: У вас нет прав, что бы строить здесь.
-		YouDoNotHavePermissionToSpawnBosses: У вас нет разрешения на спавн боссов
-		LightHackDisabled: Хак освещения: Отключен
+		MakesYouAdminInHEROsMod: Делает вас администратором в HERO's моде
+		AuthCodeIsIncorrect: Некорректный код аутентификации
+		PleaseLoginFirst: Пожалуйста, сначала войдите в ваш аккаунт
+		YouAreNowAdmin: Теперь вы администратор
+		AdminInstructionsCommandDescription: Информирует вас о том, как стать администратором HERO's моде
+		DedicatedServerAutoMessage: HERO's Модификация: Создайте аккаунт, войдите в него и введите /auth {0}, чтобы стать администратором.
+		YouDoNotHavePermissionToBuildHere: У вас нет прав на строительство здесь
+		YouDoNotHavePermissionToSpawnBosses: У вас нет разрешения на призыв боссов
+		LightHackDisabled: Хак освещения: Отключён
 		LightHack25%: Хак освещения: 25%
 		LightHack50%: Хак освещения: 50%
 		LightHack100%: Хак освещения: 100%
-		CheckTileForLastModification: Просмотреть информацию об последнем изменении данного блока
+		CheckTileForLastModification: Кликните по блоку для просмотра последних изменений
 		AccountAlreadyLoggedIn: Данный аккаунт уже находится на этом сервере.
-		LoggedInSuccessfully: Вы успешно вошли.  Вы находитесь в группе {0}.
-		InvalidUsernameOrPassword: Неверное Имя пользователя или Пароль
-		UsernameAlreadyTaken: Данное Имя Пользователя уже занято.
-		SuccessfullyRegistered: Вы успешно зарегестрировались.  Пожалуйста войдите в ваш аккаунт.
-		GroupAlreadyExists: Группа с таким названием уже существует
-		CantDeleteDefaultGroup: Вы не можете удалить установленную по умолчанию группу.
-		LoginInstructions: Кликните на кнопку 'Вход' на панели HEROs Модификации, что бы войти в свой аккаунт или зарегестрировать новый.
-		TimeChangedNoonBy: Время изменено на Полдень игроком {0}
-		TimeChangedMidnightBy: Время изменено на Полночь игроком {0}
-		TimeChangedNightBy: Время изменено на Ночь игроком {0}
-		TimePausedBy: Течение Времени отключено игроком {0}
-		TimeResumedBy: Течение Времени включено игроком {0}
-		ItemsClearedBy: Предметы, лежащие на земле удалены игроком {0}
-		EnemySpawnsEnabledBy: Агрессивные Существа включены игроком {0}
-		EnemySpawnsDisabledBy: Агрессивные Существа отключены игроком {0}
-		RainTurnedOnBy: Дождь включен игроком {0}
-		RainTurnedOffBy: Дождь отключен игроком {0}
-		SandstormTurnedOnBy: Песчаная Буря включена игроком {0}
-		SandstormTurnedOffBy: Песчаная Буря включена игроком {0}
-		ForcedEnchangedSundialBy: Зачарованные Солнечные Часы принудительно активированны игроком {0}
-		WaypointAlreadyExists: Точка Телепортации с таким названием уже существует.
-		RegionCreatedBy: Регион '{0}' создан игроком {1};
-		SpawnPointSetToBy: Точка Возрождения установленна в координатах X:{0} Y:{1} игроком {2}
-		GravestonesEnabledBy: Надгробия включены игроком {0}
-		GravestonesDisabledBy: Надгробия отключены игроком {0}
-		TileLastModifiedBy: Блок последний раз был изменен игроком {0}
-		TileNotModified: Этот блок не был изменен с момента последней загрузки сервера.
-		YouDontHavePermissionToDoThat: У вас нет прав, что бы сделать это.
-		EventsStoppedBy: Все события отключены игроком {0}
-		DestructiveExplosivesBannedBy: Разрушающие Взрывы заблокированы игроком {0}
-		DestructiveExplosivesUnbannedBy: Разрушающие Взрывы разблокированы игроком {0}
-		RejectAnyServerConfigEdits: У вас нет разрешения HERO's Mod на редактирование конфигурации сервера.
+		LoggedInSuccessfully: Вы успешно вошли. Вы находитесь в группе {0}.
+		InvalidUsernameOrPassword: Неверное имя пользователя или пароль.
+		UsernameAlreadyTaken: Данное имя пользователя уже занято.
+		SuccessfullyRegistered: Вы успешно зарегестрировались.  Пожалуйста, войдите в ваш аккаунт.
+		GroupAlreadyExists: Группа с таким названием уже существует, пожалуйста, введите другое название.
+		CantDeleteDefaultGroup: Вы не можете удалить группу, установленную по умолчанию.
+		LoginInstructions: Кликните на кнопку 'Вход' на панели HERO's мода, что бы войти или зарегестрироваться.
+		TimeChangedNoonBy: Игрок {0} изменил время на полдень
+		TimeChangedMidnightBy: Игрок {0} изменил время на полночь
+		TimeChangedNightBy: Игрок {0} изменил время на ночь
+		TimePausedBy: Игрок {0} остановил течение времени
+		TimeResumedBy: Игрок {0} возобновил течение времени
+		ItemsClearedBy: Игрок {0} удалил предметы, лежащие на земле
+		EnemySpawnsEnabledBy: Игрок {0} включил появление существ
+		EnemySpawnsDisabledBy: Игрок {0} отключил появление существ
+		RainTurnedOnBy: Игрок {0} включил дождь
+		RainTurnedOffBy: Игрок {0} отключил дождь
+		SandstormTurnedOnBy: Игрок {0} включил песчаную бурю
+		SandstormTurnedOffBy: Игрок {0} отключил песчаную бурю
+		ForcedEnchangedSundialBy: Игрок {0} принудительно активировал Зачарованные солнечные часы
+		WaypointAlreadyExists: Точка телепортации с таким названием уже существует, пожалуйста, введите другое название.
+		RegionCreatedBy: Игрок {1} создал группу '{0}' ;
+		SpawnPointSetToBy: Игрок {2} установил точку возрождения по координатам X:{0} Y:{1}
+		GravestonesEnabledBy: Игрок {0} включил надгробия
+		GravestonesDisabledBy: Игрок {0} отключил надгробия
+		TileLastModifiedBy: Блок последний раз был изменён игроком {0}
+		TileNotModified: Этот блок не был изменен с момента последнего запуска сервера.
+		YouDontHavePermissionToDoThat: У вас нет прав для осуществления этого действия.
+		EventsStoppedBy: Игрок {0} отключил все события
+		DestructiveExplosivesBannedBy: Игрок {0} отключил разрушительные взрывы
+		DestructiveExplosivesUnbannedBy: Игрок {0} включил разрушительные взрывы
+		RejectAnyServerConfigEdits: У вас нет разрешения в HERO's моде на редактирование настроек сервера.
 
 		PermissionInfo: {
-			ModifyTerrain: Изменить местность
-			InfiniteReach: Бесконечная досягаемость до блока
-			ItemBrowser: Браузер предметов
-			ChangeTimeWeather: Изменить время/погоду
-			ToggleEnemies: Вкл/откл враждебных мобов
+			ModifyTerrain: Изменять ладшафт
+			InfiniteReach: Использовать бесконечную досягаемость
+			ItemBrowser: Использовать браузер предметов
+			ChangeTimeWeather: Изменять время/погоду
+			ToggleEnemies: Вкл./Выкл. появление существ
 			Flycam: Свободная камера
-			ClearItems: Очистить предметы на земле
-			RevealMap: Открыть карту
-			LightHack: Простой взлом
-			SpawnNPCs: Заспавнить NPC
-			SpawnBosses: Заспавнить боссов
-			Kick: Выгнать игроков
-			Ban: Банить игроков
+			ClearItems: Очищать предметы на земле
+			RevealMap: Открывать карту
+			LightHack: Использовать хак освещения
+			SpawnNPCs: Призывать существ
+			SpawnBosses: Призывать боссов
+			Kick: Выгонять игроков
+			Ban: Блокировать игроков
 			TeleportToPlayers: Телепортироваться к игрокам
-			Snoop: Слежка за инвентарем игрока
-			EditWaypoints: Редактировать путевые точки
-			AccessWaypoints: Доступ к путевым точкам
-			ToggleGravestones: Вкл/откл надгробия
-			CanUseBuffs: Открыть меню баффов
-			GodMode: Режим бога
-			PrefixEditor: Редактор префиксов
-			ToggleBannedItems: Вкл/откл запрещенные предметы
-			Teleport: Телепорт
-			CheckTiles: Проверить идентификаторы плитки
-			ViewRegions: Посмотреть регионы
+			Snoop: Следить за инвентарём игрока
+			EditWaypoints: Редактировать точки телепортации
+			AccessWaypoints: Иметь доступ к точкам телепортации
+			ToggleGravestones: Вкл./откл. надгробия
+			CanUseBuffs: Открывать меню баффов
+			GodMode: Использовать режим бога
+			PrefixEditor: Использовать редактор перековок
+			ToggleBannedItems: Запрещать предметы
+			Teleport: Телепортироваться
+			CheckTiles: Проверять блоки
+			ViewRegions: Видеть регионы
 			EditRegions: Редактировать регионы
-			EditServerConfigs: Изменить конфигурацию сервера
+			EditServerConfigs: Изменять настройки сервера
 		}
 
 		Keybinds: {
-			SwapHotbar.DisplayName: Поменять панель быстрого доступа
-			SortInventory.DisplayName: Сортировка инвентаря
-			QuickStack.DisplayName: Быстрая стопка
+			SwapHotbar.DisplayName: Сменить панель быстрого доступа
+			SortInventory.DisplayName: Отсортировать инвентарь
+			QuickStack.DisplayName: Заполнить стопки
 		}
 
 		Configs: {
 			HEROsModServerConfig: {
-				DisplayName: Конфигурация сервера
-				AcceptClientChangesMessage: Вы должны быть администратором в Heros Mod, чтобы изменить конфигурацию сервера.
+				DisplayName: Настройки сервера
+				AcceptClientChangesMessage: Вы должны быть администратором в Hero's моде, чтобы изменять настройки сервера.
 
 				FreezeNonLoggedIn: {
-					Label: Заморозить незарегистрированных игроков
+					Label: Замораживать невошедших в систему игроков
 					Tooltip:
 						'''
-						Если это включено, пользователи должны войти в систему, чтобы перемещаться.
+						Если опция включена, пользователям необходимо будет войти в систему, чтобы перемещаться.
 						Отключите, чтобы сделать вход в систему необязательным.
 						'''
 				}
 
 				Telemetry: {
 					Label: Телеметрия
-					Tooltip: Отключите это, чтобы отключить уведомления об обновлениях и другие данные телеметрии.
+					Tooltip: Отключите опцию, чтобы убрать уведомления об обновлениях и других телеметрических данных.
 				}
 			}
 		}
