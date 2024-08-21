@@ -71,6 +71,7 @@ Mods: {
 		NPCSpawner: NPC生成器
 		All: 全部
 		TownNPCs: 城镇
+		Critters: 小动物
 		Friendly: 友好
 		Boss: Boss
 		Mod: 模组

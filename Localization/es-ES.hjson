@@ -71,6 +71,7 @@ Mods: {
 		NPCSpawner: Generador de NPCs
 		All: Todos
 		TownNPCs: NPC ciudadanos
+		// Critters: Critters
 		Friendly: Amistosos
 		Boss: Jefes
 		Mod: Mod

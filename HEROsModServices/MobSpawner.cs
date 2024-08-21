@@ -82,9 +82,11 @@ namespace HEROsMod.HEROsModServices
 		private UIImage bClose;
 		private UIButton bAllNPCs;
 		private UIButton bTownNPCs;
+		private UIButton bCritters;
 		private UIButton bFriendly;
 		private UIButton bBoss;
 		private UIButton bMod;
+		
 		//Slot itemSlot;
 
 		public bool Loaded = false;
@@ -132,9 +134,14 @@ namespace HEROsMod.HEROsModServices
 			bTownNPCs.Y = bAllNPCs.Y + bAllNPCs.Height + Spacing;
 			bTownNPCs.onLeftClick += bTownNPCs_onLeftClick;
 
+			bCritters = new UIButton(HEROsMod.HeroText("Critters"));
+			bCritters.X = bTownNPCs.X;
+			bCritters.Y = bTownNPCs.Y + bTownNPCs.Height + Spacing;
+			bCritters.onLeftClick += bCritters_onLeftClick;
+
 			bFriendly = new UIButton(HEROsMod.HeroText("Friendly"));
-			bFriendly.X = bTownNPCs.X;
-			bFriendly.Y = bTownNPCs.Y + bTownNPCs.Height + Spacing;
+			bFriendly.X = bCritters.X;
+			bFriendly.Y = bCritters.Y + bCritters.Height + Spacing;
 			bFriendly.onLeftClick += bFriendly_onLeftClick;
 
 			bBoss = new UIButton(HEROsMod.HeroText("Boss"));
@@ -151,11 +158,13 @@ namespace HEROsMod.HEROsModServices
 
 			bAllNPCs.AutoSize = false;
 			bTownNPCs.AutoSize = false;
+			bCritters.AutoSize = false;
 			bFriendly.AutoSize = false;
 			bBoss.AutoSize = false;
 			bMod.AutoSize = false;
 			bAllNPCs.Width = 100;
 			bTownNPCs.Width = bAllNPCs.Width;
+			bCritters.Width = bTownNPCs.Width;
 			bFriendly.Width = bAllNPCs.Width;
 			bBoss.Width = bAllNPCs.Width;
 			bMod.Width = bAllNPCs.Width;
@@ -171,6 +180,7 @@ namespace HEROsMod.HEROsModServices
 			AddChild(searchBox);
 			AddChild(bAllNPCs);
 			AddChild(bTownNPCs);
+			AddChild(bCritters);
 			AddChild(bFriendly);
 			AddChild(bBoss);
 			AddChild(bMod);
@@ -329,6 +339,24 @@ namespace HEROsMod.HEROsModServices
 			WhiteAllButtons();
 			button.SetTextColor(Color.Yellow);
 		}
+		private void bCritters_onLeftClick(object sender, EventArgs e)
+		{
+			category = new List<NPCStats>();
+			foreach (var npc in npcList)
+			{
+				if (npc.IsCritter)
+				{
+					category.Add(npc);
+				}
+			}
+			searchResults = category;
+			BuildList();
+			searchBox.Text = string.Empty;
+
+			UIButton button = (UIButton)sender;
+			WhiteAllButtons();
+			button.SetTextColor(Color.Yellow);
+		}
 
 		private void bAllNPCs_onLeftClick(object sender, EventArgs e)
 		{
@@ -425,6 +453,7 @@ namespace HEROsMod.HEROsModServices
 		{
 			bAllNPCs.SetTextColor(Color.White);
 			bTownNPCs.SetTextColor(Color.White);
+			bCritters.SetTextColor(Color.White);
 			bFriendly.SetTextColor(Color.White);
 			bBoss.SetTextColor(Color.White);
 			bMod.SetTextColor(Color.White);
@@ -753,6 +782,7 @@ namespace HEROsMod.HEROsModServices
 		public int NetID { get; set; }
 		public int Type { get; set; }
 		public bool IsTownNPC { get; set; }
+		public bool IsCritter { get; set; }
 		public bool Friendly { get; set; }
 		public bool Boss { get; set; }
 		public int Damage { get; set; }
@@ -768,6 +798,7 @@ namespace HEROsMod.HEROsModServices
 			this.Name = Lang.GetNPCNameValue(npc.type);// npc.name;
 			this.NetID = npc.netID;
 			this.IsTownNPC = npc.townNPC;
+			this.IsCritter = NPCID.Sets.CountsAsCritter[npc.type];
 			this.Friendly = npc.friendly;
 			this.Boss = npc.boss;
 			this.Damage = npc.damage;

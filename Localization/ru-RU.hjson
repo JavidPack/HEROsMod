@@ -71,6 +71,7 @@ Mods: {
 		NPCSpawner: Призыв существ
 		All: Все
 		TownNPCs: Жители
+    // Critters: Critters
 		Friendly: Живность
 		Boss: Боссы
 		Mod: Из модов

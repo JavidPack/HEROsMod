@@ -71,6 +71,7 @@ Mods: {
 		NPCSpawner: Invocador de NPCs
 		All: Todos
 		TownNPCs: NPCs de Cidade
+		// Critters: Critters
 		Friendly: Amigável
 		Boss: Chefe
 		Mod: Mod

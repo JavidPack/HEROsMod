@@ -71,6 +71,7 @@ Mods: {
 		NPCSpawner: NPC Spawner
 		All: Alle
 		TownNPCs: Stadt NPCs
+		// Critters: Critters
 		Friendly: Freundlich
 		Boss: Boss
 		Mod: Mod
