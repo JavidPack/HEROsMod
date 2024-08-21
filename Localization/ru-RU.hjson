@@ -71,8 +71,8 @@ Mods: {
 		NPCSpawner: Призыв существ
 		All: Все
 		TownNPCs: Жители
-		// Critters: Critters
-		Friendly: Живность
+		Critters: Живность
+		Friendly: Дружелюбные
 		Boss: Боссы
 		Mod: Из модов
 		UnderworldToSpawnWoF: Стену плоти можно призвать только в преисподней
