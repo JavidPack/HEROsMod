@@ -14,7 +14,7 @@ Mods: {
 		AddWaypoint: Добавить точку телепортации
 		Waypoints: Точки телепортации
 		WaypointName: Название точки телепортации
-		WaypointAlreadyExistsNote: Точка телепортации с таким названием уже существует, пожалуйста, введите другое название.
+		WaypointAlreadyExistsNote: Точка телепортации с таким названием уже существует. Пожалуйста, введите другое название.
 		DisableGravestones: Отключить надгробия
 		EnableGravestones: Включить надгробия
 		YouHaveEnabledGravestones: Надгробия включены
@@ -64,9 +64,9 @@ Mods: {
 		Confirm: Подтвердить
 		Create: Создать
 		Cancel: Отмена
-		RegionNameTooShort: Название региона должно состоять минимум из 3-ёх символов
+		RegionNameTooShort: Название региона должно состоять минимум из 3 символов
 		RightClickToTeleport: Нажмите ПКМ для телепортации
-		PrefixEditor: Редактор перековок
+		PrefixEditor: Редактор модификаторов
 		OpenMobSpawnWindow: Меню призыва существ
 		NPCSpawner: Призыв существ
 		All: Все
@@ -109,13 +109,12 @@ Mods: {
 			CategoryName: {
 				Mod: Моды
 				Weapons: Оружие
-				Melee: Ближний Бой
+				Melee: Ближний бой
 				Magic: Магическое
-				Ranged: Дальний бой
+				Ranged: Стрелковое
 				Throwing: Метательное
-				// Whips: Whips
 				Summon: Призывателя
-				Sentry: Турели
+				Sentry: Стражи
 				Tools: Инструменты
 				Pickaxes: Кирки
 				Axes: Топоры
@@ -126,7 +125,7 @@ Mods: {
 				Head: Голова
 				Body: Туловище
 				Legs: Ноги
-				Vanity: Украшения
+				Vanity: Стиль
 				Placeables: Размещаемое
 				Tiles: Блоки
 				Walls: Стены
@@ -229,23 +228,23 @@ Mods: {
 		AuthCodeIsIncorrect: Некорректный код аутентификации
 		PleaseLoginFirst: Пожалуйста, сначала войдите в ваш аккаунт
 		YouAreNowAdmin: Теперь вы администратор
-		AdminInstructionsCommandDescription: Информирует вас о том, как стать администратором HERO's моде
-		DedicatedServerAutoMessage: HERO's Модификация: Создайте аккаунт, войдите в него и введите /auth {0}, чтобы стать администратором.
+		AdminInstructionsCommandDescription: Информирует вас о том, как стать администратором в HERO's моде
+		DedicatedServerAutoMessage: HERO's Mod: Создайте аккаунт, войдите в него и введите /auth {0}, чтобы стать администратором.
 		YouDoNotHavePermissionToBuildHere: У вас нет прав на строительство здесь
 		YouDoNotHavePermissionToSpawnBosses: У вас нет разрешения на призыв боссов
-		LightHackDisabled: Хак освещения: Отключён
-		LightHack25%: Хак освещения: 25%
-		LightHack50%: Хак освещения: 50%
-		LightHack100%: Хак освещения: 100%
+		LightHackDisabled: Глобальное освещение: отключено
+		LightHack25%: Глобальное освещение: 25%
+		LightHack50%: Глобальное освещение: 50%
+		LightHack100%: Глобальное освещение: 100%
 		CheckTileForLastModification: Кликните по блоку для просмотра последних изменений
 		AccountAlreadyLoggedIn: Данный аккаунт уже находится на этом сервере.
 		LoggedInSuccessfully: Вы успешно вошли. Вы находитесь в группе {0}.
 		InvalidUsernameOrPassword: Неверное имя пользователя или пароль.
 		UsernameAlreadyTaken: Данное имя пользователя уже занято.
-		SuccessfullyRegistered: Вы успешно зарегестрировались.  Пожалуйста, войдите в ваш аккаунт.
-		GroupAlreadyExists: Группа с таким названием уже существует, пожалуйста, введите другое название.
+		SuccessfullyRegistered: Вы успешно зарегестрировались. Пожалуйста, войдите в ваш аккаунт.
+		GroupAlreadyExists: Группа с таким названием уже существует. Пожалуйста, введите другое название.
 		CantDeleteDefaultGroup: Вы не можете удалить группу, установленную по умолчанию.
-		LoginInstructions: Кликните на кнопку 'Вход' на панели HERO's мода, что бы войти или зарегестрироваться.
+		LoginInstructions: Нажмите на кнопку «Вход» на панели HERO's мода, что бы войти или зарегестрироваться
 		TimeChangedNoonBy: Игрок {0} изменил время на полдень
 		TimeChangedMidnightBy: Игрок {0} изменил время на полночь
 		TimeChangedNightBy: Игрок {0} изменил время на ночь
@@ -259,8 +258,8 @@ Mods: {
 		SandstormTurnedOnBy: Игрок {0} включил песчаную бурю
 		SandstormTurnedOffBy: Игрок {0} отключил песчаную бурю
 		ForcedEnchangedSundialBy: Игрок {0} принудительно активировал Зачарованные солнечные часы
-		WaypointAlreadyExists: Точка телепортации с таким названием уже существует, пожалуйста, введите другое название.
-		RegionCreatedBy: Игрок {1} создал группу '{0}' ;
+		WaypointAlreadyExists: Точка телепортации с таким названием уже существует. Пожалуйста, введите другое название.
+		RegionCreatedBy: Игрок {1} создал группу «{0}»
 		SpawnPointSetToBy: Игрок {2} установил точку возрождения по координатам X:{0} Y:{1}
 		GravestonesEnabledBy: Игрок {0} включил надгробия
 		GravestonesDisabledBy: Игрок {0} отключил надгробия
@@ -270,10 +269,10 @@ Mods: {
 		EventsStoppedBy: Игрок {0} отключил все события
 		DestructiveExplosivesBannedBy: Игрок {0} отключил разрушительные взрывы
 		DestructiveExplosivesUnbannedBy: Игрок {0} включил разрушительные взрывы
-		RejectAnyServerConfigEdits: У вас нет разрешения в HERO's моде на редактирование настроек сервера.
+		RejectAnyServerConfigEdits: У вас нет разрешения в HERO's моде на редактирование конфигурации сервера.
 
 		PermissionInfo: {
-			ModifyTerrain: Изменять ладшафт
+			ModifyTerrain: Изменять ландшафт
 			InfiniteReach: Использовать бесконечную досягаемость
 			ItemBrowser: Использовать браузер предметов
 			ChangeTimeWeather: Изменять время/погоду
@@ -281,7 +280,7 @@ Mods: {
 			Flycam: Свободная камера
 			ClearItems: Очищать предметы на земле
 			RevealMap: Открывать карту
-			LightHack: Использовать хак освещения
+			LightHack: Вкл./Выкл. глобальное освещение
 			SpawnNPCs: Призывать существ
 			SpawnBosses: Призывать боссов
 			Kick: Выгонять игроков
@@ -290,7 +289,7 @@ Mods: {
 			Snoop: Следить за инвентарём игрока
 			EditWaypoints: Редактировать точки телепортации
 			AccessWaypoints: Иметь доступ к точкам телепортации
-			ToggleGravestones: Вкл./откл. надгробия
+			ToggleGravestones: Вкл./Выкл. надгробия
 			CanUseBuffs: Открывать меню баффов
 			GodMode: Использовать режим бога
 			PrefixEditor: Использовать редактор перековок
@@ -310,8 +309,8 @@ Mods: {
 
 		Configs: {
 			HEROsModServerConfig: {
-				DisplayName: Настройки сервера
-				AcceptClientChangesMessage: Вы должны быть администратором в Hero's моде, чтобы изменять настройки сервера.
+				DisplayName: Серверная конфигурация
+				AcceptClientChangesMessage: Вы должны быть администратором в Hero's моде, чтобы изменять конфигурацию сервера.
 
 				FreezeNonLoggedIn: {
 					Label: Замораживать невошедших в систему игроков
