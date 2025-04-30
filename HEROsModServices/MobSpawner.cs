@@ -769,11 +769,8 @@ namespace HEROsMod.HEROsModServices
 				}
 			}
 
-			int index = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)player.position.X, (int)player.position.Y, Type);
-			if (NetID < 0)
-			{
-				Main.npc[index].SetDefaults(NetID);
-			}
+			int spawnType = NetID < 0 ? NetID : Type;
+			int index = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)player.position.X + (200 * player.direction), (int)player.position.Y - 10, spawnType);
 		}
 	}
 
