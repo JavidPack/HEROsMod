@@ -567,7 +567,29 @@ namespace HEROsMod.HEROsModServices
 			CurrentNPC = npc;
 			ModUtils.LoadNPC(npc.Type, immediate: true);
 			mobImage.Texture = TextureAssets.Npc[npc.Type];
-			mobImage.SourceRectangle = new Rectangle(0, 0, (int)mobImage.Texture.Value.Width, (int)mobImage.Texture.Value.Height / Main.npcFrameCount[npc.Type]);
+			mobImage.SourceRectangle = npc.Type switch
+			{
+				NPCID.Deerclops => new Rectangle(
+					0,
+					0,
+					mobImage.Texture.Value.Width / 5,
+					mobImage.Texture.Value.Height / 5
+				),
+
+				NPCID.QueenSlimeBoss => new Rectangle(
+					0,
+					0,
+					mobImage.Texture.Value.Width / 2,
+					mobImage.Texture.Value.Height / 16
+				),
+
+				_ => new Rectangle(
+					0,
+					0,
+					mobImage.Texture.Value.Width,
+					mobImage.Texture.Value.Height / Main.npcFrameCount[npc.Type]
+				),
+			};
 			mobImage.ForegroundColor = CurrentNPC.AlphaColor;
 			AddChild(mobImage);
 
