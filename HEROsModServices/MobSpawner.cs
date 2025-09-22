@@ -525,8 +525,8 @@ namespace HEROsMod.HEROsModServices
 
 			RemoveNPCTypeFromList(NPCID.WallofFlesh);
 
-			NPC wof = new NPC();
-			wof.SetDefaults(113);
+			NPC wof = new();
+			wof.SetDefaults(NPCID.WallofFlesh);
 			npcList.Add(new WallOfFlesh(wof));
 
 			NPC oldShakingChest = new();
@@ -850,7 +850,7 @@ namespace HEROsMod.HEROsModServices
 			}
 		IL_162:
 			num3 = num5 * 16;
-			int num7 = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), num2, num3, 113, 0);
+			int num7 = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), num2, num3, NPCID.WallofFlesh, 0);
 			if (Main.netMode == NetmodeID.SinglePlayer)
 			{
 				Main.NewText(Language.GetTextValue("Announcement.HasAwoken", Main.npc[num7].TypeName), 175, 75, 255);
