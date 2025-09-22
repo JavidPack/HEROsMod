@@ -529,6 +529,10 @@ namespace HEROsMod.HEROsModServices
 			wof.SetDefaults(113);
 			npcList.Add(new WallOfFlesh(wof));
 
+			NPC oldShakingChest = new();
+			oldShakingChest.SetDefaults(NPCID.BoundTownSlimeOld);
+			npcList.Add(new NPCStats(oldShakingChest));
+			
 			npc = null;
 			npcList = npcList.OrderBy(n => n.Name).ToList();
 
