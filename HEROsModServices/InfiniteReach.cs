@@ -104,6 +104,10 @@ namespace HEROsMod.HEROsModServices
 
 				// Works with: Place tiles, walls. Axe, Hammer, Pick.
 				Item selected = player.inventory[player.selectedItem];
+				if (selected.channel)
+				{
+					return;
+				}
 				if (selected.createTile >= TileID.Dirt || selected.createWall >= 0 || selected.pick > 0 || selected.axe > 0 || selected.hammer > 0)
 				{
 					// TODO, hammering tile destorys walls too??
