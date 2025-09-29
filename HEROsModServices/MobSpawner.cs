@@ -508,9 +508,10 @@ namespace HEROsMod.HEROsModServices
 			npcList = new List<NPCStats>();
 			NPC npc;
 			npc = new NPC();
+			int[] showDespiteNPCBestiaryDrawModifiersHide = [NPCID.BoundTownSlimeOld];
 			for (int i = 1; i < TextureAssets.Npc.Length; i++)
 			{
-				if (!NPCID.Sets.NPCBestiaryDrawOffset.TryGetValue(i, out var value) || !value.Hide)
+				if (!NPCID.Sets.NPCBestiaryDrawOffset.TryGetValue(i, out var value) || !value.Hide || showDespiteNPCBestiaryDrawModifiersHide.Contains(i))
 				{
 					npc.SetDefaults(i);
 					npcList.Add(new NPCStats(npc));
@@ -528,10 +529,6 @@ namespace HEROsMod.HEROsModServices
 			NPC wof = new();
 			wof.SetDefaults(NPCID.WallofFlesh);
 			npcList.Add(new WallOfFlesh(wof));
-
-			NPC oldShakingChest = new();
-			oldShakingChest.SetDefaults(NPCID.BoundTownSlimeOld);
-			npcList.Add(new NPCStats(oldShakingChest));
 			
 			npc = null;
 			npcList = npcList.OrderBy(n => n.Name).ToList();
