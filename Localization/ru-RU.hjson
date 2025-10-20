@@ -196,6 +196,7 @@ Mods: {
 		Logout: Выйти
 		Register: Регист.
 		Password: Пароль
+		// ForgotPassword: Forgot password?
 		Username: Имя Пользователя
 		RememberPassword: Запомнить пароль
 		SaveLogin: Сохранить логин

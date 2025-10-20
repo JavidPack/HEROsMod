@@ -196,6 +196,7 @@ Mods: {
 		Logout: Logout
 		Register: Registrieren
 		Password: Passwort
+		// ForgotPassword: Forgot password?
 		Username: Benutzername
 		// RememberPassword: Remember Password
 		// SaveLogin: Save Login

@@ -196,6 +196,7 @@ Mods: {
 		Logout: Cerrar sesión
 		Register: Registrar
 		Password: Contraseña
+		// ForgotPassword: Forgot password?
 		Username: Usuario
 		RememberPassword: Recordar contraseña
 		SaveLogin: Guardar sesión

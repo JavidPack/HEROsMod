@@ -86,6 +86,7 @@ namespace HEROsMod.HEROsModServices
 	{
 		private UILabel lPassword = null;
 		private UITextbox tbPassword = null;
+		private UIHyperlink bForgotPassword = null;
 		private UITextbox tbUsername = null;
 		private UILabel lUsername = null;
 		private UILabel lSaveLogin = null;
@@ -111,6 +112,8 @@ namespace HEROsMod.HEROsModServices
 			lPassword = new UILabel(HEROsMod.HeroText("Password"));
 			tbPassword = new UITextbox();
 			tbPassword.PasswordBox = true;
+			bForgotPassword = new UIHyperlink(HEROsMod.HeroText("ForgotPassword"),
+				"https://github.com/JavidPack/HEROsMod/wiki/Admin-Instructions");
 			lSaveLogin = new UILabel(HEROsMod.HeroText("SaveLogin"));
 			bSaveNone = new UIButton(HEROsMod.HeroText("SaveLoginNone"));
 			bSaveDefault = new UIButton(HEROsMod.HeroText("SaveLoginDefault"));
@@ -154,6 +157,7 @@ namespace HEROsMod.HEROsModServices
 
 			lUsername.Scale = .5f;
 			lPassword.Scale = .5f;
+			bForgotPassword.Scale = .35f;
 			lSaveLogin.Scale = .5f;
 
 			bLogin.Anchor = AnchorPosition.TopRight;
@@ -169,6 +173,8 @@ namespace HEROsMod.HEROsModServices
 			lPassword.Y = lUsername.Y + lUsername.Height + spacing;
 			tbPassword.X = tbUsername.X;
 			tbPassword.Y = lPassword.Y;
+			bForgotPassword.X = tbPassword.X + tbPassword.Width - bForgotPassword.Width;
+			bForgotPassword.Y = tbPassword.Y - 1.35f * spacing;
 			lSaveLogin.X = lUsername.X;
 			lSaveLogin.Y = lPassword.Y + lPassword.Height + spacing;
 			bSaveNone.X = lSaveLogin.X + lSaveLogin.Width + spacing;
@@ -207,6 +213,7 @@ namespace HEROsMod.HEROsModServices
 			AddChild(tbUsername);
 			AddChild(lPassword);
 			AddChild(tbPassword);
+			AddChild(bForgotPassword);
 			AddChild(lSaveLogin);
 			AddChild(bSaveNone);
 			AddChild(bSaveDefault);

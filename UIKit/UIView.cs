@@ -264,6 +264,11 @@ namespace HEROsMod.UIKit
 
 		private void HandleMouseInput()
 		{
+			if (!Main.hasFocus)
+			{
+				return;
+			}
+
 			for (int i = 0; i < children.Count; i++)
 			{
 				UIView child = children[children.Count - 1 - i];
