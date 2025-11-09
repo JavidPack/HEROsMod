@@ -196,7 +196,7 @@ Mods: {
 		Logout: 登出
 		Register: 注册
 		Password: 密码
-		// ForgotPassword: Forgot password?
+		ForgotPassword: 忘记密码?
 		Username: 账号
 		RememberPassword: 记住密码
 		SaveLogin: 保存登录
@@ -331,3 +331,4 @@ Mods: {
 		}
 	}
 }
+
