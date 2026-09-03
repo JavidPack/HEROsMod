@@ -9,7 +9,7 @@ Mods: {
 			'''
 		EnableInfiniteReach: Activar alcance infinito
 		DisableInfiniteReach: Desactivar alcance infinito
-		SmartCursorAutomaticallyDisabledInfinteReachMod: El cursor inteligente se desactiva automáticamente en el modo de alcance infinito.
+		SmartCursorAutomaticallyDisabledInfinteReachMod: El cursor inteligente se desactiva automáticamente en el modo [c/f4d58d:alcance infinito].
 		ViewWaypoints: Ver ubicaciones rápidas
 		AddWaypoint: "Añadir ubicación "
 		Waypoints: Ubicaciones rápidas
@@ -71,15 +71,15 @@ Mods: {
 		NPCSpawner: Generador de NPCs
 		All: Todos
 		TownNPCs: NPC ciudadanos
-		// Critters: Critters
+		Critters: Criaturas
 		Friendly: Amistosos
 		Boss: Jefes
 		Mod: Mod
-		// ID: ID
-		// Health: Health
-		// Damage: Damage
-		// Defense: Defense
-		// KnockbackResistance: Knockback Resistance
+		ID: ID
+		Health: Vida
+		Damage: Daño
+		Defense: Defensa
+		KnockbackResistance: Resistencia al retroceso
 		UnderworldToSpawnWoF: "Ve al inframundo para invocar al Muro carnoso "
 		MiscOptions: Opciones misceláneas
 		RevealMap: Revelar mapa
@@ -109,45 +109,45 @@ Mods: {
 			CategoryName: {
 				Mod: Mod
 				Weapons: Armas
-				Melee: Melee
+				Melee: Cuerpo a cuerpo
 				Magic: Mágicas
 				Ranged: A distancia
 				Throwing: Arrojadizas
-				// Whips: Whips
+				Whips: Látigos
 				Summon: Invocadores
 				Sentry: Centinelas
 				Tools: Herramientas
 				Pickaxes: Picos
 				Axes: Hachas
 				Hammers: Martillos
-				// Drill: Drill
-				// Chainsaw: Chainsaw
+				Drill: Taladros
+				Chainsaw: Motosierras
 				Armor: Armaduras
 				Head: Cabeza
 				Body: Cuerpo
 				Legs: Piernas
-				// Vanity: Vanity
+				Vanity: Vanidad
 				Placeables: Colocables
 				Tiles: Bloques
 				Walls: Paredes
 				Accessories: Accesorios
-				// Wings: Wings
-				// Paint: Paint
-				// PaintScraper: Paint Scraper
-				// Kites: Kites
-				// Hooks: Hooks
+				Wings: Alas
+				Paint: Pinturas
+				PaintScraper: Quita pintura
+				Kites: Cometas
+				Hooks: Ganchos
 				Ammo: Munición
-				// Food: Food
+				Food: Comidas
 				Potions: Pociones
 				Expert: Experto
-				// BossBag: Boss Bag
-				// Master: Master
-				// Relic: Relic
+				BossBag: Bolsa de jefes
+				Master: Maestro
+				Relic: Reliquias
 				Pets: Mascotas
 				LightPets: Masc. luminosas
 				Mounts: Monturas
-				// Pickup: Pickup
-				// Carts: Carts
+				Pickup: Sueltos
+				Carts: Vagonetas
 				Dyes: Tintes
 				BossSummons: Invocadores
 				Consumables: Consumibles
@@ -155,7 +155,7 @@ Mods: {
 				Poles: Cañas
 				Bait: Cebos
 				QuestFish: Peces de misión
-				// FishingCrate: Fishing Crate
+				FishingCrate: Cajas de pesca
 				Other: Otros
 			}
 		}
@@ -180,9 +180,9 @@ Mods: {
 		GodModeDisabled: Modo dios desactivado
 		BuddhaModeEnabled: Se recibirá daño mientras se esté en modo dios
 		BuddhaModeDisabled: No se recibirá daño mientras se esté en modo dios
-		FlyCamEnableTooltip: Activar modo vuelo (clic derecho: bloquear cámara)
-		FlyCamDisableTooltip: Desactivar modo vuelo (clic derecho: bloquear cámara)
-		FlyCamInstructions: Usa las de dirección para desplazarte, Shift para ir más rápido y Alt para ir más lento
+		FlyCamEnableTooltip: Activar modo cámara libre (clic derecho: bloquear cámara)
+		FlyCamDisableTooltip: Desactivar modo cámara libre (clic derecho: bloquear cámara)
+		FlyCamInstructions: Usa las mismas teclas de siempre para desplazarte. Presiona [c/f4d58d:Shift] para ir más rápido y [c/f4d58d:Alt] para ir más lento
 		DisableEnemySpawns: Desactivar generación de enemigos
 		EnableEnemySpawns: Activar generación de enemigos
 		EnemySpawnsEnabled: Generación de enemigos activada
@@ -196,7 +196,7 @@ Mods: {
 		Logout: Cerrar sesión
 		Register: Registrar
 		Password: Contraseña
-		// ForgotPassword: Forgot password?
+		ForgotPassword: ¿Has olvidado tu contraseña?
 		Username: Usuario
 		RememberPassword: Recordar contraseña
 		SaveLogin: Guardar sesión
@@ -218,22 +218,22 @@ Mods: {
 			'''
 		RegisterTooltip:
 			'''
-			ADVERTENCIA
+			[c/e66710:ADVERTENCIA]
 			La información de inicio de sesión no se almacena de forma segura.
-			Por favor, no introduzcas claves importantes.
+			Por favor, no introduzcas claves/contraseñas de uso personal.
 			'''
 		PleaseFillInUsernamePassword: Por favor, rellena los campos con el nombre de usuario y la contraseña.
 		BanDestructiveExplosives: Prohibir explosivos destructivos
 		UnbanDestructiveExplosives: Permitir explosivos destructivos
 		ProjectileIsBannerdOnTheServer: No se permite usar {0} en el servidor
-		MakesYouAdminInHEROsMod: Te hace administrador en el mod HERO
+		MakesYouAdminInHEROsMod: Te hace administrador en [c/f4d58d:HERO's Mod]
 		AuthCodeIsIncorrect: Código de autorización incorrecto.
 		PleaseLoginFirst: Inicia sesión primero, por favor
 		YouAreNowAdmin: Ahora eres administrador
-		AdminInstructionsCommandDescription: Te indica cómo convertirte en administrador en el mod HERO.
+		AdminInstructionsCommandDescription: Te indica cómo convertirte en administrador en [c/f4d58d:HERO's Mod].
 		DedicatedServerAutoMessage: HERO's Mod: Crea una cuenta, inicia sesión y escribe /auth {0} para convertirte en administrador.
 		YouDoNotHavePermissionToBuildHere: No tienes permiso para construir aquí.
-		// YouDoNotHavePermissionToSpawnBosses: You do not have permission to spawn bosses
+		YouDoNotHavePermissionToSpawnBosses: No tienes permiso para invocar jefes.
 		LightHackDisabled: Hack de luz: Desactivado
 		LightHack25%: Hack de luz: 25%
 		LightHack50%: Hack de luz: 50%
@@ -246,7 +246,7 @@ Mods: {
 		SuccessfullyRegistered: Te has registrado con éxito. Por favor, inicia sesión.
 		GroupAlreadyExists: Ya existe un grupo con este nombre
 		CantDeleteDefaultGroup: No puedes eliminar el grupo predeterminado.
-		LoginInstructions: Haz clic en el botón 'Iniciar sesión' en la barra del mod para acceder o crear una cuenta.
+		LoginInstructions: Haz clic en el botón [c/f4d58d:iniciar sesión] en la barra del mod para acceder o crear una cuenta.
 		TimeChangedNoonBy: La hora ha sido cambiada al mediodía por {0}
 		TimeChangedMidnightBy: La hora ha sido cambiada a la medianoche por {0}
 		TimeChangedNightBy: La hora ha sido cambiada a la noche por {0}
@@ -271,61 +271,61 @@ Mods: {
 		EventsStoppedBy: Todos los eventos han sido detenidos por {0}
 		DestructiveExplosivesBannedBy: Explosivos destructivos prohibidos por {0}
 		DestructiveExplosivesUnbannedBy: Explosivos destructivos permitidos por {0}
-		// RejectAnyServerConfigEdits: You don't have the HERO's Mod permission to edit server configs.
+		RejectAnyServerConfigEdits: No tienes el permiso en [c/f4d58d:HERO's Mod] para editar las configuraciones del servidor.
 
 		PermissionInfo: {
-			// ModifyTerrain: Modify Terrain
-			// InfiniteReach: Infinite Block Reach
-			// ItemBrowser: Item Browser
-			// ChangeTimeWeather: Change Time/Weather
-			// ToggleEnemies: Toggle Enemies
-			// Flycam: Fly Camera
-			// ClearItems: Clear Items on Ground
-			// RevealMap: Reveal Map
-			// LightHack: Light Hack
-			// SpawnNPCs: Spawn NPCs
-			// SpawnBosses: Spawn Bosses
-			// Kick: Kick Players
-			// Ban: Ban Players
-			// TeleportToPlayers: Teleport To Players
-			// Snoop: Snoop Player Inventories
-			// EditWaypoints: Edit Waypoints
-			// AccessWaypoints: Access Wayppoints
-			// ToggleGravestones: Toggle Gravestones
-			// CanUseBuffs: Open Buff Window
-			// GodMode: God Mode
-			// PrefixEditor: Prefix Editor
-			// ToggleBannedItems: Toggle Banned Items
-			// Teleport: Teleport
-			// CheckTiles: Check Tiles
-			// ViewRegions: View Regions
-			// EditRegions: Edit Regions
-			// EditServerConfigs: Edit Server Configs
+			ModifyTerrain: Modificar el terreno
+			InfiniteReach: Alcance infinito
+			ItemBrowser: Navegador de objetos
+			ChangeTimeWeather: Cambiar tiempo/clima
+			ToggleEnemies: Activar/desactivar generación de enemigos
+			Flycam: Modo cámara libre
+			ClearItems: Eliminar objetos del suelo
+			RevealMap: Revelar mapa
+			LightHack: Hack de luz
+			SpawnNPCs: Generador de NPCs
+			SpawnBosses: Generador de jefes
+			Kick: Expulsar jugadores
+			Ban: Banear jugadores
+			TeleportToPlayers: Teletransportarse a los jugadores
+			Snoop: Revisar el inventario de los jugadores
+			EditWaypoints: Editar ubicaciones
+			AccessWaypoints: Acceder a las ubicaciones
+			ToggleGravestones: Activar/desactivar tumbas
+			CanUseBuffs: Abrir ventana de buffs
+			GodMode: Modo dios
+			PrefixEditor: Editor de mejoras
+			ToggleBannedItems: Activar/desactivar objetos prohibidos
+			Teleport: Teletransportarse
+			CheckTiles: Comprobar bloques
+			ViewRegions: Ver regiones
+			EditRegions: Editar regiones
+			EditServerConfigs: Editar configuración del servidor
 		}
 
 		Keybinds: {
-			// SwapHotbar.DisplayName: Swap Hotbar
-			// SortInventory.DisplayName: Sort Inventory
-			// QuickStack.DisplayName: Quick Stack
+			SwapHotbar.DisplayName: Intercambiar barra de acceso rápido
+			SortInventory.DisplayName: Ordenar inventario
+			QuickStack.DisplayName: Guardar rápido (cofre)
 		}
 
 		Configs: {
 			HEROsModServerConfig: {
-				// DisplayName: Server Config
-				// AcceptClientChangesMessage: You must be Admin in Heros Mod to change the server config.
+				DisplayName: Configuración del servidor
+				AcceptClientChangesMessage: Debes ser administrador en [c/f4d58d:HERO's Mod] para cambiar la configuración del servidor.
 
 				FreezeNonLoggedIn: {
-					// Label: Freeze Non Logged In Players
-					/* Tooltip:
+					Label: Congelar a jugadores que no han iniciado sesión
+					Tooltip:
 						'''
-						If true, users must log in to move around.
-						Leave this false to make logging in optional.
-						''' */
+						Si está habilitado, los jugadores deberán iniciar sesión en el mod para moverse.
+						Deje esto deshabilitado para que el inicio de sesión sea opcional.
+						'''
 				}
 
 				Telemetry: {
-					// Label: Telemetry
-					// Tooltip: Disable this to disable update notifications and other telemetry.
+					Label: Telemetría
+					Tooltip: Deshabilite esto para deshabilitar las notificaciones de actualización y otra telemetría.
 				}
 			}
 		}
